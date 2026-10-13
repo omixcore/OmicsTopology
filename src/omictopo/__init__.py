@@ -23,6 +23,12 @@ from .diagram import PersistenceDiagram
 from .geometry import pairwise_distances, pca_embed, standardize, subsample
 from .filtration import build_rips, choose_threshold
 from .homology import persistent_homology
+from .cycles import (
+    circular_succession_score,
+    cycles_from_edges,
+    dominant_h1_cycles,
+    h1_bar_lengths,
+)
 from .summary import betti_curve, persistence_landscape, topological_summary
 from .compare import bottleneck_distance, compare_diagrams, wasserstein_distance
 from .stats import permutation_test_pointclouds, permutation_test_replicates
@@ -40,6 +46,10 @@ __all__ = [
     "build_rips",
     "choose_threshold",
     "persistent_homology",
+    "dominant_h1_cycles",
+    "cycles_from_edges",
+    "h1_bar_lengths",
+    "circular_succession_score",
     "betti_curve",
     "persistence_landscape",
     "topological_summary",

@@ -304,6 +304,51 @@ audit is deliberately unflattering:
 The per-unit table in the audit JSON is the honest version of the summary.
 
 
+## What TDA does that a phase-based test cannot
+
+The audit says the topological statistic has no demonstrated edge at
+*detection*, and that stands.  `examples/topology_without_labels.py`
+(→ `benchmark/topology_without_labels.json`) asks a different question: what
+happens when the sampling times are **held out** instead of fitted?
+
+**A. The labels are the Mantel test's input, not the topology's.**  Permuting
+the time labels drops the circular Mantel correlation from a mean of **+0.65**
+to **−0.03** across the ten clouds, while the H1 verdict does not move at all
+(largest change 0.0).  A phase-based test is a statement about the data
+*given* the labels; the cycle below is a statement about the data.
+
+**B. The H1 cycle predicts the clock.**  The reduction that produces the
+dominant H1 bar also produces the loop itself, as a closed walk over sample
+indices (`omictopo.cycles`).  Scored by how many of its steps follow the clock
+(`circular_succession_score`), that walk is **exact on all six real circadian
+clouds** (control, heat, constant light, three rice genotypes) and **6/7
+testable clouds survive Benjamini-Hochberg at α = 0.05** (p = 5·10⁻⁵ to
+1.8·10⁻³).  Label-free baselines fall short: the first principal coordinate
+scores 0.19-0.65, and the PC1-PC2 angle — the classical way to read a phase
+off an ordination — ties the cycle on five clouds, collapses to 0.38 on the
+constant-light cloud, and returns a *perfect* 1.00 on two clouds that contain
+no loop at all.  Resampling genes leaves the score at 1.00 in 40/40 draws on
+four of the six clouds.  The single failure is the long-day cloud whose 45 h
+record drifts — the failure the benchmark already documents, not a new one.
+
+**C. β₁ counts independent cyclic parameters, not oscillators.**  Two
+oscillators riding a single sampling axis still give one loop, because
+`t ↦ (t/P₁, t/P₂)` is a closed geodesic *on* the torus: the state space is a
+circle whatever the number of oscillators.  Give the design a second
+independent parameter (a 13 × 9 grid, data simulated to the real clouds'
+shape) and two H1 bars clear the covariance-matched null; one parameter gives
+one bar and none gives none.  **6/6 designs are read correctly.**
+
+Limits, stated plainly: the *scoring* needs the clock even though the
+*computation* does not; the recovered cycle visits only 44-76 % of a cloud's
+samples; and the two-parameter result is demonstrated on simulated data,
+because no public plant time course in the registry has a two-dimensional
+design.  That design — time against an independently cycling factor — is the
+cheapest experiment this analysis points at.
+
+![Clock order recovered with the labels held out](docs/fig_labels_held_out.png)
+
+
 ## API tour
 
 ```python
@@ -395,8 +440,9 @@ examples/          runnable demos; see the files
   diagnose_replicate_contribution.py
                               how much do replicates contribute? (measured 5 ways)
   benchmark_audit.py          ablation, multiplicity and resolution of the headline
+  topology_without_labels.py  what a phase-based test cannot be asked (labels held out)
 benchmark/         committed result tables of the multi-dataset benchmark
-tests/             68 pytest cases
+tests/             86 pytest cases
 ```
 
 ## Running the tests

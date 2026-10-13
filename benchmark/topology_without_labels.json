@@ -1,0 +1,1409 @@
+{
+  "config": {
+    "metric": "correlation",
+    "n_null": 200,
+    "n_bootstrap": 40,
+    "seed": 0
+  },
+  "claim": {
+    "question": "does persistent homology answer something a phase-based test cannot?",
+    "A": "circular Mantel consumes the phase; permuting the labels collapses it, while H1 does not move.",
+    "B": "the dominant H1 cycle predicts the clock order with no labels; the score is a prediction, not a fit.",
+    "C": "beta_1 counts independent cyclic parameters; a single time axis can only ever give one, whatever the number of oscillators."
+  },
+  "A_side_information": [
+    {
+      "cloud": "ath_diurnal:control",
+      "n_samples": 26,
+      "mantel_r_circular_true_labels": 0.8648,
+      "mantel_p_circular_true_labels": 0.0004997501249375312,
+      "mantel_r_linear_true_labels": 0.6469,
+      "mantel_r_circular_permuted_labels_median": -0.019,
+      "mantel_r_circular_permuted_labels_q95": 0.0773,
+      "mantel_r_drop_when_labels_are_masked": 0.8837,
+      "h1_max_rel": 0.6075,
+      "h1_max_rel_change_when_labels_are_masked": 0.0,
+      "labels_consumed": {
+        "circular_mantel": 1,
+        "h1": 0
+      }
+    },
+    {
+      "cloud": "ath_diurnal_heat:heat",
+      "n_samples": 24,
+      "mantel_r_circular_true_labels": 0.9218,
+      "mantel_p_circular_true_labels": 0.0004997501249375312,
+      "mantel_r_linear_true_labels": 0.7009,
+      "mantel_r_circular_permuted_labels_median": -0.0173,
+      "mantel_r_circular_permuted_labels_q95": 0.1117,
+      "mantel_r_drop_when_labels_are_masked": 0.939,
+      "h1_max_rel": 0.5907,
+      "h1_max_rel_change_when_labels_are_masked": 0.0,
+      "labels_consumed": {
+        "circular_mantel": 1,
+        "h1": 0
+      }
+    },
+    {
+      "cloud": "ath_diurnal_ll:constant light (LL)",
+      "n_samples": 16,
+      "mantel_r_circular_true_labels": 0.4265,
+      "mantel_p_circular_true_labels": 0.0004997501249375312,
+      "mantel_r_linear_true_labels": 0.5267,
+      "mantel_r_circular_permuted_labels_median": -0.0207,
+      "mantel_r_circular_permuted_labels_q95": 0.1124,
+      "mantel_r_drop_when_labels_are_masked": 0.4472,
+      "h1_max_rel": 0.0876,
+      "h1_max_rel_change_when_labels_are_masked": 0.0,
+      "labels_consumed": {
+        "circular_mantel": 1,
+        "h1": 0
+      }
+    },
+    {
+      "cloud": "ath_diurnal_ld:long day (LD)",
+      "n_samples": 16,
+      "mantel_r_circular_true_labels": 0.0066,
+      "mantel_p_circular_true_labels": 0.47876061969015493,
+      "mantel_r_linear_true_labels": 0.7108,
+      "mantel_r_circular_permuted_labels_median": -0.0396,
+      "mantel_r_circular_permuted_labels_q95": 0.1588,
+      "mantel_r_drop_when_labels_are_masked": 0.0462,
+      "h1_max_rel": 0.0874,
+      "h1_max_rel_change_when_labels_are_masked": 0.0,
+      "labels_consumed": {
+        "circular_mantel": 1,
+        "h1": 0
+      }
+    },
+    {
+      "cloud": "rice_diurnal:LY2186",
+      "n_samples": 17,
+      "mantel_r_circular_true_labels": 0.9159,
+      "mantel_p_circular_true_labels": 0.0004997501249375312,
+      "mantel_r_linear_true_labels": 0.0602,
+      "mantel_r_circular_permuted_labels_median": -0.0073,
+      "mantel_r_circular_permuted_labels_q95": 0.086,
+      "mantel_r_drop_when_labels_are_masked": 0.9232,
+      "h1_max_rel": 0.8735,
+      "h1_max_rel_change_when_labels_are_masked": 0.0,
+      "labels_consumed": {
+        "circular_mantel": 1,
+        "h1": 0
+      }
+    },
+    {
+      "cloud": "rice_diurnal:MH86",
+      "n_samples": 17,
+      "mantel_r_circular_true_labels": 0.9196,
+      "mantel_p_circular_true_labels": 0.0004997501249375312,
+      "mantel_r_linear_true_labels": 0.087,
+      "mantel_r_circular_permuted_labels_median": -0.0094,
+      "mantel_r_circular_permuted_labels_q95": 0.1146,
+      "mantel_r_drop_when_labels_are_masked": 0.929,
+      "h1_max_rel": 0.84,
+      "h1_max_rel_change_when_labels_are_masked": 0.0,
+      "labels_consumed": {
+        "circular_mantel": 1,
+        "h1": 0
+      }
+    },
+    {
+      "cloud": "rice_diurnal:SE21s",
+      "n_samples": 17,
+      "mantel_r_circular_true_labels": 0.936,
+      "mantel_p_circular_true_labels": 0.0004997501249375312,
+      "mantel_r_linear_true_labels": 0.0214,
+      "mantel_r_circular_permuted_labels_median": -0.0074,
+      "mantel_r_circular_permuted_labels_q95": 0.1098,
+      "mantel_r_drop_when_labels_are_masked": 0.9435,
+      "h1_max_rel": 0.8479,
+      "h1_max_rel_change_when_labels_are_masked": 0.0,
+      "labels_consumed": {
+        "circular_mantel": 1,
+        "h1": 0
+      }
+    },
+    {
+      "cloud": "tomato_fruit_dev:fruit",
+      "n_samples": 26,
+      "mantel_r_circular_true_labels": 0.1846,
+      "mantel_p_circular_true_labels": 0.0009995002498750624,
+      "mantel_r_linear_true_labels": 0.8101,
+      "mantel_r_circular_permuted_labels_median": -0.0137,
+      "mantel_r_circular_permuted_labels_q95": 0.0556,
+      "mantel_r_drop_when_labels_are_masked": 0.1983,
+      "h1_max_rel": 0.0494,
+      "h1_max_rel_change_when_labels_are_masked": 0.0,
+      "labels_consumed": {
+        "circular_mantel": 1,
+        "h1": 0
+      }
+    },
+    {
+      "cloud": "ath_recovery:control",
+      "n_samples": 12,
+      "mantel_r_circular_true_labels": 0.6885,
+      "mantel_p_circular_true_labels": 0.0004997501249375312,
+      "mantel_r_linear_true_labels": 0.6885,
+      "mantel_r_circular_permuted_labels_median": -0.0398,
+      "mantel_r_circular_permuted_labels_q95": 0.2895,
+      "mantel_r_drop_when_labels_are_masked": 0.7283,
+      "h1_max_rel": 0.0873,
+      "h1_max_rel_change_when_labels_are_masked": 0.0,
+      "labels_consumed": {
+        "circular_mantel": 1,
+        "h1": 0
+      }
+    },
+    {
+      "cloud": "ath_recovery:heat",
+      "n_samples": 12,
+      "mantel_r_circular_true_labels": 0.6402,
+      "mantel_p_circular_true_labels": 0.0004997501249375312,
+      "mantel_r_linear_true_labels": 0.6402,
+      "mantel_r_circular_permuted_labels_median": -0.0815,
+      "mantel_r_circular_permuted_labels_q95": 0.2035,
+      "mantel_r_drop_when_labels_are_masked": 0.7216,
+      "h1_max_rel": 0.0,
+      "h1_max_rel_change_when_labels_are_masked": 0.0,
+      "labels_consumed": {
+        "circular_mantel": 1,
+        "h1": 0
+      }
+    }
+  ],
+  "B_order_recovery": [
+    {
+      "cloud": "ath_diurnal:control",
+      "design_expects": "loop",
+      "n_samples": 26,
+      "n_distinct_times": 9,
+      "period_hours": 24.0,
+      "options": {
+        "h1_cycle": {
+          "score": 1.0,
+          "n_visited": 17,
+          "coverage": 0.6538,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.2941,
+            "q95": 0.4706,
+            "max": 0.7059,
+            "p_value": 5e-05
+          },
+          "bar_exceeds_null_q95": true,
+          "top_bar_rel": 0.6075,
+          "null_q95": 0.6074,
+          "testable": true,
+          "passes": true,
+          "shuffled_label_q95": 0.4706
+        },
+        "pc1_order": {
+          "score": 0.6154,
+          "n_visited": 26,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.2692,
+            "q95": 0.3846,
+            "max": 0.6154,
+            "p_value": 0.0002
+          },
+          "best_cut_score": 0.6154
+        },
+        "pc1_pc2_angle": {
+          "score": 1.0,
+          "n_visited": 26,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.2692,
+            "q95": 0.3846,
+            "max": 0.6154,
+            "p_value": 5e-05
+          }
+        },
+        "greedy_tour": {
+          "score": 0.8462,
+          "n_visited": 26,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.2692,
+            "q95": 0.3846,
+            "max": 0.6538,
+            "p_value": 5e-05
+          },
+          "best_cut_score": 0.8462
+        }
+      },
+      "h1_bar": {
+        "birth": 0.818776,
+        "death": 1.286739,
+        "persistence": 0.467964,
+        "n_edges": 17
+      },
+      "gene_bootstrap": {
+        "n_draws": 40,
+        "score_median": 1.0,
+        "score_q05": 1.0,
+        "score_q95": 1.0,
+        "fraction_perfect": 1.0,
+        "coverage_median": 0.6154,
+        "top_bar_median": 0.5944
+      },
+      "cycle_order": [
+        0,
+        1,
+        3,
+        8,
+        6,
+        9,
+        11,
+        14,
+        18,
+        17,
+        19,
+        20,
+        21,
+        23,
+        24,
+        25,
+        2
+      ],
+      "times_in_cycle_order": [
+        0.0,
+        0.0,
+        3.0,
+        6.0,
+        6.0,
+        9.0,
+        12.0,
+        15.0,
+        18.0,
+        18.0,
+        18.0,
+        21.0,
+        21.0,
+        24.0,
+        24.0,
+        24.0,
+        0.0
+      ],
+      "accession": "GSE158444",
+      "organism": "Arabidopsis thaliana",
+      "seconds": 7.5
+    },
+    {
+      "cloud": "ath_diurnal_heat:heat",
+      "design_expects": "loop",
+      "n_samples": 24,
+      "n_distinct_times": 8,
+      "period_hours": 24.0,
+      "options": {
+        "h1_cycle": {
+          "score": 1.0,
+          "n_visited": 12,
+          "coverage": 0.5,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.3333,
+            "q95": 0.5,
+            "max": 0.9167,
+            "p_value": 5e-05
+          },
+          "bar_exceeds_null_q95": true,
+          "top_bar_rel": 0.5907,
+          "null_q95": 0.5872,
+          "testable": true,
+          "passes": true,
+          "shuffled_label_q95": 0.5
+        },
+        "pc1_order": {
+          "score": 0.5417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.25,
+            "q95": 0.375,
+            "max": 0.5833,
+            "p_value": 0.0012
+          },
+          "best_cut_score": 0.5417
+        },
+        "pc1_pc2_angle": {
+          "score": 1.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.25,
+            "q95": 0.375,
+            "max": 0.6667,
+            "p_value": 5e-05
+          }
+        },
+        "greedy_tour": {
+          "score": 0.9583,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.25,
+            "q95": 0.375,
+            "max": 0.7083,
+            "p_value": 5e-05
+          },
+          "best_cut_score": 0.9583
+        }
+      },
+      "h1_bar": {
+        "birth": 0.887982,
+        "death": 1.339557,
+        "persistence": 0.451575,
+        "n_edges": 15
+      },
+      "gene_bootstrap": {
+        "n_draws": 40,
+        "score_median": 1.0,
+        "score_q05": 1.0,
+        "score_q95": 1.0,
+        "fraction_perfect": 1.0,
+        "coverage_median": 0.5417,
+        "top_bar_median": 0.5777
+      },
+      "cycle_order": [
+        2,
+        3,
+        6,
+        7,
+        9,
+        12,
+        13,
+        15,
+        16,
+        17,
+        23,
+        22
+      ],
+      "times_in_cycle_order": [
+        0.0,
+        3.0,
+        6.0,
+        6.0,
+        9.0,
+        12.0,
+        12.0,
+        15.0,
+        15.0,
+        15.0,
+        21.0,
+        21.0
+      ],
+      "accession": "GSE158444",
+      "organism": "Arabidopsis thaliana",
+      "seconds": 6.4
+    },
+    {
+      "cloud": "ath_diurnal_ll:constant light (LL)",
+      "design_expects": "loop",
+      "n_samples": 16,
+      "n_distinct_times": 16,
+      "period_hours": 24.0,
+      "options": {
+        "h1_cycle": {
+          "score": 1.0,
+          "n_visited": 8,
+          "coverage": 0.5,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.375,
+            "q95": 0.625,
+            "max": 1.0,
+            "p_value": 0.0018
+          },
+          "bar_exceeds_null_q95": false,
+          "top_bar_rel": 0.0876,
+          "null_q95": 0.4794,
+          "testable": true,
+          "passes": true,
+          "shuffled_label_q95": 0.5062
+        },
+        "pc1_order": {
+          "score": 0.1875,
+          "n_visited": 16,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.25,
+            "q95": 0.4375,
+            "max": 0.6875,
+            "p_value": 0.857207
+          },
+          "best_cut_score": 0.1875
+        },
+        "pc1_pc2_angle": {
+          "score": 0.375,
+          "n_visited": 16,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.25,
+            "q95": 0.4375,
+            "max": 0.75,
+            "p_value": 0.164592
+          }
+        },
+        "greedy_tour": {
+          "score": 0.3125,
+          "n_visited": 16,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.25,
+            "q95": 0.4375,
+            "max": 0.6875,
+            "p_value": 0.365582
+          },
+          "best_cut_score": 0.3125
+        }
+      },
+      "h1_bar": {
+        "birth": 1.01172,
+        "death": 1.075755,
+        "persistence": 0.064035,
+        "n_edges": 8
+      },
+      "gene_bootstrap": {
+        "n_draws": 40,
+        "score_median": 0.6667,
+        "score_q05": 0.3967,
+        "score_q95": 1.0,
+        "fraction_perfect": 0.175,
+        "coverage_median": 0.625,
+        "top_bar_median": 0.0717
+      },
+      "cycle_order": [
+        0,
+        1,
+        2,
+        4,
+        12,
+        13,
+        15,
+        8
+      ],
+      "times_in_cycle_order": [
+        2.0,
+        5.0,
+        8.0,
+        14.0,
+        38.0,
+        41.0,
+        47.0,
+        26.0
+      ],
+      "accession": "GSE137732",
+      "organism": "Arabidopsis thaliana",
+      "seconds": 5.8
+    },
+    {
+      "cloud": "ath_diurnal_ld:long day (LD)",
+      "design_expects": "loop",
+      "n_samples": 16,
+      "n_distinct_times": 16,
+      "period_hours": 24.0,
+      "options": {
+        "h1_cycle": {
+          "score": 0.5714,
+          "n_visited": 7,
+          "coverage": 0.4375,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.4286,
+            "q95": 0.7143,
+            "max": 1.0,
+            "p_value": 0.238638
+          },
+          "bar_exceeds_null_q95": false,
+          "top_bar_rel": 0.0874,
+          "null_q95": 0.4707,
+          "testable": true,
+          "passes": false,
+          "shuffled_label_q95": 0.7143
+        },
+        "pc1_order": {
+          "score": 0.3125,
+          "n_visited": 16,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.25,
+            "q95": 0.4375,
+            "max": 0.625,
+            "p_value": 0.361982
+          },
+          "best_cut_score": 0.3125
+        },
+        "pc1_pc2_angle": {
+          "score": 0.5,
+          "n_visited": 16,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.25,
+            "q95": 0.4375,
+            "max": 0.6875,
+            "p_value": 0.018549
+          }
+        },
+        "greedy_tour": {
+          "score": 0.4375,
+          "n_visited": 16,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.25,
+            "q95": 0.4375,
+            "max": 0.75,
+            "p_value": 0.061147
+          },
+          "best_cut_score": 0.4375
+        }
+      },
+      "h1_bar": {
+        "birth": 1.164323,
+        "death": 1.22906,
+        "persistence": 0.064736,
+        "n_edges": 7
+      },
+      "gene_bootstrap": {
+        "n_draws": 40,
+        "score_median": 0.5505,
+        "score_q05": 0.3317,
+        "score_q95": 1.0,
+        "fraction_perfect": 0.225,
+        "coverage_median": 0.4375,
+        "top_bar_median": 0.0836
+      },
+      "cycle_order": [
+        0,
+        3,
+        6,
+        14,
+        12,
+        10,
+        8
+      ],
+      "times_in_cycle_order": [
+        2.0,
+        11.0,
+        20.0,
+        44.0,
+        38.0,
+        32.0,
+        26.0
+      ],
+      "accession": "GSE137732",
+      "organism": "Arabidopsis thaliana",
+      "seconds": 5.8
+    },
+    {
+      "cloud": "rice_diurnal:LY2186",
+      "design_expects": "loop",
+      "n_samples": 17,
+      "n_distinct_times": 17,
+      "period_hours": 24.0,
+      "options": {
+        "h1_cycle": {
+          "score": 1.0,
+          "n_visited": 13,
+          "coverage": 0.7647,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.2308,
+            "q95": 0.4615,
+            "max": 0.7692,
+            "p_value": 5e-05
+          },
+          "bar_exceeds_null_q95": true,
+          "top_bar_rel": 0.8735,
+          "null_q95": 0.7346,
+          "testable": true,
+          "passes": true,
+          "shuffled_label_q95": 0.3885
+        },
+        "pc1_order": {
+          "score": 0.5294,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "max": 0.8235,
+            "p_value": 0.0076
+          },
+          "best_cut_score": 0.5294
+        },
+        "pc1_pc2_angle": {
+          "score": 1.0,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "max": 0.7059,
+            "p_value": 5e-05
+          }
+        },
+        "greedy_tour": {
+          "score": 0.7059,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "max": 0.7059,
+            "p_value": 0.0001
+          },
+          "best_cut_score": 0.7059
+        }
+      },
+      "h1_bar": {
+        "birth": 0.639128,
+        "death": 1.328311,
+        "persistence": 0.689182,
+        "n_edges": 13
+      },
+      "gene_bootstrap": {
+        "n_draws": 40,
+        "score_median": 1.0,
+        "score_q05": 1.0,
+        "score_q95": 1.0,
+        "fraction_perfect": 1.0,
+        "coverage_median": 0.7647,
+        "top_bar_median": 0.8713
+      },
+      "cycle_order": [
+        0,
+        8,
+        1,
+        9,
+        2,
+        3,
+        12,
+        13,
+        5,
+        6,
+        7,
+        15,
+        16
+      ],
+      "times_in_cycle_order": [
+        0.0,
+        24.0,
+        3.0,
+        27.0,
+        6.0,
+        9.0,
+        36.0,
+        39.0,
+        15.0,
+        18.0,
+        21.0,
+        45.0,
+        48.0
+      ],
+      "accession": "GSE138193",
+      "organism": "Oryza sativa",
+      "seconds": 5.9
+    },
+    {
+      "cloud": "rice_diurnal:MH86",
+      "design_expects": "loop",
+      "n_samples": 17,
+      "n_distinct_times": 17,
+      "period_hours": 24.0,
+      "options": {
+        "h1_cycle": {
+          "score": 1.0,
+          "n_visited": 9,
+          "coverage": 0.5294,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.3333,
+            "q95": 0.5556,
+            "max": 1.0,
+            "p_value": 0.00035
+          },
+          "bar_exceeds_null_q95": true,
+          "top_bar_rel": 0.84,
+          "null_q95": 0.7095,
+          "testable": true,
+          "passes": true,
+          "shuffled_label_q95": 0.5611
+        },
+        "pc1_order": {
+          "score": 0.6471,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "max": 0.6471,
+            "p_value": 0.0003
+          },
+          "best_cut_score": 0.6471
+        },
+        "pc1_pc2_angle": {
+          "score": 1.0,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "max": 0.7059,
+            "p_value": 5e-05
+          }
+        },
+        "greedy_tour": {
+          "score": 0.8824,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "max": 0.6471,
+            "p_value": 5e-05
+          },
+          "best_cut_score": 0.8824
+        }
+      },
+      "h1_bar": {
+        "birth": 0.687653,
+        "death": 1.34655,
+        "persistence": 0.658898,
+        "n_edges": 9
+      },
+      "gene_bootstrap": {
+        "n_draws": 40,
+        "score_median": 1.0,
+        "score_q05": 1.0,
+        "score_q95": 1.0,
+        "fraction_perfect": 1.0,
+        "coverage_median": 0.5294,
+        "top_bar_median": 0.8406
+      },
+      "cycle_order": [
+        0,
+        1,
+        10,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "times_in_cycle_order": [
+        0.0,
+        3.0,
+        30.0,
+        9.0,
+        12.0,
+        15.0,
+        18.0,
+        21.0,
+        24.0
+      ],
+      "accession": "GSE138193",
+      "organism": "Oryza sativa",
+      "seconds": 5.8
+    },
+    {
+      "cloud": "rice_diurnal:SE21s",
+      "design_expects": "loop",
+      "n_samples": 17,
+      "n_distinct_times": 17,
+      "period_hours": 24.0,
+      "options": {
+        "h1_cycle": {
+          "score": 1.0,
+          "n_visited": 9,
+          "coverage": 0.5294,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.3333,
+            "q95": 0.5556,
+            "max": 1.0,
+            "p_value": 0.0006
+          },
+          "bar_exceeds_null_q95": true,
+          "top_bar_rel": 0.8479,
+          "null_q95": 0.6809,
+          "testable": true,
+          "passes": true,
+          "shuffled_label_q95": 0.5556
+        },
+        "pc1_order": {
+          "score": 0.6471,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "max": 0.7059,
+            "p_value": 0.0003
+          },
+          "best_cut_score": 0.6471
+        },
+        "pc1_pc2_angle": {
+          "score": 1.0,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "max": 0.7647,
+            "p_value": 5e-05
+          }
+        },
+        "greedy_tour": {
+          "score": 0.8824,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "max": 0.7059,
+            "p_value": 5e-05
+          },
+          "best_cut_score": 0.8824
+        }
+      },
+      "h1_bar": {
+        "birth": 0.626756,
+        "death": 1.29471,
+        "persistence": 0.667954,
+        "n_edges": 9
+      },
+      "gene_bootstrap": {
+        "n_draws": 40,
+        "score_median": 1.0,
+        "score_q05": 1.0,
+        "score_q95": 1.0,
+        "fraction_perfect": 1.0,
+        "coverage_median": 0.5294,
+        "top_bar_median": 0.8474
+      },
+      "cycle_order": [
+        0,
+        1,
+        9,
+        2,
+        3,
+        12,
+        5,
+        6,
+        7
+      ],
+      "times_in_cycle_order": [
+        0.0,
+        3.0,
+        27.0,
+        6.0,
+        9.0,
+        36.0,
+        15.0,
+        18.0,
+        21.0
+      ],
+      "accession": "GSE138193",
+      "organism": "Oryza sativa",
+      "seconds": 5.7
+    },
+    {
+      "cloud": "tomato_fruit_dev:fruit",
+      "design_expects": "line",
+      "n_samples": 26,
+      "n_distinct_times": 9,
+      "period_hours": 24.0,
+      "options": {
+        "h1_cycle": {
+          "score": 0.5,
+          "n_visited": 4,
+          "coverage": 0.1538,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.5,
+            "q95": 1.0,
+            "max": 1.0,
+            "p_value": 0.60847
+          },
+          "bar_exceeds_null_q95": false,
+          "top_bar_rel": 0.0494,
+          "null_q95": 0.8477,
+          "testable": false,
+          "passes": false,
+          "shuffled_label_q95": 1.0
+        },
+        "pc1_order": {
+          "score": 0.4615,
+          "n_visited": 26,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.2308,
+            "q95": 0.3462,
+            "max": 0.5769,
+            "p_value": 0.00375
+          },
+          "best_cut_score": 0.4615
+        },
+        "pc1_pc2_angle": {
+          "score": 0.5769,
+          "n_visited": 26,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.2308,
+            "q95": 0.3462,
+            "max": 0.5769,
+            "p_value": 0.0001
+          }
+        },
+        "greedy_tour": {
+          "score": 0.6154,
+          "n_visited": 26,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.2308,
+            "q95": 0.3462,
+            "max": 0.5385,
+            "p_value": 5e-05
+          },
+          "best_cut_score": 0.6154
+        }
+      },
+      "h1_bar": {
+        "birth": 0.362145,
+        "death": 0.402374,
+        "persistence": 0.040229,
+        "n_edges": 4
+      },
+      "gene_bootstrap": {
+        "n_draws": 40,
+        "score_median": 0.6,
+        "score_q05": 0.5,
+        "score_q95": 1.0,
+        "fraction_perfect": 0.075,
+        "coverage_median": 0.1923,
+        "top_bar_median": 0.0455
+      },
+      "cycle_order": [
+        6,
+        9,
+        12,
+        10
+      ],
+      "times_in_cycle_order": [
+        21.0,
+        28.0,
+        34.0,
+        28.0
+      ],
+      "accession": "GSE128739",
+      "organism": "Solanum lycopersicum",
+      "seconds": 6.6
+    },
+    {
+      "cloud": "ath_recovery:control",
+      "design_expects": "line",
+      "n_samples": 12,
+      "n_distinct_times": 4,
+      "period_hours": 24.0,
+      "options": {
+        "h1_cycle": {
+          "score": 1.0,
+          "n_visited": 4,
+          "coverage": 0.3333,
+          "null": {
+            "n_perm": 20000,
+            "median": 1.0,
+            "q95": 1.0,
+            "max": 1.0,
+            "p_value": 0.676616
+          },
+          "bar_exceeds_null_q95": false,
+          "top_bar_rel": 0.0873,
+          "null_q95": 0.6158,
+          "testable": false,
+          "passes": false,
+          "shuffled_label_q95": 1.0
+        },
+        "pc1_order": {
+          "score": 0.75,
+          "n_visited": 12,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.5,
+            "q95": 0.75,
+            "max": 1.0,
+            "p_value": 0.096045
+          },
+          "best_cut_score": 0.75
+        },
+        "pc1_pc2_angle": {
+          "score": 0.75,
+          "n_visited": 12,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.5833,
+            "q95": 0.75,
+            "max": 1.0,
+            "p_value": 0.096745
+          }
+        },
+        "greedy_tour": {
+          "score": 0.75,
+          "n_visited": 12,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.5,
+            "q95": 0.75,
+            "max": 1.0,
+            "p_value": 0.093995
+          },
+          "best_cut_score": 0.75
+        }
+      },
+      "h1_bar": {
+        "birth": 0.974588,
+        "death": 1.039742,
+        "persistence": 0.065154,
+        "n_edges": 4
+      },
+      "gene_bootstrap": {
+        "n_draws": 40,
+        "score_median": 1.0,
+        "score_q05": 1.0,
+        "score_q95": 1.0,
+        "fraction_perfect": 1.0,
+        "coverage_median": 0.3333,
+        "top_bar_median": 0.0901
+      },
+      "cycle_order": [
+        6,
+        8,
+        9,
+        11
+      ],
+      "times_in_cycle_order": [
+        9.0,
+        9.0,
+        12.0,
+        12.0
+      ],
+      "accession": "GSE158444",
+      "organism": "Arabidopsis thaliana",
+      "seconds": 5.6
+    },
+    {
+      "cloud": "ath_recovery:heat",
+      "design_expects": "line",
+      "n_samples": 12,
+      "n_distinct_times": 4,
+      "period_hours": 24.0,
+      "options": {
+        "h1_cycle": {
+          "score": 0.0,
+          "n_visited": 3,
+          "coverage": 0.25,
+          "null": {
+            "n_perm": 20000,
+            "median": 1.0,
+            "q95": 1.0,
+            "max": 1.0,
+            "p_value": 1.0
+          },
+          "bar_exceeds_null_q95": false,
+          "top_bar_rel": 0.0,
+          "null_q95": 0.6936,
+          "testable": false,
+          "passes": false,
+          "shuffled_label_q95": 1.0
+        },
+        "pc1_order": {
+          "score": 0.8333,
+          "n_visited": 12,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.5,
+            "q95": 0.75,
+            "max": 1.0,
+            "p_value": 0.028249
+          },
+          "best_cut_score": 0.8333
+        },
+        "pc1_pc2_angle": {
+          "score": 1.0,
+          "n_visited": 12,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.5,
+            "q95": 0.75,
+            "max": 1.0,
+            "p_value": 0.00045
+          }
+        },
+        "greedy_tour": {
+          "score": 1.0,
+          "n_visited": 12,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 20000,
+            "median": 0.5,
+            "q95": 0.75,
+            "max": 1.0,
+            "p_value": 0.0008
+          },
+          "best_cut_score": 1.0
+        }
+      },
+      "h1_bar": {
+        "birth": 0.104207,
+        "death": 0.104207,
+        "persistence": 0.0,
+        "n_edges": 3
+      },
+      "gene_bootstrap": {
+        "n_draws": 40,
+        "score_median": 0.0,
+        "score_q05": 0.0,
+        "score_q95": 1.0,
+        "fraction_perfect": 0.225,
+        "coverage_median": 0.25,
+        "top_bar_median": 0.0
+      },
+      "cycle_order": [
+        0,
+        1,
+        2
+      ],
+      "times_in_cycle_order": [
+        6.0,
+        6.0,
+        6.0
+      ],
+      "accession": "GSE158444",
+      "organism": "Arabidopsis thaliana",
+      "seconds": 5.5
+    }
+  ],
+  "C_cycle_counting": {
+    "one_time_axis__0_oscillators": {
+      "n_samples": 25,
+      "top_bars_rel": [
+        0.0308,
+        0.0292,
+        0.0266,
+        0.0246,
+        0.0228
+      ],
+      "null_q95": 0.3509,
+      "n_bars_above_null_q95": 0,
+      "design": "one cyclic parameter",
+      "oscillators": [],
+      "n_cycles_expected": 0,
+      "n_cycles_detected": 0,
+      "correct": true
+    },
+    "one_time_axis__1_oscillator": {
+      "n_samples": 25,
+      "top_bars_rel": [
+        0.6893,
+        0.0207,
+        0.0153,
+        0.0084,
+        0.006
+      ],
+      "null_q95": 0.4773,
+      "n_bars_above_null_q95": 1,
+      "design": "one cyclic parameter",
+      "oscillators": [
+        "col0@24h"
+      ],
+      "n_cycles_expected": 1,
+      "n_cycles_detected": 1,
+      "correct": true
+    },
+    "one_time_axis__2_oscillators": {
+      "n_samples": 25,
+      "top_bars_rel": [
+        0.5142,
+        0.1539,
+        0.1407,
+        0.1036,
+        0.1025
+      ],
+      "null_q95": 0.4807,
+      "n_bars_above_null_q95": 1,
+      "design": "one cyclic parameter",
+      "oscillators": [
+        "col0@24h",
+        "col0@16h"
+      ],
+      "n_cycles_expected": 1,
+      "n_cycles_detected": 1,
+      "correct": true
+    },
+    "two_dimensional_grid__2_parameters": {
+      "n_samples": 117,
+      "top_bars_rel": [
+        0.5173,
+        0.5116,
+        0.1314,
+        0.1122,
+        0.1059
+      ],
+      "null_q95": 0.347,
+      "n_bars_above_null_q95": 2,
+      "design": "2 driven parameters on a 2-D grid",
+      "oscillators": [
+        "col0@24h",
+        "col1@16h"
+      ],
+      "n_cycles_expected": 2,
+      "n_cycles_detected": 2,
+      "correct": true
+    },
+    "two_dimensional_grid__1_parameter": {
+      "n_samples": 117,
+      "top_bars_rel": [
+        0.6846,
+        0.0207,
+        0.019,
+        0.0183,
+        0.016
+      ],
+      "null_q95": 0.593,
+      "n_bars_above_null_q95": 1,
+      "design": "1 driven parameter on a 2-D grid",
+      "oscillators": [
+        "col0@24h"
+      ],
+      "n_cycles_expected": 1,
+      "n_cycles_detected": 1,
+      "correct": true
+    },
+    "two_dimensional_grid__0_parameters": {
+      "n_samples": 117,
+      "top_bars_rel": [
+        0.0352,
+        0.0344,
+        0.0341,
+        0.0334,
+        0.0331
+      ],
+      "null_q95": 0.1907,
+      "n_bars_above_null_q95": 0,
+      "design": "0 driven parameters on a 2-D grid",
+      "oscillators": [],
+      "n_cycles_expected": 0,
+      "n_cycles_detected": 0,
+      "correct": true
+    }
+  },
+  "verdicts_by_design": {
+    "loop": {
+      "n_cells": 7,
+      "n_testable": 7,
+      "n_recovering_the_clock": 6,
+      "clouds": [
+        "ath_diurnal:control",
+        "ath_diurnal_heat:heat",
+        "ath_diurnal_ll:constant light (LL)",
+        "ath_diurnal_ld:long day (LD)",
+        "rice_diurnal:LY2186",
+        "rice_diurnal:MH86",
+        "rice_diurnal:SE21s"
+      ],
+      "clouds_not_testable": [],
+      "clouds_passing": [
+        "ath_diurnal:control",
+        "ath_diurnal_heat:heat",
+        "ath_diurnal_ll:constant light (LL)",
+        "rice_diurnal:LY2186",
+        "rice_diurnal:MH86",
+        "rice_diurnal:SE21s"
+      ],
+      "clouds_failing": [
+        "ath_diurnal_ld:long day (LD)"
+      ]
+    },
+    "line": {
+      "n_cells": 3,
+      "n_testable": 0,
+      "n_recovering_the_clock": 0,
+      "clouds": [
+        "tomato_fruit_dev:fruit",
+        "ath_recovery:control",
+        "ath_recovery:heat"
+      ],
+      "clouds_not_testable": [
+        "tomato_fruit_dev:fruit",
+        "ath_recovery:control",
+        "ath_recovery:heat"
+      ],
+      "clouds_passing": [],
+      "clouds_failing": []
+    }
+  },
+  "multiplicity": {
+    "alpha": 0.05,
+    "n_tests": 7,
+    "n_surviving": 6,
+    "surviving": [
+      5e-05,
+      5e-05,
+      5e-05,
+      0.00035,
+      0.0006,
+      0.0018
+    ],
+    "thresholds": [
+      0.007143,
+      0.014286,
+      0.021429,
+      0.028571,
+      0.035714,
+      0.042857,
+      0.05
+    ],
+    "min_threshold": 0.007143
+  },
+  "summary": {
+    "n_clouds": 10,
+    "n_h1_order_pass": 6,
+    "n_h1_order_testable": 7,
+    "counting_correct": 6,
+    "counting_total": 6
+  }
+}

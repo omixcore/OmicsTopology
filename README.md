@@ -202,6 +202,77 @@ Two caveats the case study measures rather than hides:
   not a single number.
 
 
+## A systematic benchmark: does the loop survive across species and designs?
+
+One dataset is an anecdote. `examples/multi_dataset_benchmark.py` asks the
+same pre-registered question of every dataset in
+`examples/dataset_registry.py` — with the answer declared **before** the data
+are looked at:
+
+* **loop** — a circadian time course; a running clock should close the loop;
+* **line** — a monotonically advancing process (fruit development, stress
+  recovery); there is no reason for the transcriptome to return to start.
+
+Seven public datasets, four species, ten dataset × condition clouds:
+
+| key | accession | organism | design | expected |
+|---|---|---|---|---|
+| `ath_diurnal` / `ath_diurnal_heat` | GSE158444 | *A. thaliana* | 8 times of day / 24 h, control & heat arm | loop |
+| `ath_recovery` | GSE158444 | *A. thaliana* | heat-shock recovery, 4 times | line |
+| `rice_diurnal` | GSE138193 | rice | 17 times / 48 h, three genotypes | loop |
+| `ath_diurnal_ll` / `ath_diurnal_ld` | GSE137732 | *A. thaliana* | 16 times / 45 h, constant light & long day | loop |
+| `tomato_fruit_dev` | GSE128739 | tomato | 9 stages of fruit development | line |
+
+Two independent, pre-registered lines of evidence per cloud:
+
+1. **H1 vs its own null.** The longest H1 bar (normalised by the RMS radius
+   implied by the distance matrix) is compared with clouds drawn from a
+   *covariance-matched Gaussian* — same n, same covariance, no structure —
+   pushed through the identical pipeline.
+2. **Circular vs linear Mantel.** In full expression space (no PCA), is the
+   expression distance between two samples better explained by the distance
+   *around* the clock than the distance *along* it?  The period is scanned
+   over 16–32 h so a free-running clock is not penalised for not being
+   exactly 24 h.
+
+```bash
+python examples/prepare_datasets.py --outdir data/datasets
+python examples/multi_dataset_benchmark.py --data-root data/datasets
+```
+
+**8 of 10 clouds match the design's expectation.**  The three rice genotypes
+are called loop-like (H1 p = 0.02–0.03, circular Mantel r ≈ 0.92 vs linear
+r ≈ 0.05), both GSE158444 arms are loop-like, and all three aperiodic clouds
+(tomato development, stress recovery × 2) are line-like.  Verdicts survive a
+feature-count sweep (500 → all genes): rice 12/12, aperiodic clouds 12/12.
+
+![benchmark trajectories](docs/fig_benchmark_trajectories.png)
+![H1 vs null](docs/fig_benchmark_h1_vs_null.png)
+![circular vs linear Mantel](docs/fig_benchmark_mantel.png)
+
+Three things the benchmark measures rather than hides:
+
+* **The two GSE137732 failures are the method behaving correctly.**  Both
+  conditions were sampled once per time point over 45 h — nearly two cycles.
+  Split the record into single-cycle windows
+  (`examples/diagnose_period_drift.py`) and the loop reappears in every
+  window (circular advantage +0.46 / +0.41 for constant light, +0.04 / +0.17
+  for long day): within a cycle the clock closes the loop, but the second
+  cycle does **not** close onto the first.  A 45 h cloud under drift is a
+  helix, not a loop, and the circular test refuses a model that does not
+  hold.
+* **Distance metric matters more than the embedding.**  With Euclidean
+  distances no cloud clears its null; with correlation distances (comparing
+  expression *patterns* rather than absolute levels) the rice genotypes
+  clear theirs.  `--metric` makes the comparison easy to rerun.
+* **Dropping biological replicates does not destroy the loop.**  Sampling
+  one library per time point from GSE158444 (60 independent draws) leaves
+  H1 max at 0.61 — the same as the full data — with the circular advantage
+  positive in 100 % of draws (`examples/diagnose_replicates.py`).
+
+Full result tables and diagnosis JSON live in [`benchmark/`](benchmark/).
+
+
 ## API tour
 
 ```python
@@ -285,6 +356,12 @@ examples/          runnable demos; see the files
   power_analysis.py           detection and false-positive rates across datasets
   prepare_plant_dataset.py    download + normalise the GSE158444 Arabidopsis data
   arabidopsis_heat_stress.py  real-data case study: the circadian clock is a loop
+  dataset_registry.py         the benchmark's public datasets + their loaders
+  prepare_datasets.py         prepare every benchmark dataset in one command
+  multi_dataset_benchmark.py  pre-registered multi-dataset topology benchmark
+  diagnose_period_drift.py    why a 2-cycle record under drift is a helix, not a loop
+  diagnose_replicates.py      how much biological replicates contribute to detection
+benchmark/         committed result tables of the multi-dataset benchmark
 tests/             68 pytest cases
 ```
 

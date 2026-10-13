@@ -1,0 +1,261 @@
+{
+  "ath_diurnal": {
+    "key": "ath_diurnal",
+    "period_hours": 24.0,
+    "whole_record": {
+      "control": {
+        "n": 26,
+        "h1_max_rel": 0.6075,
+        "r_linear": 0.6469,
+        "r_circular": 0.8648,
+        "best_period": 27.5,
+        "best_r_circular": 0.948,
+        "circular_advantage": 0.3011
+      }
+    },
+    "cycles": [
+      {
+        "condition": "control",
+        "n": 23,
+        "h1_max_rel": 0.6112,
+        "r_linear": 0.6967,
+        "r_circular": 0.9377,
+        "best_period": 25.5,
+        "best_r_circular": 0.9545,
+        "circular_advantage": 0.2578,
+        "cycle": 0,
+        "t_from": 0.0,
+        "t_to": 21.0
+      }
+    ]
+  },
+  "ath_diurnal_heat": {
+    "key": "ath_diurnal_heat",
+    "period_hours": 24.0,
+    "whole_record": {
+      "heat": {
+        "n": 24,
+        "h1_max_rel": 0.5907,
+        "r_linear": 0.7009,
+        "r_circular": 0.9218,
+        "best_period": 25.5,
+        "best_r_circular": 0.9359,
+        "circular_advantage": 0.235
+      }
+    },
+    "cycles": [
+      {
+        "condition": "heat",
+        "n": 24,
+        "h1_max_rel": 0.5907,
+        "r_linear": 0.7009,
+        "r_circular": 0.9218,
+        "best_period": 25.5,
+        "best_r_circular": 0.9359,
+        "circular_advantage": 0.235,
+        "cycle": 0,
+        "t_from": 0.0,
+        "t_to": 21.0
+      }
+    ]
+  },
+  "rice_diurnal": {
+    "key": "rice_diurnal",
+    "period_hours": 24.0,
+    "whole_record": {
+      "LY2186": {
+        "n": 17,
+        "h1_max_rel": 0.8735,
+        "r_linear": 0.0602,
+        "r_circular": 0.9159,
+        "best_period": 24.5,
+        "best_r_circular": 0.9186,
+        "circular_advantage": 0.8584
+      },
+      "MH86": {
+        "n": 17,
+        "h1_max_rel": 0.84,
+        "r_linear": 0.087,
+        "r_circular": 0.9196,
+        "best_period": 24.5,
+        "best_r_circular": 0.9213,
+        "circular_advantage": 0.8343
+      },
+      "SE21s": {
+        "n": 17,
+        "h1_max_rel": 0.8479,
+        "r_linear": 0.0214,
+        "r_circular": 0.936,
+        "best_period": 24.5,
+        "best_r_circular": 0.9371,
+        "circular_advantage": 0.9157
+      }
+    },
+    "cycles": [
+      {
+        "condition": "LY2186",
+        "n": 8,
+        "h1_max_rel": 0.7867,
+        "r_linear": 0.5253,
+        "r_circular": 0.9355,
+        "best_period": 25.0,
+        "best_r_circular": 0.9399,
+        "circular_advantage": 0.4146,
+        "cycle": 0,
+        "t_from": 0.0,
+        "t_to": 21.0
+      },
+      {
+        "condition": "LY2186",
+        "n": 8,
+        "h1_max_rel": 0.7178,
+        "r_linear": 0.5153,
+        "r_circular": 0.9107,
+        "best_period": 25.0,
+        "best_r_circular": 0.9184,
+        "circular_advantage": 0.4031,
+        "cycle": 1,
+        "t_from": 24.0,
+        "t_to": 45.0
+      },
+      {
+        "condition": "MH86",
+        "n": 8,
+        "h1_max_rel": 1.0063,
+        "r_linear": 0.5255,
+        "r_circular": 0.9374,
+        "best_period": 25.0,
+        "best_r_circular": 0.9447,
+        "circular_advantage": 0.4192,
+        "cycle": 0,
+        "t_from": 0.0,
+        "t_to": 21.0
+      },
+      {
+        "condition": "MH86",
+        "n": 8,
+        "h1_max_rel": 0.7831,
+        "r_linear": 0.4729,
+        "r_circular": 0.9356,
+        "best_period": 23.5,
+        "best_r_circular": 0.9373,
+        "circular_advantage": 0.4644,
+        "cycle": 1,
+        "t_from": 24.0,
+        "t_to": 45.0
+      },
+      {
+        "condition": "SE21s",
+        "n": 8,
+        "h1_max_rel": 0.9539,
+        "r_linear": 0.4313,
+        "r_circular": 0.9493,
+        "best_period": 23.5,
+        "best_r_circular": 0.9533,
+        "circular_advantage": 0.522,
+        "cycle": 0,
+        "t_from": 0.0,
+        "t_to": 21.0
+      },
+      {
+        "condition": "SE21s",
+        "n": 8,
+        "h1_max_rel": 0.7856,
+        "r_linear": 0.4103,
+        "r_circular": 0.9405,
+        "best_period": 23.0,
+        "best_r_circular": 0.9485,
+        "circular_advantage": 0.5382,
+        "cycle": 1,
+        "t_from": 24.0,
+        "t_to": 45.0
+      }
+    ]
+  },
+  "ath_diurnal_ll": {
+    "key": "ath_diurnal_ll",
+    "period_hours": 24.0,
+    "whole_record": {
+      "constant light (LL)": {
+        "n": 16,
+        "h1_max_rel": 0.0876,
+        "r_linear": 0.5267,
+        "r_circular": 0.4265,
+        "best_period": 24.5,
+        "best_r_circular": 0.428,
+        "circular_advantage": -0.0987
+      }
+    },
+    "cycles": [
+      {
+        "condition": "constant light (LL)",
+        "n": 8,
+        "h1_max_rel": 0.0261,
+        "r_linear": 0.2649,
+        "r_circular": 0.7157,
+        "best_period": 23.0,
+        "best_r_circular": 0.7233,
+        "circular_advantage": 0.4584,
+        "cycle": 0,
+        "t_from": 2.0,
+        "t_to": 23.0
+      },
+      {
+        "condition": "constant light (LL)",
+        "n": 8,
+        "h1_max_rel": 0.045,
+        "r_linear": 0.3749,
+        "r_circular": 0.7772,
+        "best_period": 25.0,
+        "best_r_circular": 0.7825,
+        "circular_advantage": 0.4076,
+        "cycle": 1,
+        "t_from": 26.0,
+        "t_to": 47.0
+      }
+    ]
+  },
+  "ath_diurnal_ld": {
+    "key": "ath_diurnal_ld",
+    "period_hours": 24.0,
+    "whole_record": {
+      "long day (LD)": {
+        "n": 16,
+        "h1_max_rel": 0.0874,
+        "r_linear": 0.7108,
+        "r_circular": 0.0066,
+        "best_period": 26.0,
+        "best_r_circular": 0.0257,
+        "circular_advantage": -0.6851
+      }
+    },
+    "cycles": [
+      {
+        "condition": "long day (LD)",
+        "n": 8,
+        "h1_max_rel": 0.0243,
+        "r_linear": 0.7431,
+        "r_circular": 0.6529,
+        "best_period": 32.0,
+        "best_r_circular": 0.7876,
+        "circular_advantage": 0.0445,
+        "cycle": 0,
+        "t_from": 2.0,
+        "t_to": 23.0
+      },
+      {
+        "condition": "long day (LD)",
+        "n": 8,
+        "h1_max_rel": 0.0404,
+        "r_linear": 0.7096,
+        "r_circular": 0.755,
+        "best_period": 28.5,
+        "best_r_circular": 0.8818,
+        "circular_advantage": 0.1722,
+        "cycle": 1,
+        "t_from": 26.0,
+        "t_to": 47.0
+      }
+    ]
+  }
+}

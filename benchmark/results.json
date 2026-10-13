@@ -1,0 +1,1520 @@
+{
+  "config": {
+    "metric": "correlation",
+    "n_null": 200,
+    "n_permutations": 5000,
+    "seed": 0
+  },
+  "decision_rule": {
+    "loop_like": "p_null < 0.05 AND circular_advantage > 0 AND p_circular < 0.05",
+    "loop_like_partial": "exactly one line of evidence holds",
+    "line_like": "neither holds",
+    "null_model": "covariance-matched Gaussian, pushed through the same metric"
+  },
+  "datasets": [
+    {
+      "key": "ath_diurnal",
+      "accession": "GSE158444",
+      "organism": "Arabidopsis thaliana",
+      "design": "8 times of day over one 24 h cycle (ZT48-ZT69), 22 C control",
+      "expected_topology": "loop",
+      "period_hours": 24.0,
+      "n_features": 3000,
+      "conditions": {
+        "control": {
+          "label": "ath_diurnal:control",
+          "n_samples": 26,
+          "metric": "correlation",
+          "times": [
+            0.0,
+            3.0,
+            6.0,
+            9.0,
+            12.0,
+            15.0,
+            18.0,
+            21.0,
+            24.0
+          ],
+          "n_points": 26,
+          "distance_scale": 0.7704,
+          "h1_max": 0.468,
+          "h1_max_rel": 0.6075,
+          "h1_total_rel": 0.6306,
+          "h1_n_bars": 2,
+          "h1_entropy": 0.1571,
+          "h1_dominant_bar": [
+            0.8188,
+            1.2867
+          ],
+          "beta1_at_mid_loop": 1,
+          "h0_components": 25,
+          "null": {
+            "n_draws": 200,
+            "null_median": 0.4063,
+            "null_q95": 0.6074,
+            "null_max": 0.7305,
+            "p_value": 0.0547
+          },
+          "mantel": {
+            "period_hours": 24.0,
+            "r_linear": 0.6469,
+            "p_linear": 0.0001999600079984003,
+            "r_circular": 0.8648,
+            "p_circular": 0.0001999600079984003,
+            "best_period": 27.5,
+            "best_r_circular": 0.948,
+            "period_scan_grid": [
+              16.0,
+              16.5,
+              17.0,
+              17.5,
+              18.0,
+              18.5,
+              19.0,
+              19.5,
+              20.0,
+              20.5,
+              21.0,
+              21.5,
+              22.0,
+              22.5,
+              23.0,
+              23.5,
+              24.0,
+              24.5,
+              25.0,
+              25.5,
+              26.0,
+              26.5,
+              27.0,
+              27.5,
+              28.0,
+              28.5,
+              29.0,
+              29.5,
+              30.0,
+              30.5,
+              31.0,
+              31.5,
+              32.0
+            ],
+            "period_scan_r": [
+              0.1874,
+              0.2535,
+              0.31,
+              0.3555,
+              0.3909,
+              0.4573,
+              0.5195,
+              0.5753,
+              0.6232,
+              0.6628,
+              0.6941,
+              0.7383,
+              0.776,
+              0.807,
+              0.8318,
+              0.8508,
+              0.8648,
+              0.887,
+              0.9058,
+              0.9211,
+              0.9329,
+              0.9411,
+              0.9461,
+              0.948,
+              0.9472,
+              0.9441,
+              0.9389,
+              0.9321,
+              0.9239,
+              0.9184,
+              0.9116,
+              0.9035,
+              0.8944
+            ],
+            "circular_advantage": 0.3011,
+            "circular_advantage_nominal": 0.2178
+          },
+          "replicate_structure": {
+            "median_within_time": 0.3795,
+            "median_between_time": 1.1163,
+            "ratio": 0.3399
+          },
+          "verdict": "loop-like (partial)",
+          "condition": "control"
+        }
+      },
+      "seconds": 3.4,
+      "half_period": {
+        "control": {
+          "label": "ath_diurnal:control:half",
+          "n_samples": 11,
+          "metric": "correlation",
+          "times": [
+            0.0,
+            3.0,
+            6.0,
+            9.0
+          ],
+          "n_points": 11,
+          "distance_scale": 0.7824,
+          "h1_max": 0.0277,
+          "h1_max_rel": 0.0353,
+          "h1_total_rel": 0.0353,
+          "h1_n_bars": 1,
+          "h1_entropy": -0.0,
+          "h1_dominant_bar": [
+            1.06,
+            1.0877
+          ],
+          "beta1_at_mid_loop": 1,
+          "h0_components": 10,
+          "null": {
+            "n_draws": 66,
+            "null_median": 0.2412,
+            "null_q95": 0.5888,
+            "null_max": 0.7024,
+            "p_value": 0.8657
+          },
+          "replicate_structure": {
+            "median_within_time": 0.6539,
+            "median_between_time": 1.2643,
+            "ratio": 0.5172
+          },
+          "verdict": "line-like",
+          "n_window_samples": 11
+        }
+      }
+    },
+    {
+      "key": "ath_diurnal_heat",
+      "accession": "GSE158444",
+      "organism": "Arabidopsis thaliana",
+      "design": "8 times of day over one 24 h cycle, 1 h at 37 C heat shock",
+      "expected_topology": "loop",
+      "period_hours": 24.0,
+      "n_features": 3000,
+      "conditions": {
+        "heat": {
+          "label": "ath_diurnal_heat:heat",
+          "n_samples": 24,
+          "metric": "correlation",
+          "times": [
+            0.0,
+            3.0,
+            6.0,
+            9.0,
+            12.0,
+            15.0,
+            18.0,
+            21.0
+          ],
+          "n_points": 24,
+          "distance_scale": 0.7645,
+          "h1_max": 0.4516,
+          "h1_max_rel": 0.5907,
+          "h1_total_rel": 0.6142,
+          "h1_n_bars": 3,
+          "h1_entropy": 0.1875,
+          "h1_dominant_bar": [
+            0.888,
+            1.3396
+          ],
+          "beta1_at_mid_loop": 1,
+          "h0_components": 23,
+          "null": {
+            "n_draws": 200,
+            "null_median": 0.3537,
+            "null_q95": 0.5872,
+            "null_max": 0.7414,
+            "p_value": 0.0398
+          },
+          "mantel": {
+            "period_hours": 24.0,
+            "r_linear": 0.7009,
+            "p_linear": 0.0001999600079984003,
+            "r_circular": 0.9218,
+            "p_circular": 0.0001999600079984003,
+            "best_period": 25.5,
+            "best_r_circular": 0.9359,
+            "period_scan_grid": [
+              16.0,
+              16.5,
+              17.0,
+              17.5,
+              18.0,
+              18.5,
+              19.0,
+              19.5,
+              20.0,
+              20.5,
+              21.0,
+              21.5,
+              22.0,
+              22.5,
+              23.0,
+              23.5,
+              24.0,
+              24.5,
+              25.0,
+              25.5,
+              26.0,
+              26.5,
+              27.0,
+              27.5,
+              28.0,
+              28.5,
+              29.0,
+              29.5,
+              30.0,
+              30.5,
+              31.0,
+              31.5,
+              32.0
+            ],
+            "period_scan_r": [
+              0.3803,
+              0.4446,
+              0.4964,
+              0.5363,
+              0.5662,
+              0.6216,
+              0.6722,
+              0.717,
+              0.755,
+              0.7861,
+              0.8104,
+              0.842,
+              0.868,
+              0.8884,
+              0.9038,
+              0.9147,
+              0.9218,
+              0.9294,
+              0.934,
+              0.9359,
+              0.9352,
+              0.9321,
+              0.9269,
+              0.9199,
+              0.9114,
+              0.9016,
+              0.8908,
+              0.8793,
+              0.8671,
+              0.8606,
+              0.8533,
+              0.8454,
+              0.837
+            ],
+            "circular_advantage": 0.235,
+            "circular_advantage_nominal": 0.2209
+          },
+          "replicate_structure": {
+            "median_within_time": 0.4879,
+            "median_between_time": 1.1039,
+            "ratio": 0.442
+          },
+          "verdict": "loop-like",
+          "condition": "heat"
+        }
+      },
+      "seconds": 2.5,
+      "half_period": {
+        "heat": {
+          "label": "ath_diurnal_heat:heat:half",
+          "n_samples": 12,
+          "metric": "correlation",
+          "times": [
+            0.0,
+            3.0,
+            6.0,
+            9.0
+          ],
+          "n_points": 12,
+          "distance_scale": 0.7746,
+          "h1_max": 0.0652,
+          "h1_max_rel": 0.0842,
+          "h1_total_rel": 0.1183,
+          "h1_n_bars": 2,
+          "h1_entropy": 0.6002,
+          "h1_dominant_bar": [
+            1.0216,
+            1.0868
+          ],
+          "beta1_at_mid_loop": 1,
+          "h0_components": 11,
+          "null": {
+            "n_draws": 66,
+            "null_median": 0.2893,
+            "null_q95": 0.5528,
+            "null_max": 0.7281,
+            "p_value": 0.9403
+          },
+          "replicate_structure": {
+            "median_within_time": 0.571,
+            "median_between_time": 1.3057,
+            "ratio": 0.4373
+          },
+          "verdict": "line-like",
+          "n_window_samples": 12
+        }
+      }
+    },
+    {
+      "key": "ath_recovery",
+      "accession": "GSE158444",
+      "organism": "Arabidopsis thaliana",
+      "design": "heat-shock recovery sampled at 4 times (T6, T7, T9, T12); 22 C control and 37 C arm",
+      "expected_topology": "line",
+      "period_hours": null,
+      "n_features": 3000,
+      "conditions": {
+        "control": {
+          "label": "ath_recovery:control",
+          "n_samples": 12,
+          "metric": "correlation",
+          "times": [
+            6.0,
+            7.0,
+            9.0,
+            12.0
+          ],
+          "n_points": 12,
+          "distance_scale": 0.7464,
+          "h1_max": 0.0652,
+          "h1_max_rel": 0.0873,
+          "h1_total_rel": 0.1556,
+          "h1_n_bars": 3,
+          "h1_entropy": 0.7152,
+          "h1_dominant_bar": [
+            0.9746,
+            1.0397
+          ],
+          "beta1_at_mid_loop": 2,
+          "h0_components": 11,
+          "null": {
+            "n_draws": 200,
+            "null_median": 0.3274,
+            "null_q95": 0.6158,
+            "null_max": 0.8675,
+            "p_value": 0.9453
+          },
+          "replicate_structure": {
+            "median_within_time": 0.9228,
+            "median_between_time": 1.1707,
+            "ratio": 0.7883
+          },
+          "verdict": "line-like",
+          "condition": "control"
+        },
+        "heat": {
+          "label": "ath_recovery:heat",
+          "n_samples": 12,
+          "metric": "correlation",
+          "times": [
+            6.0,
+            7.0,
+            9.0,
+            12.0
+          ],
+          "n_points": 12,
+          "distance_scale": 0.7957,
+          "h1_max": 0.0,
+          "h1_max_rel": 0.0,
+          "h1_total_rel": 0.0,
+          "h1_n_bars": 0,
+          "h1_entropy": 0.0,
+          "h1_dominant_bar": null,
+          "beta1_at_mid_loop": 0,
+          "h0_components": 11,
+          "null": {
+            "n_draws": 200,
+            "null_median": 0.2154,
+            "null_q95": 0.6936,
+            "null_max": 0.9683,
+            "p_value": 1.0
+          },
+          "replicate_structure": {
+            "median_within_time": 0.2993,
+            "median_between_time": 1.232,
+            "ratio": 0.2429
+          },
+          "verdict": "line-like",
+          "condition": "heat"
+        }
+      },
+      "seconds": 0.1
+    },
+    {
+      "key": "rice_diurnal",
+      "accession": "GSE138193",
+      "organism": "Oryza sativa",
+      "design": "17 times over two 24 h cycles, three genotypes (SE21s, LY2186, MH86)",
+      "expected_topology": "loop",
+      "period_hours": 24.0,
+      "n_features": 3000,
+      "conditions": {
+        "LY2186": {
+          "label": "rice_diurnal:LY2186",
+          "n_samples": 17,
+          "metric": "correlation",
+          "times": [
+            0.0,
+            3.0,
+            6.0,
+            9.0,
+            12.0,
+            15.0,
+            18.0,
+            21.0,
+            24.0,
+            27.0,
+            30.0,
+            33.0,
+            36.0,
+            39.0,
+            42.0,
+            45.0,
+            48.0
+          ],
+          "n_points": 17,
+          "distance_scale": 0.789,
+          "h1_max": 0.6892,
+          "h1_max_rel": 0.8735,
+          "h1_total_rel": 1.0113,
+          "h1_n_bars": 4,
+          "h1_entropy": 0.4994,
+          "h1_dominant_bar": [
+            0.6391,
+            1.3283
+          ],
+          "beta1_at_mid_loop": 1,
+          "h0_components": 16,
+          "null": {
+            "n_draws": 200,
+            "null_median": 0.3825,
+            "null_q95": 0.7346,
+            "null_max": 1.0572,
+            "p_value": 0.0199
+          },
+          "mantel": {
+            "period_hours": 24.0,
+            "r_linear": 0.0602,
+            "p_linear": 0.251749650069986,
+            "r_circular": 0.9159,
+            "p_circular": 0.0001999600079984003,
+            "best_period": 24.5,
+            "best_r_circular": 0.9186,
+            "period_scan_grid": [
+              16.0,
+              16.5,
+              17.0,
+              17.5,
+              18.0,
+              18.5,
+              19.0,
+              19.5,
+              20.0,
+              20.5,
+              21.0,
+              21.5,
+              22.0,
+              22.5,
+              23.0,
+              23.5,
+              24.0,
+              24.5,
+              25.0,
+              25.5,
+              26.0,
+              26.5,
+              27.0,
+              27.5,
+              28.0,
+              28.5,
+              29.0,
+              29.5,
+              30.0,
+              30.5,
+              31.0,
+              31.5,
+              32.0
+            ],
+            "period_scan_r": [
+              -0.1586,
+              -0.1392,
+              -0.0962,
+              -0.057,
+              -0.0212,
+              0.0741,
+              0.1717,
+              0.2674,
+              0.387,
+              0.5041,
+              0.5974,
+              0.6937,
+              0.7678,
+              0.8313,
+              0.88,
+              0.9071,
+              0.9159,
+              0.9186,
+              0.9072,
+              0.8819,
+              0.8448,
+              0.8025,
+              0.7524,
+              0.7039,
+              0.6495,
+              0.5971,
+              0.5413,
+              0.4841,
+              0.4273,
+              0.3864,
+              0.3429,
+              0.2978,
+              0.2518
+            ],
+            "circular_advantage": 0.8584,
+            "circular_advantage_nominal": 0.8557
+          },
+          "verdict": "loop-like",
+          "condition": "LY2186"
+        },
+        "MH86": {
+          "label": "rice_diurnal:MH86",
+          "n_samples": 17,
+          "metric": "correlation",
+          "times": [
+            0.0,
+            3.0,
+            6.0,
+            9.0,
+            12.0,
+            15.0,
+            18.0,
+            21.0,
+            24.0,
+            27.0,
+            30.0,
+            33.0,
+            36.0,
+            39.0,
+            42.0,
+            45.0,
+            48.0
+          ],
+          "n_points": 17,
+          "distance_scale": 0.7844,
+          "h1_max": 0.6589,
+          "h1_max_rel": 0.84,
+          "h1_total_rel": 0.9071,
+          "h1_n_bars": 5,
+          "h1_entropy": 0.3593,
+          "h1_dominant_bar": [
+            0.6877,
+            1.3466
+          ],
+          "beta1_at_mid_loop": 1,
+          "h0_components": 16,
+          "null": {
+            "n_draws": 200,
+            "null_median": 0.3859,
+            "null_q95": 0.7095,
+            "null_max": 1.0589,
+            "p_value": 0.0199
+          },
+          "mantel": {
+            "period_hours": 24.0,
+            "r_linear": 0.087,
+            "p_linear": 0.16116776644671066,
+            "r_circular": 0.9196,
+            "p_circular": 0.0001999600079984003,
+            "best_period": 24.5,
+            "best_r_circular": 0.9213,
+            "period_scan_grid": [
+              16.0,
+              16.5,
+              17.0,
+              17.5,
+              18.0,
+              18.5,
+              19.0,
+              19.5,
+              20.0,
+              20.5,
+              21.0,
+              21.5,
+              22.0,
+              22.5,
+              23.0,
+              23.5,
+              24.0,
+              24.5,
+              25.0,
+              25.5,
+              26.0,
+              26.5,
+              27.0,
+              27.5,
+              28.0,
+              28.5,
+              29.0,
+              29.5,
+              30.0,
+              30.5,
+              31.0,
+              31.5,
+              32.0
+            ],
+            "period_scan_r": [
+              -0.1927,
+              -0.1784,
+              -0.1334,
+              -0.0896,
+              -0.0482,
+              0.0512,
+              0.1543,
+              0.2563,
+              0.381,
+              0.5021,
+              0.5991,
+              0.6982,
+              0.7748,
+              0.8372,
+              0.8851,
+              0.9115,
+              0.9196,
+              0.9213,
+              0.9088,
+              0.8823,
+              0.8441,
+              0.8014,
+              0.751,
+              0.7028,
+              0.6485,
+              0.597,
+              0.542,
+              0.4855,
+              0.4294,
+              0.3892,
+              0.3463,
+              0.3017,
+              0.2563
+            ],
+            "circular_advantage": 0.8343,
+            "circular_advantage_nominal": 0.8326
+          },
+          "verdict": "loop-like",
+          "condition": "MH86"
+        },
+        "SE21s": {
+          "label": "rice_diurnal:SE21s",
+          "n_samples": 17,
+          "metric": "correlation",
+          "times": [
+            0.0,
+            3.0,
+            6.0,
+            9.0,
+            12.0,
+            15.0,
+            18.0,
+            21.0,
+            24.0,
+            27.0,
+            30.0,
+            33.0,
+            36.0,
+            39.0,
+            42.0,
+            45.0,
+            48.0
+          ],
+          "n_points": 17,
+          "distance_scale": 0.7878,
+          "h1_max": 0.668,
+          "h1_max_rel": 0.8479,
+          "h1_total_rel": 1.1964,
+          "h1_n_bars": 7,
+          "h1_entropy": 1.0451,
+          "h1_dominant_bar": [
+            0.6268,
+            1.2947
+          ],
+          "beta1_at_mid_loop": 1,
+          "h0_components": 16,
+          "null": {
+            "n_draws": 200,
+            "null_median": 0.367,
+            "null_q95": 0.6809,
+            "null_max": 0.9073,
+            "p_value": 0.0249
+          },
+          "mantel": {
+            "period_hours": 24.0,
+            "r_linear": 0.0214,
+            "p_linear": 0.41291741651669667,
+            "r_circular": 0.936,
+            "p_circular": 0.0001999600079984003,
+            "best_period": 24.5,
+            "best_r_circular": 0.9371,
+            "period_scan_grid": [
+              16.0,
+              16.5,
+              17.0,
+              17.5,
+              18.0,
+              18.5,
+              19.0,
+              19.5,
+              20.0,
+              20.5,
+              21.0,
+              21.5,
+              22.0,
+              22.5,
+              23.0,
+              23.5,
+              24.0,
+              24.5,
+              25.0,
+              25.5,
+              26.0,
+              26.5,
+              27.0,
+              27.5,
+              28.0,
+              28.5,
+              29.0,
+              29.5,
+              30.0,
+              30.5,
+              31.0,
+              31.5,
+              32.0
+            ],
+            "period_scan_r": [
+              -0.1413,
+              -0.1225,
+              -0.078,
+              -0.0359,
+              0.0013,
+              0.1,
+              0.2,
+              0.297,
+              0.4178,
+              0.5375,
+              0.6321,
+              0.7273,
+              0.7993,
+              0.861,
+              0.9067,
+              0.9306,
+              0.936,
+              0.9371,
+              0.9237,
+              0.8961,
+              0.8566,
+              0.8124,
+              0.7604,
+              0.7095,
+              0.6525,
+              0.5992,
+              0.5425,
+              0.4845,
+              0.4269,
+              0.3854,
+              0.3412,
+              0.2954,
+              0.2488
+            ],
+            "circular_advantage": 0.9157,
+            "circular_advantage_nominal": 0.9147
+          },
+          "verdict": "loop-like",
+          "condition": "SE21s"
+        }
+      },
+      "seconds": 6.9,
+      "half_period": {
+        "LY2186": {
+          "skipped": "only 4 samples in the window"
+        },
+        "MH86": {
+          "skipped": "only 4 samples in the window"
+        },
+        "SE21s": {
+          "skipped": "only 4 samples in the window"
+        }
+      }
+    },
+    {
+      "key": "ath_diurnal_ll",
+      "accession": "GSE137732",
+      "organism": "Arabidopsis thaliana",
+      "design": "16 times over 45 h under constant light (CT2-CT47)",
+      "expected_topology": "loop",
+      "period_hours": 24.0,
+      "n_features": 3000,
+      "conditions": {
+        "constant light (LL)": {
+          "label": "ath_diurnal_ll:constant light (LL)",
+          "n_samples": 16,
+          "metric": "correlation",
+          "times": [
+            2.0,
+            5.0,
+            8.0,
+            11.0,
+            14.0,
+            17.0,
+            20.0,
+            23.0,
+            26.0,
+            29.0,
+            32.0,
+            35.0,
+            38.0,
+            41.0,
+            44.0,
+            47.0
+          ],
+          "n_points": 16,
+          "distance_scale": 0.731,
+          "h1_max": 0.064,
+          "h1_max_rel": 0.0876,
+          "h1_total_rel": 0.2158,
+          "h1_n_bars": 6,
+          "h1_entropy": 1.4233,
+          "h1_dominant_bar": [
+            1.0117,
+            1.0758
+          ],
+          "beta1_at_mid_loop": 3,
+          "h0_components": 15,
+          "null": {
+            "n_draws": 200,
+            "null_median": 0.3196,
+            "null_q95": 0.4794,
+            "null_max": 0.6175,
+            "p_value": 1.0
+          },
+          "mantel": {
+            "period_hours": 24.0,
+            "r_linear": 0.5267,
+            "p_linear": 0.0001999600079984003,
+            "r_circular": 0.4265,
+            "p_circular": 0.0001999600079984003,
+            "best_period": 24.5,
+            "best_r_circular": 0.428,
+            "period_scan_grid": [
+              16.0,
+              16.5,
+              17.0,
+              17.5,
+              18.0,
+              18.5,
+              19.0,
+              19.5,
+              20.0,
+              20.5,
+              21.0,
+              21.5,
+              22.0,
+              22.5,
+              23.0,
+              23.5,
+              24.0,
+              24.5,
+              25.0,
+              25.5,
+              26.0,
+              26.5,
+              27.0,
+              27.5,
+              28.0,
+              28.5,
+              29.0,
+              29.5,
+              30.0,
+              30.5,
+              31.0,
+              31.5,
+              32.0
+            ],
+            "period_scan_r": [
+              -0.1861,
+              -0.2156,
+              -0.2016,
+              -0.1828,
+              -0.1586,
+              -0.1064,
+              -0.0465,
+              0.0141,
+              0.0947,
+              0.163,
+              0.2223,
+              0.2883,
+              0.3453,
+              0.3781,
+              0.403,
+              0.4188,
+              0.4265,
+              0.428,
+              0.4235,
+              0.4133,
+              0.3981,
+              0.3727,
+              0.3446,
+              0.3275,
+              0.3078,
+              0.2877,
+              0.266,
+              0.2434,
+              0.2208,
+              0.2084,
+              0.1948,
+              0.1802,
+              0.165
+            ],
+            "circular_advantage": -0.0987,
+            "circular_advantage_nominal": -0.1002
+          },
+          "verdict": "line-like",
+          "condition": "constant light (LL)"
+        }
+      },
+      "seconds": 2.3,
+      "half_period": {
+        "constant light (LL)": {
+          "skipped": "only 4 samples in the window"
+        }
+      }
+    },
+    {
+      "key": "ath_diurnal_ld",
+      "accession": "GSE137732",
+      "organism": "Arabidopsis thaliana",
+      "design": "16 times over 45 h under long day 16 h light / 8 h dark (ZT2-ZT47)",
+      "expected_topology": "loop",
+      "period_hours": 24.0,
+      "n_features": 3000,
+      "conditions": {
+        "long day (LD)": {
+          "label": "ath_diurnal_ld:long day (LD)",
+          "n_samples": 16,
+          "metric": "correlation",
+          "times": [
+            2.0,
+            5.0,
+            8.0,
+            11.0,
+            14.0,
+            17.0,
+            20.0,
+            23.0,
+            26.0,
+            29.0,
+            32.0,
+            35.0,
+            38.0,
+            41.0,
+            44.0,
+            47.0
+          ],
+          "n_points": 16,
+          "distance_scale": 0.7411,
+          "h1_max": 0.0647,
+          "h1_max_rel": 0.0874,
+          "h1_total_rel": 0.1278,
+          "h1_n_bars": 4,
+          "h1_entropy": 0.9297,
+          "h1_dominant_bar": [
+            1.1643,
+            1.2291
+          ],
+          "beta1_at_mid_loop": 1,
+          "h0_components": 15,
+          "null": {
+            "n_draws": 200,
+            "null_median": 0.3135,
+            "null_q95": 0.4707,
+            "null_max": 0.6568,
+            "p_value": 1.0
+          },
+          "mantel": {
+            "period_hours": 24.0,
+            "r_linear": 0.7108,
+            "p_linear": 0.0001999600079984003,
+            "r_circular": 0.0066,
+            "p_circular": 0.46970605878824234,
+            "best_period": 26.0,
+            "best_r_circular": 0.0257,
+            "period_scan_grid": [
+              16.0,
+              16.5,
+              17.0,
+              17.5,
+              18.0,
+              18.5,
+              19.0,
+              19.5,
+              20.0,
+              20.5,
+              21.0,
+              21.5,
+              22.0,
+              22.5,
+              23.0,
+              23.5,
+              24.0,
+              24.5,
+              25.0,
+              25.5,
+              26.0,
+              26.5,
+              27.0,
+              27.5,
+              28.0,
+              28.5,
+              29.0,
+              29.5,
+              30.0,
+              30.5,
+              31.0,
+              31.5,
+              32.0
+            ],
+            "period_scan_r": [
+              -0.0483,
+              -0.078,
+              -0.0771,
+              -0.0843,
+              -0.0866,
+              -0.0882,
+              -0.0863,
+              -0.0809,
+              -0.0538,
+              -0.0539,
+              -0.0524,
+              -0.0297,
+              -0.007,
+              -0.007,
+              -0.0021,
+              0.0025,
+              0.0066,
+              0.0117,
+              0.0167,
+              0.0215,
+              0.0257,
+              0.0175,
+              0.0095,
+              0.013,
+              0.0162,
+              0.0121,
+              0.008,
+              0.0041,
+              0.0004,
+              0.0055,
+              0.0105,
+              0.0155,
+              0.0202
+            ],
+            "circular_advantage": -0.6851,
+            "circular_advantage_nominal": -0.7041
+          },
+          "verdict": "line-like",
+          "condition": "long day (LD)"
+        }
+      },
+      "seconds": 2.3,
+      "half_period": {
+        "long day (LD)": {
+          "skipped": "only 4 samples in the window"
+        }
+      }
+    },
+    {
+      "key": "tomato_fruit_dev",
+      "accession": "GSE128739",
+      "organism": "Solanum lycopersicum",
+      "design": "9 developmental stages of fruit pericarp (8-53 days post-anthesis), 3 replicates",
+      "expected_topology": "line",
+      "period_hours": null,
+      "n_features": 3000,
+      "conditions": {
+        "fruit": {
+          "label": "tomato_fruit_dev:fruit",
+          "n_samples": 26,
+          "metric": "correlation",
+          "times": [
+            8.0,
+            15.0,
+            21.0,
+            28.0,
+            34.0,
+            41.0,
+            49.0,
+            50.0,
+            53.0
+          ],
+          "n_points": 26,
+          "distance_scale": 0.8149,
+          "h1_max": 0.0402,
+          "h1_max_rel": 0.0494,
+          "h1_total_rel": 0.0631,
+          "h1_n_bars": 2,
+          "h1_entropy": 0.5244,
+          "h1_dominant_bar": [
+            0.3621,
+            0.4024
+          ],
+          "beta1_at_mid_loop": 1,
+          "h0_components": 25,
+          "null": {
+            "n_draws": 200,
+            "null_median": 0.4394,
+            "null_q95": 0.8477,
+            "null_max": 0.974,
+            "p_value": 0.9751
+          },
+          "replicate_structure": {
+            "median_within_time": 0.1753,
+            "median_between_time": 1.0898,
+            "ratio": 0.1609
+          },
+          "verdict": "line-like",
+          "condition": "fruit"
+        }
+      },
+      "seconds": 0.1
+    }
+  ],
+  "sweep": {
+    "ath_diurnal": {
+      "500": {
+        "control": {
+          "h1_max_rel": 0.7426,
+          "verdict": "loop-like (partial)",
+          "r_linear": 0.7023,
+          "r_circular": 0.8352
+        }
+      },
+      "1000": {
+        "control": {
+          "h1_max_rel": 0.7978,
+          "verdict": "loop-like (partial)",
+          "r_linear": 0.6755,
+          "r_circular": 0.8585
+        }
+      },
+      "3000": {
+        "control": {
+          "h1_max_rel": 0.6075,
+          "verdict": "loop-like",
+          "r_linear": 0.6469,
+          "r_circular": 0.8648
+        }
+      },
+      "0": {
+        "control": {
+          "h1_max_rel": 0.6075,
+          "verdict": "loop-like",
+          "r_linear": 0.6469,
+          "r_circular": 0.8648
+        }
+      }
+    },
+    "ath_diurnal_heat": {
+      "500": {
+        "heat": {
+          "h1_max_rel": 0.6371,
+          "verdict": "loop-like (partial)",
+          "r_linear": 0.751,
+          "r_circular": 0.8933
+        }
+      },
+      "1000": {
+        "heat": {
+          "h1_max_rel": 0.6293,
+          "verdict": "loop-like (partial)",
+          "r_linear": 0.7322,
+          "r_circular": 0.9227
+        }
+      },
+      "3000": {
+        "heat": {
+          "h1_max_rel": 0.5907,
+          "verdict": "loop-like (partial)",
+          "r_linear": 0.7009,
+          "r_circular": 0.9218
+        }
+      },
+      "0": {
+        "heat": {
+          "h1_max_rel": 0.5907,
+          "verdict": "loop-like (partial)",
+          "r_linear": 0.7009,
+          "r_circular": 0.9218
+        }
+      }
+    },
+    "ath_recovery": {
+      "500": {
+        "control": {
+          "h1_max_rel": 0.0,
+          "verdict": "line-like",
+          "r_linear": null,
+          "r_circular": null
+        },
+        "heat": {
+          "h1_max_rel": 0.024,
+          "verdict": "line-like",
+          "r_linear": null,
+          "r_circular": null
+        }
+      },
+      "1000": {
+        "control": {
+          "h1_max_rel": 0.0157,
+          "verdict": "line-like",
+          "r_linear": null,
+          "r_circular": null
+        },
+        "heat": {
+          "h1_max_rel": 0.0,
+          "verdict": "line-like",
+          "r_linear": null,
+          "r_circular": null
+        }
+      },
+      "3000": {
+        "control": {
+          "h1_max_rel": 0.0873,
+          "verdict": "line-like",
+          "r_linear": null,
+          "r_circular": null
+        },
+        "heat": {
+          "h1_max_rel": 0.0,
+          "verdict": "line-like",
+          "r_linear": null,
+          "r_circular": null
+        }
+      },
+      "0": {
+        "control": {
+          "h1_max_rel": 0.0873,
+          "verdict": "line-like",
+          "r_linear": null,
+          "r_circular": null
+        },
+        "heat": {
+          "h1_max_rel": 0.0,
+          "verdict": "line-like",
+          "r_linear": null,
+          "r_circular": null
+        }
+      }
+    },
+    "rice_diurnal": {
+      "500": {
+        "LY2186": {
+          "h1_max_rel": 0.97,
+          "verdict": "loop-like",
+          "r_linear": 0.0496,
+          "r_circular": 0.9314
+        },
+        "MH86": {
+          "h1_max_rel": 0.8953,
+          "verdict": "loop-like",
+          "r_linear": 0.0649,
+          "r_circular": 0.9318
+        },
+        "SE21s": {
+          "h1_max_rel": 0.8088,
+          "verdict": "loop-like",
+          "r_linear": 0.0128,
+          "r_circular": 0.9551
+        }
+      },
+      "1000": {
+        "LY2186": {
+          "h1_max_rel": 0.9266,
+          "verdict": "loop-like",
+          "r_linear": 0.0537,
+          "r_circular": 0.9266
+        },
+        "MH86": {
+          "h1_max_rel": 0.9061,
+          "verdict": "loop-like",
+          "r_linear": 0.0769,
+          "r_circular": 0.9277
+        },
+        "SE21s": {
+          "h1_max_rel": 0.8616,
+          "verdict": "loop-like",
+          "r_linear": 0.02,
+          "r_circular": 0.9461
+        }
+      },
+      "3000": {
+        "LY2186": {
+          "h1_max_rel": 0.8735,
+          "verdict": "loop-like",
+          "r_linear": 0.0602,
+          "r_circular": 0.9159
+        },
+        "MH86": {
+          "h1_max_rel": 0.84,
+          "verdict": "loop-like",
+          "r_linear": 0.087,
+          "r_circular": 0.9196
+        },
+        "SE21s": {
+          "h1_max_rel": 0.8479,
+          "verdict": "loop-like",
+          "r_linear": 0.0214,
+          "r_circular": 0.936
+        }
+      },
+      "0": {
+        "LY2186": {
+          "h1_max_rel": 0.8735,
+          "verdict": "loop-like",
+          "r_linear": 0.0602,
+          "r_circular": 0.9159
+        },
+        "MH86": {
+          "h1_max_rel": 0.84,
+          "verdict": "loop-like",
+          "r_linear": 0.087,
+          "r_circular": 0.9196
+        },
+        "SE21s": {
+          "h1_max_rel": 0.8479,
+          "verdict": "loop-like",
+          "r_linear": 0.0214,
+          "r_circular": 0.936
+        }
+      }
+    },
+    "ath_diurnal_ll": {
+      "500": {
+        "constant light (LL)": {
+          "h1_max_rel": 0.0525,
+          "verdict": "loop-like (partial)",
+          "r_linear": 0.3087,
+          "r_circular": 0.3525
+        }
+      },
+      "1000": {
+        "constant light (LL)": {
+          "h1_max_rel": 0.0787,
+          "verdict": "line-like",
+          "r_linear": 0.4521,
+          "r_circular": 0.4286
+        }
+      },
+      "3000": {
+        "constant light (LL)": {
+          "h1_max_rel": 0.0876,
+          "verdict": "line-like",
+          "r_linear": 0.5267,
+          "r_circular": 0.4265
+        }
+      },
+      "0": {
+        "constant light (LL)": {
+          "h1_max_rel": 0.0876,
+          "verdict": "line-like",
+          "r_linear": 0.5267,
+          "r_circular": 0.4265
+        }
+      }
+    },
+    "ath_diurnal_ld": {
+      "500": {
+        "long day (LD)": {
+          "h1_max_rel": 0.0552,
+          "verdict": "line-like",
+          "r_linear": 0.6939,
+          "r_circular": -0.0816
+        }
+      },
+      "1000": {
+        "long day (LD)": {
+          "h1_max_rel": 0.0713,
+          "verdict": "line-like",
+          "r_linear": 0.704,
+          "r_circular": -0.0605
+        }
+      },
+      "3000": {
+        "long day (LD)": {
+          "h1_max_rel": 0.0874,
+          "verdict": "line-like",
+          "r_linear": 0.7108,
+          "r_circular": 0.0066
+        }
+      },
+      "0": {
+        "long day (LD)": {
+          "h1_max_rel": 0.0874,
+          "verdict": "line-like",
+          "r_linear": 0.7108,
+          "r_circular": 0.0066
+        }
+      }
+    },
+    "tomato_fruit_dev": {
+      "500": {
+        "fruit": {
+          "h1_max_rel": 0.0928,
+          "verdict": "line-like",
+          "r_linear": null,
+          "r_circular": null
+        }
+      },
+      "1000": {
+        "fruit": {
+          "h1_max_rel": 0.0607,
+          "verdict": "line-like",
+          "r_linear": null,
+          "r_circular": null
+        }
+      },
+      "3000": {
+        "fruit": {
+          "h1_max_rel": 0.0494,
+          "verdict": "line-like",
+          "r_linear": null,
+          "r_circular": null
+        }
+      },
+      "0": {
+        "fruit": {
+          "h1_max_rel": 0.0494,
+          "verdict": "line-like",
+          "r_linear": null,
+          "r_circular": null
+        }
+      }
+    }
+  },
+  "figures": [
+    "C:\\Users\\asus\\WorkBuddy\\2026-10-13-15-43-28\\repos\\OmicsTopology\\data\\benchmark\\fig_benchmark_trajectories.png",
+    "C:\\Users\\asus\\WorkBuddy\\2026-10-13-15-43-28\\repos\\OmicsTopology\\data\\benchmark\\fig_benchmark_h1_vs_null.png",
+    "C:\\Users\\asus\\WorkBuddy\\2026-10-13-15-43-28\\repos\\OmicsTopology\\data\\benchmark\\fig_benchmark_mantel.png"
+  ],
+  "summary": {
+    "n_units": 10,
+    "n_matched": 8,
+    "n_loop_full": 4,
+    "n_loop_partial": 1
+  }
+}

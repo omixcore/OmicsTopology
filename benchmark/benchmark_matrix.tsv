@@ -1,0 +1,11 @@
+dataset	accession	organism	condition	expected_topology	n_samples	n_features	metric	h1_max_rel	h1_n_bars	h1_entropy	beta1_at_mid_loop	null_median	null_q95	p_null	r_linear	r_circular	best_period	best_r_circular	circular_advantage	verdict	matches_expectation
+ath_diurnal	GSE158444	Arabidopsis thaliana	control	loop	26	3000	correlation	0.6075	2	0.1571	1	0.4063	0.6074	0.0547	0.6469	0.8648	27.5	0.948	0.3011	loop-like (partial)	True
+ath_diurnal_heat	GSE158444	Arabidopsis thaliana	heat	loop	24	3000	correlation	0.5907	3	0.1875	1	0.3537	0.5872	0.0398	0.7009	0.9218	25.5	0.9359	0.235	loop-like	True
+ath_recovery	GSE158444	Arabidopsis thaliana	control	line	12	3000	correlation	0.0873	3	0.7152	2	0.3274	0.6158	0.9453						line-like	True
+ath_recovery	GSE158444	Arabidopsis thaliana	heat	line	12	3000	correlation	0.0	0	0.0	0	0.2154	0.6936	1.0						line-like	True
+rice_diurnal	GSE138193	Oryza sativa	LY2186	loop	17	3000	correlation	0.8735	4	0.4994	1	0.3825	0.7346	0.0199	0.0602	0.9159	24.5	0.9186	0.8584	loop-like	True
+rice_diurnal	GSE138193	Oryza sativa	MH86	loop	17	3000	correlation	0.84	5	0.3593	1	0.3859	0.7095	0.0199	0.087	0.9196	24.5	0.9213	0.8343	loop-like	True
+rice_diurnal	GSE138193	Oryza sativa	SE21s	loop	17	3000	correlation	0.8479	7	1.0451	1	0.367	0.6809	0.0249	0.0214	0.936	24.5	0.9371	0.9157	loop-like	True
+ath_diurnal_ll	GSE137732	Arabidopsis thaliana	constant light (LL)	loop	16	3000	correlation	0.0876	6	1.4233	3	0.3196	0.4794	1.0	0.5267	0.4265	24.5	0.428	-0.0987	line-like	False
+ath_diurnal_ld	GSE137732	Arabidopsis thaliana	long day (LD)	loop	16	3000	correlation	0.0874	4	0.9297	1	0.3135	0.4707	1.0	0.7108	0.0066	26.0	0.0257	-0.6851	line-like	False
+tomato_fruit_dev	GSE128739	Solanum lycopersicum	fruit	line	26	3000	correlation	0.0494	2	0.5244	1	0.4394	0.8477	0.9751						line-like	True

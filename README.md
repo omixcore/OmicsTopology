@@ -265,10 +265,22 @@ Three things the benchmark measures rather than hides:
   distances no cloud clears its null; with correlation distances (comparing
   expression *patterns* rather than absolute levels) the rice genotypes
   clear theirs.  `--metric` makes the comparison easy to rerun.
-* **Dropping biological replicates does not destroy the loop.**  Sampling
-  one library per time point from GSE158444 (60 independent draws) leaves
-  H1 max at 0.61 — the same as the full data — with the circular advantage
-  positive in 100 % of draws (`examples/diagnose_replicates.py`).
+* **Biological replicates are not what carries the loop.**  Five independent
+  checks (`examples/diagnose_replicate_contribution.py`): (i) a variance
+  decomposition puts only 28–37 % of each gene's variation inside a time
+  point (median ICC 0.72 / 0.63) — the share replication could ever average
+  away; (ii) replicate-averaged centroids (zero within-time noise) detect the
+  loop *better* than the full cloud (H1 max 0.73 vs 0.61); (iii) sampling one
+  library per time point (60 draws) leaves H1 max at 0.61 with the circular
+  advantage positive in 100 % of draws; (iv) **manufacturing** three
+  pseudo-replicates per time point for GSE137732 — which has none — does not
+  flip its whole-record verdict (LL: −0.10 → +0.03/+0.04, LD: −0.69 →
+  +0.01/−0.37, H1 p = 1.0 in every case); (v) GSE137732's loop would only
+  break at ~3–4× the within-time scatter GSE158444 actually has, yet its
+  split-half gene reliability (0.985 for long day) is nearly identical to
+  GSE158444's (0.997).  Replicates help a little (the circular advantage
+  rises by ~0.13), but far too little to matter for the verdict — which is
+  geometry (drift), not statistics.
 
 Full result tables and diagnosis JSON live in [`benchmark/`](benchmark/).
 
@@ -360,7 +372,9 @@ examples/          runnable demos; see the files
   prepare_datasets.py         prepare every benchmark dataset in one command
   multi_dataset_benchmark.py  pre-registered multi-dataset topology benchmark
   diagnose_period_drift.py    why a 2-cycle record under drift is a helix, not a loop
-  diagnose_replicates.py      how much biological replicates contribute to detection
+  diagnose_replicates.py      does dropping replicates hurt detection? (no)
+  diagnose_replicate_contribution.py
+                              how much do replicates contribute? (measured 5 ways)
 benchmark/         committed result tables of the multi-dataset benchmark
 tests/             68 pytest cases
 ```

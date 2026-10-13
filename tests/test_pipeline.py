@@ -106,3 +106,61 @@ def test_plots_are_written_when_available(tmp_path):
                  "betti_curves.png", "landscapes.png"):
         assert os.path.exists(tmp_path / name), name
     assert any(p.endswith(".png") for p in report.files)
+
+
+def test_default_statistic_is_h1_max():
+    """`h1_total` is swamped by noise loops, so it must not be the default.
+
+    Measured over independent datasets it detects a real ring only ~20% of the
+    time while still firing ~10% of the time on a pure mean shift; `h1_max`
+    reaches 100% / 0%.  See examples/power_analysis.py.
+    """
+    X, groups, labels = two_state_omics(n_genes=300, n_per_state=30,
+                                        state_b="cycle", seed=0)
+    report = run_states(X, groups, labels=labels, **FAST)
+
+    assert report.test["statistic"] == "h1_max"
+    assert report.diagnostics["statistic"] == "h1_max"
+
+
+def test_statistic_can_be_chosen():
+    X, groups, labels = two_state_omics(n_genes=300, n_per_state=30,
+                                        state_b="cycle", seed=0)
+    report = run_states(X, groups, labels=labels, statistic="h1_count", **FAST)
+
+    assert report.test["statistic"] == "h1_count"
+    assert report.diagnostics["statistic"] == "h1_count"
+
+
+def test_unknown_statistic_is_rejected():
+    X, groups, labels = two_state_omics(n_genes=100, n_per_state=15, seed=8)
+    with pytest.raises(ValueError, match="unknown statistic"):
+        run_states(X, groups, labels=labels, statistic="not_a_statistic",
+                   max_points=15, max_simplices=10_000, n_permutations=10, seed=0)
+
+
+def test_builtin_backend_is_the_default_and_is_recorded():
+    X, groups, labels = two_state_omics(n_genes=200, n_per_state=20, seed=7)
+    report = run_states(X, groups, labels=labels, max_points=20,
+                        max_simplices=20_000, n_permutations=0, seed=0)
+
+    assert report.diagnostics["backend"] == "builtin"
+
+
+def test_backends_agree_on_the_p_value():
+    """The backend must not decide the answer.
+
+    `ripser` skips the threshold truncation that `builtin` applies, so the two
+    are only expected to agree while the threshold still covers the whole
+    cloud — which is the regime the tests here run in.
+    """
+    pytest.importorskip("ripser")
+    X, groups, labels = two_state_omics(n_genes=300, n_per_state=25,
+                                        state_b="cycle", seed=0)
+
+    builtin = run_states(X, groups, labels=labels, backend="builtin", **FAST)
+    ripser = run_states(X, groups, labels=labels, backend="ripser", **FAST)
+
+    assert builtin.diagnostics["backend"] == "builtin"
+    assert ripser.diagnostics["backend"] == "ripser"
+    assert builtin.test["p_value"] == pytest.approx(ripser.test["p_value"], abs=0.02)

@@ -110,6 +110,7 @@ def permutation_test_pointclouds(
     max_dim: int = 1,
     max_simplices: int = 80_000,
     threshold: float | None = None,
+    backend: str = "builtin",
 ) -> dict:
     """Permutation test on two single-snapshot state clouds.
 
@@ -135,6 +136,10 @@ def permutation_test_pointclouds(
         A single Rips threshold shared by both states and every permutation,
         so the comparisons are on a common scale.  When ``None`` it is
         chosen once from the pooled cloud.
+    backend : {"builtin", "auto", "ripser"}
+        Homology backend.  Defaults to ``"builtin"`` on purpose: the ripser
+        path ignores ``threshold``/``max_simplices``, so ``"auto"`` would make
+        the p-value depend on whether ripser happens to be installed.
 
     Returns
     -------
@@ -154,10 +159,12 @@ def permutation_test_pointclouds(
 
     def diagrams(X: np.ndarray, Y: np.ndarray):
         da = persistent_homology(
-            X, max_dim=max_dim, threshold=threshold, max_simplices=max_simplices
+            X, max_dim=max_dim, threshold=threshold, max_simplices=max_simplices,
+            backend=backend,
         )
         db = persistent_homology(
-            Y, max_dim=max_dim, threshold=threshold, max_simplices=max_simplices
+            Y, max_dim=max_dim, threshold=threshold, max_simplices=max_simplices,
+            backend=backend,
         )
         return da, db
 

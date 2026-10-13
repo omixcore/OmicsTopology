@@ -183,7 +183,7 @@ def persistent_homology(
     threshold: float | None = None,
     max_simplices: int = 80_000,
     h0: str = "mst",
-    backend: str = "auto",
+    backend: str = "builtin",
     verbose: bool = False,
 ) -> PersistenceDiagram:
     """Persistent homology of a point cloud or a distance matrix.
@@ -205,9 +205,14 @@ def persistent_homology(
         ``"mst"`` (default) computes H0 exactly from the minimum spanning
         tree; ``"reduction"`` takes it from the boundary matrix instead,
         which is mainly useful for cross-validation of the implementation.
-    backend : {"auto", "builtin", "ripser"}
-        ``"auto"`` uses :mod:`ripser` when it is installed and falls back to
-        the built-in implementation otherwise.
+    backend : {"builtin", "auto", "ripser"}
+        ``"builtin"`` (the default) is the pure-Python implementation.  It
+        honours ``threshold`` and ``max_simplices``, so results are the same
+        on every machine.  ``"auto"`` prefers :mod:`ripser` when it is
+        installed, and ``"ripser"`` forces it — but ripser never truncates the
+        filtration, so the reported ``threshold`` becomes ``inf`` and more
+        bars survive.  Pin the backend explicitly when reproducibility
+        matters.
     verbose : bool
         Print the chosen threshold and complex size.
 
@@ -232,7 +237,11 @@ def persistent_homology(
     n_points = int(D.shape[0])
 
     use_ripser = backend == "ripser" or (backend == "auto" and _ripser_available())
-    if use_ripser and h0 == "mst" and backend == "auto":
+    if use_ripser and h0 == "mst":
+        # Note: the ripser path ignores `threshold`/`max_simplices` entirely —
+        # it never truncates the filtration.  That changes both the reported
+        # threshold (inf) and which bars appear, so pin `backend` explicitly
+        # if you need bit-for-bit reproducibility across machines.
         try:
             bars, info = _persistent_homology_ripser(D, max_dim)
         except Exception as exc:  # pragma: no cover - defensive fallback

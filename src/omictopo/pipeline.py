@@ -184,7 +184,9 @@ def run_states(
     max_points: int | None = 120,
     max_dim: int = 1,
     max_simplices: int = 80_000,
+    backend: str = "builtin",
     n_permutations: int = 100,
+    statistic: str = "h1_max",
     run_test: bool = True,
     plots: bool = False,
     outdir: str | None = None,
@@ -214,9 +216,24 @@ def run_states(
         Highest homology dimension.
     max_simplices : int
         Simplex budget for the shared threshold.
+    backend : {"builtin", "auto", "ripser"}
+        Homology backend.  Defaults to ``"builtin"`` so that the shared
+        threshold is actually honoured and results do not change depending on
+        whether ripser is installed.  ``"ripser"`` is much faster on large
+        clouds but ignores the threshold, so persistence values are then on a
+        different scale.
     n_permutations : int
         Permutations for the point-cloud test; set 0 or ``run_test=False`` to
         skip it.
+    statistic : str
+        Test statistic.  Defaults to ``"h1_max"`` — the longest surviving
+        loop.  This matters a lot: ``"h1_total"`` sums *all* H1 bars
+        including the short noise loops, and in simulation it detects a real
+        ring only ~20% of the time while still firing on a pure mean shift
+        ~10% of the time.  ``"h1_max"`` and ``"bottleneck"`` both reach 100%
+        detection with 0% false positives on the same data.  See
+        ``examples/power_analysis.py``.  Other options: ``"h1_total"``,
+        ``"h1_count"``, ``"bottleneck"``, ``"wasserstein"``.
     run_test : bool
         Run the permutation test when there are exactly two states.
     plots : bool
@@ -279,7 +296,7 @@ def run_states(
     for name, D_state in state_distances.items():
         diagrams[name] = persistent_homology(
             D=D_state, max_dim=max_dim, threshold=shared_threshold,
-            max_simplices=max_simplices,
+            max_simplices=max_simplices, backend=backend,
         )
 
     # `scale` puts every state on the same ruler: the shared threshold is what
@@ -299,10 +316,10 @@ def run_states(
     if run_test and len(labels) == 2 and int(n_permutations) > 0:
         test = permutation_test_pointclouds(
             clouds[labels[0]], clouds[labels[1]],
-            statistic="h1_total", dim=1,
+            statistic=statistic, dim=1,
             n_permutations=int(n_permutations), seed=seed,
             max_points=None, max_dim=max_dim, max_simplices=max_simplices,
-            threshold=shared_threshold,
+            threshold=shared_threshold, backend=backend,
         )
 
     diagnostics = {
@@ -314,8 +331,10 @@ def run_states(
         "max_points": max_points,
         "max_dim": int(max_dim),
         "max_simplices": int(max_simplices),
+        "backend": str(backend),
         "shared_threshold": float(shared_threshold),
         "n_permutations": int(n_permutations),
+        "statistic": str(statistic),
         "seed": int(seed),
     }
     for name, pts in clouds.items():

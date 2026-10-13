@@ -82,7 +82,8 @@ python examples/demo_stress_response.py --control-shape shift   # negative contr
 * **`h1_max_persistence`** — the longest surviving loop. A ring that is real
   gives one bar far longer than the rest.
 * **`h1_total_persistence`** — total amount of loop structure, including
-  noise-level loops. Sensitive but less specific.
+  noise-level loops. Sensitive but *not* specific — do not use it as a test
+  statistic; see the power table below.
 * **`h1_entropy`** — one dominant loop gives low entropy; many equal small
   loops give high entropy. Use it to tell signal from a noise floor.
 * **`bottleneck`** — the single worst-matched feature. Strict: fires only if
@@ -103,13 +104,34 @@ X, groups, labels = two_state_omics(state_b="shift")   # shift -> test does not 
 ```
 
 Both conditions are generated through the same gene loadings, so the marginal
-gene distributions are comparable and only the *geometry* differs. Measured on
-the default setting (600 genes, 40 samples per condition, 100 permutations):
+gene distributions are comparable and only the *geometry* differs.
 
-| case | H1 max (stress / control) | p-value |
+### A single p-value is not evidence
+
+With 100 permutations, `p = 0.030` is only the 4th smallest value attainable,
+and it can happen by luck. What matters is how the test behaves across
+*independent* datasets. `examples/power_analysis.py` measures exactly that —
+10 datasets per case, 100 permutations each:
+
+| statistic | detection (a real ring) | false positive (mean shift) |
 |---|---|---|
-| `cycle` (a real loop) | 0.361 / 0.062 (≈ 6×) | **0.030** |
-| `shift` (mean shift only) | 0.095 / 0.100 (≈ 1×) | 0.693 |
+| `h1_total` | 2/10 = 20% | 1/10 = 10% |
+| **`h1_max`** ← default | **10/10 = 100%** | **0/10 = 0%** |
+| `bottleneck` | 10/10 = 100% | 0/10 = 0% |
+| `wasserstein` | 7/10 = 70% | 1/10 = 10% |
+| `h1_count` | 4/10 = 40% | 0/10 = 0% |
+
+The first row is the lesson. `h1_total` sums *every* H1 bar, so a crowd of
+short noise loops dilutes one genuine ring until it is indistinguishable from
+a plain mean shift — 20% detection against 10% false positives is barely
+better than guessing. `run_states` defaults to `h1_max` (the longest surviving
+loop) and exposes `statistic=` so you can pick another.
+
+```python
+report = run_states(matrix, groups, labels=["control", "salt_stress"],
+                    statistic="h1_max",       # default; "bottleneck" also works well
+                    n_permutations=200)
+```
 
 ## Correctness
 
@@ -149,13 +171,34 @@ importable too if you want the filtration itself.
 * **Embedding first.** The filtration is built on a PCA embedding (default 3
   components), not on the raw feature space — a Rips complex in 20 000
   dimensions is meaningless. Change `n_components` if you have a reason to.
-* **Sample size.** Rips complexes grow as O(n³). Clouds are subsampled to
-  `max_points` (default 120) per state, and a distance threshold is chosen
-  automatically to keep the complex inside `max_simplices`.
+* **Sample size, and what the threshold really costs.** Rips complexes grow as
+  O(n³), so clouds are subsampled to `max_points` per state and the complex is
+  held inside `max_simplices` (default 80 000) by *lowering the distance
+  threshold*. That keeps the runtime flat — but it is not free. Measured on
+  random clouds at the default budget, the threshold the backend ends up using
+  is:
+
+  | points | threshold as % of the cloud's full diameter |
+  |---|---|
+  | 40 | 100% |
+  | 200 | 23% |
+  | 800 | 10% |
+  | 3000 | **4%** |
+
+  Past a few hundred points the built-in backend is looking at a small-scale
+  neighbourhood only, and any large-scale structure — including the global
+  loop that H1 exists to find — falls outside the filtration. For clouds that
+  large use `backend="ripser"`, which never truncates.
 * **Truncation.** Bars dying beyond the threshold are reported as essential
   (`death = inf`) and, in the summaries, counted as dying *at* the threshold.
   That keeps a loop which outlives the filtration visible instead of silently
   dropping it.
+* **Backend choice is not cosmetic.** `backend="builtin"` (the default)
+  honours `threshold` and `max_simplices`, and gives the same answer on every
+  machine. `"ripser"` and `"auto"` ignore the threshold, so
+  `diagram.threshold` becomes `inf` and more bars survive; they are also
+  roughly 100× faster. On the examples here both backends return identical
+  p-values, but pin the backend explicitly when reproducibility matters.
 * **H2 is indicative only.** To resolve cavities the complex would need
   tetrahedra, which are deliberately not built. For full H2 persistence use a
   dedicated library; `persistent_homology(..., backend="ripser")` will use
@@ -184,6 +227,7 @@ src/omictopo/
   cli.py           omictopo command
   datasets.py      synthetic data with known topology
 examples/          runnable demos; see the files
+  power_analysis.py    detection and false-positive rates across datasets
 tests/             63 pytest cases
 ```
 

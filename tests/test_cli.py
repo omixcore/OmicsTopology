@@ -70,6 +70,28 @@ def test_sample_order_is_realigned(tmp_path, capsys):
     assert "control" in capsys.readouterr().out
 
 
+def test_backend_and_statistic_flags_are_accepted(tmp_path, capsys):
+    """--backend / --statistic must reach run_states rather than error out."""
+    X, groups, _ = two_state_omics(n_genes=120, n_per_state=15, seed=3)
+    matrix = str(tmp_path / "expr.tsv")
+    groupfile = str(tmp_path / "groups.tsv")
+    write_matrix(matrix, X, rownames=[f"s{i}" for i in range(X.shape[0])],
+                 colnames=[f"g{j}" for j in range(X.shape[1])])
+    with open(groupfile, "w", encoding="utf-8") as fh:
+        fh.write("sample\tgroup\n")
+        for i, g in enumerate(groups):
+            fh.write(f"s{i}\t{'control' if g == 0 else 'salt'}\n")
+
+    code = main([
+        "run", "--matrix", matrix, "--groups", groupfile,
+        "--labels", "control,salt", "--max-points", "15",
+        "--max-simplices", "20000", "--no-test",
+        "--backend", "builtin", "--statistic", "bottleneck",
+    ])
+    assert code == 0
+    assert "control" in capsys.readouterr().out
+
+
 def test_unknown_sample_is_reported(tmp_path):
     X, groups, _ = two_state_omics(n_genes=60, n_per_state=8, seed=2)
     matrix = str(tmp_path / "expr.tsv")

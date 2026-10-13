@@ -149,6 +149,59 @@ H0 is computed twice by independent routes — minimum spanning tree, and the
 full GF(2) boundary-matrix reduction — and the two agree to machine precision
 on every test cloud. The full pytest suite is in `tests/`.
 
+## Real data: the circadian clock is a loop
+
+Synthetic checks can only go so far, so the package ships a case study on a
+public plant dataset: **GSE158444** (Bonnot & Nagel 2021,
+[PMID 33871647](https://pubmed.ncbi.nlm.nih.gov/33871647/)) — *Arabidopsis
+thaliana* seedlings sampled at eight times of day across one circadian
+period, kept at 22 °C or given a 1 h 37 °C heat shock. The processed count
+table is small, so the whole thing runs in about a minute.
+
+```bash
+python examples/prepare_plant_dataset.py --outdir data/arabidopsis_heat
+python examples/arabidopsis_heat_stress.py --data-dir data/arabidopsis_heat
+```
+
+A working circadian clock should make the samples trace a **closed loop** in
+state space; a purely linear response would trace a line. That is a topology
+stated in advance, then tested — not one discovered and rationalised
+afterwards.
+
+![circadian loop](docs/fig_circadian_loop.png)
+
+Both conditions recover the loop: a single dominant H1 class
+(persistence 9.7 control, 8.2 heat; β₁ = 1 at its midpoint). The evidence does
+not depend on the embedding — a Mantel test finds sample-to-sample expression
+distance is better explained by the distance *around* the clock than by the
+distance *along* it (r = 0.74 vs 0.58 control, 0.69 vs 0.60 heat, both
+p = 0.0002):
+
+![circularity and replicates](docs/fig_circularity_replicates.png)
+
+Biological replicates also behave (same-hour samples are ~0.25× as far apart
+as different-hour ones), so the loop is not an artefact of noisy replicates.
+
+The permutation test finds **no topological difference** between control and
+heat (p = 0.96). That negative result is informative rather than merely
+inconclusive: at the same sample size (n = 23/24) the test recovers a true
+loop difference in 11/12 synthetic datasets with 0/12 false positives, so it
+had power here and found nothing. A 1 h heat shock does not rewrite the
+topology of the diurnal program.
+
+Two caveats the case study measures rather than hides:
+
+* **Shared-embedding compression.** `run_states` embeds all samples together;
+  here PC1 is 85 % of the variance and is the treatment axis, so the
+  circadian structure survives only in PC2/PC3. A shared threshold calibrated
+  on that spread makes the H1 numbers look small.
+* **p-values move with preprocessing.** Sweeping the number of retained
+  features (500 → all 21 015) keeps the loop in every setting but swings the
+  control-vs-heat p-value between 0.07 and 0.96. When two conditions share a
+  dominant structure, `h1_max` has wide permutation nulls. Report the sweep,
+  not a single number.
+
+
 ## API tour
 
 ```python
@@ -227,8 +280,12 @@ src/omictopo/
   cli.py           omictopo command
   datasets.py      synthetic data with known topology
 examples/          runnable demos; see the files
-  power_analysis.py    detection and false-positive rates across datasets
-tests/             63 pytest cases
+  demo_known_shapes.py        correctness against shapes with known topology
+  demo_stress_response.py     positive / negative two-condition controls
+  power_analysis.py           detection and false-positive rates across datasets
+  prepare_plant_dataset.py    download + normalise the GSE158444 Arabidopsis data
+  arabidopsis_heat_stress.py  real-data case study: the circadian clock is a loop
+tests/             68 pytest cases
 ```
 
 ## Running the tests

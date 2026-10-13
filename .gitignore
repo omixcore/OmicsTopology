@@ -28,4 +28,5 @@ Thumbs.db
 # Project outputs
 generated/
 examples/data/
+data/
 *.bmp

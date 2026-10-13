@@ -52,6 +52,14 @@ def build_parser() -> argparse.ArgumentParser:
                      help="highest homology dimension (default 1)")
     run.add_argument("--max-simplices", type=int, default=80000,
                      help="simplex budget for the automatic threshold")
+    run.add_argument("--backend", default="builtin",
+                     choices=["builtin", "ripser", "auto"],
+                     help="persistent-homology backend (default builtin; "
+                          "'ripser' is ~100x faster but ignores the threshold)")
+    run.add_argument("--statistic", default="h1_max",
+                     choices=["h1_max", "h1_total", "h1_count",
+                              "bottleneck", "wasserstein"],
+                     help="permutation-test statistic (default h1_max)")
     run.add_argument("--n-permutations", type=int, default=100,
                      help="permutations for the significance test (default 100)")
     run.add_argument("--no-test", action="store_true", help="skip the permutation test")
@@ -119,6 +127,8 @@ def main(argv=None) -> int:
         max_points=None if args.max_points <= 0 else args.max_points,
         max_dim=args.max_dim,
         max_simplices=args.max_simplices,
+        backend=args.backend,
+        statistic=args.statistic,
         n_permutations=args.n_permutations,
         run_test=not args.no_test,
         plots=args.plots,

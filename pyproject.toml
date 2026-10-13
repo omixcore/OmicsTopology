@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "omictopo"
+version = "0.1.0"
+description = "Topological data analysis of omics state spaces: persistent homology for stress response, developmental transition and cell differentiation."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+keywords = ["topological-data-analysis", "persistent-homology", "omics", "transcriptomics", "systems-biology"]
+dependencies = [
+    "numpy>=1.21",
+    "scipy>=1.7",
+]
+
+[project.optional-dependencies]
+plot = ["matplotlib>=3.5"]
+fast = ["ripser>=0.6"]
+dev = ["pytest>=7", "matplotlib>=3.5"]
+
+[project.scripts]
+omictopo = "omictopo.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

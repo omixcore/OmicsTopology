@@ -284,6 +284,25 @@ Three things the benchmark measures rather than hides:
 
 Full result tables and diagnosis JSON live in [`benchmark/`](benchmark/).
 
+**What this benchmark does *not* yet show.**  `examples/benchmark_audit.py`
+(→ `benchmark/statistical_audit.json`) audits the headline number, and the
+audit is deliberately unflattering:
+
+* **The topological statistic has no demonstrated edge over a classical
+  test.**  Dropping H1 entirely and keeping only the circular-vs-linear
+  Mantel test still scores **8/10**; H1 alone scores 7/10 and demanding both
+  scores 7/10.  On these ten clouds the Mantel line carries the accuracy, so
+  "TDA was needed here" is not yet supported.
+* **Nothing survives multiplicity correction on the H1 line.**  With ten
+  clouds the smallest BH threshold is 0.005 while the smallest H1 p-value is
+  0.0199 — **0/10** survive BH or Bonferroni.  The Mantel p-values (0.0002)
+  do survive (6/7).
+* **8/10 is not distinguishable from chance at this sample size.**  Exact
+  two-sided binomial against a 50 % baseline gives p = 0.109 and a Wilson
+  95 % CI of [0.49, 0.94]; about 20 units would be needed for 80 % power.
+
+The per-unit table in the audit JSON is the honest version of the summary.
+
 
 ## API tour
 
@@ -375,6 +394,7 @@ examples/          runnable demos; see the files
   diagnose_replicates.py      does dropping replicates hurt detection? (no)
   diagnose_replicate_contribution.py
                               how much do replicates contribute? (measured 5 ways)
+  benchmark_audit.py          ablation, multiplicity and resolution of the headline
 benchmark/         committed result tables of the multi-dataset benchmark
 tests/             68 pytest cases
 ```

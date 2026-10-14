@@ -1,0 +1,330 @@
+{
+ "question": "does the one measured 12 x 4 clock x oestrous grid count two cycles?",
+ "design": {
+  "accession": "PRJNA1348461",
+  "title": "Mouse liver: 48 females, 2-hourly for 96 h, staged into the four oestrous phases",
+  "n_samples": 48,
+  "n_features": 3000,
+  "design": "12 clock times x 4 oestrous phases, every cell occupied",
+  "count": {
+   "n_samples": 48,
+   "top_bars_rel": [
+    0.1889,
+    0.1208,
+    0.1157,
+    0.0973,
+    0.0926
+   ],
+   "null_q95": 0.3685,
+   "n_cycles": 0,
+   "gap": 1.5637
+  },
+  "mantel_r_circadian": 0.6302,
+  "mantel_p_circadian": 0.0005,
+  "mantel_r_oestrous": 0.0061,
+  "mantel_p_oestrous": 0.429785,
+  "top_var_sweep": [
+   {
+    "top_var": 300,
+    "n_cycles": 0,
+    "top_bar_rel": 0.1588,
+    "null_q95": 0.3719,
+    "gap": 1.2416,
+    "mantel_r_circadian": 0.5399,
+    "mantel_r_oestrous": 0.0231
+   },
+   {
+    "top_var": 1000,
+    "n_cycles": 0,
+    "top_bar_rel": 0.1339,
+    "null_q95": 0.3736,
+    "gap": 1.0428,
+    "mantel_r_circadian": 0.5984,
+    "mantel_r_oestrous": 0.009
+   },
+   {
+    "top_var": 2000,
+    "n_cycles": 0,
+    "top_bar_rel": 0.1246,
+    "null_q95": 0.3668,
+    "gap": 1.1678,
+    "mantel_r_circadian": 0.6142,
+    "mantel_r_oestrous": 0.0047
+   },
+   {
+    "top_var": 3000,
+    "n_cycles": 0,
+    "top_bar_rel": 0.1889,
+    "null_q95": 0.3685,
+    "gap": 1.5637,
+    "mantel_r_circadian": 0.6302,
+    "mantel_r_oestrous": 0.0061
+   }
+  ],
+  "phase_block_variance": {
+   "observed": 0.0411,
+   "null_mean": 0.04986,
+   "p": 0.85,
+   "note": "permutation test of across-oestrous-phase variance in the high-variance genes, at fixed clock time"
+  },
+  "hours": [
+   1,
+   3,
+   5,
+   7,
+   9,
+   11,
+   13,
+   15,
+   17,
+   19,
+   21,
+   23,
+   25,
+   27,
+   29,
+   31,
+   33,
+   35,
+   37,
+   39,
+   41,
+   43,
+   45,
+   47,
+   49,
+   51,
+   53,
+   55,
+   57,
+   59,
+   61,
+   63,
+   65,
+   67,
+   69,
+   71,
+   73,
+   75,
+   77,
+   79,
+   81,
+   83,
+   85,
+   87,
+   89,
+   91,
+   93,
+   95
+  ],
+  "phase_of_sample": [
+   "diestrus",
+   "diestrus",
+   "diestrus",
+   "diestrus",
+   "diestrus",
+   "diestrus",
+   "diestrus",
+   "diestrus",
+   "diestrus",
+   "diestrus",
+   "diestrus",
+   "diestrus",
+   "proestrus",
+   "proestrus",
+   "proestrus",
+   "proestrus",
+   "proestrus",
+   "proestrus",
+   "proestrus",
+   "proestrus",
+   "proestrus",
+   "proestrus",
+   "proestrus",
+   "proestrus",
+   "oestrus",
+   "oestrus",
+   "oestrus",
+   "oestrus",
+   "oestrus",
+   "oestrus",
+   "oestrus",
+   "oestrus",
+   "oestrus",
+   "oestrus",
+   "oestrus",
+   "oestrus",
+   "metestrus",
+   "metestrus",
+   "metestrus",
+   "metestrus",
+   "metestrus",
+   "metestrus",
+   "metestrus",
+   "metestrus",
+   "metestrus",
+   "metestrus",
+   "metestrus",
+   "metestrus"
+  ]
+ },
+ "per_phase_blocks": {
+  "diestrus": {
+   "n_samples": 12,
+   "n_cycles": 0,
+   "top_bar_rel": 0.169,
+   "null_q95": 0.5538,
+   "gap": 8.0095,
+   "mantel_r_circadian": 0.7123,
+   "mantel_p_circadian": 0.0005
+  },
+  "proestrus": {
+   "n_samples": 12,
+   "n_cycles": 0,
+   "top_bar_rel": 0.1506,
+   "null_q95": 0.549,
+   "gap": 8.0535,
+   "mantel_r_circadian": 0.7257,
+   "mantel_p_circadian": 0.0005
+  },
+  "oestrus": {
+   "n_samples": 12,
+   "n_cycles": 0,
+   "top_bar_rel": 0.0927,
+   "null_q95": 0.5494,
+   "gap": 2.6186,
+   "mantel_r_circadian": 0.5193,
+   "mantel_p_circadian": 0.0005
+  },
+  "metestrus": {
+   "n_samples": 12,
+   "n_cycles": 0,
+   "top_bar_rel": 0.1256,
+   "null_q95": 0.524,
+   "gap": 2.0324,
+   "mantel_r_circadian": 0.5739,
+   "mantel_p_circadian": 0.0005
+  }
+ },
+ "phase_drift": {
+  "phase_agreement": {
+   "diestrus": {
+    "diestrus": 1.0,
+    "proestrus": 0.2807,
+    "oestrus": 0.1553,
+    "metestrus": -0.0552
+   },
+   "proestrus": {
+    "diestrus": 0.2807,
+    "proestrus": 1.0,
+    "oestrus": 0.275,
+    "metestrus": 0.151
+   },
+   "oestrus": {
+    "diestrus": 0.1553,
+    "proestrus": 0.275,
+    "oestrus": 1.0,
+    "metestrus": 0.2338
+   },
+   "metestrus": {
+    "diestrus": -0.0552,
+    "proestrus": 0.151,
+    "oestrus": 0.2338,
+    "metestrus": 1.0
+   }
+  },
+  "amplitude_agreement": {
+   "diestrus": {
+    "diestrus": 1.0,
+    "proestrus": 0.355,
+    "oestrus": 0.3626,
+    "metestrus": 0.2984
+   },
+   "proestrus": {
+    "diestrus": 0.355,
+    "proestrus": 1.0,
+    "oestrus": 0.3939,
+    "metestrus": 0.3402
+   },
+   "oestrus": {
+    "diestrus": 0.3626,
+    "proestrus": 0.3939,
+    "oestrus": 1.0,
+    "metestrus": 0.3424
+   },
+   "metestrus": {
+    "diestrus": 0.2984,
+    "proestrus": 0.3402,
+    "oestrus": 0.3424,
+    "metestrus": 1.0
+   }
+  }
+ },
+ "calibration": {
+  "clock": {
+   "strength_1": {
+    "n_cycles": 1,
+    "top_bar_rel": 0.6084,
+    "null_q95": 0.4419,
+    "gap": 23.5814
+   },
+   "strength_2": {
+    "n_cycles": 1,
+    "top_bar_rel": 1.1469,
+    "null_q95": 0.8321,
+    "gap": 80.2028
+   },
+   "strength_4": {
+    "n_cycles": 1,
+    "top_bar_rel": 1.458,
+    "null_q95": 1.2567,
+    "gap": 972.0
+   }
+  },
+  "clock_phase_shifted": {
+   "strength_1": {
+    "n_cycles": 1,
+    "top_bar_rel": 0.6309,
+    "null_q95": 0.4428,
+    "gap": 16.9597
+   },
+   "strength_2": {
+    "n_cycles": 1,
+    "top_bar_rel": 1.2325,
+    "null_q95": 0.837,
+    "gap": 103.5714
+   },
+   "strength_4": {
+    "n_cycles": 1,
+    "top_bar_rel": 1.5524,
+    "null_q95": 1.2585,
+    "gap": 597.0769
+   }
+  },
+  "two_independent": {
+   "strength_1": {
+    "n_cycles": 0,
+    "top_bar_rel": 0.3918,
+    "null_q95": 0.4006,
+    "gap": 1.1833
+   },
+   "strength_2": {
+    "n_cycles": 2,
+    "top_bar_rel": 0.7479,
+    "null_q95": 0.5267,
+    "gap": 1.308
+   },
+   "strength_4": {
+    "n_cycles": 2,
+    "top_bar_rel": 0.9227,
+    "null_q95": 0.6178,
+    "gap": 1.2887
+   }
+  }
+ },
+ "conclusion": {
+  "count": 0,
+  "clock_is_real": "circular Mantel r = +0.630 (p = 0.0005) against the ~24 h axis, and every one of the four oestrous blocks resolves the clock on its own",
+  "second_cycle_is_not": "the oestrous axis carries no independent loop: Mantel r = +0.006 (p = 0.429785), across-phase variance is indistinguishable from a label permutation (p = 0.85), and the calibration shows a phase-shifted clock counts the same as an unshifted one, while only two genuinely independent oscillations reach 2"
+ }
+}

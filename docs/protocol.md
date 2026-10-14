@@ -42,7 +42,7 @@ Two rules are deliberately conservative:
 
 * the dominant-bar threshold is `gap >= 2`, which sits between the smallest gap
   ever measured on a design that was counted right (**3.56**) and the largest on
-  one that was not (**1.36**);
+  one that was not (**1.56** — the mouse-liver oestrous × circadian grid);
 * `r` is an **effect-size** cut, not a significance level. The yeast cell-cycle
   design has `r = +0.16` at `p = 0.0005` on 60 samples *and* a dominant bar; the
   rule returns `inconsistent`, which is the right *instruction* (go and check the
@@ -64,7 +64,12 @@ the boundary cannot quietly go stale.
   cannot close a loop (`examples/cycle_counting_real.py`, the yearlong window
   sweep);
 * for two independent parameters, there are two *independently sampled* axes — a
-  **grid**, not a longer time course (`examples/two_cycle_search.py`).
+  **grid**, not a longer time course (`examples/two_cycle_search.py`). On the one
+  measured design that satisfies the shape (PRJNA1348461, 12 clock times × 4
+  oestrous phases, every cell occupied) the second axis turns out to be a
+  *coherent phase offset of the first axis's loop* rather than an independent
+  coordinate, so the count is 1 and not 2 — `examples/estrous_grid_cycles.py`
+  and `examples/axis_separability.py`.
 
 **The protocol cannot**
 

@@ -28,11 +28,10 @@ accession / source              design                                      outc
 ==============================  ==========================================  ==================================
 GSE12289                        rat mammary gland, 31 samples over a        4-day time course; **one** sampling
                                 ~4-day estrous cycle                        axis, two frequencies -> knot, not a torus
-PRJNA1348461 (Morehouse 2026)   mouse liver, 4 estrous phases x 12 clock    the one genuine grid, but only raw FASTQ
-                                times (2-hourly, 48 females)                is deposited; the FPKM lives in a
-                                                                            preprint supplement, and the authors
-                                                                            report the second cycle as an
-                                                                            *amplitude modulation* of the first
+PRJNA1348461 (Morehouse 2026)   mouse liver, 4 estrous phases x 12 clock    the one genuine grid; **since measured**
+                                times (2-hourly, 48 females)                (see examples/estrous_grid_cycles.py):
+                                                                            the clock is real and the second axis
+                                                                            is not an independent cycle
 GSE48113                        human forced desynchrony, 22 people x        the two-oscillator protocol par
                                 7 circadian x **2** sleep/wake phases       excellence, but only 2 sleep/wake
                                                                             phases -> an arc, not a loop
@@ -41,12 +40,22 @@ GSE93067 / GSE93066             Douglas-fir, year and 48 h                   two
 ==============================  ==========================================  ==================================
 
 The conclusion is not "the method fails".  It is that the two-parameter case is
-gated by the **existence of the experiment**, and that no such experiment has
-been published with processed data.  The script therefore does two things: it
-measures the one single-axis two-frequency dataset that is downloadable
-(GSE12289) to show the topological prediction holds on real data, and it
-simulates the *cheapest* grid that would settle the question, so the missing
-experiment can be stated as a number rather than a hope.
+gated by the **existence of the experiment**.  That gate has now partly opened:
+the processed table for PRJNA1348461 was released after this search was written,
+and ``examples/estrous_grid_cycles.py`` measures it.  The answer is that the
+grid carries **one** countable cycle, not two -- the ~24 h clock is strong
+(circular Mantel r = +0.63, p = 0.0005, and it resolves inside every one of the
+four oestrous blocks on its own) while the oestrous axis leaves no independent
+loop (Mantel r = +0.006, p = 0.43; across-phase variance indistinguishable from
+a label permutation, p = 0.85).  A calibration on the same sampling shows a
+phase-shifted clock counts exactly like an unshifted one, so a second *phase*
+of the same loop does not make a second loop.
+
+This script therefore keeps two jobs: it measures the one single-axis
+two-frequency dataset that is downloadable (GSE12289) to show the topological
+prediction holds on real data, and it simulates the *cheapest* grid that would
+settle the positive case, so the still-missing experiment can be stated as a
+number rather than a hope.
 
 Run with::
 
@@ -271,11 +280,17 @@ def main(argv=None) -> int:
         "candidates": CANDIDATES,
         "measured_single_axis_case": est,
         "grid_requirement": req,
-        "conclusion": "No public two-cycle grid with processed data exists. The "
-                      "single-axis case is measured, not assumed: GSE12289 "
-                      "returns 0 with both rhythms significant, i.e. the "
-                      "topological prediction holds. The missing experiment is "
-                      "a grid, and its cheapest form is quoted above.",
+        "conclusion": "The public gap closed on the data side and stayed closed "
+                      "on the science side. PRJNA1348461 is a genuine 12 x 4 "
+                      "clock x oestrous grid with released FPKM, and it is now "
+                      "measured (examples/estrous_grid_cycles.py): the count is "
+                      "1, not 2, because the oestrous axis is a coherent phase "
+                      "offset of the clock's loop rather than an independent "
+                      "coordinate. The single-axis case is measured too: "
+                      "GSE12289 returns 0 with both rhythms significant, i.e. "
+                      "the topological prediction holds. What is still missing "
+                      "is a grid whose second axis is an independent cycle, "
+                      "and its cheapest form is quoted above.",
         "n_genes": args.n_genes,
         "noise_sd": args.noise_sd,
         "n_null": args.n_null,

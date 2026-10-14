@@ -7,17 +7,18 @@ The obvious objection is that the same person chose the design and wrote the
 claim.  This script asks the same question of five **public, measured**
 datasets whose designs were fixed by other people years ago.
 
-The five designs
+The designs
 ----------------
-=========================  =========  ==========================================
-key                        accession  what varies
-=========================  =========  ==========================================
-``psme_annual``            GSE93067   5 Douglas-fir trees x 16 dates over a year
-``psme_diurnal``           GSE93066   6 trees x 6 times of day x 2 days
-``human_forced_desync``    GSE48113   22 people x 7 circadian phases x 2 sleep
-``psme_annual_x_diurnal``  both       the two Douglas-fir series pooled
-``yeast_cell_cycle``       GSE8799    2 genotypes x 2 elutriations x 30 times
-=========================  =========  ==========================================
+===============================  ============  ==========================================
+key                            accession     what varies
+===============================  ============  ==========================================
+``psme_annual``                GSE93067      5 Douglas-fir trees x 16 dates over a year
+``psme_diurnal``               GSE93066      6 trees x 6 times of day x 2 days
+``human_forced_desync``        GSE48113      22 people x 7 circadian phases x 2 sleep
+``psme_annual_x_diurnal``      both          the two Douglas-fir series pooled
+``yeast_cell_cycle``           GSE8799       2 genotypes x 2 elutriations x 30 times
+``estrous_circadian_grid``     PRJNA1348461  48 females x 12 clock times x 4 oestrous
+===============================  ============  ==========================================
 
 What each one is for
 --------------------
@@ -416,6 +417,55 @@ def run_yeast_cell_cycle(root: str, results: dict, sweeps: dict, n_null: int,
     return checks
 
 
+def run_estrous_grid(root: str, results: dict, n_null: int, seed: int):
+    """The first measured design with two recorded **cyclic** axes.
+
+    PRJNA1348461 (Smith et al., bioRxiv 2026) is mouse liver from 48 females,
+    one sample every two hours for 96 h, each animal staged into one of the four
+    oestrous phases.  That is 12 clock times x 4 phases with every cell
+    occupied: a grid, and the first measured design whose sample sheet records
+    two axes that are *both* cyclic (a ~24 h clock and a ~96 h oestrous cycle),
+    as opposed to the two-labels-one-cycle traps elsewhere in this script.
+
+    The count is **one**, not two, and the two diagnostics say which axis
+    survives.  Split at the phase boundaries, every 24 h block resolves the
+    clock on its own (circular Mantel r = +0.52..+0.73, p <= 0.0005); the
+    oestrous axis leaves no independent loop (r = +0.006, p = 0.43).  The
+    calibration in ``examples/estrous_grid_cycles.py`` shows what that means:
+    a clock with a per-phase *phase shift* counts exactly like an unshifted one,
+    so a second phase of the same loop is not a second loop.
+    """
+    X, coords, _, info = load("estrous_circadian_grid", root)
+    print(f"estrous_circadian_grid {info['accession']}  {info['title']}")
+    clock = np.array([c["axis1_value"] for c in coords], dtype=float)
+    groups = [c["group"] for c in coords]
+
+    add(results, "estrous_grid_clock_axis", X, 1, n_null, seed,
+        "48 samples, 12 clock times x 4 oestrous phases; the ~24 h axis is the "
+        "one countable cycle",
+        phase=clock, primary=True)
+
+    # Each 24 h stretch on its own -- the clock must resolve inside every phase
+    # if it is real, whatever the second axis is doing.
+    block_scores = {}
+    for ph in sorted(set(groups)):
+        keep = [i for i, g in enumerate(groups) if g == ph]
+        sub = X[keep]
+        rec = score(sub, n_null, seed, phase=clock[keep])
+        block_scores[ph] = rec
+        add(results, f"estrous_grid_{ph}", sub, 1, n_null, seed,
+            f"one oestrous phase alone ({ph}), 12 samples across the clock",
+            phase=clock[keep])
+
+    r_clock = results["estrous_grid_clock_axis"].get("mantel_r")
+    print(f"  clock axis Mantel r={r_clock:+.3f}; per-phase blocks "
+          f"{[(p, round(s['mantel_r'], 3)) for p, s in block_scores.items()]}")
+    return {"per_phase_blocks": {p: {
+        "n_samples": s["n_samples"], "n_cycles": s["n_cycles"],
+        "mantel_r": s.get("mantel_r"), "mantel_p": s.get("mantel_p"),
+    } for p, s in block_scores.items()}}
+
+
 # --------------------------------------------------------------------------
 # figure
 # --------------------------------------------------------------------------
@@ -528,6 +578,7 @@ def main(argv=None) -> int:
     run_pooled(args.root, results, args.n_null, args.seed)
     axis_checks = run_yeast_cell_cycle(args.root, results, sweeps, args.n_null,
                                        args.seed)
+    grid_blocks = run_estrous_grid(args.root, results, args.n_null, args.seed)
     n_ok = sum(1 for r in results.values() if r["correct"])
     prim = [r for r in results.values() if r.get("primary")]
     n_prim_ok = sum(1 for r in prim if r["correct"])
@@ -547,6 +598,7 @@ def main(argv=None) -> int:
         "results": results,
         "window_sweeps": sweeps,
         "cellcycle_axis_checks": axis_checks,
+        "estrous_grid_blocks": grid_blocks,
         "n_correct": n_ok,
         "n_cases": len(results),
         "n_primary_correct": n_prim_ok,

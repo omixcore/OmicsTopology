@@ -151,7 +151,7 @@ PUBLISHED = {
     },
     # block C on measured data (benchmark/cycle_counting_real.json)
     "cycle_counting_real": {
-        "n_primary_correct": 2, "n_primary": 5,
+        "n_primary_correct": 2, "n_primary": 6,
         "genotype_shift_r": 0.458,
         "designs": {
             "annual_all_samples": {"gap": 4.9253, "mantel_r": 0.7007,
@@ -163,7 +163,48 @@ PUBLISHED = {
             "fd_all_samples": {"gap": 1.0692, "mantel_r": 0.0448,
                                "n_cycles": 0},
             "pooled_all_samples": {"gap": 1.0908, "n_cycles": 0},
+            "estrous_grid_clock_axis": {"gap": 1.5637, "mantel_r": 0.6302,
+                                        "n_cycles": 0},
         },
+    },
+    # the oestrous x circadian grid (benchmark/estrous_grid_cycles.json)
+    "estrous_grid_cycles": {
+        "accession": "PRJNA1348461",
+        "n_samples": 48,
+        "count": 0,
+        "gap": 1.5637,
+        "mantel_r_circadian": 0.6302,
+        "mantel_r_oestrous": 0.0061,
+        "phase_block_variance_p": 0.85,
+        "per_phase_blocks": {
+            "diestrus": {"mantel_r": 0.712},
+            "proestrus": {"mantel_r": 0.726},
+            "oestrus": {"mantel_r": 0.519},
+            "metestrus": {"mantel_r": 0.574},
+        },
+        "calibration": {
+            "clock_strength_2_count": 1,
+            "clock_phase_shifted_strength_2_count": 1,
+            "two_independent_strength_2_count": 2,
+        },
+    },
+    # what the topology says about the clock x oestrous coordinate
+    # (benchmark/axis_separability.json)
+    "axis_separability": {
+        "accession": "PRJNA1348461",
+        "n_samples": 48,
+        "mantel_r_clock": 0.6302,
+        "mantel_r_oestrous": 0.0061,
+        "amplitude_ratio": 1.5825,
+        "variance_clock": 0.1161,
+        "variance_oestrous": 0.0538,
+        "variance_both": 0.1699,
+        "additive_share": 1.0,
+        "subspace_cosine": 0.0,
+        "block_offset_coherence": 0.9222,
+        "max_block_offset_in_quarter_periods": 0.3657,
+        "separation_ratio": 0.8761,
+        "separation_bootstrap_ci95": [0.0742, 0.1857],
     },
     # the two-parameter search (benchmark/two_cycle_search.json)
     "two_cycle_search": {
@@ -177,10 +218,10 @@ PUBLISHED = {
     },
     # the protocol's declared envelope (src/omictopo/protocol.py)
     "protocol": {
-        "real_designs": 5,
+        "real_designs": 6,
         "real_designs_counted_correctly": 2,
         "gap_on_designs_counted_right": [3.56, 4.93],
-        "gap_on_designs_not_counted": [1.07, 1.09, 1.36],
+        "gap_on_designs_not_counted": [1.07, 1.09, 1.36, 1.56],
         "two_parameter_grid_min_samples_at_full_signal": 64,
         "two_parameter_grid_grid": "8x8",
     },
@@ -501,11 +542,120 @@ def check_protocol() -> None:
           and env["two_parameter_grid_grid"] == want["two_parameter_grid_grid"])
 
 
+def check_estrous_grid() -> None:
+    """The 12 x 4 clock x oestrous grid -- the first two-cyclic-axis design."""
+    print("10. the estrous x circadian grid (two recorded cyclic axes)")
+    path = BENCH / "estrous_grid_cycles.json"
+    if not path.exists():
+        check("  benchmark/estrous_grid_cycles.json exists", False, "missing")
+        return
+    data = json.loads(path.read_text(encoding="utf-8"))
+    want = PUBLISHED["estrous_grid_cycles"]
+    d = data["design"]
+
+    check(f"  {want['accession']}: 12 clock times x 4 phases, every cell filled",
+          d["accession"] == want["accession"]
+          and d["n_samples"] == want["n_samples"],
+          f"{d['accession']} n={d['n_samples']}")
+    check("  the count is one, not two",
+          d["count"]["n_cycles"] == want["count"]
+          and abs(d["count"]["gap"] - want["gap"]) < 0.01,
+          f"count {d['count']['n_cycles']} gap {d['count']['gap']}")
+
+    # the clock is real...
+    check("  the ~24 h clock axis is strong and significant",
+          abs(d["mantel_r_circadian"] - want["mantel_r_circadian"]) < 0.01
+          and d["mantel_p_circadian"] <= 0.001,
+          f"r {d['mantel_r_circadian']} p {d['mantel_p_circadian']}")
+
+    # ...and resolves inside every phase block on its own
+    blocks = data["per_phase_blocks"]
+    weak = [p for p, b in want["per_phase_blocks"].items()
+            if not blocks.get(p)
+            or abs(blocks[p]["mantel_r_circadian"] - b["mantel_r"]) > 0.01
+            or blocks[p]["mantel_p_circadian"] > 0.001]
+    check("  the clock resolves inside each of the four oestrous blocks",
+          not weak, f"blocks off target: {weak}")
+
+    # ...while the oestrous axis carries no independent loop
+    check("  the oestrous axis leaves no independent loop",
+          abs(d["mantel_r_oestrous"] - want["mantel_r_oestrous"]) < 0.01
+          and d["mantel_p_oestrous"] > 0.05,
+          f"r {d['mantel_r_oestrous']} p {d['mantel_p_oestrous']}")
+    check("  across-phase variance is indistinguishable from a permutation",
+          abs(d["phase_block_variance"]["p"] - want["phase_block_variance_p"])
+          < 0.06,
+          f"p {d['phase_block_variance']['p']}")
+
+    # the calibration that makes the verdict a comparison, not an assertion
+    cal = data["calibration"]
+    check("  calibration: a clock counts 1",
+          cal["clock"]["strength_2"]["n_cycles"]
+          == want["calibration"]["clock_strength_2_count"])
+    check("  calibration: a phase-shifted clock still counts 1 (a second "
+          "phase is not a second loop)",
+          cal["clock_phase_shifted"]["strength_2"]["n_cycles"]
+          == want["calibration"]["clock_phase_shifted_strength_2_count"])
+    check("  calibration: only two independent oscillations count 2",
+          cal["two_independent"]["strength_2"]["n_cycles"]
+          == want["calibration"]["two_independent_strength_2_count"])
+
+
+def check_axis_separability() -> None:
+    """What the topology says that the authors' per-gene harmonic fits do not."""
+    print("11. axis separability: the answer a clock fit cannot give")
+    path = BENCH / "axis_separability.json"
+    if not path.exists():
+        check("  benchmark/axis_separability.json exists", False, "missing")
+        return
+    data = json.loads(path.read_text(encoding="utf-8"))
+    want = PUBLISHED["axis_separability"]
+    q1, q2, q3, q4 = (data["q1_dominant_axis"], data["q2_additive_separability"],
+                      data["q3_phase_vs_shape"], data["q4_matched_clock_distance"])
+
+    check(f"  {want['accession']}: the joint geometry is scored on both axes",
+          data["accession"] == want["accession"]
+          and data["n_samples"] == want["n_samples"]
+          and abs(q1["mantel_r_clock"] - want["mantel_r_clock"]) < 0.01
+          and abs(q1["mantel_r_oestrous"] - want["mantel_r_oestrous"]) < 0.01,
+          f"r {q1['mantel_r_clock']} / {q1['mantel_r_oestrous']}")
+
+    check("  the clock's per-gene amplitude dominates the oestrous one",
+          abs(q1["amplitude_ratio_clock_over_oestrous"]
+              - want["amplitude_ratio"]) < 0.05,
+          f"ratio {q1['amplitude_ratio_clock_over_oestrous']}")
+
+    check("  the two axes explain separable slabs of the variance",
+          abs(q2["variance_explained_by_clock"] - want["variance_clock"]) < 0.01
+          and abs(q2["variance_explained_by_oestrous"] - want["variance_oestrous"]) < 0.01
+          and abs(q2["variance_explained_by_both"] - want["variance_both"]) < 0.01
+          and abs(q2["additive_share_of_both"] - want["additive_share"]) < 0.02
+          and abs(q2["subspace_cosine"] - want["subspace_cosine"]) < 0.05,
+          f"clock {q2['variance_explained_by_clock']} oestrous "
+          f"{q2['variance_explained_by_oestrous']} both "
+          f"{q2['variance_explained_by_both']}")
+
+    check("  the oestrous axis is a coherent phase shift of the clock's loop",
+          abs(q3["block_offset_coherence"] - want["block_offset_coherence"]) < 0.02
+          and abs(q3["max_block_offset_in_quarter_periods"]
+                  - want["max_block_offset_in_quarter_periods"]) < 0.02,
+          f"coherence {q3['block_offset_coherence']} max offset "
+          f"{q3['max_block_offset_in_quarter_periods']} quarter-periods")
+
+    ci = q4["separation_bootstrap_ci95"]
+    check("  the oestrous axis still moves points, but by less than the clock",
+          abs(q4["separation_ratio"] - want["separation_ratio"]) < 0.01
+          and ci[0] > 0.0
+          and abs(ci[0] - want["separation_bootstrap_ci95"][0]) < 0.01
+          and abs(ci[1] - want["separation_bootstrap_ci95"][1]) < 0.01,
+          f"ratio {q4['separation_ratio']} CI {ci}")
+
+
 # --------------------------------------------------------------------------
 # layer 4 (optional): the executable spec
 # --------------------------------------------------------------------------
 def run_full() -> None:
-    print("10. the executable spec (--full)")
+    print("12. the executable spec (--full)")
     r = subprocess.run([sys.executable, "-m", "pytest", "-q", str(REPO)],
                        capture_output=True, text=True)
     tail = (r.stdout.strip().splitlines() or ["<no output>"])[-1]
@@ -543,6 +693,8 @@ def main() -> int:
     check_cycle_counting_real()
     check_two_cycle_search()
     check_protocol()
+    check_estrous_grid()
+    check_axis_separability()
     if args.full:
         run_full()
 

@@ -140,6 +140,46 @@ DESIGNS["yeast_cell_cycle"] = {
                     "time), one cyclic parameter"),
 }
 
+# ---------------------------------------------------------------------------
+# The design that finally asks the two-cycle question of *measured* data.
+#
+# Every design above varies one cyclic parameter.  PRJNA1348461 (Smith et al.,
+# bioRxiv 2026) is the first measured design with a genuine chance of two: 48
+# female mouse livers, one every two hours for 96 h, staged daily into the four
+# phases of the oestrous cycle.  The sample sheet therefore records the two
+# axes block C's claim is about -- a ~24 h circadian clock *and* a ~96 h
+# oestrous cycle -- with every (clock time x phase) cell occupied by exactly
+# one sample.
+#
+# The clock axis is real and strong: it survives in every phase block on its
+# own (circular Mantel r = +0.51..+0.72, p <= 0.0003).  What the count does
+# with it, and what that says about the second axis, is the result -- it is
+# *not* the "two" the design looks like it should give, and the calibration in
+# ``examples/two_cycle_search.py`` says why.
+DESIGNS["estrous_circadian_grid"] = {
+    "accession": "PRJNA1348461",
+    "organism": "Mus musculus",
+    "title": ("Mouse liver: 48 females, 2-hourly for 96 h, staged into the "
+              "four oestrous phases"),
+    "kind": "grid_fpkm",
+    "parser": "grid_fpkm",
+    "urls": {
+        # The processed FPKM table is bioRxiv supplementary Dataset S2 (media-2).
+        "fpkm": ("https://www.biorxiv.org/content/biorxiv/early/2026/09/25/"
+                 "2026.06.22.733912/DC2/embed/media-2.xlsx?download=true"),
+    },
+    # the URL carries a query string, so name the cached file explicitly
+    "cache_names": {"fpkm": "smith2026_estrous_circadian_fpkm.xlsx"},
+    # One 24 h turn of the clock inside the 96 h record; the oestrous period
+    # is ~96 h and is sampled once per phase, not traced around its own circle.
+    "period_hours": 24.0,
+    "axes": ("circadian_time", "oestrous_phase"),
+    "n_cyclic_parameters": 1,
+    "design_note": ("two recorded axes (clock time x oestrous phase), 12 x 4 "
+                    "fully occupied cells, sampled as one continuous 96 h "
+                    "trajectory"),
+}
+
 MONTHS = {m: i for i, m in enumerate(
     ["jan", "feb", "mar", "apr", "may", "jun",
      "jul", "aug", "sep", "oct", "nov", "dec"], start=1)}
@@ -457,6 +497,116 @@ def _prep_yeast_cell_cycle(path: str, outdir: str, min_expr: float,
 
 
 # ---------------------------------------------------------------------------
+# PRJNA1348461 -- the oestrous x circadian grid
+# ---------------------------------------------------------------------------
+# The bioRxiv supplement is a five-sheet workbook.  Sheet 2 ("96 hr data DPEM")
+# is the one that matters: 19615 genes x 48 female samples, columns labelled by
+# hour of the continuous 96 h record (1, 3, ... 95).  The KEY sheet gives the
+# phase of each 24 h stretch -- hours 1-23 diestrus, 25-47 proestrus, 49-71
+# oestrus, 73-96 metestrus -- which is the authors' own labelling, not ours.
+_GRID_PHASE_BLOCKS = (
+    (1, 23, "diestrus"),
+    (25, 47, "proestrus"),
+    (49, 71, "oestrus"),
+    (73, 96, "metestrus"),
+)
+
+
+def _grid_phase_zt(hour: int) -> tuple[str, int]:
+    """Map an hour of the 96 h record to (oestrous phase, ZT hour).
+
+    The record runs 1..96 with the four phases spanning consecutive 24 h
+    stretches (1-23 diestrus, 25-47 proestrus, ...), so the ZT hour is the hour
+    within its own day.  Hour 96 is a boundary: it closes the fourth day, and
+    its within-day offset is 24 -- i.e. it is the *same clock position* as
+    hour 0 of the next day.  It is reported as ZT 24 rather than wrapped to 1
+    so that the four-day record stays monotone; the circular distance in the
+    analysis wraps it back onto the right point regardless.
+    """
+    for lo, hi, name in _GRID_PHASE_BLOCKS:
+        if lo <= hour <= hi:
+            return name, hour - 24 * ((hour - 1) // 24)
+    raise ValueError(f"hour {hour} is outside the recorded 96 h window")
+
+
+def _read_xlsx_sheet(path: str, sheet_index: int = 2):
+    """Read one sheet of an .xlsx as a list of rows, following shared strings.
+
+    The repository has no xlsx dependency and this is the only file that needs
+    one, so the minimal SpreadsheetML that Excel and biorxiv both emit is
+    parsed directly rather than adding openpyxl to the install.
+    """
+    import re
+    import zipfile
+
+    with zipfile.ZipFile(path) as z:
+        names = z.namelist()
+        shared = []
+        if "xl/sharedStrings.xml" in names:
+            xml = z.read("xl/sharedStrings.xml").decode("utf-8", "ignore")
+            shared = re.findall(r"<t[^>]*>(.*?)</t>", xml, re.S)
+        sheet = f"xl/worksheets/sheet{sheet_index}.xml"
+        xml = z.read(sheet).decode("utf-8", "ignore")
+
+    def col_rank(ref: str) -> int:
+        n = 0
+        for ch in ref:
+            n = n * 26 + (ord(ch) - 64)
+        return n
+
+    rows = []
+    for row_xml in re.findall(r"<row[^>]*>(.*?)</row>", xml, re.S):
+        cells = re.findall(r'<c r="([A-Z]+)\d+"([^>]*)>(.*?)</c>', row_xml, re.S)
+        out = []
+        for ref, attr, body in cells:
+            value = re.search(r"<v>(.*?)</v>", body)
+            if not value:
+                continue
+            out.append(shared[int(value.group(1))]
+                       if 't="s"' in attr else value.group(1))
+        rows.append(out)
+    return rows
+
+
+def _prep_grid_fpkm(path: str, outdir: str, min_expr: float, min_frac: float,
+                    top_var: int) -> dict:
+    """PRJNA1348461: 12 ZT x 4 oestrous phases, sampled as one 96 h trajectory."""
+    table = _read_xlsx_sheet(path, sheet_index=2)
+    if not table or table[0][:2] != ["NM_ID", "Gene Symbol"]:
+        raise ValueError("unexpected sheet layout in the FPKM workbook")
+    header = table[0]
+    hours = [int(h) for h in header[2:]]
+    features = [row[1] for row in table[1:] if len(row) > 2]
+    values = np.asarray([[float(v) for v in row[2:2 + len(hours)]]
+                         for row in table[1:] if len(row) > 2], dtype=float)
+
+    meta = []
+    for j, hour in enumerate(hours):
+        phase, zt = _grid_phase_zt(hour)
+        meta.append({
+            "sample": f"{phase}_ZT{zt:02d}",
+            "group": phase,
+            "axis1_name": "circadian_time",
+            "axis1_value": 2.0 * np.pi * zt / 24.0,
+            "axis2_name": "oestrous_phase",
+            "axis2_value": 2.0 * np.pi * [b[2] for b in _GRID_PHASE_BLOCKS]
+                                          .index(phase) / 4.0,
+            # the raw hour of the 96 h record, so the windows / per-block
+            # analyses can reconstruct the single-axis trajectory
+            "series": f"hour{hour}",
+        })
+
+    # values is (genes x samples); transpose to the repository's convention
+    logx = np.log2(values.T + 1.0)                     # samples x features
+    det = values >= max(min_expr, 1.0)                 # genes x samples
+    keep = det.mean(axis=1) >= min_frac                # fraction of *samples*
+    logx = logx[:, keep]
+    features = [f for f, k in zip(features, keep) if k]
+    return _finalize(meta, features, logx, outdir, min_expr, min_frac, top_var,
+                     already_log=True)
+
+
+# ---------------------------------------------------------------------------
 # shared filtering / writing
 # ---------------------------------------------------------------------------
 
@@ -511,7 +661,10 @@ def _finalize(meta, features, logx, outdir, min_expr, min_frac, top_var,
 def prepare(key: str, cache: str, outdir: str, min_expr: float = 1.0,
             min_frac: float = 0.25, top_var: int = 3000) -> dict:
     spec = DESIGNS[key]
-    paths = {name: fetch(url, cache) for name, url in spec["urls"].items()}
+    # URLs carrying a query string need an explicit cache filename
+    names = spec.get("cache_names", {})
+    paths = {name: fetch(url, cache, names.get(name)) 
+             for name, url in spec["urls"].items()}
     dest = os.path.join(outdir, key)
     parser = spec.get("parser", spec["kind"])
     if parser == "counts":
@@ -519,6 +672,9 @@ def prepare(key: str, cache: str, outdir: str, min_expr: float = 1.0,
     elif parser == "yeast_cell_cycle":
         info = _prep_yeast_cell_cycle(paths["series"], dest, min_expr, min_frac,
                                       top_var)
+    elif parser == "grid_fpkm":
+        info = _prep_grid_fpkm(paths["fpkm"], dest, min_expr, min_frac,
+                               top_var)
     else:
         info = _prep_fd(paths["series"], dest, min_expr, min_frac, top_var)
     info.update({

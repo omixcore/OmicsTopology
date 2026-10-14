@@ -147,7 +147,7 @@ def test_axis_length_is_checked():
 def test_envelope_is_a_copy_not_a_handle():
     e1 = protocol.envelope()
     e1["measured"]["real_designs"] = 999
-    assert protocol.envelope()["measured"]["real_designs"] == 5
+    assert protocol.envelope()["measured"]["real_designs"] == 6
 
 
 # ---------------------------------------------------------------------------

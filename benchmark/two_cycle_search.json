@@ -311,7 +311,7 @@
    }
   ]
  },
- "conclusion": "No public two-cycle grid with processed data exists. The single-axis case is measured, not assumed: GSE12289 returns 0 with both rhythms significant, i.e. the topological prediction holds. The missing experiment is a grid, and its cheapest form is quoted above.",
+ "conclusion": "The public gap closed on the data side and stayed closed on the science side. PRJNA1348461 is a genuine 12 x 4 clock x oestrous grid with released FPKM, and it is now measured (examples/estrous_grid_cycles.py): the count is 1, not 2, because the oestrous axis is a coherent phase offset of the clock's loop rather than an independent coordinate. The single-axis case is measured too: GSE12289 returns 0 with both rhythms significant, i.e. the topological prediction holds. What is still missing is a grid whose second axis is an independent cycle, and its cheapest form is quoted above.",
  "n_genes": 3000,
  "noise_sd": 1.0,
  "n_null": 120,

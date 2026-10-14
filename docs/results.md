@@ -285,18 +285,54 @@ Both rhythms are present and significant, and neither dominates the selected
 genes: the cloud is an arc, so there is nothing to count. The topological
 prediction holds on real data.
 
-**No public grid with processed data was found.** The candidates, and where each
-one stopped, are recorded in the JSON. The closest is a 2026 mouse-liver study
-sampling the four estrous phases against twelve two-hourly clock times — a
-genuine 4 x 12 grid — but only raw FASTQ is deposited, and its own analysis
-reports the estrous effect as a modulation of circadian *amplitude* rather than
-a second cycle of comparable size. The canonical two-oscillator protocol, human
-forced desynchrony (GSE48113), releases only two sleep/wake phases, which is an
-arc rather than a loop.
+**A public grid *was* found, and it is now measured.** The 2026 mouse-liver
+study (PRJNA1348461) samples the four estrous phases against twelve two-hourly
+clock times — a genuine 4 x 12 grid, 48 females, every cell occupied. The
+FPKM table is released as a preprint supplement, so the question can be asked
+of the measured data rather than of a simulation.
+`examples/estrous_grid_cycles.py` (→ `benchmark/estrous_grid_cycles.json`)
+does exactly that, and the answer is **one, not two**:
 
-**So the experiment can be stated as a number.** Simulating the grid the
-analysis points at — one period of each parameter, both fully sampled, with a
-realistic dilution of the signal across the selected genes:
+| what is measured | value |
+|---|---|
+| count on the 12 x 4 grid | **0** (gap 1.56 — no dominant bar) |
+| circular Mantel r vs the ~24 h clock | **+0.630** (p = 0.0005) |
+| circular Mantel r vs the oestrous phase | **+0.006** (p = 0.43) |
+| clock r measured *inside* each 24 h block | +0.712 / +0.726 / +0.519 / +0.574 (all p <= 0.0005) |
+| across-phase variance, label permutation | p = 0.85 |
+
+The clock is real and resolves on its own inside every oestrous block; the
+oestrous axis leaves no independent loop. A calibration on the *same* sampling
+settles what the count should be: a pure 24 h clock counts 1, the same clock
+with a per-phase **phase shift** also counts 1, and only two genuinely
+independent oscillations count 2. A second phase of the same loop is not a
+second loop.
+
+**And the topology answers a question the authors' own analysis cannot.**
+PRJNA1348461's own analysis quantifies the oestrous effect the field's way —
+per-gene harmonic fits, rhythm calls, amplitude comparisons — and reports it as
+a modulation of circadian *amplitude*. That analysis is per-gene and
+one-dimensional in time; it has no notion of the joint coordinate. Scoring the
+joint geometry directly (`examples/axis_separability.py` →
+`benchmark/axis_separability.json`) makes the statement precise:
+
+| question | measured |
+|---|---|
+| which axis dominates the geometry? | clock Mantel r = +0.630 vs oestrous +0.006; per-gene clock amplitude 1.58x the oestrous one |
+| are the axes separable slabs of variance? | clock explains 11.6%, oestrous 5.4%, both 17.0% — additive share **1.00**, subspace cosine **0.00** |
+| phase shift or shape change? | block offsets are coherent (coherence **0.92**), largest offset 0.37 quarter-periods — a common phase shift of every gene, not a second programme |
+| does the oestrous axis move points at fixed clock time? | yes but little: matched pairs sit 12% closer than across-clock pairs, bootstrap CI [0.07, 0.19] |
+
+So the oestrous axis is not inert — it reliably displaces the state at fixed
+clock time — but it displaces it by a *common phase offset of the clock's own
+loop*, less than one clock step, rather than by opening a second coordinate.
+That is a partition of the joint state space, and it is what turns "the
+oestrous effect is a modulation" from a summary of amplitude tables into a
+property of the geometry.
+
+**The envelope is still stated as a number.** Simulating the grid the analysis
+points at — one period of each parameter, both fully sampled, with a realistic
+dilution of the signal across the selected genes:
 
 | grid | samples | signal fraction | count |
 |---|---|---|---|
@@ -309,14 +345,16 @@ realistic dilution of the signal across the selected genes:
 The count survives only when the grid is large (**>= 64 samples**) *and* the
 cycles are carried by essentially all of the high-variance genes. That is the
 honest envelope of the two-parameter claim, and it is the cheapest experiment
-this analysis points at.
+this analysis points at. The measured grid sits *below* that envelope (48
+samples, two-hourly) and it counts 0 for a second reason as well: the second
+axis carries no independent cycle to count.
 
 ## 6. The protocol
 
 `omictopo.protocol` turns the decision rule of §3 into a reusable procedure that
 returns a status — `counted`, `underpowered`, `inconsistent`, `no_cycle` — and
-refuses to quote an integer the spectrum does not support. Applied to the five
-real designs of block C it says *counted* twice and **refuses three times**,
+refuses to quote an integer the spectrum does not support. Applied to the six
+real designs of block C it says *counted* twice and **refuses four times**,
 with the two diagnostics (`gap` and the circular Mantel `r`) reported alongside
 so every refusal can be audited. The declared envelope is returned by
 `envelope()` and re-checked by `reproduce/verify.py`. See

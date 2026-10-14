@@ -1,13 +1,15 @@
 {
  "note": "sha256 of the committed raw benchmark data; regenerate only when a benchmark is genuinely recomputed",
- "git_head": "4315c1d1fbd67ab307061a0e5cd5432384406201",
+ "git_head": "2d815edb377d057e440559c5bae67821f1a4037d",
  "files": {
   "benchmark/incremental_value.json": "6686c0d855666fe6df47d63eb5dd4c1b8af0e87f934116991c9ad3a999b33f37",
   "benchmark/increment_power.json": "788dd514b62fb71d67230aaddd869a4c99048f164103855008ddf7dad012b94f",
   "benchmark/statistical_audit.json": "9901e4e847ce63cc0b94d663ce2e3db1bb7cf4cb05e0d1092785e3a036128d28",
   "benchmark/topology_without_labels.json": "66067b4080df9d5a2f5229567cddb2d4b9af8ecb4fd9ea90894e487b546aac67",
-  "benchmark/cycle_counting_real.json": "c66c36af3f6a1c9b8d9f57037a2582c0319cf1c2ecb71a4512fc2ddb136a5081",
+  "benchmark/cycle_counting_real.json": "d47207cf8151ddd121b8e68ca10591cd9ec378e1e64c51c10f0582a4e0b4724f",
   "benchmark/cycle_counting_power.json": "0ea20bfb1e333f71165af065f3b4e599145d755e318c1096b923a20ff585aadf",
+  "benchmark/estrous_grid_cycles.json": "233cd747436377798e93bede30f586884dfe3bdfeba64bf2c35d44c983f7d709",
+  "benchmark/axis_separability.json": "dcdebf784e95450ecf6494a1853d5f1446b9fd1192a15269255c67264da654d2",
   "benchmark/cycle_identifiability.json": "b8b563bc7961279a70d3b2a1bf905f0c3395b5178ccd804d55f094709281f034",
   "benchmark/deep_tuning.json": "c5690c27a2d738fbe257fb9d900162362e8ac036115f90f8e67e1bbd3100083a",
   "benchmark/diagnosis_replicate_contribution.json": "63ba17cb3e7bae892d6e9b56ac0d4ff6d73efcb6ea29c200422072da7c7ce67b",

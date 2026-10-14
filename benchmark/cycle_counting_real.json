@@ -13,6 +13,26 @@
     }
   },
   "designs": {
+    "estrous_circadian_grid": {
+      "accession": "PRJNA1348461",
+      "axes": [
+        "circadian_time",
+        "oestrous_phase"
+      ],
+      "cache_names": {
+        "fpkm": "smith2026_estrous_circadian_fpkm.xlsx"
+      },
+      "design_note": "two recorded axes (clock time x oestrous phase), 12 x 4 fully occupied cells, sampled as one continuous 96 h trajectory",
+      "kind": "grid_fpkm",
+      "n_cyclic_parameters": 1,
+      "organism": "Mus musculus",
+      "parser": "grid_fpkm",
+      "period_hours": 24.0,
+      "title": "Mouse liver: 48 females, 2-hourly for 96 h, staged into the four oestrous phases",
+      "urls": {
+        "fpkm": "https://www.biorxiv.org/content/biorxiv/early/2026/09/25/2026.06.22.733912/DC2/embed/media-2.xlsx?download=true"
+      }
+    },
     "human_forced_desync": {
       "accession": "GSE48113",
       "axes": [
@@ -87,6 +107,34 @@
       }
     }
   },
+  "estrous_grid_blocks": {
+    "per_phase_blocks": {
+      "diestrus": {
+        "mantel_p": 0.0005,
+        "mantel_r": 0.7123,
+        "n_cycles": 0,
+        "n_samples": 12
+      },
+      "metestrus": {
+        "mantel_p": 0.0005,
+        "mantel_r": 0.5739,
+        "n_cycles": 0,
+        "n_samples": 12
+      },
+      "oestrus": {
+        "mantel_p": 0.0005,
+        "mantel_r": 0.5193,
+        "n_cycles": 0,
+        "n_samples": 12
+      },
+      "proestrus": {
+        "mantel_p": 0.0005,
+        "mantel_r": 0.7257,
+        "n_cycles": 0,
+        "n_samples": 12
+      }
+    }
+  },
   "finding": {
     "envelope": "examples/cycle_counting_power.py sweeps how many of the 3000 selected genes carry the ring. Across the time-axis designs the count only succeeds when essentially all of them do, and at the measured diurnal r ~ 0.70 the simulated gap is 1.2-1.4 - the failing clouds sit exactly on that curve. This is a real limitation of the criterion and it is measured, not assumed.",
     "headline": "On measured data the counting criterion returns the design's own number for 2 of 5 designs: the yearlong series and the yeast cell cycle. The cell cycle is the one design whose cyclic parameter is not a clock -- every other design here turns on a time axis -- and it is the design that separates counting axes from counting cycles: three recorded axes, one cycle, and the count is one.",
@@ -96,10 +144,10 @@
     "why_the_forced_desync_cloud_cannot_test_the_claim": "human_forced_desync has circular Mantel r = +0.045 against the circadian axis: the circadian programme is not in the 3000 highest-variance genes of whole blood at all, so no method restricted to those genes could count that cycle.",
     "why_the_single_genotypes_behave_differently": "Split by genotype, the two 30-sample clouds do not behave alike. The wild type alone has no dominant bar (gap 1.35) and counts 0. The cyclin mutant alone has a dominant bar (gap 5.15) and counts 1 - but its circular Mantel correlation against the cell-cycle phase is only +0.06, so the bar that dominates is not the one the design names, and the decision rule would call that cloud 'inconsistent: check the design before reporting'. The pooled 60-sample cloud is the one whose dominant bar does track the phase (r = +0.16, p = 0.0005), which is why the headline count is quoted on it. A large gap, in other words, is not by itself evidence that the integer is the design's - the same caveat the identifiability rule exists to enforce."
   },
-  "n_cases": 15,
+  "n_cases": 20,
   "n_correct": 3,
   "n_null": 200,
-  "n_primary": 5,
+  "n_primary": 6,
   "n_primary_correct": 2,
   "results": {
     "annual_all_samples": {
@@ -348,6 +396,102 @@
         0.2999,
         0.2497,
         0.2398
+      ]
+    },
+    "estrous_grid_clock_axis": {
+      "centred": false,
+      "correct": false,
+      "gap": 1.5637,
+      "label": "estrous_grid_clock_axis",
+      "mantel_p": 0.0005,
+      "mantel_r": 0.6302,
+      "n_cycles": 0,
+      "n_cycles_expected": 1,
+      "n_samples": 48,
+      "note": "48 samples, 12 clock times x 4 oestrous phases; the ~24 h axis is the one countable cycle",
+      "null_q95": 0.3749,
+      "primary": true,
+      "top_bars_rel": [
+        0.1889,
+        0.1208,
+        0.1157,
+        0.0973,
+        0.0926
+      ]
+    },
+    "estrous_grid_diestrus": {
+      "centred": false,
+      "correct": false,
+      "gap": 8.0095,
+      "label": "estrous_grid_diestrus",
+      "mantel_p": 0.0005,
+      "mantel_r": 0.7123,
+      "n_cycles": 0,
+      "n_cycles_expected": 1,
+      "n_samples": 12,
+      "note": "one oestrous phase alone (diestrus), 12 samples across the clock",
+      "null_q95": 0.5617,
+      "primary": false,
+      "top_bars_rel": [
+        0.169,
+        0.0211
+      ]
+    },
+    "estrous_grid_metestrus": {
+      "centred": false,
+      "correct": false,
+      "gap": 2.0324,
+      "label": "estrous_grid_metestrus",
+      "mantel_p": 0.0005,
+      "mantel_r": 0.5739,
+      "n_cycles": 0,
+      "n_cycles_expected": 1,
+      "n_samples": 12,
+      "note": "one oestrous phase alone (metestrus), 12 samples across the clock",
+      "null_q95": 0.5202,
+      "primary": false,
+      "top_bars_rel": [
+        0.1256,
+        0.0618,
+        0.0436,
+        0.0336
+      ]
+    },
+    "estrous_grid_oestrus": {
+      "centred": false,
+      "correct": false,
+      "gap": 2.6186,
+      "label": "estrous_grid_oestrus",
+      "mantel_p": 0.0005,
+      "mantel_r": 0.5193,
+      "n_cycles": 0,
+      "n_cycles_expected": 1,
+      "n_samples": 12,
+      "note": "one oestrous phase alone (oestrus), 12 samples across the clock",
+      "null_q95": 0.5644,
+      "primary": false,
+      "top_bars_rel": [
+        0.0927,
+        0.0354,
+        0.0167
+      ]
+    },
+    "estrous_grid_proestrus": {
+      "centred": false,
+      "correct": false,
+      "gap": 8.0535,
+      "label": "estrous_grid_proestrus",
+      "mantel_p": 0.0005,
+      "mantel_r": 0.7257,
+      "n_cycles": 0,
+      "n_cycles_expected": 1,
+      "n_samples": 12,
+      "note": "one oestrous phase alone (proestrus), 12 samples across the clock",
+      "null_q95": 0.5621,
+      "primary": false,
+      "top_bars_rel": [
+        0.1506,
+        0.0187
       ]
     },
     "fd_all_samples": {

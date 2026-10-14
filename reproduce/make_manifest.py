@@ -28,6 +28,8 @@ INCLUDE = [
     "topology_without_labels.json",
     "cycle_counting_real.json",
     "cycle_counting_power.json",
+    "estrous_grid_cycles.json",
+    "axis_separability.json",
     "cycle_identifiability.json",
     "deep_tuning.json",
     "diagnosis_replicate_contribution.json",

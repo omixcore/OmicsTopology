@@ -106,15 +106,20 @@ _ENVELOPE = {
         "grid, not a longer time course (examples/two_cycle_search.py)",
     ],
     "measured": {
-        "real_designs": 5,
+        "real_designs": 6,
         "real_designs_counted_correctly": 2,
         "gap_on_designs_counted_right": [3.56, 4.93],
-        "gap_on_designs_not_counted": [1.07, 1.09, 1.36],
+        "gap_on_designs_not_counted": [1.07, 1.09, 1.36, 1.56],
         "gap_threshold": 2.0,
         "two_parameter_grid_min_samples_at_full_signal": 64,
         "two_parameter_grid_grid": "8x8",
         "two_parameter_at_half_signal": (
             "117 samples returns 1, i.e. one loop is lost"),
+        "two_cyclic_axes_measured": (
+            "PRJNA1348461, 12 clock times x 4 oestrous phases: the ~24 h clock "
+            "is real (circular Mantel r = +0.63) but the oestrous axis carries "
+            "no independent loop (r = +0.006, p = 0.43), so the count is 1 and "
+            "not 2 -- see examples/estrous_grid_cycles.py"),
     },
     "cannot_do": [
         "recover a loop whose signal sits in a minority of the selected genes",

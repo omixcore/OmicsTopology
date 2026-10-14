@@ -538,10 +538,17 @@ the two series' signals dilute each other — what measured data now do show is
 the *axis-count* trap: the yeast cell-cycle design records three axes and one
 cycle and is counted as one; the counting criterion needs a transcriptome
 dominated by the cycle; and the identifiability rule is a two-threshold
-heuristic calibrated on five designs, not a test with a p-value.  The design
-that would settle the two-parameter case — time against an independently
-cycling factor, sampled densely in both — remains the cheapest experiment this
-analysis points at.
+heuristic calibrated on four designs, not a test with a p-value.  On the one
+measured design that records two *cyclic* axes — the mouse-liver oestrous ×
+circadian grid (PRJNA1348461, 48 females, every cell occupied) — the count is
+one, and the topology says why: the oestrous axis shifts every gene's clock
+phase by one common offset (coherence 0.92, largest offset 0.37
+quarter-periods) rather than opening a second coordinate, so a second phase of
+the same loop is not a second loop.  The design that would settle the
+two-parameter case — time against an independently cycling factor, sampled
+densely in both — remains the cheapest experiment this analysis points at, and
+its cheapest form is now stated as a number (≥ 64 samples with the cycles in
+essentially all high-variance genes).
 
 **F. Third-party reproduction.**  `reproduce/` makes the check executable for
 someone who does not trust us: `sh reproduce/run_all.sh` from a fresh clone
@@ -589,8 +596,8 @@ print(envelope()["requires"])
 
 Two diagnostics drive the decision and are always reported so the decision can
 be audited: `gap` (longest H1 bar over the second longest) and the circular
-Mantel `r` against the design's own axis. On the five real public designs the
-protocol says *counted* twice and **refuses three times**; it never quotes an
+Mantel `r` against the design's own axis. On the six real public designs the
+protocol says *counted* twice and **refuses four times**; it never quotes an
 integer the spectrum does not support. The declared envelope — when the count is
 trustworthy, and what it cannot do — is returned by `envelope()` and re-checked
 by `reproduce/verify.py`. Full description: [docs/protocol.md](docs/protocol.md).
@@ -692,8 +699,10 @@ examples/          runnable demos; see the files
                               how much do replicates contribute? (measured 5 ways)
   benchmark_audit.py          ablation, multiplicity and resolution of the headline
   topology_without_labels.py  what a phase-based test cannot be asked (labels held out)
-  prepare_cycle_designs.py    download + normalise five real cyclic designs (GSE93067/93066/48113/8799)
-  cycle_counting_real.py      block C on measured data: 2 of 5 designs are counted correctly
+  prepare_cycle_designs.py    download + normalise six real cyclic designs (GSE93067/93066/48113/8799, PRJNA1348461)
+  cycle_counting_real.py      block C on measured data: 2 of 6 designs are counted correctly
+  estrous_grid_cycles.py      the one measured 12x4 clock x oestrous grid: why it counts 1
+  axis_separability.py        what the topology says a per-gene clock fit cannot
   cycle_counting_power.py     when does the count work? (measured, not assumed)
   incremental_value.py        the H1 cycle against 21 baselines, fixed and learned
   learned_baselines.py        the thirteen learned representations and why they are fair

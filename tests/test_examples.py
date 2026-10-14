@@ -19,6 +19,7 @@ _EXAMPLES = _HERE.parent / "examples"
 if str(_EXAMPLES) not in sys.path:
     sys.path.insert(0, str(_EXAMPLES))
 
+import axis_separability as axsep  # noqa: E402
 import cycle_identifiability as ci  # noqa: E402
 import cycle_counting_real as ccr  # noqa: E402
 import incremental_value as iv  # noqa: E402
@@ -294,7 +295,11 @@ def test_diurnal_names_reject_an_unexpected_format():
 def test_the_design_registry_declares_every_axis_before_the_data():
     """The registry is written before the data are seen, so it must be complete."""
     for key, spec in pcd.DESIGNS.items():
-        assert spec["accession"].startswith("GSE"), key
+        # GEO series for most designs; the oestrous x circadian grid is an
+        # INSDC BioProject (PRJNA...) because that is how the authors released
+        # it -- both are public archival accessions, so accept either prefix.
+        assert (spec["accession"].startswith("GSE")
+                or spec["accession"].startswith("PRJNA")), key
         assert spec["n_cyclic_parameters"] >= 1, key
         assert len(spec["axes"]) >= 1, key
         assert spec["period_hours"] > 0, key
@@ -346,3 +351,88 @@ def test_the_cell_cycle_design_records_three_axes_and_one_cycle():
         ["a", "b"], ["Cerevisiae_WildType_30min_rep1",
                      "Cerevisiae_WildType_30min_rep2"], 120.0)
     assert len({m["group"] for m in meta}) == 2
+
+
+# ---------------------------------------------------------------------------
+# the oestrous x circadian grid: axis bookkeeping and the separability reading
+# ---------------------------------------------------------------------------
+def test_grid_phase_zt_maps_every_hour_onto_the_right_phase_and_day():
+    """The released KEY sheet is the authority for the phase mapping."""
+    for hour, phase in ((1, "diestrus"), (23, "diestrus"),
+                        (25, "proestrus"), (47, "proestrus"),
+                        (49, "oestrus"), (71, "oestrus"),
+                        (73, "metestrus"), (96, "metestrus")):
+        name, zt = pcd._grid_phase_zt(hour)
+        assert name == phase, hour
+        assert 1 <= zt <= 24, hour
+    # the 96 h record is four consecutive 24 h days, so +24 h is the same ZT
+    assert pcd._grid_phase_zt(5)[1] == pcd._grid_phase_zt(29)[1]
+    assert pcd._grid_phase_zt(5)[0] != pcd._grid_phase_zt(29)[0]
+
+
+def test_grid_phase_zt_rejects_hours_outside_the_recorded_window():
+    for hour in (0, 97, 120):
+        with pytest.raises(ValueError):
+            pcd._grid_phase_zt(hour)
+
+
+def test_the_grid_design_records_two_cyclic_axes_but_one_countable_cycle():
+    """The design a count of axes would call 2 -- and a count of cycles calls 1."""
+    spec = pcd.DESIGNS["estrous_circadian_grid"]
+    assert spec["accession"].startswith("PRJNA")
+    assert spec["axes"] == ("circadian_time", "oestrous_phase")
+    assert len(spec["axes"]) == 2
+    assert spec["n_cyclic_parameters"] == 1
+    assert spec["period_hours"] == pytest.approx(24.0)
+    assert spec["cache_names"]["fpkm"].endswith(".xlsx")
+
+
+def test_grid_rows_are_one_continuous_96h_trajectory():
+    """Odd hours 1..95 are sampled; each phase covers four consecutive such hours."""
+    hours = list(range(1, 96, 2))            # the released grid is 2-hourly
+    blocks = [pcd._grid_phase_zt(h)[0] for h in hours]
+    # four phases, 24 hours each, in the order the KEY sheet gives
+    assert blocks[:12] == ["diestrus"] * 12
+    assert blocks[12:24] == ["proestrus"] * 12
+    assert blocks[24:36] == ["oestrus"] * 12
+    assert blocks[36:] == ["metestrus"] * 12
+    # and the ZT position walks the day exactly once per phase
+    for i in range(4):
+        zts = [pcd._grid_phase_zt(h)[1] for h in hours[12 * i:12 * (i + 1)]]
+        assert zts == list(range(1, 24, 2)), zts
+
+
+def test_circular_distance_wraps_around_the_period():
+    a = np.array([0.0, 1.0, 3.0])
+    D = axsep.circular_distance(a, period=4.0)
+    assert D[0, 2] == pytest.approx(1.0)      # |0-3| = 3, wrapped -> 1
+    assert D[0, 1] == pytest.approx(1.0)
+    assert np.allclose(np.diag(D), 0.0)
+
+
+def test_axis_removal_drops_the_variance_it_explains():
+    """Centring out an axis's own additive part must shrink the total variance."""
+    rng = np.random.default_rng(0)
+    n, p = 24, 50
+    clock = np.repeat(np.arange(4), 6) * (np.pi / 2.0)
+    groups = np.tile(["diestrus", "proestrus", "oestrus"], 8)
+    X = rng.normal(size=(n, p))
+    X[:, :20] += 3.0 * np.cos(clock)[:, None]          # a strong shared clock
+    rec = axsep.axis_separability(X, clock,
+                                 (np.arange(n) % 3).astype(float), groups, 0)
+    assert rec["variance_explained_by_clock"] > 0.2
+    assert 0.0 <= rec["subspace_cosine"] <= 1.0
+    assert rec["additive_share_of_both"] > 1.0 - 1e-6
+
+
+def test_matched_clock_distance_flags_a_degenerate_full_grid():
+    """One sample per (clock, phase) cell makes the within-cell shuffle a no-op."""
+    clock = np.tile(np.linspace(0.0, 2.0 * np.pi, 4, endpoint=False), 4)
+    groups = np.repeat(["d", "p", "e", "m"], 4)
+    rng = np.random.default_rng(0)
+    X = rng.normal(size=(16, 30))
+    rec = axsep.matched_clock_distances(X, clock, groups, 0)
+    assert rec["within_cell_permutation_degenerate"] is True
+    assert rec["separation_p"] is None
+    ci = rec["separation_bootstrap_ci95"]
+    assert ci[0] is not None and ci[1] is not None and ci[0] <= ci[1]

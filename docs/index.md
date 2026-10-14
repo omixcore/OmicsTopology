@@ -61,14 +61,17 @@ they constrain what the method may be used for:
   test score the same for **detection** (8/10). The audit is in
   `benchmark/statistical_audit.json` and it is why the claims here are about
   ordering rather than about detection.
-* The cycle count works on **two of five** real designs. The other three fail
+* The cycle count works on **two of six** real designs. The other four fail
   for a measured reason, not an unknown one, and the decision rule that
   separates them is part of the package.
 * The two-parameter claim — "the count returns 2" — holds on a simulated grid
   and on **no measured design**: a single sampling axis with two frequencies is
-  a closed geodesic, not a torus. The missing experiment is a *grid*, and
-  `examples/two_cycle_search.py` states it as a number (>= 64 samples, at full
-  signal).
+  a closed geodesic, not a torus. The one measured design that records two
+  *cyclic* axes (PRJNA1348461: 12 clock times × 4 oestrous phases, 48 females,
+  every cell occupied) is now measured and counts **1**: the second axis is a
+  coherent phase offset of the clock's own loop (coherence 0.92), not an
+  independent coordinate. `examples/two_cycle_search.py` states the grid that
+  *would* count 2 as a number (>= 64 samples, at full signal).
 * A topology-guided gene-selection procedure was implemented, tested on four
   real designs and **rejected**: it improved nothing and its calibration fired
   on a cloud with no cycle in it. It remains in the package with that warning

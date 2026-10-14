@@ -1,0 +1,110 @@
+{
+ "accession": "GSE220120",
+ "after_removing_12h": {
+  "mantel_p_24h": 0.381309,
+  "mantel_r_24h": 0.0069,
+  "n_cycles": 0,
+  "null_q95": 0.795,
+  "top_bars_rel": [
+   0.5765,
+   0.198,
+   0.188,
+   0.1317,
+   0.1237
+  ]
+ },
+ "after_removing_24h": {
+  "mantel_p_12h": 0.787606,
+  "mantel_r_12h": -0.0159,
+  "n_cycles": 0,
+  "null_q95": 0.8134,
+  "top_bars_rel": [
+   0.506,
+   0.3008,
+   0.2015,
+   0.1497,
+   0.1212
+  ]
+ },
+ "conclusion": "the count is 0 and neither frequency shows a Mantel signal (24 h r = +0.006, 12 h r = -0.018). The rhythm screen says why, and it is not the topological obstruction: of the 200 strongest 24 h genes, 53 survive this design's high-variance selection, while of the 200 strongest 12 h genes only 0 do. The ~12 h ultradian program is simply not carried by the selected genes, so H1 cannot see it -- this is the protocol's declared envelope ('the count succeeds only when essentially all of the high-variance genes carry the loop'), measured on a third tissue and a second organism, not a new capability gap",
+ "design": {
+  "cyclic_parameters_recorded": 2,
+  "hours": [
+   0.0,
+   46.0
+  ],
+  "n_genes": 3000,
+  "n_samples": 72,
+  "recorded_axes": [
+   "time_of_day",
+   "day"
+  ],
+  "samples_per_subject": 24,
+  "sampling_interval_h": 2.0,
+  "subjects": [
+   "6",
+   "7",
+   "JH2"
+  ]
+ },
+ "mantel": {
+  "p_12h": 0.827086,
+  "p_24h": 0.386807,
+  "r_12h": -0.0184,
+  "r_24h": 0.0063
+ },
+ "per_subject": {
+  "6": {
+   "n_cycles": 1,
+   "n_samples": 24,
+   "null_q95": 0.8543,
+   "top_bars_rel": [
+    0.9081,
+    0.0021
+   ]
+  },
+  "7": {
+   "n_cycles": 0,
+   "n_samples": 24,
+   "null_q95": 0.777,
+   "top_bars_rel": [
+    0.1744,
+    0.0256
+   ]
+  },
+  "JH2": {
+   "n_cycles": null,
+   "n_samples": 24,
+   "skipped": "H1 spectrum empty at this cloud size"
+  }
+ },
+ "question": "is the two-frequency design (24 h + 12 h in the same tissue) a two-axis design, and does the count return 2?",
+ "rhythm_screen": {
+  "12h": {
+   "max_power": 11.4218,
+   "median_power": 1.1747,
+   "n_of_top200_in_selection": 0,
+   "period_h": 12.0
+  },
+  "24h": {
+   "max_power": 15.9999,
+   "median_power": 1.5108,
+   "n_of_top200_in_selection": 53,
+   "period_h": 24.0
+  },
+  "n_top": 200,
+  "reading": "one of two things makes the second counting axis unreachable: the design samples a single time axis (a topological obstruction), or the rhythm is not carried by the selected high-variance genes (an envelope limit). The overlap counts separate them"
+ },
+ "topological_requirement": "two *independently sampled* axes. A single time axis carrying two frequencies traces a closed geodesic on a torus, which is a circle, so beta_1 cannot exceed 1 however many samples the axis carries",
+ "whole_cloud": {
+  "n_cycles": 0,
+  "null_q95": 0.7959,
+  "top_bars_rel": [
+   0.5871,
+   0.2729,
+   0.1719,
+   0.1051,
+   0.0971
+  ]
+ }
+}

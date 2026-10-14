@@ -18,6 +18,7 @@ quoting a number.
 - [omictopo.stats](#omictopostats) — Permutation tests, corrections and intervals
 - [omictopo.cycles](#omictopocycles) — Representative cycles, cyclic order, cycle counts
 - [omictopo.protocol](#omictopoprotocol) — The calibrated inference protocol: cloud -> status
+- [omictopo.axes](#omictopoaxes) — Is a second design axis a coordinate or a modulation?
 - [omictopo.pipeline](#omictopopipeline) — End-to-end comparison of two state clouds
 - [omictopo.summary](#omictoposummary) — Human-readable reports
 - [omictopo.io](#omictopoio) — Reading and writing tables
@@ -205,6 +206,30 @@ The declared applicability conditions of the protocol.
 ### `summarise(rec: 'dict') -> 'str'`
 
 One line for a results table, in the protocol's voice.
+
+## omictopoaxes
+
+*Is a second design axis a coordinate or a modulation?*
+
+### `AXIS_VERDICTS`
+
+Built-in immutable sequence.
+
+### `axis_geometry(X: 'np.ndarray', axis1, axis2, groups=None, *, period1: 'float | None' = None, period2: 'float | None' = None, seed: 'int' = 0, n_perm: 'int' = 2000, n_boot: 'int' = 2000, n_perm_sep: 'int' = 1000) -> 'dict'`
+
+Ask whether ``axis2`` is a new coordinate or a modulation of ``axis1``.
+
+### `classify_axis(dominant: 'dict', separable: 'dict', phase_or_shape: 'dict', matched: 'dict', criteria: 'dict | None' = None) -> 'tuple'`
+
+Apply the pre-registered criteria; return ``(verdict, reason)``.
+
+### `harmonic_amplitude(y: 'np.ndarray', theta: 'np.ndarray') -> 'tuple[float, float]'`
+
+Least-squares amplitude and phase of a fixed-period harmonic.
+
+### `summarise_axis(rec: 'dict') -> 'str'`
+
+One line for a results table, in the same voice as the protocol.
 
 ## omictopopipeline
 

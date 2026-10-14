@@ -71,6 +71,19 @@ the boundary cannot quietly go stale.
   coordinate, so the count is 1 and not 2 — `examples/estrous_grid_cycles.py`
   and `examples/axis_separability.py`.
 
+A third design closes the last loophole. **GSE220120** (Zhu et al.) is human
+blood carrying *two genuine oscillators* in the same tissue — a published ~24 h
+circadian program and a ~12 h ultradian one — with three subjects × two days ×
+twelve two-hourly draws. If the only obstacle were "two rhythms riding one axis",
+this is the design that would break it. It does not, and the measurement
+(`examples/ultradian_two_oscillator.py`) says why in a way that is more useful
+than another zero: the ~12 h program is **absent from the high-variance genes
+the selection keeps**. Of the 200 strongest 12 h genes, **0** survive the
+high-variance selection, against **53** of 200 for the 24 h program. The second
+cycle is not topologically hidden here; it is filtered out before the topology
+ever sees it — which is precisely the first envelope condition above, now
+confirmed on a third tissue and a second organism.
+
 **The protocol cannot**
 
 * recover a loop whose signal sits in a minority of the selected genes;
@@ -82,6 +95,50 @@ the boundary cannot quietly go stale.
 **Not label-free.** The Mantel `r` and its p-value use the design axis. They are
 reported to keep the label-free count honest, never as part of the label-free
 claim.
+
+## Axis geometry
+
+`omictopo.axes` answers the question the protocol cannot: when a design records
+*two* axes, is the second one a coordinate of its own? This is a joint-geometry
+question, so per-gene harmonic fits cannot pose it — a COSINOR-style analysis
+produces a rhythm call and an amplitude per gene and has no representation of the
+joint coordinate at all.
+
+`axis_geometry(X, axis1, axis2)` returns four blocks — which axis dominates the
+geometric Mantel correlation, whether the two axes explain separate slabs of the
+variance, whether the second axis acts as a common phase shift of the first or a
+change of shape, and the model-free matched distance at a fixed value of axis 1 —
+then classifies the pair into one of four pre-registered verdicts:
+
+| verdict | meaning |
+|---|---|
+| `independent_axes` | axis 2 carries a Mantel effect of its own (`r >= 0.5`) |
+| `modulation` | axis 2 has no Mantel effect but shifts every gene's axis-1 phase coherently by less than half a quarter-period |
+| `independent_axes_inert` | axis 2 neither produces an effect nor moves points at a fixed axis-1 value |
+| `undetermined` | the design does not separate the possibilities — refuse |
+
+The criteria are fixed in `omictopo.axes.CRITERIA` before any dataset is scored,
+and `reproduce/verify.py` re-checks the numbers they are evaluated on.
+`examples/axis_geometry_multi.py` scores three synthetic calibrations where the
+ground truth is known (independent / modulated / inert) plus every real design
+that has two axes, and gets **three different verdicts for the three
+calibrations** and agreement with the published reading on all real designs.
+
+Two negative results are reported rather than hidden, because they constrain how
+the verdict may be read:
+
+* the **separability block cannot carry the decision** — an *inert* axis is
+  trivially orthogonal to axis 1 (measured additive share 1.00, cosine 0.00), so
+  `share`/`cosine` rule out collinearity but cannot tell "independent" from
+  "does nothing";
+* the **matched-distance ratio is not monotone** in the size of axis 2 — a
+  genuinely independent second axis measures ~0.57 while the mouse-liver
+  modulation measures ~0.88, because the denominator pools diagonal offsets.
+
+What does discriminate, on both the calibrations and the real designs, is the
+Mantel `r` of axis 2 (+0.70 for two independent axes against −0.04 for a
+modulated or inert one), which is why the criteria let `r` carry the decision and
+use the geometric quantities to describe the *shape* of the effect.
 
 ## Usage
 

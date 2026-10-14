@@ -34,6 +34,8 @@ from .cycles import (
 )
 from . import protocol
 from .protocol import analyse, envelope, summarise
+from . import axes
+from .axes import axis_geometry, classify_axis, harmonic_amplitude, summarise_axis
 from .summary import betti_curve, persistence_landscape, topological_summary
 from .compare import bottleneck_distance, compare_diagrams, wasserstein_distance
 from .stats import (
@@ -70,6 +72,11 @@ __all__ = [
     "envelope",
     "summarise",
     "protocol",
+    "axis_geometry",
+    "classify_axis",
+    "harmonic_amplitude",
+    "summarise_axis",
+    "axes",
     "betti_curve",
     "persistence_landscape",
     "topological_summary",

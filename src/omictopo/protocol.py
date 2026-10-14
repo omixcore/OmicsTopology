@@ -27,8 +27,15 @@ status*:
 4. **Classify** into one of four statuses (:data:`STATUSES`) and, when the
    status is not ``"counted"``, **return the refusal instead of the integer**.
 5. **Declare the envelope** (:func:`envelope`): the conditions under which the
-   count is trustworthy, measured from five real public designs rather than
+   count is trustworthy, measured from six real public designs rather than
    assumed.
+
+When a design records *two* axes, the question "is the second one a coordinate
+of its own?" is answered by :mod:`omictopo.axes`, which classifies the pair as
+``independent_axes``, ``independent_axes_inert``, ``modulation`` or
+``undetermined`` on pre-registered criteria.  The two modules are complementary:
+``protocol`` counts loops, ``axes`` says whether an extra design axis adds a
+coordinate.
 
 The rule is deliberately conservative.  ``gap >= 2`` sits between the smallest
 gap ever measured on a design that was counted right (3.56) and the largest on
@@ -120,6 +127,16 @@ _ENVELOPE = {
             "is real (circular Mantel r = +0.63) but the oestrous axis carries "
             "no independent loop (r = +0.006, p = 0.43), so the count is 1 and "
             "not 2 -- see examples/estrous_grid_cycles.py"),
+        "two_frequencies_one_axis_measured": (
+            "GSE220120, human blood, 72 samples (3 subjects x 2 days x 12 "
+            "two-hourly draws) carrying a published ~24 h clock *and* a ~12 h "
+            "ultradian program: the count is 0, and the rhythm screen shows the "
+            "~12 h program is not carried by the selected high-variance genes "
+            "(0 of the 200 strongest 12 h genes survive the selection, against "
+            "53 of 200 for the clock) -- the envelope condition below, not a "
+            "topological obstruction. See examples/ultradian_two_oscillator.py"),
+        "axis_geometry_designs": 7,
+        "axis_geometry_verdicts_agree": 7,
     },
     "cannot_do": [
         "recover a loop whose signal sits in a minority of the selected genes",

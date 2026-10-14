@@ -39,6 +39,7 @@ MODULES = [
     ("omictopo.stats", "Permutation tests, corrections and intervals"),
     ("omictopo.cycles", "Representative cycles, cyclic order, cycle counts"),
     ("omictopo.protocol", "The calibrated inference protocol: cloud -> status"),
+    ("omictopo.axes", "Is a second design axis a coordinate or a modulation?"),
     ("omictopo.pipeline", "End-to-end comparison of two state clouds"),
     ("omictopo.summary", "Human-readable reports"),
     ("omictopo.io", "Reading and writing tables"),

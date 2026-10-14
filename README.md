@@ -602,6 +602,31 @@ integer the spectrum does not support. The declared envelope — when the count 
 trustworthy, and what it cannot do — is returned by `envelope()` and re-checked
 by `reproduce/verify.py`. Full description: [docs/protocol.md](docs/protocol.md).
 
+### The second axis: a coordinate, or a modulation?
+
+When a design records *two* axes, `omictopo.axes` answers the joint-geometry
+question a per-gene harmonic fit cannot even pose:
+
+```python
+from omictopo.axes import axis_geometry, summarise_axis
+
+rec = axis_geometry(X, axis1=clock, axis2=treatment, groups=blocks)
+print(summarise_axis(rec))   # modulation  (r2 +0.01, ratio 0.88, coh 0.92)
+rec["verdict"]               # 'independent_axes' | 'modulation'
+                             # | 'independent_axes_inert' | 'undetermined'
+```
+
+The criteria are fixed in `omictopo.axes.CRITERIA` before any dataset is scored.
+`examples/axis_geometry_multi.py` runs three synthetic calibrations where the
+ground truth is known (independent / modulated / inert) plus every real design
+with two axes: the three calibrations get **three different verdicts**, and all
+seven cases match their pre-registered expectation. Two negative results are
+reported rather than hidden — the separability block cannot carry the decision
+(an *inert* axis is trivially orthogonal: share 1.00, cosine 0.00), and the
+matched-distance ratio is not monotone in the size of the second axis — so the
+verdict is carried by the Mantel `r` of axis 2 and the geometry describes the
+*shape* of the effect.
+
 
 ## API tour
 
@@ -703,6 +728,8 @@ examples/          runnable demos; see the files
   cycle_counting_real.py      block C on measured data: 2 of 6 designs are counted correctly
   estrous_grid_cycles.py      the one measured 12x4 clock x oestrous grid: why it counts 1
   axis_separability.py        what the topology says a per-gene clock fit cannot
+  axis_geometry_multi.py      the axis diagnostic on 3 calibrations + every 2-axis design
+  ultradian_two_oscillator.py GSE220120: two frequencies in one tissue, and why it counts 0
   cycle_counting_power.py     when does the count work? (measured, not assumed)
   incremental_value.py        the H1 cycle against 21 baselines, fixed and learned
   learned_baselines.py        the thirteen learned representations and why they are fair
@@ -725,14 +752,14 @@ docs/
                               guide, evidence table, the protocol, generated API reference
   fig_*.png                   every figure the scripts produce
 benchmark/         committed result tables of every experiment
-tests/             207 pytest cases, no network needed
+tests/             229 pytest cases, no network needed
 ```
 
 ## Running the tests
 
 ```bash
 pip install -e ".[dev]"
-pytest                 # 207 tests, no network and no benchmark data required
+pytest                 # 229 tests, no network and no benchmark data required
 sh tools/ci.sh         # install + tests + generated-docs check, as CI runs them
 sh reproduce/run_all.sh   # the third-party reproduction, from this tree or a fresh clone
 ```

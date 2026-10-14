@@ -28,12 +28,18 @@ say how far each result can be pushed before it stops being evidence.
   reusable procedure that returns a *status* — `counted`, `underpowered`,
   `inconsistent`, `no_cycle` — and refuses to quote an integer the spectrum does
   not support. See [The protocol](protocol.md).
+* **An axis-geometry diagnostic** (`omictopo.axes`): given a design with two
+  recorded axes, decides whether the second is a coordinate of its own, a
+  coherent modulation of the first, or inert — on criteria fixed before the data
+  are scored, and refusing when the design does not separate the cases. It is
+  the joint-coordinate question that per-gene harmonic fits cannot pose. See
+  [Axis geometry](protocol.md#axis-geometry).
 
 ## Quick start
 
 ```bash
 pip install -e ".[dev]"          # numpy, scipy, pytest, matplotlib
-python -m pytest                 # 207 tests, no network needed
+python -m pytest                 # 229 tests, no network needed
 python tools/gen_api_docs.py     # regenerate the API reference
 sh tools/ci.sh                   # the same checks the hosted CI runs
 ```
@@ -50,6 +56,10 @@ python examples/cycle_counting_power.py
 python examples/incremental_value.py --data-root data/datasets
 python examples/cycle_identifiability.py --root data/cycle_designs
 python examples/two_cycle_search.py --cache data/geo_cache
+python examples/estrous_grid_cycles.py --root data/cycle_designs
+python examples/axis_separability.py --root data/cycle_designs
+python examples/axis_geometry_multi.py --root data/cycle_designs
+python examples/ultradian_two_oscillator.py --cache data/geo_cache
 ```
 
 ## Read this before quoting a number

@@ -206,6 +206,45 @@ PUBLISHED = {
         "separation_ratio": 0.8761,
         "separation_bootstrap_ci95": [0.0742, 0.1857],
     },
+    # the axis-geometry diagnostic across designs
+    # (benchmark/axis_geometry_multi.json)
+    "axis_geometry_multi": {
+        "n_cases": 7,
+        "n_agree": 7,
+        "calibrations": {
+            "synth_independent": {"verdict": "independent_axes", "mantel_r_axis2": 0.6646},
+            "synth_modulated": {"verdict": "modulation", "mantel_r_axis2": -0.0383},
+            "synth_inert": {"verdict": "independent_axes_inert",
+                            "mantel_r_axis2": -0.0383},
+        },
+        "real_designs": {
+            "estrous_circadian_grid": {"verdict": "modulation",
+                                       "mantel_r_axis2": 0.0061,
+                                       "separation_ratio": 0.8761},
+            "yeast_cell_cycle": {"verdict": "undetermined",
+                                 "mantel_r_axis2": 0.4578},
+            "human_forced_desync": {"verdict": "undetermined",
+                                    "mantel_r_axis2": 0.0028},
+            "psme_diurnal": {"verdict": "modulation",
+                             "mantel_r_axis2": -0.0053},
+        },
+        # the negative result the criteria rest on: an inert axis is trivially
+        # orthogonal to axis 1, so the separability block cannot decide
+        "inert_axis_is_trivially_separable": {
+            "additive_share_of_both": 1.0,
+            "subspace_cosine": 0.0,
+        },
+    },
+    # the third two-frequency design (benchmark/ultradian_two_oscillator.json)
+    "ultradian_two_oscillator": {
+        "accession": "GSE220120",
+        "n_samples": 72,
+        "n_genes": 3000,
+        "whole_count": 0,
+        "rhythm_screen_24h_in_selection": 53,
+        "rhythm_screen_12h_in_selection": 0,
+        "n_top": 200,
+    },
     # the two-parameter search (benchmark/two_cycle_search.json)
     "two_cycle_search": {
         "estrous_count": 0,
@@ -651,11 +690,109 @@ def check_axis_separability() -> None:
           f"ratio {q4['separation_ratio']} CI {ci}")
 
 
+def check_axis_geometry_multi() -> None:
+    """The axis diagnostic is not a property of one dataset."""
+    print("12. axis geometry across designs: three shapes, three answers")
+    path = BENCH / "axis_geometry_multi.json"
+    if not path.exists():
+        check("  benchmark/axis_geometry_multi.json exists", False, "missing")
+        return
+    data = json.loads(path.read_text(encoding="utf-8"))
+    want = PUBLISHED["axis_geometry_multi"]
+
+    check("  every case classifies as its pre-registered expectation",
+          data["agreement"]["n_agree"] == want["n_agree"]
+          and data["agreement"]["n_cases"] == want["n_cases"]
+          and data["agreement"]["all_agree"],
+          f"{data['agreement']['n_agree']}/{data['agreement']['n_cases']}")
+
+    cal = {r["key"]: r for r in data["calibrations"]}
+    for key, spec in want["calibrations"].items():
+        got = cal.get(key)
+        check(f"  calibration {key}: {spec['verdict']}",
+              got is not None and got["verdict"] == spec["verdict"]
+              and abs(got["dominant"]["mantel_r_axis2"]
+                      - spec["mantel_r_axis2"]) < 0.05,
+              f"{got['verdict'] if got else '<missing>'}")
+
+    check("  the three calibrations get three different verdicts",
+          len({r["verdict"] for r in data["calibrations"]}) == 3,
+          str(sorted({r["verdict"] for r in data["calibrations"]})))
+
+    real = {r["key"]: r for r in data["real_designs"]}
+    for key, spec in want["real_designs"].items():
+        got = real.get(key)
+        ok = got is not None and got["verdict"] == spec["verdict"] \
+            and abs(got["dominant"]["mantel_r_axis2"]
+                    - spec["mantel_r_axis2"]) < 0.05
+        if ok and "separation_ratio" in spec:
+            ok = abs(got["matched"]["separation_ratio"]
+                     - spec["separation_ratio"]) < 0.05
+        check(f"  real design {key}: {spec['verdict']}", ok,
+              f"{got['verdict'] if got else '<missing>'}")
+
+    check("  the mouse-liver design is the modulation the paper reports",
+          real["estrous_circadian_grid"]["verdict"] == "modulation"
+          and real["estrous_circadian_grid"]["phase_or_shape"][
+              "block_offset_coherence"] > 0.9,
+          "coherence "
+          f"{real['estrous_circadian_grid']['phase_or_shape']['block_offset_coherence']}")
+
+    inert = next(r for r in data["calibrations"] if r["key"] == "synth_inert")
+    nk = want["inert_axis_is_trivially_separable"]
+    check("  negative result: an inert axis is trivially separable",
+          abs(inert["separable"]["additive_share_of_both"]
+              - nk["additive_share_of_both"]) < 0.02
+          and abs(inert["separable"]["subspace_cosine"]
+                  - nk["subspace_cosine"]) < 0.05,
+          f"share {inert['separable']['additive_share_of_both']} cosine "
+          f"{inert['separable']['subspace_cosine']}")
+
+
+def check_ultradian_two_oscillator() -> None:
+    """GSE220120: two frequencies on one axis, and why the count is 0."""
+    print("13. two frequencies in one tissue: the envelope, not the topology")
+    path = BENCH / "ultradian_two_oscillator.json"
+    if not path.exists():
+        check("  benchmark/ultradian_two_oscillator.json exists", False, "missing")
+        return
+    data = json.loads(path.read_text(encoding="utf-8"))
+    want = PUBLISHED["ultradian_two_oscillator"]
+
+    check("  the design is the two-frequency human blood series",
+          data["accession"] == want["accession"]
+          and data["design"]["n_samples"] == want["n_samples"]
+          and data["design"]["n_genes"] == want["n_genes"]
+          and len(data["design"]["subjects"]) == 3,
+          f"{data['accession']} n={data['design']['n_samples']}")
+
+    check("  the count on the whole cloud is 0, not 2",
+          data["whole_cloud"]["n_cycles"] == want["whole_count"],
+          f"count {data['whole_cloud']['n_cycles']}")
+
+    screen = data["rhythm_screen"]
+    n_top = screen["n_top"]
+    check("  the ~12 h program is absent from the high-variance genes",
+          screen["12h"][f"n_of_top{n_top}_in_selection"]
+          == want["rhythm_screen_12h_in_selection"],
+          f"{screen['12h'][f'n_of_top{n_top}_in_selection']}/{n_top}")
+
+    check("  while the ~24 h program is partly present",
+          screen["24h"][f"n_of_top{n_top}_in_selection"]
+          == want["rhythm_screen_24h_in_selection"],
+          f"{screen['24h'][f'n_of_top{n_top}_in_selection']}/{n_top}")
+
+    check("  the conclusion points at the envelope, not the obstruction",
+          "envelope" in data["conclusion"]
+          and "not the topological obstruction" in data["conclusion"],
+          data["conclusion"][:60] + "...")
+
+
 # --------------------------------------------------------------------------
 # layer 4 (optional): the executable spec
 # --------------------------------------------------------------------------
 def run_full() -> None:
-    print("12. the executable spec (--full)")
+    print("14. the executable spec (--full)")
     r = subprocess.run([sys.executable, "-m", "pytest", "-q", str(REPO)],
                        capture_output=True, text=True)
     tail = (r.stdout.strip().splitlines() or ["<no output>"])[-1]
@@ -695,6 +832,8 @@ def main() -> int:
     check_protocol()
     check_estrous_grid()
     check_axis_separability()
+    check_axis_geometry_multi()
+    check_ultradian_two_oscillator()
     if args.full:
         run_full()
 

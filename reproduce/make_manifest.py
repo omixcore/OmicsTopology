@@ -30,6 +30,8 @@ INCLUDE = [
     "cycle_counting_power.json",
     "estrous_grid_cycles.json",
     "axis_separability.json",
+    "axis_geometry_multi.json",
+    "ultradian_two_oscillator.json",
     "cycle_identifiability.json",
     "deep_tuning.json",
     "diagnosis_replicate_contribution.json",

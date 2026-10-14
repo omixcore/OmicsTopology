@@ -1,0 +1,775 @@
+{
+ "agreement": {
+  "all_agree": true,
+  "n_agree": 7,
+  "n_cases": 7,
+  "reading": "a disagreement is not necessarily a failure of the diagnostic -- it can be the diagnostic refusing (undetermined), which is the designed behaviour when the design does not separate the possibilities"
+ },
+ "calibration_settings": {
+  "grid": "8x8",
+  "n_genes": 300,
+  "n_perm": 2000,
+  "noise_sd": 0.3,
+  "seed": 0
+ },
+ "calibrations": [
+  {
+   "criteria": {
+    "coherence_common": 0.8,
+    "cos_separable": 0.5,
+    "r_inert": 0.1,
+    "r_strong": 0.5,
+    "ratio_modulated": 0.2,
+    "share_separable": 0.8,
+    "shift_quarter_periods": 0.5
+   },
+   "dominant": {
+    "amplitude_ratio_axis1_over_axis2": 0.9866,
+    "mantel_p_axis1": 0.0005,
+    "mantel_p_axis2": 0.0005,
+    "mantel_r_axis1": 0.6936,
+    "mantel_r_axis2": 0.6646,
+    "mean_amplitude_axis1": 1.21379,
+    "mean_amplitude_axis2": 1.23034,
+    "n_genes": 300,
+    "reading": "circular Mantel r of the joint distance matrix against each design axis, alongside each axis's mean per-gene harmonic amplitude. Large on axis 1 and near zero on axis 2 is the first sign that axis 2 carries no geometry of its own"
+   },
+   "expectation": "independent_axes",
+   "grid": "8x8",
+   "key": "synth_independent",
+   "matched": {
+    "mean_distance_across_axis1": 1.0685,
+    "mean_distance_matched": 0.5949,
+    "reading": "separation_ratio < 1 means that at a fixed axis-1 value axis 2 still moves the point, but by less than a step of axis 1 does, so it cannot be an axis of comparable size. On a full grid (one sample per cell) the within-cell permutation is degenerate, so the effect size is quoted with a sample-level bootstrap interval instead of a permutation p",
+    "separation_absolute": 0.4736,
+    "separation_bootstrap_ci95": [
+     0.432,
+     0.523
+    ],
+    "separation_p": null,
+    "separation_ratio": 0.5568,
+    "within_cell_permutation_degenerate": true
+   },
+   "n_axis2_levels": 8,
+   "n_genes": 300,
+   "n_samples": 64,
+   "noise_sd": 0.3,
+   "phase_or_shape": {
+    "between_block_phase_variance": 0.38347,
+    "block_offset_coherence": 0.9993,
+    "block_offsets_rad": [
+     -0.0174,
+     -0.01,
+     0.0294,
+     -0.0009,
+     -0.0558,
+     0.0533,
+     0.0452,
+     -0.0439
+    ],
+    "common_shift_share": 0.0037,
+    "gene_specific_share": 0.9963,
+    "levels_axis2": [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7"
+    ],
+    "max_block_offset_in_quarter_periods": 0.0355,
+    "max_block_offset_rad": 0.0558,
+    "n_genes": 300,
+    "phase_deviation_effective_rank": 6.49,
+    "reading": "block_offset_coherence near 1 says axis 2 shifts every gene's axis-1 phase by the *same* amount -- a pure phase shift of axis 1's own loop rather than a second loop. max_block_offset_in_quarter_periods says whether that shift is large enough to resolve as a separate circle; a coherent but tiny shift is a modulation, not a coordinate. gene_specific_share is the size of the residual (phase-noise) component"
+   },
+   "reason": "axis 2 carries a strong effect of its own (r = +0.665); the two axes also sit in separate subspaces (additive share 1.00, cosine -0.00)",
+   "separable": {
+    "additive_share_of_both": 1.0,
+    "distances_after_removing_axis1": 0.6733,
+    "distances_after_removing_axis2": 0.7037,
+    "levels_axis2": [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7"
+    ],
+    "reading": "additive_share_of_both near 1 with a small subspace_cosine means the two axes explain separate slabs of the same geometry; a large overlap means one axis is a modulation of the other",
+    "subspace_cosine": -0.0,
+    "subspace_overlap": 0.0417,
+    "variance_explained_by_axis1": 0.4584,
+    "variance_explained_by_axis2": 0.5039,
+    "variance_explained_by_both": 0.9623
+   },
+   "settings": {
+    "n_boot": 2000,
+    "n_perm": 2000,
+    "n_perm_sep": 1000,
+    "seed": 0
+   },
+   "verdict": "independent_axes",
+   "why": "both axes carry their own independent harmonic"
+  },
+  {
+   "criteria": {
+    "coherence_common": 0.8,
+    "cos_separable": 0.5,
+    "r_inert": 0.1,
+    "r_strong": 0.5,
+    "ratio_modulated": 0.2,
+    "share_separable": 0.8,
+    "shift_quarter_periods": 0.5
+   },
+   "dominant": {
+    "amplitude_ratio_axis1_over_axis2": 17.3741,
+    "mantel_p_axis1": 0.0005,
+    "mantel_p_axis2": 0.952024,
+    "mantel_r_axis1": 0.879,
+    "mantel_r_axis2": -0.0383,
+    "mean_amplitude_axis1": 1.18418,
+    "mean_amplitude_axis2": 0.06816,
+    "n_genes": 300,
+    "reading": "circular Mantel r of the joint distance matrix against each design axis, alongside each axis's mean per-gene harmonic amplitude. Large on axis 1 and near zero on axis 2 is the first sign that axis 2 carries no geometry of its own"
+   },
+   "expectation": "modulation",
+   "grid": "8x8",
+   "key": "synth_modulated",
+   "matched": {
+    "mean_distance_across_axis1": 1.1084,
+    "mean_distance_matched": 0.2759,
+    "reading": "separation_ratio < 1 means that at a fixed axis-1 value axis 2 still moves the point, but by less than a step of axis 1 does, so it cannot be an axis of comparable size. On a full grid (one sample per cell) the within-cell permutation is degenerate, so the effect size is quoted with a sample-level bootstrap interval instead of a permutation p",
+    "separation_absolute": 0.8325,
+    "separation_bootstrap_ci95": [
+     0.7889,
+     0.8665
+    ],
+    "separation_p": null,
+    "separation_ratio": 0.2489,
+    "within_cell_permutation_degenerate": true
+   },
+   "n_axis2_levels": 8,
+   "n_genes": 300,
+   "n_samples": 64,
+   "noise_sd": 0.3,
+   "phase_or_shape": {
+    "between_block_phase_variance": 1.2594,
+    "block_offset_coherence": 0.9994,
+    "block_offsets_rad": [
+     -0.0635,
+     -0.0157,
+     -0.0137,
+     0.033,
+     0.0297,
+     0.0014,
+     0.0489,
+     -0.0201
+    ],
+    "common_shift_share": 0.0009,
+    "gene_specific_share": 0.9991,
+    "levels_axis2": [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7"
+    ],
+    "max_block_offset_in_quarter_periods": 0.0404,
+    "max_block_offset_rad": 0.0635,
+    "n_genes": 300,
+    "phase_deviation_effective_rank": 5.824,
+    "reading": "block_offset_coherence near 1 says axis 2 shifts every gene's axis-1 phase by the *same* amount -- a pure phase shift of axis 1's own loop rather than a second loop. max_block_offset_in_quarter_periods says whether that shift is large enough to resolve as a separate circle; a coherent but tiny shift is a modulation, not a coordinate. gene_specific_share is the size of the residual (phase-noise) component"
+   },
+   "reason": "axis 2 has no Mantel effect of its own (r = -0.038) but it still moves points at a fixed axis-1 value (ratio 0.25) and it does so by shifting every gene's axis-1 phase by one common offset (coherence 1.00) smaller than half a quarter-period (0.04 quarter-periods). Axis 2 modulates axis 1's loop rather than opening a second coordinate",
+   "separable": {
+    "additive_share_of_both": 1.0,
+    "distances_after_removing_axis1": 0.0401,
+    "distances_after_removing_axis2": 0.9998,
+    "levels_axis2": [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7"
+    ],
+    "reading": "additive_share_of_both near 1 with a small subspace_cosine means the two axes explain separate slabs of the same geometry; a large overlap means one axis is a modulation of the other",
+    "subspace_cosine": 0.0,
+    "subspace_overlap": 0.0417,
+    "variance_explained_by_axis1": 0.8263,
+    "variance_explained_by_axis2": 0.0091,
+    "variance_explained_by_both": 0.8353
+   },
+   "settings": {
+    "n_boot": 2000,
+    "n_perm": 2000,
+    "n_perm_sep": 1000,
+    "seed": 0
+   },
+   "verdict": "modulation",
+   "why": "one clock, shifted coherently per block -- the mouse-liver shape"
+  },
+  {
+   "criteria": {
+    "coherence_common": 0.8,
+    "cos_separable": 0.5,
+    "r_inert": 0.1,
+    "r_strong": 0.5,
+    "ratio_modulated": 0.2,
+    "share_separable": 0.8,
+    "shift_quarter_periods": 0.5
+   },
+   "dominant": {
+    "amplitude_ratio_axis1_over_axis2": 18.3401,
+    "mantel_p_axis1": 0.0005,
+    "mantel_p_axis2": 0.958021,
+    "mantel_r_axis1": 0.9844,
+    "mantel_r_axis2": -0.0383,
+    "mean_amplitude_axis1": 1.25002,
+    "mean_amplitude_axis2": 0.06816,
+    "n_genes": 300,
+    "reading": "circular Mantel r of the joint distance matrix against each design axis, alongside each axis's mean per-gene harmonic amplitude. Large on axis 1 and near zero on axis 2 is the first sign that axis 2 carries no geometry of its own"
+   },
+   "expectation": "not_independent",
+   "grid": "8x8",
+   "key": "synth_inert",
+   "matched": {
+    "mean_distance_across_axis1": 1.1205,
+    "mean_distance_matched": 0.1786,
+    "reading": "separation_ratio < 1 means that at a fixed axis-1 value axis 2 still moves the point, but by less than a step of axis 1 does, so it cannot be an axis of comparable size. On a full grid (one sample per cell) the within-cell permutation is degenerate, so the effect size is quoted with a sample-level bootstrap interval instead of a permutation p",
+    "separation_absolute": 0.9419,
+    "separation_bootstrap_ci95": [
+     0.9106,
+     0.9647
+    ],
+    "separation_p": null,
+    "separation_ratio": 0.1594,
+    "within_cell_permutation_degenerate": true
+   },
+   "n_axis2_levels": 8,
+   "n_genes": 300,
+   "n_samples": 64,
+   "noise_sd": 0.3,
+   "phase_or_shape": {
+    "between_block_phase_variance": 0.55768,
+    "block_offset_coherence": 0.9992,
+    "block_offsets_rad": [
+     0.0525,
+     -0.0139,
+     0.0208,
+     -0.0409,
+     -0.0719,
+     0.0028,
+     -0.0045,
+     0.0551
+    ],
+    "common_shift_share": 0.003,
+    "gene_specific_share": 0.997,
+    "levels_axis2": [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7"
+    ],
+    "max_block_offset_in_quarter_periods": 0.0458,
+    "max_block_offset_rad": 0.0719,
+    "n_genes": 300,
+    "phase_deviation_effective_rank": 6.614,
+    "reading": "block_offset_coherence near 1 says axis 2 shifts every gene's axis-1 phase by the *same* amount -- a pure phase shift of axis 1's own loop rather than a second loop. max_block_offset_in_quarter_periods says whether that shift is large enough to resolve as a separate circle; a coherent but tiny shift is a modulation, not a coordinate. gene_specific_share is the size of the residual (phase-noise) component"
+   },
+   "reason": "axis 2 carries no Mantel effect (r = -0.038) and barely moves points even at a fixed axis-1 value (ratio 0.16), so it is orthogonal to axis 1 by construction rather than by acting on it",
+   "separable": {
+    "additive_share_of_both": 1.0,
+    "distances_after_removing_axis1": -0.3637,
+    "distances_after_removing_axis2": 0.9998,
+    "levels_axis2": [
+     "0",
+     "1",
+     "2",
+     "3",
+     "4",
+     "5",
+     "6",
+     "7"
+    ],
+    "reading": "additive_share_of_both near 1 with a small subspace_cosine means the two axes explain separate slabs of the same geometry; a large overlap means one axis is a modulation of the other",
+    "subspace_cosine": -0.0,
+    "subspace_overlap": 0.0417,
+    "variance_explained_by_axis1": 0.9212,
+    "variance_explained_by_axis2": 0.0091,
+    "variance_explained_by_both": 0.9303
+   },
+   "settings": {
+    "n_boot": 2000,
+    "n_perm": 2000,
+    "n_perm_sep": 1000,
+    "seed": 0
+   },
+   "verdict": "independent_axes_inert",
+   "why": "one clock, second axis does nothing at all -- the negative control"
+  }
+ ],
+ "conclusion": "The diagnostic is not a property of one dataset. Run on a synthetic grid whose two axes are genuinely independent it returns independent_axes; run on a synthetic clock that is coherently phase-shifted by a second axis -- the shape of the mouse-liver answer -- it returns modulation; run on a clock whose second axis does nothing it refuses to call it independent. The real designs follow their published analyses. The separable block, which looks like it should carry this decision, does not: an inert axis is trivially orthogonal to axis 1 (measured share 1.00, cosine 0.00), so the decision is carried by the Mantel r of axis 2 and the geometric quantities describe the shape of the effect.",
+ "criteria": {
+  "coherence_common": 0.8,
+  "cos_separable": 0.5,
+  "r_inert": 0.1,
+  "r_strong": 0.5,
+  "ratio_modulated": 0.2,
+  "share_separable": 0.8,
+  "shift_quarter_periods": 0.5
+ },
+ "question": "does the axis-geometry diagnostic rank real designs the way their published analyses imply, and does it separate two independent axes from a modulation on calibrations where the ground truth is known?",
+ "real_designs": [
+  {
+   "accession": "PRJNA1348461",
+   "axis1_name": "circadian_time",
+   "axis2_name": "oestrous_phase",
+   "criteria": {
+    "coherence_common": 0.8,
+    "cos_separable": 0.5,
+    "r_inert": 0.1,
+    "r_strong": 0.5,
+    "ratio_modulated": 0.2,
+    "share_separable": 0.8,
+    "shift_quarter_periods": 0.5
+   },
+   "dominant": {
+    "amplitude_ratio_axis1_over_axis2": 1.5825,
+    "mantel_p_axis1": 0.0005,
+    "mantel_p_axis2": 0.429785,
+    "mantel_r_axis1": 0.6302,
+    "mantel_r_axis2": 0.0061,
+    "mean_amplitude_axis1": 0.33728,
+    "mean_amplitude_axis2": 0.21313,
+    "n_genes": 3000,
+    "reading": "circular Mantel r of the joint distance matrix against each design axis, alongside each axis's mean per-gene harmonic amplitude. Large on axis 1 and near zero on axis 2 is the first sign that axis 2 carries no geometry of its own"
+   },
+   "expectation": "modulation",
+   "key": "estrous_circadian_grid",
+   "matched": {
+    "mean_distance_across_axis1": 1.0204,
+    "mean_distance_matched": 0.894,
+    "reading": "separation_ratio < 1 means that at a fixed axis-1 value axis 2 still moves the point, but by less than a step of axis 1 does, so it cannot be an axis of comparable size. On a full grid (one sample per cell) the within-cell permutation is degenerate, so the effect size is quoted with a sample-level bootstrap interval instead of a permutation p",
+    "separation_absolute": 0.1264,
+    "separation_bootstrap_ci95": [
+     0.0742,
+     0.1857
+    ],
+    "separation_p": null,
+    "separation_ratio": 0.8761,
+    "within_cell_permutation_degenerate": true
+   },
+   "n_axis2_levels": 4,
+   "n_genes": 3000,
+   "n_samples": 48,
+   "organism": "Mus musculus",
+   "phase_or_shape": {
+    "between_block_phase_variance": 1.78857,
+    "block_offset_coherence": 0.9222,
+    "block_offsets_rad": [
+     0.512,
+     -0.5744,
+     -0.115,
+     0.1775
+    ],
+    "common_shift_share": 0.089,
+    "gene_specific_share": 0.911,
+    "levels_axis2": [
+     "diestrus",
+     "metestrus",
+     "oestrus",
+     "proestrus"
+    ],
+    "max_block_offset_in_quarter_periods": 0.3657,
+    "max_block_offset_rad": 0.5744,
+    "n_genes": 3000,
+    "phase_deviation_effective_rank": 2.951,
+    "reading": "block_offset_coherence near 1 says axis 2 shifts every gene's axis-1 phase by the *same* amount -- a pure phase shift of axis 1's own loop rather than a second loop. max_block_offset_in_quarter_periods says whether that shift is large enough to resolve as a separate circle; a coherent but tiny shift is a modulation, not a coordinate. gene_specific_share is the size of the residual (phase-noise) component"
+   },
+   "reason": "axis 2 has no Mantel effect of its own (r = +0.006) but it still moves points at a fixed axis-1 value (ratio 0.88) and it does so by shifting every gene's axis-1 phase by one common offset (coherence 0.92) smaller than half a quarter-period (0.37 quarter-periods). Axis 2 modulates axis 1's loop rather than opening a second coordinate",
+   "separable": {
+    "additive_share_of_both": 1.0,
+    "distances_after_removing_axis1": 0.4425,
+    "distances_after_removing_axis2": 0.9154,
+    "levels_axis2": [
+     "diestrus",
+     "metestrus",
+     "oestrus",
+     "proestrus"
+    ],
+    "reading": "additive_share_of_both near 1 with a small subspace_cosine means the two axes explain separate slabs of the same geometry; a large overlap means one axis is a modulation of the other",
+    "subspace_cosine": -0.0,
+    "subspace_overlap": 0.0833,
+    "variance_explained_by_axis1": 0.1161,
+    "variance_explained_by_axis2": 0.0538,
+    "variance_explained_by_both": 0.1699
+   },
+   "settings": {
+    "n_boot": 2000,
+    "n_perm": 2000,
+    "n_perm_sep": 1000,
+    "seed": 0
+   },
+   "title": "Mouse liver: 48 females, 2-hourly for 96 h, staged into the four oestrous phases",
+   "verdict": "modulation",
+   "why": "the oestrous effect is published by the authors as a modulation of circadian amplitude; the axis has 4 sampled phases on a ~96 h cycle"
+  },
+  {
+   "accession": "GSE8799",
+   "axis1_name": "cell_cycle_phase",
+   "axis2_name": "genotype",
+   "criteria": {
+    "coherence_common": 0.8,
+    "cos_separable": 0.5,
+    "r_inert": 0.1,
+    "r_strong": 0.5,
+    "ratio_modulated": 0.2,
+    "share_separable": 0.8,
+    "shift_quarter_periods": 0.5
+   },
+   "dominant": {
+    "amplitude_ratio_axis1_over_axis2": 0.0202,
+    "mantel_p_axis1": 0.0005,
+    "mantel_p_axis2": 0.0005,
+    "mantel_r_axis1": 0.1182,
+    "mantel_r_axis2": 0.4578,
+    "mean_amplitude_axis1": 0.23839,
+    "mean_amplitude_axis2": 11.81833,
+    "n_genes": 3000,
+    "reading": "circular Mantel r of the joint distance matrix against each design axis, alongside each axis's mean per-gene harmonic amplitude. Large on axis 1 and near zero on axis 2 is the first sign that axis 2 carries no geometry of its own"
+   },
+   "expectation": "not_independent",
+   "key": "yeast_cell_cycle",
+   "matched": {
+    "mean_distance_across_axis1": 0.995,
+    "mean_distance_matched": 1.0771,
+    "reading": "separation_ratio < 1 means that at a fixed axis-1 value axis 2 still moves the point, but by less than a step of axis 1 does, so it cannot be an axis of comparable size. On a full grid (one sample per cell) the within-cell permutation is degenerate, so the effect size is quoted with a sample-level bootstrap interval instead of a permutation p",
+    "separation_absolute": -0.0821,
+    "separation_bootstrap_ci95": [
+     -0.197,
+     0.0592
+    ],
+    "separation_p": null,
+    "separation_ratio": 1.0825,
+    "within_cell_permutation_degenerate": true
+   },
+   "n_axis2_levels": 4,
+   "n_genes": 3000,
+   "n_samples": 60,
+   "organism": "Saccharomyces cerevisiae",
+   "phase_or_shape": {
+    "between_block_phase_variance": 1.99265,
+    "block_offset_coherence": 0.959,
+    "block_offsets_rad": [
+     0.4218,
+     -0.0014,
+     -0.0277,
+     -0.3927
+    ],
+    "common_shift_share": 0.0418,
+    "gene_specific_share": 0.9582,
+    "levels_axis2": [
+     "CyclinMutant_rep1",
+     "CyclinMutant_rep2",
+     "WildType_rep1",
+     "WildType_rep2"
+    ],
+    "max_block_offset_in_quarter_periods": 0.2685,
+    "max_block_offset_rad": 0.4218,
+    "n_genes": 3000,
+    "phase_deviation_effective_rank": 2.866,
+    "reading": "block_offset_coherence near 1 says axis 2 shifts every gene's axis-1 phase by the *same* amount -- a pure phase shift of axis 1's own loop rather than a second loop. max_block_offset_in_quarter_periods says whether that shift is large enough to resolve as a separate circle; a coherent but tiny shift is a modulation, not a coordinate. gene_specific_share is the size of the residual (phase-noise) component"
+   },
+   "reason": "the design does not separate the possibilities (r = +0.458; additive share 1.00, cosine +0.00; coherence 0.96, shift 0.27 quarter-periods; matched ratio 1.08) -- in particular a coherent shift at or above half a quarter-period is close to what a second loop would look like, so the axis needs examining rather than classifying",
+   "separable": {
+    "additive_share_of_both": 1.0,
+    "distances_after_removing_axis1": 0.8421,
+    "distances_after_removing_axis2": 0.7336,
+    "levels_axis2": [
+     "CyclinMutant_rep1",
+     "CyclinMutant_rep2",
+     "WildType_rep1",
+     "WildType_rep2"
+    ],
+    "reading": "additive_share_of_both near 1 with a small subspace_cosine means the two axes explain separate slabs of the same geometry; a large overlap means one axis is a modulation of the other",
+    "subspace_cosine": 0.0,
+    "subspace_overlap": 0.0833,
+    "variance_explained_by_axis1": 0.1457,
+    "variance_explained_by_axis2": 0.216,
+    "variance_explained_by_both": 0.3617
+   },
+   "settings": {
+    "n_boot": 2000,
+    "n_perm": 2000,
+    "n_perm_sep": 1000,
+    "seed": 0
+   },
+   "title": "Yeast cell cycle: elutriation release, wild type vs cyclin mutant (clb1-6)",
+   "verdict": "undetermined",
+   "why": "genotype is a two-level label, not a cycle; the mutant is reported as a phase delay of the same programme"
+  },
+  {
+   "accession": "GSE48113",
+   "axis1_name": "circadian_phase",
+   "axis2_name": "sleep_phase",
+   "criteria": {
+    "coherence_common": 0.8,
+    "cos_separable": 0.5,
+    "r_inert": 0.1,
+    "r_strong": 0.5,
+    "ratio_modulated": 0.2,
+    "share_separable": 0.8,
+    "shift_quarter_periods": 0.5
+   },
+   "dominant": {
+    "amplitude_ratio_axis1_over_axis2": 0.2137,
+    "mantel_p_axis1": 0.154423,
+    "mantel_p_axis2": 0.303348,
+    "mantel_r_axis1": 0.0049,
+    "mantel_r_axis2": 0.0028,
+    "mean_amplitude_axis1": 2.00654,
+    "mean_amplitude_axis2": 9.39118,
+    "n_genes": 3000,
+    "reading": "circular Mantel r of the joint distance matrix against each design axis, alongside each axis's mean per-gene harmonic amplitude. Large on axis 1 and near zero on axis 2 is the first sign that axis 2 carries no geometry of its own"
+   },
+   "expectation": "not_independent",
+   "key": "human_forced_desync",
+   "matched": {
+    "mean_distance_across_axis1": 1.0057,
+    "mean_distance_matched": 0.9654,
+    "reading": "separation_ratio < 1 means that at a fixed axis-1 value axis 2 still moves the point, but by less than a step of axis 1 does, so it cannot be an axis of comparable size. On a full grid (one sample per cell) the within-cell permutation is degenerate, so the effect size is quoted with a sample-level bootstrap interval instead of a permutation p",
+    "separation_absolute": 0.0403,
+    "separation_bootstrap_ci95": [
+     0.0097,
+     0.0764
+    ],
+    "separation_p": 1.0,
+    "separation_ratio": 0.9599,
+    "within_cell_permutation_degenerate": false
+   },
+   "n_axis2_levels": 22,
+   "n_genes": 3000,
+   "n_samples": 287,
+   "organism": "Homo sapiens",
+   "phase_or_shape": {
+    "between_block_phase_variance": 0.38129,
+    "block_offset_coherence": 0.8296,
+    "block_offsets_rad": [
+     0.1854,
+     -0.92,
+     -0.949,
+     -0.8842,
+     0.1181,
+     0.1673,
+     0.1182,
+     0.1492,
+     0.1519,
+     0.1231,
+     1.0635,
+     0.7132,
+     0.1377,
+     0.313,
+     0.6764,
+     0.3269,
+     -0.8637,
+     0.2215,
+     -0.9206,
+     0.7521,
+     -0.8668,
+     0.1867
+    ],
+    "common_shift_share": 0.9531,
+    "gene_specific_share": 0.0469,
+    "levels_axis2": [
+     "BB0012",
+     "BB0028",
+     "BB0040",
+     "BB0041",
+     "BB0061",
+     "BB0072",
+     "BB0080",
+     "BB0098",
+     "BB0100",
+     "BB0102",
+     "BB0104",
+     "BB0121",
+     "BB0135",
+     "BB0141",
+     "BB0148",
+     "BB0219",
+     "BB0236",
+     "BB0239",
+     "BB0246",
+     "BB0264",
+     "BB0272",
+     "BB0289"
+    ],
+    "max_block_offset_in_quarter_periods": 0.6771,
+    "max_block_offset_rad": 1.0635,
+    "n_genes": 3000,
+    "phase_deviation_effective_rank": 3.219,
+    "reading": "block_offset_coherence near 1 says axis 2 shifts every gene's axis-1 phase by the *same* amount -- a pure phase shift of axis 1's own loop rather than a second loop. max_block_offset_in_quarter_periods says whether that shift is large enough to resolve as a separate circle; a coherent but tiny shift is a modulation, not a coordinate. gene_specific_share is the size of the residual (phase-noise) component"
+   },
+   "reason": "the design does not separate the possibilities (r = +0.003; additive share 1.00, cosine +0.00; coherence 0.83, shift 0.68 quarter-periods; matched ratio 0.96) -- in particular a coherent shift at or above half a quarter-period is close to what a second loop would look like, so the axis needs examining rather than classifying",
+   "separable": {
+    "additive_share_of_both": 0.9988,
+    "distances_after_removing_axis1": 0.9904,
+    "distances_after_removing_axis2": 0.356,
+    "levels_axis2": [
+     "BB0012",
+     "BB0028",
+     "BB0040",
+     "BB0041",
+     "BB0061",
+     "BB0072",
+     "BB0080",
+     "BB0098",
+     "BB0100",
+     "BB0102",
+     "BB0104",
+     "BB0121",
+     "BB0135",
+     "BB0141",
+     "BB0148",
+     "BB0219",
+     "BB0236",
+     "BB0239",
+     "BB0246",
+     "BB0264",
+     "BB0272",
+     "BB0289"
+    ],
+    "reading": "additive_share_of_both near 1 with a small subspace_cosine means the two axes explain separate slabs of the same geometry; a large overlap means one axis is a modulation of the other",
+    "subspace_cosine": 0.0043,
+    "subspace_overlap": 0.0156,
+    "variance_explained_by_axis1": 0.0083,
+    "variance_explained_by_axis2": 0.6219,
+    "variance_explained_by_both": 0.631
+   },
+   "settings": {
+    "n_boot": 2000,
+    "n_perm": 2000,
+    "n_perm_sep": 1000,
+    "seed": 0
+   },
+   "title": "Human blood, 22 subjects x 7 circadian phases x 2 sleep phases",
+   "verdict": "undetermined",
+   "why": "the sleep-wake axis is the canonical second oscillator but only 2 phases were released -- an arc, not a circle"
+  },
+  {
+   "accession": "GSE93066",
+   "axis1_name": "daily_phase",
+   "axis2_name": "day_index",
+   "criteria": {
+    "coherence_common": 0.8,
+    "cos_separable": 0.5,
+    "r_inert": 0.1,
+    "r_strong": 0.5,
+    "ratio_modulated": 0.2,
+    "share_separable": 0.8,
+    "shift_quarter_periods": 0.5
+   },
+   "dominant": {
+    "amplitude_ratio_axis1_over_axis2": 0.9458,
+    "mantel_p_axis1": 0.0005,
+    "mantel_p_axis2": 0.621189,
+    "mantel_r_axis1": 0.3175,
+    "mantel_r_axis2": -0.0053,
+    "mean_amplitude_axis1": 0.49641,
+    "mean_amplitude_axis2": 0.52486,
+    "n_genes": 3000,
+    "reading": "circular Mantel r of the joint distance matrix against each design axis, alongside each axis's mean per-gene harmonic amplitude. Large on axis 1 and near zero on axis 2 is the first sign that axis 2 carries no geometry of its own"
+   },
+   "expectation": "not_independent",
+   "key": "psme_diurnal",
+   "matched": {
+    "mean_distance_across_axis1": 1.0418,
+    "mean_distance_matched": 0.9141,
+    "reading": "separation_ratio < 1 means that at a fixed axis-1 value axis 2 still moves the point, but by less than a step of axis 1 does, so it cannot be an axis of comparable size. On a full grid (one sample per cell) the within-cell permutation is degenerate, so the effect size is quoted with a sample-level bootstrap interval instead of a permutation p",
+    "separation_absolute": 0.1277,
+    "separation_bootstrap_ci95": [
+     0.0835,
+     0.1726
+    ],
+    "separation_p": 1.0,
+    "separation_ratio": 0.8775,
+    "within_cell_permutation_degenerate": false
+   },
+   "n_axis2_levels": 6,
+   "n_genes": 3000,
+   "n_samples": 72,
+   "organism": "Pseudotsuga menziesii",
+   "phase_or_shape": {
+    "between_block_phase_variance": 1.40592,
+    "block_offset_coherence": 0.997,
+    "block_offsets_rad": [
+     -0.1073,
+     0.1103,
+     0.0179,
+     0.0793,
+     -0.0654,
+     -0.0347
+    ],
+    "common_shift_share": 0.0042,
+    "gene_specific_share": 0.9958,
+    "levels_axis2": [
+     "1A",
+     "1B",
+     "2A",
+     "2B",
+     "3A",
+     "3B"
+    ],
+    "max_block_offset_in_quarter_periods": 0.0702,
+    "max_block_offset_rad": 0.1103,
+    "n_genes": 3000,
+    "phase_deviation_effective_rank": 4.94,
+    "reading": "block_offset_coherence near 1 says axis 2 shifts every gene's axis-1 phase by the *same* amount -- a pure phase shift of axis 1's own loop rather than a second loop. max_block_offset_in_quarter_periods says whether that shift is large enough to resolve as a separate circle; a coherent but tiny shift is a modulation, not a coordinate. gene_specific_share is the size of the residual (phase-noise) component"
+   },
+   "reason": "axis 2 has no Mantel effect of its own (r = -0.005) but it still moves points at a fixed axis-1 value (ratio 0.88) and it does so by shifting every gene's axis-1 phase by one common offset (coherence 1.00) smaller than half a quarter-period (0.07 quarter-periods). Axis 2 modulates axis 1's loop rather than opening a second coordinate",
+   "separable": {
+    "additive_share_of_both": 1.0,
+    "distances_after_removing_axis1": 0.8759,
+    "distances_after_removing_axis2": 0.4336,
+    "levels_axis2": [
+     "1A",
+     "1B",
+     "2A",
+     "2B",
+     "3A",
+     "3B"
+    ],
+    "reading": "additive_share_of_both near 1 with a small subspace_cosine means the two axes explain separate slabs of the same geometry; a large overlap means one axis is a modulation of the other",
+    "subspace_cosine": -0.0,
+    "subspace_overlap": 0.0556,
+    "variance_explained_by_axis1": 0.1601,
+    "variance_explained_by_axis2": 0.5781,
+    "variance_explained_by_both": 0.7382
+   },
+   "settings": {
+    "n_boot": 2000,
+    "n_perm": 2000,
+    "n_perm_sep": 1000,
+    "seed": 0
+   },
+   "title": "Douglas-fir needles, 6 trees x 6 times of day x 2 days",
+   "verdict": "modulation",
+   "why": "day 2 repeats day 1's times of day, so axis 2 carries no independent cyclic parameter"
+  }
+ ]
+}

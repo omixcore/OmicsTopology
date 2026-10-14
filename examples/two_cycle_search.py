@@ -37,6 +37,13 @@ GSE48113                        human forced desynchrony, 22 people x        the
                                                                             phases -> an arc, not a loop
 GSE93067 / GSE93066             Douglas-fir, year and 48 h                   two *separate* series; pooling them
                                 (``psme_annual_x_diurnal``)                 dilutes both and returns 0
+GSE220120 (Zhu 2024)            human blood, 3 subjects x 2 days x           **one** sampling axis, two published
+                                12 two-hourly draws                          frequencies; **since measured**
+                                                                            (examples/ultradian_two_oscillator.py):
+                                                                            the ~12 h program is filtered out by
+                                                                            the high-variance gene selection, so
+                                                                            the count is 0 for an envelope reason,
+                                                                            not a topological one
 ==============================  ==========================================  ==================================
 
 The conclusion is not "the method fails".  It is that the two-parameter case is
@@ -50,6 +57,16 @@ loop (Mantel r = +0.006, p = 0.43; across-phase variance indistinguishable from
 a label permutation, p = 0.85).  A calibration on the same sampling shows a
 phase-shifted clock counts exactly like an unshifted one, so a second *phase*
 of the same loop does not make a second loop.
+
+GSE220120 closes the remaining loophole.  It is the design that *does* put two
+genuine oscillators (24 h and 12 h) in the same tissue with biological
+replicates, so if the obstruction were only "two rhythms on one axis" this would
+be the case to break it.  It does not, and the measurement says why in a way
+that is more useful than another zero: the ~12 h program is not merely
+topologically inaccessible, it is *absent from the high-variance genes this kind
+of analysis selects on* (0 of 200 against 53 of 200 for the clock).  That is the
+protocol's own declared envelope, confirmed on a third tissue and a second
+organism.
 
 This script therefore keeps two jobs: it measures the one single-axis
 two-frequency dataset that is downloadable (GSE12289) to show the topological
@@ -134,6 +151,23 @@ CANDIDATES = [
         "cyclic_parameters": 2,
         "verdict": "two independent real cycles, but two separate sample "
                    "collections: pooling dilutes both and the count returns 0",
+    },
+    {
+        "source": "GSE220120 (Zhu et al., 2024)",
+        "organism": "Homo sapiens",
+        "tissue": "peripheral white blood cells",
+        "design": "3 subjects x 2 days x 12 two-hourly draws (72 samples)",
+        "n_samples": 72,
+        "axes": 1,
+        "cyclic_parameters": 2,
+        "verdict": "one sampling axis carrying two published frequencies "
+                   "(a ~24 h circadian program and a ~12 h ultradian one); "
+                   "measured in examples/ultradian_two_oscillator.py -- and the "
+                   "count is 0 for a *third* reason: the ~12 h program is "
+                   "absent from the high-variance genes (0 of the 200 strongest "
+                   "12 h genes survive the selection, against 53 of 200 for the "
+                   "24 h program), which is the protocol's declared envelope "
+                   "rather than a topological obstruction",
     },
 ]
 

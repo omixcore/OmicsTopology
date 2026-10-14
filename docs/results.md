@@ -349,6 +349,39 @@ this analysis points at. The measured grid sits *below* that envelope (48
 samples, two-hourly) and it counts 0 for a second reason as well: the second
 axis carries no independent cycle to count.
 
+### 5b. The remaining loophole, closed: two frequencies in one tissue
+
+The one shape the search had not tested is a design that *does* put two genuine
+oscillators in the same tissue with replicates — because "two rhythms riding one
+axis" would then be the only thing standing between it and a count of 2.
+**GSE220120** (Zhu et al.) is exactly that: human peripheral blood, three healthy
+subjects x two days x twelve two-hourly draws (72 samples), carrying a published
+~24 h circadian program *and* a ~12 h ultradian one.
+`examples/ultradian_two_oscillator.py` (→
+`benchmark/ultradian_two_oscillator.json`) measures it:
+
+| what is measured | value |
+|---|---|
+| count on the whole 72-sample cloud | **0** (gap 2.15) |
+| circular Mantel r vs 24 h | +0.006 (p = 0.39) |
+| circular Mantel r vs 12 h | -0.018 (p = 0.83) |
+| 24 h Mantel r after removing the 12 h harmonic | +0.007 (p = 0.38) |
+| 12 h Mantel r after removing the 24 h harmonic | -0.016 (p = 0.79) |
+
+Neither frequency leaves a signal at all — so this is *not* the closed-geodesic
+obstruction of §5, which would show both rhythms present and neither countable.
+The design's own rhythm screen says what is happening: of the 200 genes with the
+strongest ~24 h harmonic power, **53** survive the high-variance gene selection
+this kind of analysis uses; of the 200 strongest ~12 h genes, **0** do. The
+ultradian program is not topologically hidden — it is **filtered out before the
+topology is ever built**.
+
+That is the first condition of the protocol's declared envelope ("the count
+succeeds only when essentially all of the high-variance genes carry the loop"),
+measured on a third tissue and a second organism. It is worth more than another
+zero: it says the failure mode is a *preprocessing* choice that can be audited
+from the data, not a limit of the method.
+
 ## 6. The protocol
 
 `omictopo.protocol` turns the decision rule of §3 into a reusable procedure that
@@ -359,3 +392,56 @@ with the two diagnostics (`gap` and the circular Mantel `r`) reported alongside
 so every refusal can be audited. The declared envelope is returned by
 `envelope()` and re-checked by `reproduce/verify.py`. See
 [docs/protocol.md](protocol.md).
+
+## 7. The second axis, as a reusable diagnostic
+
+§5 asked the joint-coordinate question once, on one dataset.
+`omictopo.axes` turns it into a procedure that is blind to what the axes *are*:
+`axis_geometry(X, axis1, axis2)` returns four blocks (which axis dominates, are
+the two axes separable slabs, is axis 2 a common phase shift or a shape change,
+and the model-free matched distance at fixed axis 1) and classifies the pair on
+criteria fixed in `omictopo.axes.CRITERIA` **before** any dataset is scored.
+
+`examples/axis_geometry_multi.py` (→ `benchmark/axis_geometry_multi.json`)
+runs three synthetic calibrations where the ground truth is known, plus every
+real design that records two axes:
+
+| case | kind | verdict | r (axis 2) | matched ratio |
+|---|---|---|---|---|
+| synth_independent | 8x8 grid, both axes carry their own harmonic | **independent_axes** | +0.665 | 0.557 |
+| synth_modulated | one clock, shifted coherently per block | **modulation** | -0.038 | 0.249 |
+| synth_inert | one clock, second axis does nothing | **independent_axes_inert** | -0.038 | 0.159 |
+| estrous_circadian_grid | PRJNA1348461 clock x oestrous | modulation | +0.006 | 0.876 |
+| yeast_cell_cycle | GSE8799 cell cycle x genotype | undetermined | +0.458 | 1.083 |
+| human_forced_desync | GSE48113 circadian x sleep-wake | undetermined | +0.003 | 0.960 |
+| psme_diurnal | GSE93066 day x day-of-experiment | modulation | -0.005 | 0.878 |
+
+All seven match their pre-registered expectation, and the three calibrations get
+**three different verdicts** — the diagnostic is not collapsing everything onto
+one answer. The `undetermined` verdicts are the designed refusals: the yeast
+genotype axis sits in the band between the cuts, and the human sleep-wake axis
+has a phase shift (0.68 quarter-periods) large enough that it is close to what a
+second loop would look like, so the design has to be examined rather than
+classified.
+
+**Two negative results are published with it**, because they constrain how the
+verdict may be read and because a criterion that quietly ignores them would be
+wrong:
+
+* the **separability block cannot carry the decision.** An *inert* axis is
+  trivially orthogonal to axis 1 — the calibration measures additive share
+  **1.00** and subspace cosine **0.00** for a second axis that does nothing. So
+  `share` and `cosine` rule out collinearity but cannot tell "independent" from
+  "does nothing";
+* the **matched-distance ratio is not monotone** in the size of axis 2. A
+  genuinely independent second axis measures **0.557** while the mouse-liver
+  modulation measures **0.876** — because the denominator pools across-axis-1
+  pairs that include diagonal offsets. It is used as a coarse resolved/not
+  indicator, never as the discriminator.
+
+What does discriminate, on both the calibrations and the real designs, is the
+Mantel `r` of axis 2 (+0.70 for two independent axes against −0.04 for a
+modulated or inert one). The criteria are therefore written so that `r` carries
+the decision and the geometric quantities describe the *shape* of the effect —
+which is the honest statement of what the diagnostic is doing, and the reason the
+negative results above are in the record rather than in a footnote.

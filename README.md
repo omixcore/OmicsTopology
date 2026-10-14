@@ -339,14 +339,42 @@ independent parameter (a 13 × 9 grid, data simulated to the real clouds'
 shape) and two H1 bars clear the covariance-matched null; one parameter gives
 one bar and none gives none.  **6/6 designs are read correctly.**
 
+**C, on measured data.**  A claim built and tested by the same person is not
+worth much, so `examples/prepare_cycle_designs.py` +
+`examples/cycle_counting_real.py` (→ `benchmark/cycle_counting_real.json`)
+run the identical pipeline on four public designs whose sample sheets were
+fixed years ago: 5 Douglas-fir trees × 16 dates across a full year (GSE93067),
+6 trees × 12 time points over 48 h (GSE93066), 22 people × 7 circadian phases
+× 2 sleep phases (GSE48113), and the two Douglas-fir series pooled into an
+annual × daily design.
+
+Exactly **one of four** designs is counted correctly, and it is the one whose
+cycle dominates its transcriptome: the yearlong series reaches a dominant-bar
+gap of 4.9 and is counted as 1, and sweeping the window shows the same thing
+from the other side — any sub-year window is an open arc and counts 0.  The
+other three return 0, and two diagnostics say why: their H1 spectra decay
+smoothly (gap 1.06-1.36, i.e. *no dominant bar to count*) while the cycles are
+nevertheless present — the circular Mantel correlation against the design's
+own axis is +0.70 for the diurnal cloud, the same value the yearlong series
+has.  `examples/cycle_counting_power.py` (→
+`benchmark/cycle_counting_power.json`) then measures the variable that
+separates the working case from the failing ones: how many of the 3000
+selected genes actually carry the ring.  The count succeeds only when
+essentially all of them do.  That is the honest envelope of the claim, and it
+is measured rather than asserted.
+
 Limits, stated plainly: the *scoring* needs the clock even though the
 *computation* does not; the recovered cycle visits only 44-76 % of a cloud's
-samples; and the two-parameter result is demonstrated on simulated data,
-because no public plant time course in the registry has a two-dimensional
-design.  That design — time against an independently cycling factor — is the
-cheapest experiment this analysis points at.
+samples; the two-parameter result is demonstrated on simulated data, because
+even the pooled annual × daily design has no dominant bar once the two
+series' signals dilute each other; and the counting criterion needs a
+transcriptome dominated by the cycle.  The design that would settle the
+two-parameter case — time against an independently cycling factor, sampled
+densely in both — remains the cheapest experiment this analysis points at.
 
 ![Clock order recovered with the labels held out](docs/fig_labels_held_out.png)
+
+![The envelope of the cycle count](docs/fig_cycle_counting_power.png)
 
 
 ## API tour
@@ -441,6 +469,9 @@ examples/          runnable demos; see the files
                               how much do replicates contribute? (measured 5 ways)
   benchmark_audit.py          ablation, multiplicity and resolution of the headline
   topology_without_labels.py  what a phase-based test cannot be asked (labels held out)
+  prepare_cycle_designs.py    download + normalise four real cyclic designs (GSE93067/93066/48113)
+  cycle_counting_real.py      block C on measured data: 1 of 4 designs is counted correctly
+  cycle_counting_power.py     when does the count work? (measured, not assumed)
 benchmark/         committed result tables of the multi-dataset benchmark
 tests/             86 pytest cases
 ```

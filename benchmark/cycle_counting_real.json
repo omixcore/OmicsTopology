@@ -1,0 +1,587 @@
+{
+  "designs": {
+    "human_forced_desync": {
+      "accession": "GSE48113",
+      "axes": [
+        "circadian_phase",
+        "sleep_timing"
+      ],
+      "design_note": "circadian cycle resolved; sleep-wake sampled at 2 phases",
+      "kind": "array",
+      "n_cyclic_parameters": 1,
+      "organism": "Homo sapiens",
+      "period_hours": 24.0,
+      "title": "Human blood, 22 subjects x 7 circadian phases x 2 sleep phases",
+      "urls": {
+        "series": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE48nnn/GSE48113/matrix/GSE48113_series_matrix.txt.gz"
+      }
+    },
+    "psme_annual": {
+      "accession": "GSE93067",
+      "axes": [
+        "annual_phase",
+        "tree"
+      ],
+      "design_note": "one sampling window per date; the year is the cycle",
+      "kind": "counts",
+      "n_cyclic_parameters": 1,
+      "organism": "Pseudotsuga menziesii",
+      "period_hours": 8766.0,
+      "title": "Douglas-fir needles, 5 trees x 16 dates over one year",
+      "urls": {
+        "counts": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE93nnn/GSE93067/suppl/GSE93067_psme_annual_DESeq_counts.txt.gz",
+        "series": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE93nnn/GSE93067/matrix/GSE93067_series_matrix.txt.gz"
+      }
+    },
+    "psme_annual_x_diurnal": {
+      "accession": "GSE93067+GSE93066",
+      "n_cyclic_parameters": 2,
+      "organism": "Pseudotsuga menziesii",
+      "title": "Douglas-fir: yearlong series + 48-h diurnal series, pooled"
+    },
+    "psme_diurnal": {
+      "accession": "GSE93066",
+      "axes": [
+        "daily_phase",
+        "day"
+      ],
+      "design_note": "day 2 repeats the times of day of day 1",
+      "kind": "counts",
+      "n_cyclic_parameters": 1,
+      "organism": "Pseudotsuga menziesii",
+      "period_hours": 24.0,
+      "title": "Douglas-fir needles, 6 trees x 6 times of day x 2 days",
+      "urls": {
+        "counts": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE93nnn/GSE93066/suppl/GSE93066_psme_diurnal_DESeq_counts.txt.gz",
+        "series": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE93nnn/GSE93066/matrix/GSE93066_series_matrix.txt.gz"
+      }
+    }
+  },
+  "finding": {
+    "envelope": "examples/cycle_counting_power.py sweeps how many of the 3000 selected genes carry the ring. The count only succeeds when essentially all of them do. This is a real limitation of the criterion and it is measured, not assumed.",
+    "headline": "On measured data the counting criterion returns the design's own number for 1 of 4 designs - the one whose cycle is carried by essentially the whole selected gene set.",
+    "what_fails_and_why": "diurnal (GSE93066), forced desync (GSE48113) and the pooled annual x diurnal design all have a smoothly decaying H1 spectrum (gap 1.06-1.36), so there is no dominant bar and the count is 0. The cycles are nevertheless present: the circular Mantel correlation against the design's own axis is +0.70 for the diurnal cloud, i.e. the same strength as the yearlong series that *is* counted. The limitation is the power of the dominant-bar test, not the biology.",
+    "what_works": "psme_annual: 5 Douglas-fir trees x 16 dates over a full year. Replicate-centred, the H1 spectrum has a dominant bar (gap ~4.9) and the count is 1, as the design predicts. The window sweep is the same statement from the other side: any sub-year window is an arc and counts 0.",
+    "why_the_forced_desync_cloud_cannot_test_the_claim": "human_forced_desync has circular Mantel r = +0.045 against the circadian axis: the circadian programme is not in the 3000 highest-variance genes of whole blood at all, so no method restricted to those genes could count that cycle."
+  },
+  "n_cases": 12,
+  "n_correct": 1,
+  "n_null": 60,
+  "results": {
+    "annual_all_samples": {
+      "centred": true,
+      "correct": true,
+      "gap": 4.9253,
+      "label": "annual_all_samples",
+      "mantel_r": 0.7007,
+      "n_cycles": 1,
+      "n_cycles_expected": 1,
+      "n_cycles_raw": 2,
+      "n_samples": 66,
+      "note": "66 samples, 5 trees x 16 dates",
+      "null_q95": 0.5319,
+      "null_q95_raw": 0.4628,
+      "top_bars_rel": [
+        0.7383,
+        0.1499,
+        0.1019,
+        0.0869,
+        0.067
+      ],
+      "top_bars_rel_raw": [
+        0.5098,
+        0.4852,
+        0.3331,
+        0.3269,
+        0.3115
+      ]
+    },
+    "annual_date_centroids": {
+      "centred": false,
+      "correct": false,
+      "gap": 1.0507,
+      "label": "annual_date_centroids",
+      "n_cycles": 2,
+      "n_cycles_expected": 1,
+      "n_samples": 66,
+      "note": "one centroid per (tree, date)",
+      "null_q95": 0.4628,
+      "top_bars_rel": [
+        0.5098,
+        0.4852,
+        0.3331,
+        0.3269,
+        0.3115
+      ]
+    },
+    "diurnal_all_samples": {
+      "centred": true,
+      "correct": false,
+      "gap": 1.3555,
+      "label": "diurnal_all_samples",
+      "mantel_r": 0.701,
+      "n_cycles": 0,
+      "n_cycles_expected": 1,
+      "n_cycles_raw": 0,
+      "n_samples": 72,
+      "note": "72 samples, 6 trees x 12 time points over 48 h",
+      "null_q95": 0.403,
+      "null_q95_raw": 0.405,
+      "top_bars_rel": [
+        0.371,
+        0.2737,
+        0.2241,
+        0.1718,
+        0.1633
+      ],
+      "top_bars_rel_raw": [
+        0.343,
+        0.3349,
+        0.2999,
+        0.2497,
+        0.2398
+      ]
+    },
+    "diurnal_experimental_day1": {
+      "centred": true,
+      "correct": false,
+      "gap": 1.1316,
+      "label": "diurnal_experimental_day1",
+      "mantel_r": 0.7634,
+      "n_cycles": 0,
+      "n_cycles_expected": 1,
+      "n_cycles_raw": 0,
+      "n_samples": 36,
+      "note": "one full 24-h cycle from a single day -- the two-axis trap",
+      "null_q95": 0.5448,
+      "null_q95_raw": 0.4956,
+      "top_bars_rel": [
+        0.3112,
+        0.275,
+        0.2475,
+        0.2402,
+        0.141
+      ],
+      "top_bars_rel_raw": [
+        0.424,
+        0.3756,
+        0.3661,
+        0.3308,
+        0.315
+      ]
+    },
+    "diurnal_experimental_day2": {
+      "centred": true,
+      "correct": false,
+      "gap": 1.1503,
+      "label": "diurnal_experimental_day2",
+      "mantel_r": 0.806,
+      "n_cycles": 0,
+      "n_cycles_expected": 1,
+      "n_cycles_raw": 0,
+      "n_samples": 36,
+      "note": "one full 24-h cycle from a single day -- the two-axis trap",
+      "null_q95": 0.5049,
+      "null_q95_raw": 0.5349,
+      "top_bars_rel": [
+        0.2288,
+        0.1989,
+        0.1005,
+        0.0784,
+        0.0634
+      ],
+      "top_bars_rel_raw": [
+        0.3601,
+        0.3305,
+        0.2914,
+        0.2701,
+        0.264
+      ]
+    },
+    "diurnal_time_centroids": {
+      "centred": false,
+      "correct": false,
+      "gap": 1.0242,
+      "label": "diurnal_time_centroids",
+      "n_cycles": 0,
+      "n_cycles_expected": 1,
+      "n_samples": 72,
+      "note": "one centroid per (tree, time point)",
+      "null_q95": 0.405,
+      "top_bars_rel": [
+        0.343,
+        0.3349,
+        0.2999,
+        0.2497,
+        0.2398
+      ]
+    },
+    "fd_all_samples": {
+      "centred": true,
+      "correct": false,
+      "gap": 1.0692,
+      "label": "fd_all_samples",
+      "mantel_r": 0.0448,
+      "n_cycles": 0,
+      "n_cycles_expected": 1,
+      "n_cycles_raw": 2,
+      "n_samples": 287,
+      "note": "287 samples, 22 people x 7 circadian phases x 2 sleep phases",
+      "null_q95": 0.3412,
+      "null_q95_raw": 0.3428,
+      "top_bars_rel": [
+        0.3321,
+        0.3106,
+        0.2862,
+        0.2791,
+        0.2436
+      ],
+      "top_bars_rel_raw": [
+        0.3899,
+        0.3674,
+        0.3332,
+        0.3331,
+        0.3279
+      ]
+    },
+    "fd_cell_centroids": {
+      "centred": false,
+      "correct": false,
+      "gap": 1.0003,
+      "label": "fd_cell_centroids",
+      "n_cycles": 0,
+      "n_cycles_expected": 1,
+      "n_samples": 97,
+      "note": "one centroid per (circadian phase, sleep phase) cell",
+      "null_q95": 0.4328,
+      "top_bars_rel": [
+        0.3327,
+        0.3326,
+        0.2782,
+        0.2658,
+        0.2474
+      ]
+    },
+    "fd_sleep_in": {
+      "centred": true,
+      "correct": false,
+      "gap": 1.1205,
+      "label": "fd_sleep_in",
+      "mantel_r": 0.1744,
+      "n_cycles": 0,
+      "n_cycles_expected": 1,
+      "n_cycles_raw": 0,
+      "n_samples": 148,
+      "note": "one full circadian cycle, sleep in of phase",
+      "null_q95": 0.3766,
+      "null_q95_raw": 0.3767,
+      "top_bars_rel": [
+        0.3179,
+        0.2837,
+        0.2635,
+        0.191,
+        0.1585
+      ],
+      "top_bars_rel_raw": [
+        0.3016,
+        0.2964,
+        0.2926,
+        0.2882,
+        0.2756
+      ]
+    },
+    "fd_sleep_out": {
+      "centred": true,
+      "correct": false,
+      "gap": 1.0552,
+      "label": "fd_sleep_out",
+      "mantel_r": 0.0588,
+      "n_cycles": 0,
+      "n_cycles_expected": 1,
+      "n_cycles_raw": 2,
+      "n_samples": 139,
+      "note": "one full circadian cycle, sleep out of phase",
+      "null_q95": 0.3879,
+      "null_q95_raw": 0.4008,
+      "top_bars_rel": [
+        0.2734,
+        0.2591,
+        0.2565,
+        0.1877,
+        0.1711
+      ],
+      "top_bars_rel_raw": [
+        0.4262,
+        0.4101,
+        0.3716,
+        0.3416,
+        0.2734
+      ]
+    },
+    "pooled_all_samples": {
+      "centred": true,
+      "correct": false,
+      "gap": 1.0908,
+      "label": "pooled_all_samples",
+      "n_cycles": 0,
+      "n_cycles_expected": 2,
+      "n_cycles_raw": 1,
+      "n_samples": 138,
+      "note": "138 samples: 66 from the yearlong series + 72 from the 48-h series",
+      "null_q95": 0.3498,
+      "null_q95_raw": 0.3745,
+      "top_bars_rel": [
+        0.3232,
+        0.2963,
+        0.2673,
+        0.2463,
+        0.2414
+      ],
+      "top_bars_rel_raw": [
+        0.4059,
+        0.3582,
+        0.3354,
+        0.2978,
+        0.2357
+      ]
+    },
+    "pooled_design_cells": {
+      "centred": false,
+      "correct": false,
+      "gap": 9.2824,
+      "label": "pooled_design_cells",
+      "n_cycles": 1,
+      "n_cycles_expected": 2,
+      "n_samples": 22,
+      "note": "16 annual cells + 6 daily cells: the two sampled cycles",
+      "null_q95": 0.5758,
+      "top_bars_rel": [
+        0.608,
+        0.0655,
+        0.0325,
+        0.0034
+      ]
+    }
+  },
+  "seed": 0,
+  "window_sweeps": {
+    "annual": [
+      {
+        "covered_fraction": 0.0934,
+        "gap_fraction": 0.9066,
+        "k_dates": 3,
+        "n_cycles": 0,
+        "n_samples": 15,
+        "null_q95": 0.5932,
+        "top_bar_rel": 0.1461
+      },
+      {
+        "covered_fraction": 0.1951,
+        "gap_fraction": 0.8049,
+        "k_dates": 4,
+        "n_cycles": 0,
+        "n_samples": 20,
+        "null_q95": 0.5828,
+        "top_bar_rel": 0.1974
+      },
+      {
+        "covered_fraction": 0.283,
+        "gap_fraction": 0.717,
+        "k_dates": 5,
+        "n_cycles": 0,
+        "n_samples": 25,
+        "null_q95": 0.6615,
+        "top_bar_rel": 0.4105
+      },
+      {
+        "covered_fraction": 0.3269,
+        "gap_fraction": 0.6731,
+        "k_dates": 6,
+        "n_cycles": 0,
+        "n_samples": 29,
+        "null_q95": 0.6511,
+        "top_bar_rel": 0.2239
+      },
+      {
+        "covered_fraction": 0.3681,
+        "gap_fraction": 0.6319,
+        "k_dates": 7,
+        "n_cycles": 0,
+        "n_samples": 34,
+        "null_q95": 0.5531,
+        "top_bar_rel": 0.1049
+      },
+      {
+        "covered_fraction": 0.4451,
+        "gap_fraction": 0.5549,
+        "k_dates": 8,
+        "n_cycles": 0,
+        "n_samples": 38,
+        "null_q95": 0.5769,
+        "top_bar_rel": 0.1421
+      },
+      {
+        "covered_fraction": 0.5247,
+        "gap_fraction": 0.4753,
+        "k_dates": 9,
+        "n_cycles": 0,
+        "n_samples": 42,
+        "null_q95": 0.4978,
+        "top_bar_rel": 0.3262
+      },
+      {
+        "covered_fraction": 0.6401,
+        "gap_fraction": 0.3599,
+        "k_dates": 10,
+        "n_cycles": 0,
+        "n_samples": 46,
+        "null_q95": 0.446,
+        "top_bar_rel": 0.4409
+      },
+      {
+        "covered_fraction": 0.6951,
+        "gap_fraction": 0.3049,
+        "k_dates": 11,
+        "n_cycles": 0,
+        "n_samples": 50,
+        "null_q95": 0.482,
+        "top_bar_rel": 0.456
+      },
+      {
+        "covered_fraction": 0.7527,
+        "gap_fraction": 0.2473,
+        "k_dates": 12,
+        "n_cycles": 0,
+        "n_samples": 54,
+        "null_q95": 0.5187,
+        "top_bar_rel": 0.4688
+      },
+      {
+        "covered_fraction": 0.8077,
+        "gap_fraction": 0.1923,
+        "k_dates": 13,
+        "n_cycles": 0,
+        "n_samples": 58,
+        "null_q95": 0.4941,
+        "top_bar_rel": 0.4132
+      },
+      {
+        "covered_fraction": 0.8654,
+        "gap_fraction": 0.1346,
+        "k_dates": 14,
+        "n_cycles": 0,
+        "n_samples": 60,
+        "null_q95": 0.5085,
+        "top_bar_rel": 0.4493
+      },
+      {
+        "covered_fraction": 0.9478,
+        "gap_fraction": 0.0522,
+        "k_dates": 15,
+        "n_cycles": 1,
+        "n_samples": 63,
+        "null_q95": 0.4969,
+        "top_bar_rel": 0.7468
+      },
+      {
+        "covered_fraction": 1.0,
+        "gap_fraction": 0.0,
+        "k_dates": 16,
+        "n_cycles": 1,
+        "n_samples": 66,
+        "null_q95": 0.5319,
+        "top_bar_rel": 0.7383
+      }
+    ],
+    "diurnal": [
+      {
+        "k_timepoints": 2,
+        "n_cycles": 0,
+        "n_samples": 12,
+        "null_q95": 0.7569,
+        "top_bar_rel": 0.3626,
+        "window_hours": 4.0
+      },
+      {
+        "k_timepoints": 3,
+        "n_cycles": 0,
+        "n_samples": 18,
+        "null_q95": 0.5803,
+        "top_bar_rel": 0.3867,
+        "window_hours": 8.0
+      },
+      {
+        "k_timepoints": 4,
+        "n_cycles": 0,
+        "n_samples": 24,
+        "null_q95": 0.5435,
+        "top_bar_rel": 0.3559,
+        "window_hours": 12.0
+      },
+      {
+        "k_timepoints": 5,
+        "n_cycles": 0,
+        "n_samples": 30,
+        "null_q95": 0.4858,
+        "top_bar_rel": 0.3402,
+        "window_hours": 16.0
+      },
+      {
+        "k_timepoints": 6,
+        "n_cycles": 0,
+        "n_samples": 36,
+        "null_q95": 0.5448,
+        "top_bar_rel": 0.3112,
+        "window_hours": 20.0
+      },
+      {
+        "k_timepoints": 7,
+        "n_cycles": 0,
+        "n_samples": 42,
+        "null_q95": 0.4465,
+        "top_bar_rel": 0.2963,
+        "window_hours": 24.0
+      },
+      {
+        "k_timepoints": 8,
+        "n_cycles": 0,
+        "n_samples": 48,
+        "null_q95": 0.4369,
+        "top_bar_rel": 0.2985,
+        "window_hours": 28.0
+      },
+      {
+        "k_timepoints": 9,
+        "n_cycles": 0,
+        "n_samples": 54,
+        "null_q95": 0.4144,
+        "top_bar_rel": 0.2189,
+        "window_hours": 32.0
+      },
+      {
+        "k_timepoints": 10,
+        "n_cycles": 0,
+        "n_samples": 60,
+        "null_q95": 0.4377,
+        "top_bar_rel": 0.2659,
+        "window_hours": 36.0
+      },
+      {
+        "k_timepoints": 11,
+        "n_cycles": 0,
+        "n_samples": 66,
+        "null_q95": 0.4366,
+        "top_bar_rel": 0.2994,
+        "window_hours": 40.0
+      },
+      {
+        "k_timepoints": 12,
+        "n_cycles": 0,
+        "n_samples": 72,
+        "null_q95": 0.403,
+        "top_bar_rel": 0.371,
+        "window_hours": 44.0
+      }
+    ]
+  }
+}

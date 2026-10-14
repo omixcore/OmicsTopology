@@ -19,6 +19,16 @@ In the figure above, the stress condition (orange) holds a stable loop
 (`beta_1 = 1`) across a wide range of scales while the control (blue) has none.
 No gene-level test would surface that; it is a property of the whole space.
 
+**Read [docs/results.md](docs/results.md) before quoting anything here.**  The
+project publishes its negative results next to its positive ones, and they
+constrain how far each claim reaches: the topological verdict ties a plain
+circular Mantel test at *detection*; the cycle *count* works on one of four
+real designs, for a reason that is measured rather than guessed; and a
+topology-guided gene-selection fix was implemented, tested against a
+pre-registered negative control and **rejected**.  What does hold up is measured
+too — against eight cheaper label-free baselines the topological cycle reaches
+the same sensitivity with **1 false positive in 23** instead of 9 in 23.
+
 ---
 
 ## What it computes
@@ -363,18 +373,79 @@ selected genes actually carry the ring.  The count succeeds only when
 essentially all of them do.  That is the honest envelope of the claim, and it
 is measured rather than asserted.
 
+**D. Incremental value, measured against eight baselines.**
+`examples/incremental_value.py` (→ `benchmark/incremental_value.json`) puts the
+topological cycle on a level field with seven cheaper, label-free ways to read a
+cyclic order off an expression cloud — PC1 order, the PC1-PC2 angle, a circle
+fitted to PC1-PC2, classical MDS, average-linkage seriation, a greedy tour and a
+2-opt tour — over **12 positive clouds** (7 real circadian designs plus 5
+synthetic rings) and **23 negative clouds** (3 real "line" designs plus 5
+independent draws each of a ramp, pure noise, three clusters and a branching
+trajectory).  Every method must beat the 95th percentile of its own
+phase-permutation null to count as *declaring* a cycle.
+
+| method | sensitivity | specificity | balanced accuracy |
+|---|---|---|---|
+| **H1 cycle** | **0.917** | **0.957** | **0.937** |
+| circle-fit angle | 0.917 | 0.609 | 0.763 |
+| average-linkage seriation | 0.917 | 0.609 | 0.763 |
+| PC1-PC2 angle | 0.917 | 0.565 | 0.741 |
+| classical MDS angle | 0.917 | 0.478 | 0.698 |
+| greedy tour | 0.833 | 0.478 | 0.656 |
+| PC1 order | 0.667 | 0.478 | 0.573 |
+
+The topological cycle matches the best baseline on sensitivity and produces
+**1 false positive in 23** where the best baseline produces **9 in 23**.  The
+reason is structural rather than lucky: every baseline always returns an order,
+and therefore always returns a score, so on a cloud with no cycle it reports
+noise that clears its own null often enough to matter — whereas the H1 cycle
+returns an order only when a dominant bar exists, and declines otherwise.  The
+blemishes are in the same table, not hidden: the one false positive is a
+branching cloud, and the one miss is the long-day drift case already documented
+above.
+
+**E. When a count is worth reporting at all.**
+`examples/cycle_identifiability.py` (→
+`benchmark/cycle_identifiability.json`) turns the two diagnostics into a
+decision rule, `omictopo.cycles.cycle_identifiability(gap, mantel_r)`, and it
+sorts the four measured designs correctly: yearlong → *identifiable*; diurnal
+and pooled → *underpowered* (the ring is real, H1 cannot resolve it in that gene
+set); forced desynchrony → *inconsistent* (a loop exists that does not follow
+the design axis, `r = +0.10`).  `gap` says the spectrum is flat; `mantel_r` says
+**why**, and the two flat cases call for opposite responses — back to the
+experiment, or back to the feature selection.  The rule also refuses to
+over-claim: a large `gap` means one bar dominates, not that the integer is
+right, and the pooled design showed `gap = 9.3` while returning 1 against a
+design that contains 2.
+
+**A fix that was tried and rejected.**  `omictopo.cycles.topology_guided_cycle`
+alternates between finding the dominant cycle and keeping the genes whose
+expression sweeps around it, using no clock at all.  Tested on the same four
+designs with the forced-desynchrony cloud as a pre-registered negative control,
+it failed twice.  It moved the recovered-order score by only −0.06 to +0.08 and
+turned no non-detection into a detection.  And decisively, its calibration — the
+guided statistic against a covariance-matched Gaussian null **with the whole
+procedure re-run inside the null**, so the selection's optimism is present in
+both arms — fires on the control cloud, where there is no cycle to find.  The
+function ships with that warning in its docstring instead of being quietly
+deleted, because a documented failure is more useful than a missing one.
+
 Limits, stated plainly: the *scoring* needs the clock even though the
 *computation* does not; the recovered cycle visits only 44-76 % of a cloud's
 samples; the two-parameter result is demonstrated on simulated data, because
-even the pooled annual × daily design has no dominant bar once the two
-series' signals dilute each other; and the counting criterion needs a
-transcriptome dominated by the cycle.  The design that would settle the
-two-parameter case — time against an independently cycling factor, sampled
-densely in both — remains the cheapest experiment this analysis points at.
+even the pooled annual × daily design has no dominant bar once the two series'
+signals dilute each other; the counting criterion needs a transcriptome
+dominated by the cycle; and the identifiability rule is a two-threshold
+heuristic calibrated on four designs, not a test with a p-value.  The design
+that would settle the two-parameter case — time against an independently
+cycling factor, sampled densely in both — remains the cheapest experiment this
+analysis points at.
 
 ![Clock order recovered with the labels held out](docs/fig_labels_held_out.png)
 
 ![The envelope of the cycle count](docs/fig_cycle_counting_power.png)
+
+![The topological cycle against eight label-free baselines](docs/fig_incremental_value.png)
 
 
 ## API tour
@@ -449,7 +520,8 @@ src/omictopo/
   diagram.py       persistence diagrams and their statistics
   summary.py       Betti curves, persistence landscapes
   compare.py       exact bottleneck and Wasserstein distances
-  stats.py         permutation tests, FDR correction
+  stats.py         permutation tests, FDR correction, Wilson intervals, exact binomial
+  cycles.py        representative cycles, cyclic order, identifiability rule
   plots.py         publication-oriented figures
   pipeline.py      run_states(): matrix -> verdict
   cli.py           omictopo command
@@ -472,16 +544,41 @@ examples/          runnable demos; see the files
   prepare_cycle_designs.py    download + normalise four real cyclic designs (GSE93067/93066/48113)
   cycle_counting_real.py      block C on measured data: 1 of 4 designs is counted correctly
   cycle_counting_power.py     when does the count work? (measured, not assumed)
-benchmark/         committed result tables of the multi-dataset benchmark
-tests/             86 pytest cases
+  incremental_value.py        the H1 cycle against eight label-free baselines
+  cycle_identifiability.py    when is a count reportable, and a fix that was rejected
+tools/
+  ci.sh                       the checks the hosted CI runs, runnable locally
+  gen_api_docs.py             regenerate docs/api.md; --check fails on drift
+docs/
+  index.md results.md api.md  guide, evidence table, generated API reference
+  fig_*.png                   every figure the scripts produce
+benchmark/         committed result tables of every experiment
+tests/             151 pytest cases, no network needed
 ```
 
 ## Running the tests
 
 ```bash
 pip install -e ".[dev]"
-pytest
+pytest                 # 151 tests, no network and no benchmark data required
+sh tools/ci.sh         # install + tests + generated-docs check, as CI runs them
 ```
+
+Continuous integration is configured for both hosts and does the same work:
+
+* `.workflow/ci.yml` — Gitee Go (must be switched on under 服务 → Gitee Go)
+* `.github/workflows/ci.yml` — GitHub Actions, across three Python versions
+  and two operating systems
+
+## Documentation
+
+* [docs/index.md](docs/index.md) — what the package is for and what to read first
+* [docs/results.md](docs/results.md) — every headline number, with the script
+  that produced it
+* [docs/api.md](docs/api.md) — generated reference; CI fails if it drifts from
+  the source (`python tools/gen_api_docs.py --check`)
+
+Build the docs site with `pip install -e ".[docs]"` then `mkdocs serve`.
 
 ## License
 

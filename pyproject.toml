@@ -9,16 +9,38 @@ description = "Topological data analysis of omics state spaces: persistent homol
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
+authors = [{ name = "OmicsTopology contributors" }]
+maintainers = [{ name = "omixcore", email = "1264284076@qq.com" }]
 keywords = ["topological-data-analysis", "persistent-homology", "omics", "transcriptomics", "systems-biology"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
 dependencies = [
     "numpy>=1.21",
     "scipy>=1.7",
 ]
 
+[project.urls]
+Homepage = "https://gitee.com/omixcore/OmicsTopology"
+Repository = "https://gitee.com/omixcore/OmicsTopology"
+Issues = "https://gitee.com/omixcore/OmicsTopology/issues"
+Documentation = "https://gitee.com/omixcore/OmicsTopology/blob/main/docs/api.md"
+
 [project.optional-dependencies]
 plot = ["matplotlib>=3.5"]
 fast = ["ripser>=0.6"]
-dev = ["pytest>=7", "matplotlib>=3.5"]
+docs = ["mkdocs>=1.5", "mkdocs-material>=9.0", "mkdocstrings[python]>=0.24"]
+dev = ["pytest>=7", "matplotlib>=3.5", "pyyaml>=6"]
 
 [project.scripts]
 omictopo = "omictopo.cli:main"

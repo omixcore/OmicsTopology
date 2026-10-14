@@ -31,7 +31,90 @@ __all__ = [
     "permutation_test_pointclouds",
     "permutation_test_replicates",
     "adjust_pvalues",
+    "wilson_interval",
+    "binom_test_two_sided",
 ]
+
+
+def wilson_interval(successes, n, confidence: float = 0.95) -> tuple:
+    """Wilson score interval for a binomial proportion.
+
+    Preferred over the textbook normal interval because it stays inside
+    ``[0, 1]`` and keeps its coverage for the small counts that dominate
+    omics benchmarks (``k`` of 7, 8 of 10).  A proportion quoted without an
+    interval at those counts reads as far more certain than the data allow.
+
+    Parameters
+    ----------
+    successes : int
+    n : int
+    confidence : float
+        Two-sided coverage.  ``0.95`` uses ``z = 1.959964`` exactly, so no
+        scipy is required.
+
+    Returns
+    -------
+    tuple of float
+        ``(low, high)``.  ``n == 0`` returns ``(0.0, 1.0)``.
+    """
+    n = int(n)
+    k = int(successes)
+    if n <= 0:
+        return 0.0, 1.0
+    z = {0.90: 1.644854, 0.95: 1.959964, 0.99: 2.575829}.get(
+        round(float(confidence), 2), 1.959964)
+    p = k / n
+    denom = 1.0 + z * z / n
+    centre = (p + z * z / (2.0 * n)) / denom
+    half = (z / denom) * float(np.sqrt(p * (1.0 - p) / n + z * z / (4.0 * n * n)))
+    low = max(0.0, centre - half)
+    high = min(1.0, centre + half)
+    # The formula is exact at the endpoints (k = 0 and k = n) but floating
+    # point leaves 1 - 1e-16 behind; snap so the reported bounds are the
+    # bounds a reader expects.
+    if low < 1e-12:
+        low = 0.0
+    if high > 1.0 - 1e-12:
+        high = 1.0
+    return low, high
+
+
+def binom_test_two_sided(successes, n, p: float = 0.5) -> float:
+    """Exact two-sided binomial test.
+
+    ``k`` successes in ``n`` trials against ``p``.  Used to ask whether a
+    benchmark's accuracy is distinguishable from a coin flip at the sample
+    sizes the benchmark actually has (``n = 10`` clouds), where an asymptotic
+    test would be meaningless.
+
+    Parameters
+    ----------
+    successes : int
+    n : int
+    p : float
+        Null proportion.
+
+    Returns
+    -------
+    float
+        Two-sided p-value, computed as ``2 * min(P(X <= k), P(X >= k))``
+        capped at 1, using the exact binomial mass function.
+    """
+    from math import comb
+
+    n = int(n)
+    k = int(successes)
+    if n <= 0:
+        return 1.0
+    if not 0.0 < float(p) < 1.0:
+        return 1.0
+
+    def pmf(i: int) -> float:
+        return comb(n, i) * (float(p) ** i) * ((1.0 - float(p)) ** (n - i))
+
+    lower = sum(pmf(i) for i in range(0, k + 1))
+    upper = sum(pmf(i) for i in range(k, n + 1))
+    return float(min(1.0, 2.0 * min(lower, upper)))
 
 
 def adjust_pvalues(pvalues, method: str = "bh") -> np.ndarray:

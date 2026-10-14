@@ -1,0 +1,241 @@
+{
+  "config": {
+    "metric": "correlation",
+    "n_null": 10,
+    "n_perm": 5000,
+    "n_iter": 2,
+    "keep_frac": 0.5,
+    "seed": 0
+  },
+  "question": "when is a beta_1 cycle count worth reporting, and does topology-guided gene selection recover a cycle the plain spectrum loses?",
+  "cases": {
+    "annual_all_samples": {
+      "design": "psme_annual",
+      "accession": "GSE93067",
+      "is_negative_control": false,
+      "n_samples": 66,
+      "n_features": 3000,
+      "n_keep": 1500,
+      "expected_cycles": 1,
+      "how_the_cloud_was_built": "every sample, replicate means removed",
+      "unguided_diagnostics": {
+        "top_bar_rel": 0.7383,
+        "gap": 4.9254,
+        "mantel_r": 0.7007,
+        "mantel_p": 0.0002,
+        "top_bars_rel": [
+          0.7383,
+          0.1499,
+          0.1019,
+          0.0869,
+          0.067
+        ]
+      },
+      "verdict": {
+        "report_count": true,
+        "verdict": "identifiable",
+        "advice": "a dominant cycle is present and the design axis explains the distances"
+      },
+      "unguided_succession": {
+        "score": 0.7826,
+        "n_visited": 23,
+        "coverage": 0.3485,
+        "null_median": 0.1739,
+        "null_q95": 0.2609,
+        "p_value": 0.0002,
+        "passes": true
+      },
+      "guided": {
+        "n_kept": 1500,
+        "top_bar_rel": 1.0069,
+        "gap_selected": 12.3469,
+        "null_median": 0.2039,
+        "null_q95": 0.2135,
+        "beats_gaussian_null": true
+      },
+      "guided_succession": {
+        "score": 0.7273,
+        "n_visited": 22,
+        "coverage": 0.3333,
+        "null_median": 0.1818,
+        "null_q95": 0.2727,
+        "p_value": 0.0002,
+        "passes": true
+      },
+      "seconds": 14.8
+    },
+    "diurnal_all_samples": {
+      "design": "psme_diurnal",
+      "accession": "GSE93066",
+      "is_negative_control": false,
+      "n_samples": 72,
+      "n_features": 3000,
+      "n_keep": 1500,
+      "expected_cycles": 1,
+      "how_the_cloud_was_built": "every sample, replicate means removed",
+      "unguided_diagnostics": {
+        "top_bar_rel": 0.371,
+        "gap": 1.3552,
+        "mantel_r": 0.701,
+        "mantel_p": 0.0002,
+        "top_bars_rel": [
+          0.371,
+          0.2737,
+          0.2241,
+          0.1718,
+          0.1633
+        ]
+      },
+      "verdict": {
+        "report_count": false,
+        "verdict": "underpowered",
+        "advice": "the cycle is real (the design axis explains the distances) but H1 cannot resolve it in this gene set; report the failure, not a count"
+      },
+      "unguided_succession": {
+        "score": 1.0,
+        "n_visited": 30,
+        "coverage": 0.4167,
+        "null_median": 0.3667,
+        "null_q95": 0.5,
+        "p_value": 0.0002,
+        "passes": true
+      },
+      "guided": {
+        "n_kept": 1500,
+        "top_bar_rel": 0.5296,
+        "gap_selected": 2.5457,
+        "null_median": 0.187,
+        "null_q95": 0.2027,
+        "beats_gaussian_null": true
+      },
+      "guided_succession": {
+        "score": 1.0,
+        "n_visited": 15,
+        "coverage": 0.2083,
+        "null_median": 0.4,
+        "null_q95": 0.6,
+        "p_value": 0.0002,
+        "passes": true
+      },
+      "seconds": 18.6
+    },
+    "pooled_design_cells": {
+      "design": "psme_annual_x_diurnal",
+      "accession": "GSE93067+GSE93066",
+      "is_negative_control": false,
+      "n_samples": 102,
+      "n_features": 3000,
+      "n_keep": 1500,
+      "expected_cycles": 2,
+      "how_the_cloud_was_built": "one centroid per (replicate, axis1, axis2) cell",
+      "unguided_diagnostics": {
+        "top_bar_rel": 0.4475,
+        "gap": 1.2165,
+        "mantel_r": 0.5902,
+        "mantel_p": 0.0002,
+        "top_bars_rel": [
+          0.4475,
+          0.3678,
+          0.3587,
+          0.3501,
+          0.2856
+        ]
+      },
+      "verdict": {
+        "report_count": false,
+        "verdict": "underpowered",
+        "advice": "the cycle is real (the design axis explains the distances) but H1 cannot resolve it in this gene set; report the failure, not a count"
+      },
+      "unguided_succession": {
+        "score": 0.6923,
+        "n_visited": 13,
+        "coverage": 0.1275,
+        "null_median": 0.3077,
+        "null_q95": 0.6154,
+        "p_value": 0.026995,
+        "passes": true
+      },
+      "guided": {
+        "n_kept": 1500,
+        "top_bar_rel": 0.5216,
+        "gap_selected": 1.6568,
+        "null_median": 0.1709,
+        "null_q95": 0.208,
+        "beats_gaussian_null": true
+      },
+      "guided_succession": {
+        "score": 0.7692,
+        "n_visited": 13,
+        "coverage": 0.1275,
+        "null_median": 0.3077,
+        "null_q95": 0.6154,
+        "p_value": 0.005999,
+        "passes": true
+      },
+      "seconds": 140.0
+    },
+    "fd_phase_cells": {
+      "design": "human_forced_desync",
+      "accession": "GSE48113",
+      "is_negative_control": true,
+      "n_samples": 97,
+      "n_features": 3000,
+      "n_keep": 1500,
+      "expected_cycles": 1,
+      "how_the_cloud_was_built": "replicate means removed, then one centroid per (axis1, axis2) cell",
+      "unguided_diagnostics": {
+        "top_bar_rel": 0.3663,
+        "gap": 2.0454,
+        "mantel_r": 0.0959,
+        "mantel_p": 0.0002,
+        "top_bars_rel": [
+          0.3663,
+          0.1791,
+          0.1623,
+          0.1531,
+          0.1521
+        ]
+      },
+      "verdict": {
+        "report_count": false,
+        "verdict": "inconsistent",
+        "advice": "a dominant loop exists but it does not follow the design's cyclic axis; check the design before reporting"
+      },
+      "unguided_succession": {
+        "score": 0.1667,
+        "n_visited": 18,
+        "coverage": 0.1856,
+        "null_median": 0.1111,
+        "null_q95": 0.2222,
+        "p_value": 0.243551,
+        "passes": false
+      },
+      "guided": {
+        "n_kept": 1500,
+        "top_bar_rel": 0.5003,
+        "gap_selected": 2.9235,
+        "null_median": 0.1803,
+        "null_q95": 0.1939,
+        "beats_gaussian_null": true
+      },
+      "guided_succession": {
+        "score": 0.1111,
+        "n_visited": 18,
+        "coverage": 0.1856,
+        "null_median": 0.1111,
+        "null_q95": 0.2222,
+        "p_value": 0.578884,
+        "passes": false
+      },
+      "seconds": 88.4
+    }
+  },
+  "headline": {
+    "n_cases": 4,
+    "n_identifiable": 1,
+    "guided_improves_clock_recovery": [],
+    "negative_control": "fd_phase_cells",
+    "control_shows_manufactured_cycle": false,
+    "guided_procedure_trustworthy": true
+  }
+}

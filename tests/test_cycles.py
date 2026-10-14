@@ -11,11 +11,14 @@ import pytest
 
 from omictopo import build_rips, pairwise_distances, persistent_homology
 from omictopo.cycles import (
+    _harmonic_power,
     circular_succession_score,
+    cycle_identifiability,
     cycles_from_edges,
     dominant_h1_cycles,
     h1_bar_lengths,
     reduce_boundary_columns,
+    topology_guided_cycle,
 )
 from omictopo.datasets import circle
 from omictopo.homology import reduce_boundary
@@ -221,3 +224,126 @@ def test_replicate_phases_do_not_disturb_a_correct_order():
     base = np.array([0.0, 1.0, 2.0]) * (2 * np.pi / 3)
     phases = np.repeat(base, 3)
     assert circular_succession_score(phases, np.arange(9)) == pytest.approx(1.0)
+
+
+# --------------------------------------------------------------------------
+# the identifiability rule
+# --------------------------------------------------------------------------
+def test_identifiability_accepts_the_one_design_that_worked():
+    """The yearlong series: gap 4.93, circular Mantel r = +0.70."""
+    rec = cycle_identifiability(4.93, 0.701)
+    assert rec["verdict"] == "identifiable"
+    assert rec["report_count"] is True
+
+
+def test_identifiability_separates_a_real_ring_from_a_flat_spectrum():
+    """The diurnal design: the ring is real, H1 simply cannot resolve it."""
+    rec = cycle_identifiability(1.36, 0.701)
+    assert rec["verdict"] == "underpowered"
+    assert rec["report_count"] is False
+
+
+def test_identifiability_flags_a_loop_that_ignores_the_design_axis():
+    """A dominant bar whose order does not follow the axis is not a cycle count."""
+    assert cycle_identifiability(2.05, 0.096)["verdict"] == "inconsistent"
+
+
+def test_identifiability_flags_a_cloud_with_no_ring_in_it():
+    assert cycle_identifiability(1.07, 0.02)["verdict"] == "no_ring"
+
+
+def test_identifiability_without_a_mantel_correlation():
+    assert cycle_identifiability(5.0, None)["report_count"] is True
+    assert cycle_identifiability(1.1, None)["report_count"] is False
+
+
+def test_identifiability_threshold_sits_between_the_measured_gaps():
+    """1.36 failed, 4.93 worked; the default split must separate them."""
+    assert cycle_identifiability(1.36, 0.9)["report_count"] is False
+    assert cycle_identifiability(4.93, 0.9)["report_count"] is True
+
+
+def test_identifiability_always_gives_a_readable_sentence():
+    for gap, r in ((4.93, 0.7), (1.36, 0.7), (2.05, 0.1), (1.07, 0.02),
+                   (3.0, None), (0.5, None)):
+        rec = cycle_identifiability(gap, r)
+        assert isinstance(rec["advice"], str) and len(rec["advice"]) > 20
+        assert rec["verdict"] in {"identifiable", "underpowered",
+                                  "no_ring", "inconsistent"}
+
+
+def test_identifiability_thresholds_are_configurable():
+    assert cycle_identifiability(1.5, 0.9, gap_threshold=1.4)["report_count"] is True
+    assert cycle_identifiability(4.9, 0.9, gap_threshold=5.0)["report_count"] is False
+    assert cycle_identifiability(4.9, 0.4, r_threshold=0.3)["report_count"] is True
+
+
+# --------------------------------------------------------------------------
+# topology-guided selection
+#
+# The procedure is documented as *not validated*: it produced no improvement on
+# the real designs and its Gaussian-null calibration fires on a cloud with no
+# ring.  These tests therefore pin down what it computes, not that it works.
+# --------------------------------------------------------------------------
+def _wide_ring(n=30, p=60, noise=1.0, seed=0):
+    rng = np.random.default_rng(seed)
+    hours = np.linspace(0.0, 24.0, n)
+    phases = rng.uniform(0.0, 2.0 * np.pi, p)
+    amp = np.exp(rng.normal(0.0, 0.5, p))
+    X = np.cos(2.0 * np.pi * hours[:, None] / 24.0 + phases[None, :]) * amp[None, :]
+    return X + rng.normal(0.0, noise, X.shape), 2.0 * np.pi * hours / 24.0
+
+
+def test_harmonic_power_prefers_the_genes_that_follow_the_order():
+    order = np.arange(12)
+    theta = 2.0 * np.pi * order / 12.0
+    rng = np.random.default_rng(0)
+    Z = np.zeros((12, 3))
+    Z[:, 0] = np.cos(theta)
+    Z[:, 1] = np.sin(theta)
+    Z[:, 2] = rng.normal(size=12)
+    power = _harmonic_power(Z, order)
+    assert power[0] > power[2]
+    assert power[1] > power[2]
+
+
+def test_guided_cycle_returns_a_valid_selection():
+    X, _ = _wide_ring()
+    out = topology_guided_cycle(X, n_keep=20, n_iter=2)
+    selected = out["selected"]
+    assert len(selected) == 20
+    assert len(set(selected)) == 20
+    assert all(0 <= c < X.shape[1] for c in selected)
+    assert out["X_selected"].shape == (X.shape[0], 20)
+    assert out["D_selected"].shape == (X.shape[0], X.shape[0])
+    assert len(out["history"]) == 3          # one per round, plus the final count
+    assert out["gap_selected"] is None or out["gap_selected"] >= 1.0
+
+
+def test_guided_cycle_recovers_a_clean_ring_it_was_given():
+    """The selection must not destroy an order that was already there.
+
+    The threshold is 0.8 rather than 1.0 on purpose: the point of the test is
+    that the alternation does not wreck the geometry, not that it is perfect.
+    """
+    X, angles = _wide_ring(noise=0.5)
+    out = topology_guided_cycle(X, n_keep=30, n_iter=2)
+    order = np.asarray(out["order"], dtype=int)
+    if order.size >= 6:
+        assert circular_succession_score(angles, order) >= 0.8
+
+
+def test_guided_cycle_reports_no_order_when_there_is_no_cycle():
+    rng = np.random.default_rng(3)
+    X = rng.normal(size=(16, 40))
+    out = topology_guided_cycle(X, n_keep=20, n_iter=2)
+    assert out["history"][0]["n_visited"] >= 0
+    assert isinstance(out["order"], list)
+
+
+def test_guided_cycle_keeps_the_asked_number_of_genes_when_it_can():
+    X, _ = _wide_ring(n=20, p=40)
+    out = topology_guided_cycle(X, n_keep=40, n_iter=1)
+    assert len(out["selected"]) == 40
+    out2 = topology_guided_cycle(X, n_keep=100, n_iter=1)
+    assert len(out2["selected"]) == 40     # clipped to the number available

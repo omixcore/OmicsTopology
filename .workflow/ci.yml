@@ -1,0 +1,38 @@
+# Gitee Go pipeline.
+#
+# Gitee does not run this until Gitee Go is switched on for the repository
+# (服务 -> Gitee Go), where the trigger branches are chosen too.  The identical
+# checks run locally with `sh tools/ci.sh` and on GitHub through
+# .github/workflows/ci.yml, so the pipeline is not the only place they exist.
+#
+# Nothing here needs network access beyond pip: the benchmark data are large,
+# GEO-hosted and deliberately not committed.
+
+version: '1.0'
+name: omictopo-ci
+displayName: 'CI: tests and generated docs'
+
+triggers:
+  push:
+    - matchType: PRECISE
+      branch: main
+  pr:
+    - matchType: PRECISE
+      branch: main
+
+stages:
+  - stage:
+      name: test-stage
+      displayName: 'Test'
+      failFast: false
+      steps:
+        - step: build@python
+          name: pytest
+          displayName: 'pytest and generated-docs check'
+          pythonVersion: '3.11'
+          commands:
+            - python -m pip install --upgrade pip
+            - python -m pip install -e ".[dev]"
+            - python -m pytest -q
+            - python tools/gen_api_docs.py --check
+            - python -m omictopo --help

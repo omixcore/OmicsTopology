@@ -1,0 +1,4395 @@
+{
+  "config": {
+    "metric": "correlation",
+    "n_perm": 5000,
+    "seed": 0,
+    "min_visited": 6,
+    "n_synth_seeds": 5
+  },
+  "question": "does the topological cycle add sensitivity or specificity over label-free baselines that cost less?",
+  "methods": [
+    "h1_cycle",
+    "pc1_order",
+    "pc1_pc2_angle",
+    "circle_fit_angle",
+    "mds_angle",
+    "hc_leaf_order",
+    "greedy_tour",
+    "tsp_2opt"
+  ],
+  "synthetic_controls_declared": [
+    {
+      "cloud": "synth_ring",
+      "group": "positive"
+    },
+    {
+      "cloud": "synth_line",
+      "group": "negative"
+    },
+    {
+      "cloud": "synth_noise",
+      "group": "negative"
+    },
+    {
+      "cloud": "synth_clusters",
+      "group": "negative"
+    },
+    {
+      "cloud": "synth_branch",
+      "group": "negative"
+    }
+  ],
+  "per_cloud": [
+    {
+      "cloud": "ath_diurnal:control",
+      "n_samples": 26,
+      "n_distinct_times": 8,
+      "methods": {
+        "h1_cycle": {
+          "score": 1.0,
+          "n_visited": 17,
+          "coverage": 0.6538,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2941,
+            "q95": 0.4706,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "top_bar_rel": 0.6075,
+          "seconds": 0.33
+        },
+        "pc1_order": {
+          "score": 0.6154,
+          "n_visited": 26,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2692,
+            "q95": 0.4231,
+            "p_value": 0.0004
+          },
+          "declares": true,
+          "seconds": 0.3
+        },
+        "pc1_pc2_angle": {
+          "score": 1.0,
+          "n_visited": 26,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2692,
+            "q95": 0.3846,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.3
+        },
+        "circle_fit_angle": {
+          "score": 1.0,
+          "n_visited": 26,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2692,
+            "q95": 0.3846,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "mds_angle": {
+          "score": 1.0,
+          "n_visited": 26,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2692,
+            "q95": 0.4231,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.36
+        },
+        "hc_leaf_order": {
+          "score": 0.7692,
+          "n_visited": 26,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2692,
+            "q95": 0.3846,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.35
+        },
+        "greedy_tour": {
+          "score": 0.8462,
+          "n_visited": 26,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2692,
+            "q95": 0.3846,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "tsp_2opt": {
+          "score": 0.8846,
+          "n_visited": 26,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2692,
+            "q95": 0.4231,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "tour_length": 11.3348,
+          "seconds": 0.33
+        }
+      },
+      "group": "positive",
+      "source": "real",
+      "accession": "GSE158444",
+      "organism": "Arabidopsis thaliana",
+      "expects": "loop",
+      "seconds": 2.6
+    },
+    {
+      "cloud": "ath_diurnal_heat:heat",
+      "n_samples": 24,
+      "n_distinct_times": 8,
+      "methods": {
+        "h1_cycle": {
+          "score": 1.0,
+          "n_visited": 12,
+          "coverage": 0.5,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.3333,
+            "q95": 0.5,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "top_bar_rel": 0.5907,
+          "seconds": 0.33
+        },
+        "pc1_order": {
+          "score": 0.5417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.25,
+            "q95": 0.375,
+            "p_value": 0.0012
+          },
+          "declares": true,
+          "seconds": 0.33
+        },
+        "pc1_pc2_angle": {
+          "score": 1.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.25,
+            "q95": 0.375,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "circle_fit_angle": {
+          "score": 1.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.25,
+            "q95": 0.4167,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "mds_angle": {
+          "score": 1.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.25,
+            "q95": 0.4167,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "hc_leaf_order": {
+          "score": 0.7917,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.25,
+            "q95": 0.4167,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "greedy_tour": {
+          "score": 0.9583,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.25,
+            "q95": 0.4167,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "tsp_2opt": {
+          "score": 0.9583,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.25,
+            "q95": 0.375,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "tour_length": 11.9554,
+          "seconds": 0.34
+        }
+      },
+      "group": "positive",
+      "source": "real",
+      "accession": "GSE158444",
+      "organism": "Arabidopsis thaliana",
+      "expects": "loop",
+      "seconds": 2.6
+    },
+    {
+      "cloud": "ath_diurnal_ll:constant light (LL)",
+      "n_samples": 16,
+      "n_distinct_times": 8,
+      "methods": {
+        "h1_cycle": {
+          "score": 1.0,
+          "n_visited": 8,
+          "coverage": 0.5,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.375,
+            "q95": 0.625,
+            "p_value": 0.0024
+          },
+          "declares": true,
+          "top_bar_rel": 0.0876,
+          "seconds": 0.34
+        },
+        "pc1_order": {
+          "score": 0.1875,
+          "n_visited": 16,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.25,
+            "q95": 0.4375,
+            "p_value": 0.859028
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "pc1_pc2_angle": {
+          "score": 0.375,
+          "n_visited": 16,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.25,
+            "q95": 0.4375,
+            "p_value": 0.162368
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "circle_fit_angle": {
+          "score": 0.3125,
+          "n_visited": 16,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.25,
+            "q95": 0.4375,
+            "p_value": 0.362527
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "mds_angle": {
+          "score": 0.375,
+          "n_visited": 16,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.25,
+            "q95": 0.4375,
+            "p_value": 0.168566
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "hc_leaf_order": {
+          "score": 0.1875,
+          "n_visited": 16,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.25,
+            "q95": 0.4375,
+            "p_value": 0.852829
+          },
+          "declares": false,
+          "seconds": 0.36
+        },
+        "greedy_tour": {
+          "score": 0.3125,
+          "n_visited": 16,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.25,
+            "q95": 0.4375,
+            "p_value": 0.360128
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "tsp_2opt": {
+          "score": 0.3125,
+          "n_visited": 16,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.25,
+            "q95": 0.4375,
+            "p_value": 0.365727
+          },
+          "declares": false,
+          "tour_length": 16.0852,
+          "seconds": 0.31
+        }
+      },
+      "group": "positive",
+      "source": "real",
+      "accession": "GSE137732",
+      "organism": "Arabidopsis thaliana",
+      "expects": "loop",
+      "seconds": 2.6
+    },
+    {
+      "cloud": "ath_diurnal_ld:long day (LD)",
+      "n_samples": 16,
+      "n_distinct_times": 8,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.5714,
+          "n_visited": 7,
+          "coverage": 0.4375,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.4286,
+            "q95": 0.7143,
+            "p_value": 0.229954
+          },
+          "declares": false,
+          "top_bar_rel": 0.0874,
+          "seconds": 0.32
+        },
+        "pc1_order": {
+          "score": 0.3125,
+          "n_visited": 16,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.25,
+            "q95": 0.4375,
+            "p_value": 0.357528
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "pc1_pc2_angle": {
+          "score": 0.5,
+          "n_visited": 16,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.25,
+            "q95": 0.4375,
+            "p_value": 0.016397
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "circle_fit_angle": {
+          "score": 0.5,
+          "n_visited": 16,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.25,
+            "q95": 0.4375,
+            "p_value": 0.016397
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "mds_angle": {
+          "score": 0.5,
+          "n_visited": 16,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.25,
+            "q95": 0.4375,
+            "p_value": 0.016397
+          },
+          "declares": true,
+          "seconds": 0.3
+        },
+        "hc_leaf_order": {
+          "score": 0.625,
+          "n_visited": 16,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.25,
+            "q95": 0.4375,
+            "p_value": 0.0008
+          },
+          "declares": true,
+          "seconds": 0.34
+        },
+        "greedy_tour": {
+          "score": 0.4375,
+          "n_visited": 16,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.25,
+            "q95": 0.4375,
+            "p_value": 0.060388
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "tsp_2opt": {
+          "score": 0.3125,
+          "n_visited": 16,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.25,
+            "q95": 0.4375,
+            "p_value": 0.355929
+          },
+          "declares": false,
+          "tour_length": 14.2255,
+          "seconds": 0.32
+        }
+      },
+      "group": "positive",
+      "source": "real",
+      "accession": "GSE137732",
+      "organism": "Arabidopsis thaliana",
+      "expects": "loop",
+      "seconds": 2.6
+    },
+    {
+      "cloud": "rice_diurnal:LY2186",
+      "n_samples": 17,
+      "n_distinct_times": 8,
+      "methods": {
+        "h1_cycle": {
+          "score": 1.0,
+          "n_visited": 13,
+          "coverage": 0.7647,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2308,
+            "q95": 0.4615,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "top_bar_rel": 0.8735,
+          "seconds": 0.32
+        },
+        "pc1_order": {
+          "score": 0.5294,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "p_value": 0.008398
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "pc1_pc2_angle": {
+          "score": 1.0,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "circle_fit_angle": {
+          "score": 1.0,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "mds_angle": {
+          "score": 1.0,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "hc_leaf_order": {
+          "score": 0.5882,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "p_value": 0.0016
+          },
+          "declares": true,
+          "seconds": 0.33
+        },
+        "greedy_tour": {
+          "score": 0.7059,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.34
+        },
+        "tsp_2opt": {
+          "score": 0.9412,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "tour_length": 7.2379,
+          "seconds": 0.32
+        }
+      },
+      "group": "positive",
+      "source": "real",
+      "accession": "GSE138193",
+      "organism": "Oryza sativa",
+      "expects": "loop",
+      "seconds": 2.6
+    },
+    {
+      "cloud": "rice_diurnal:MH86",
+      "n_samples": 17,
+      "n_distinct_times": 8,
+      "methods": {
+        "h1_cycle": {
+          "score": 1.0,
+          "n_visited": 9,
+          "coverage": 0.5294,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.3333,
+            "q95": 0.5556,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "top_bar_rel": 0.84,
+          "seconds": 0.33
+        },
+        "pc1_order": {
+          "score": 0.6471,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "p_value": 0.0004
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "pc1_pc2_angle": {
+          "score": 1.0,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "circle_fit_angle": {
+          "score": 1.0,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.33
+        },
+        "mds_angle": {
+          "score": 1.0,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "hc_leaf_order": {
+          "score": 0.7059,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "p_value": 0.0004
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "greedy_tour": {
+          "score": 0.8824,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.3
+        },
+        "tsp_2opt": {
+          "score": 0.8235,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "tour_length": 8.0888,
+          "seconds": 0.31
+        }
+      },
+      "group": "positive",
+      "source": "real",
+      "accession": "GSE138193",
+      "organism": "Oryza sativa",
+      "expects": "loop",
+      "seconds": 2.5
+    },
+    {
+      "cloud": "rice_diurnal:SE21s",
+      "n_samples": 17,
+      "n_distinct_times": 8,
+      "methods": {
+        "h1_cycle": {
+          "score": 1.0,
+          "n_visited": 9,
+          "coverage": 0.5294,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.3333,
+            "q95": 0.5556,
+            "p_value": 0.0006
+          },
+          "declares": true,
+          "top_bar_rel": 0.8479,
+          "seconds": 0.32
+        },
+        "pc1_order": {
+          "score": 0.6471,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "pc1_pc2_angle": {
+          "score": 1.0,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "circle_fit_angle": {
+          "score": 1.0,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "mds_angle": {
+          "score": 1.0,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "hc_leaf_order": {
+          "score": 0.8235,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "greedy_tour": {
+          "score": 0.8824,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "tsp_2opt": {
+          "score": 1.0,
+          "n_visited": 17,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2353,
+            "q95": 0.4118,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "tour_length": 7.2539,
+          "seconds": 0.31
+        }
+      },
+      "group": "positive",
+      "source": "real",
+      "accession": "GSE138193",
+      "organism": "Oryza sativa",
+      "expects": "loop",
+      "seconds": 2.5
+    },
+    {
+      "cloud": "tomato_fruit_dev:fruit",
+      "n_samples": 26,
+      "n_distinct_times": 9,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.5,
+          "n_visited": 4,
+          "coverage": 0.1538,
+          "null": null,
+          "declares": false,
+          "top_bar_rel": 0.0494,
+          "seconds": 0.02
+        },
+        "pc1_order": {
+          "score": 0.4615,
+          "n_visited": 26,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2308,
+            "q95": 0.3462,
+            "p_value": 0.004199
+          },
+          "declares": true,
+          "seconds": 0.33
+        },
+        "pc1_pc2_angle": {
+          "score": 0.5769,
+          "n_visited": 26,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2308,
+            "q95": 0.3462,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "circle_fit_angle": {
+          "score": 0.5,
+          "n_visited": 26,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2308,
+            "q95": 0.3462,
+            "p_value": 0.0008
+          },
+          "declares": true,
+          "seconds": 0.34
+        },
+        "mds_angle": {
+          "score": 0.5,
+          "n_visited": 26,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2308,
+            "q95": 0.3462,
+            "p_value": 0.001
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "hc_leaf_order": {
+          "score": 0.5385,
+          "n_visited": 26,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2308,
+            "q95": 0.3462,
+            "p_value": 0.0004
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "greedy_tour": {
+          "score": 0.6154,
+          "n_visited": 26,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2308,
+            "q95": 0.3462,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "tsp_2opt": {
+          "score": 0.5385,
+          "n_visited": 26,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2308,
+            "q95": 0.3462,
+            "p_value": 0.0012
+          },
+          "declares": true,
+          "tour_length": 7.0975,
+          "seconds": 0.36
+        }
+      },
+      "group": "negative",
+      "source": "real",
+      "accession": "GSE128739",
+      "organism": "Solanum lycopersicum",
+      "expects": "line",
+      "seconds": 2.3
+    },
+    {
+      "cloud": "ath_recovery:control",
+      "n_samples": 12,
+      "n_distinct_times": 4,
+      "methods": {
+        "h1_cycle": {
+          "score": 1.0,
+          "n_visited": 4,
+          "coverage": 0.3333,
+          "null": null,
+          "declares": false,
+          "top_bar_rel": 0.0873,
+          "seconds": 0.0
+        },
+        "pc1_order": {
+          "score": 0.75,
+          "n_visited": 12,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.5833,
+            "q95": 0.75,
+            "p_value": 0.096581
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "pc1_pc2_angle": {
+          "score": 0.75,
+          "n_visited": 12,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.5,
+            "q95": 0.75,
+            "p_value": 0.10058
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "circle_fit_angle": {
+          "score": 0.75,
+          "n_visited": 12,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.5833,
+            "q95": 0.75,
+            "p_value": 0.092581
+          },
+          "declares": false,
+          "seconds": 0.3
+        },
+        "mds_angle": {
+          "score": 0.6667,
+          "n_visited": 12,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.5,
+            "q95": 0.75,
+            "p_value": 0.245751
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "hc_leaf_order": {
+          "score": 0.75,
+          "n_visited": 12,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.5833,
+            "q95": 0.75,
+            "p_value": 0.094381
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "greedy_tour": {
+          "score": 0.75,
+          "n_visited": 12,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.5833,
+            "q95": 0.75,
+            "p_value": 0.09798
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "tsp_2opt": {
+          "score": 0.8333,
+          "n_visited": 12,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.5,
+            "q95": 0.75,
+            "p_value": 0.029794
+          },
+          "declares": true,
+          "tour_length": 10.473,
+          "seconds": 0.32
+        }
+      },
+      "group": "negative",
+      "source": "real",
+      "accession": "GSE158444",
+      "organism": "Arabidopsis thaliana",
+      "expects": "line",
+      "seconds": 2.2
+    },
+    {
+      "cloud": "ath_recovery:heat",
+      "n_samples": 12,
+      "n_distinct_times": 4,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.0,
+          "n_visited": 3,
+          "coverage": 0.25,
+          "null": null,
+          "declares": false,
+          "top_bar_rel": 0.0,
+          "seconds": 0.0
+        },
+        "pc1_order": {
+          "score": 0.8333,
+          "n_visited": 12,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.5,
+            "q95": 0.75,
+            "p_value": 0.032394
+          },
+          "declares": true,
+          "seconds": 0.33
+        },
+        "pc1_pc2_angle": {
+          "score": 1.0,
+          "n_visited": 12,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.5,
+            "q95": 0.75,
+            "p_value": 0.0006
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "circle_fit_angle": {
+          "score": 1.0,
+          "n_visited": 12,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.5833,
+            "q95": 0.75,
+            "p_value": 0.0012
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "mds_angle": {
+          "score": 1.0,
+          "n_visited": 12,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.5833,
+            "q95": 0.75,
+            "p_value": 0.0006
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "hc_leaf_order": {
+          "score": 0.75,
+          "n_visited": 12,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.5,
+            "q95": 0.75,
+            "p_value": 0.095781
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "greedy_tour": {
+          "score": 1.0,
+          "n_visited": 12,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.5,
+            "q95": 0.75,
+            "p_value": 0.0014
+          },
+          "declares": true,
+          "seconds": 0.33
+        },
+        "tsp_2opt": {
+          "score": 1.0,
+          "n_visited": 12,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.5833,
+            "q95": 0.75,
+            "p_value": 0.001
+          },
+          "declares": true,
+          "tour_length": 6.4727,
+          "seconds": 0.31
+        }
+      },
+      "group": "negative",
+      "source": "real",
+      "accession": "GSE158444",
+      "organism": "Arabidopsis thaliana",
+      "expects": "line",
+      "seconds": 2.2
+    },
+    {
+      "cloud": "synth_ring",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 1.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "top_bar_rel": 0.6379,
+          "seconds": 0.32
+        },
+        "pc1_order": {
+          "score": 0.1667,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.043791
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "pc1_pc2_angle": {
+          "score": 1.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "circle_fit_angle": {
+          "score": 1.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "mds_angle": {
+          "score": 1.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "hc_leaf_order": {
+          "score": 0.5833,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "greedy_tour": {
+          "score": 1.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "tsp_2opt": {
+          "score": 1.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "tour_length": 16.3657,
+          "seconds": 0.32
+        }
+      },
+      "group": "positive",
+      "source": "synthetic",
+      "expects": "loop"
+    },
+    {
+      "cloud": "synth_ring#1",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 1.0,
+          "n_visited": 23,
+          "coverage": 0.9583,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0435,
+            "q95": 0.1304,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "top_bar_rel": 0.6938,
+          "seconds": 0.34
+        },
+        "pc1_order": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.891022
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "pc1_pc2_angle": {
+          "score": 1.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "circle_fit_angle": {
+          "score": 1.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "mds_angle": {
+          "score": 1.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.3
+        },
+        "hc_leaf_order": {
+          "score": 0.5833,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "greedy_tour": {
+          "score": 0.7917,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "tsp_2opt": {
+          "score": 0.875,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "tour_length": 16.1685,
+          "seconds": 0.34
+        }
+      },
+      "group": "positive",
+      "source": "synthetic",
+      "expects": "loop"
+    },
+    {
+      "cloud": "synth_ring#2",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 1.0,
+          "n_visited": 22,
+          "coverage": 0.9167,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0455,
+            "q95": 0.1364,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "top_bar_rel": 0.6982,
+          "seconds": 0.34
+        },
+        "pc1_order": {
+          "score": 0.1667,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.044191
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "pc1_pc2_angle": {
+          "score": 1.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "circle_fit_angle": {
+          "score": 1.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "mds_angle": {
+          "score": 1.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "hc_leaf_order": {
+          "score": 0.4583,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "greedy_tour": {
+          "score": 0.875,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "tsp_2opt": {
+          "score": 0.7083,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "tour_length": 16.5062,
+          "seconds": 0.33
+        }
+      },
+      "group": "positive",
+      "source": "synthetic",
+      "expects": "loop"
+    },
+    {
+      "cloud": "synth_ring#3",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.875,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "top_bar_rel": 0.7017,
+          "seconds": 0.33
+        },
+        "pc1_order": {
+          "score": 0.1667,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.042991
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "pc1_pc2_angle": {
+          "score": 1.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "circle_fit_angle": {
+          "score": 1.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "mds_angle": {
+          "score": 1.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "hc_leaf_order": {
+          "score": 0.5,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "greedy_tour": {
+          "score": 0.875,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "tsp_2opt": {
+          "score": 0.7917,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "tour_length": 16.4768,
+          "seconds": 0.32
+        }
+      },
+      "group": "positive",
+      "source": "synthetic",
+      "expects": "loop"
+    },
+    {
+      "cloud": "synth_ring#4",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 1.0,
+          "n_visited": 23,
+          "coverage": 0.9583,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0435,
+            "q95": 0.1304,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "top_bar_rel": 0.6848,
+          "seconds": 0.33
+        },
+        "pc1_order": {
+          "score": 0.125,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.174365
+          },
+          "declares": false,
+          "seconds": 0.33
+        },
+        "pc1_pc2_angle": {
+          "score": 1.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "circle_fit_angle": {
+          "score": 1.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.34
+        },
+        "mds_angle": {
+          "score": 1.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "hc_leaf_order": {
+          "score": 0.6667,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "greedy_tour": {
+          "score": 0.875,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "tsp_2opt": {
+          "score": 0.7083,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "tour_length": 16.8007,
+          "seconds": 0.33
+        }
+      },
+      "group": "positive",
+      "source": "synthetic",
+      "expects": "loop"
+    },
+    {
+      "cloud": "synth_line",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.2222,
+          "n_visited": 9,
+          "coverage": 0.375,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2222,
+            "q95": 0.4444,
+            "p_value": 0.562687
+          },
+          "declares": false,
+          "top_bar_rel": 0.0289,
+          "seconds": 0.32
+        },
+        "pc1_order": {
+          "score": 0.625,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "pc1_pc2_angle": {
+          "score": 0.25,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.001
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "circle_fit_angle": {
+          "score": 0.25,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.001
+          },
+          "declares": true,
+          "seconds": 0.33
+        },
+        "mds_angle": {
+          "score": 0.1667,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.042392
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "hc_leaf_order": {
+          "score": 0.2917,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "greedy_tour": {
+          "score": 0.375,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "tsp_2opt": {
+          "score": 0.25,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.002599
+          },
+          "declares": true,
+          "tour_length": 23.2904,
+          "seconds": 0.33
+        }
+      },
+      "group": "negative",
+      "source": "synthetic",
+      "expects": "line"
+    },
+    {
+      "cloud": "synth_line#1",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.1667,
+          "n_visited": 12,
+          "coverage": 0.5,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.1667,
+            "q95": 0.3333,
+            "p_value": 0.604479
+          },
+          "declares": false,
+          "top_bar_rel": 0.0232,
+          "seconds": 0.34
+        },
+        "pc1_order": {
+          "score": 0.875,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "pc1_pc2_angle": {
+          "score": 0.0833,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.490302
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "circle_fit_angle": {
+          "score": 0.0833,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.490302
+          },
+          "declares": false,
+          "seconds": 0.33
+        },
+        "mds_angle": {
+          "score": 0.1667,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.043391
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "hc_leaf_order": {
+          "score": 0.4583,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "greedy_tour": {
+          "score": 0.3333,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "tsp_2opt": {
+          "score": 0.1667,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.041792
+          },
+          "declares": true,
+          "tour_length": 23.3725,
+          "seconds": 0.34
+        }
+      },
+      "group": "negative",
+      "source": "synthetic",
+      "expects": "line"
+    },
+    {
+      "cloud": "synth_line#2",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.2857,
+          "n_visited": 7,
+          "coverage": 0.2917,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2857,
+            "q95": 0.5714,
+            "p_value": 0.630674
+          },
+          "declares": false,
+          "top_bar_rel": 0.0401,
+          "seconds": 0.33
+        },
+        "pc1_order": {
+          "score": 0.7917,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.33
+        },
+        "pc1_pc2_angle": {
+          "score": 0.0833,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.4995
+          },
+          "declares": false,
+          "seconds": 0.33
+        },
+        "circle_fit_angle": {
+          "score": 0.125,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.170166
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "mds_angle": {
+          "score": 0.2083,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.008198
+          },
+          "declares": true,
+          "seconds": 0.33
+        },
+        "hc_leaf_order": {
+          "score": 0.5417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "greedy_tour": {
+          "score": 0.3333,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "tsp_2opt": {
+          "score": 0.2917,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "tour_length": 23.1642,
+          "seconds": 0.32
+        }
+      },
+      "group": "negative",
+      "source": "synthetic",
+      "expects": "line"
+    },
+    {
+      "cloud": "synth_line#3",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.4286,
+          "n_visited": 7,
+          "coverage": 0.2917,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2857,
+            "q95": 0.5714,
+            "p_value": 0.195761
+          },
+          "declares": false,
+          "top_bar_rel": 0.0274,
+          "seconds": 0.33
+        },
+        "pc1_order": {
+          "score": 0.5417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "pc1_pc2_angle": {
+          "score": 0.1667,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.044391
+          },
+          "declares": true,
+          "seconds": 0.33
+        },
+        "circle_fit_angle": {
+          "score": 0.2083,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.007598
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "mds_angle": {
+          "score": 0.1667,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.046591
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "hc_leaf_order": {
+          "score": 0.25,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0014
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "greedy_tour": {
+          "score": 0.2083,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.008398
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "tsp_2opt": {
+          "score": 0.1667,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.043591
+          },
+          "declares": true,
+          "tour_length": 23.2779,
+          "seconds": 0.33
+        }
+      },
+      "group": "negative",
+      "source": "synthetic",
+      "expects": "line"
+    },
+    {
+      "cloud": "synth_line#4",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.1333,
+          "n_visited": 15,
+          "coverage": 0.625,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.1333,
+            "q95": 0.2667,
+            "p_value": 0.560288
+          },
+          "declares": false,
+          "top_bar_rel": 0.0273,
+          "seconds": 0.33
+        },
+        "pc1_order": {
+          "score": 0.625,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "pc1_pc2_angle": {
+          "score": 0.1667,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.04799
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "circle_fit_angle": {
+          "score": 0.0833,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.489702
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "mds_angle": {
+          "score": 0.2083,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.009798
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "hc_leaf_order": {
+          "score": 0.2917,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0008
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "greedy_tour": {
+          "score": 0.375,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "tsp_2opt": {
+          "score": 0.375,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "tour_length": 23.4018,
+          "seconds": 0.33
+        }
+      },
+      "group": "negative",
+      "source": "synthetic",
+      "expects": "line"
+    },
+    {
+      "cloud": "synth_noise",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.4,
+          "n_visited": 5,
+          "coverage": 0.2083,
+          "null": null,
+          "declares": false,
+          "top_bar_rel": 0.0294,
+          "seconds": 0.02
+        },
+        "pc1_order": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.882224
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "pc1_pc2_angle": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.890822
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "circle_fit_angle": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.892422
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "mds_angle": {
+          "score": 0.0833,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.502699
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "hc_leaf_order": {
+          "score": 0.125,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.170166
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "greedy_tour": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "tsp_2opt": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "tour_length": 24.3683,
+          "seconds": 0.32
+        }
+      },
+      "group": "negative",
+      "source": "synthetic",
+      "expects": "line"
+    },
+    {
+      "cloud": "synth_noise#1",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.1429,
+          "n_visited": 7,
+          "coverage": 0.2917,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2857,
+            "q95": 0.5714,
+            "p_value": 0.933813
+          },
+          "declares": false,
+          "top_bar_rel": 0.03,
+          "seconds": 0.32
+        },
+        "pc1_order": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.895021
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "pc1_pc2_angle": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "circle_fit_angle": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.879224
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "mds_angle": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "hc_leaf_order": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "greedy_tour": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.887822
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "tsp_2opt": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.887822
+          },
+          "declares": false,
+          "tour_length": 24.3055,
+          "seconds": 0.33
+        }
+      },
+      "group": "negative",
+      "source": "synthetic",
+      "expects": "line"
+    },
+    {
+      "cloud": "synth_noise#2",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.4,
+          "n_visited": 5,
+          "coverage": 0.2083,
+          "null": null,
+          "declares": false,
+          "top_bar_rel": 0.0311,
+          "seconds": 0.02
+        },
+        "pc1_order": {
+          "score": 0.0833,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.4977
+          },
+          "declares": false,
+          "seconds": 0.33
+        },
+        "pc1_pc2_angle": {
+          "score": 0.0833,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.493101
+          },
+          "declares": false,
+          "seconds": 0.33
+        },
+        "circle_fit_angle": {
+          "score": 0.0833,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.491902
+          },
+          "declares": false,
+          "seconds": 0.33
+        },
+        "mds_angle": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "hc_leaf_order": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.1271,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "greedy_tour": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.33
+        },
+        "tsp_2opt": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "tour_length": 24.4188,
+          "seconds": 0.34
+        }
+      },
+      "group": "negative",
+      "source": "synthetic",
+      "expects": "line"
+    },
+    {
+      "cloud": "synth_noise#3",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.4286,
+          "n_visited": 7,
+          "coverage": 0.2917,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2857,
+            "q95": 0.5714,
+            "p_value": 0.20156
+          },
+          "declares": false,
+          "top_bar_rel": 0.0349,
+          "seconds": 0.34
+        },
+        "pc1_order": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.1271,
+            "p_value": 0.885423
+          },
+          "declares": false,
+          "seconds": 0.33
+        },
+        "pc1_pc2_angle": {
+          "score": 0.0833,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.504699
+          },
+          "declares": false,
+          "seconds": 0.33
+        },
+        "circle_fit_angle": {
+          "score": 0.0833,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.493701
+          },
+          "declares": false,
+          "seconds": 0.33
+        },
+        "mds_angle": {
+          "score": 0.0833,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.5011
+          },
+          "declares": false,
+          "seconds": 0.33
+        },
+        "hc_leaf_order": {
+          "score": 0.0833,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.485303
+          },
+          "declares": false,
+          "seconds": 0.33
+        },
+        "greedy_tour": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.890222
+          },
+          "declares": false,
+          "seconds": 0.33
+        },
+        "tsp_2opt": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.893221
+          },
+          "declares": false,
+          "tour_length": 24.3214,
+          "seconds": 0.36
+        }
+      },
+      "group": "negative",
+      "source": "synthetic",
+      "expects": "line"
+    },
+    {
+      "cloud": "synth_noise#4",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.25,
+          "n_visited": 8,
+          "coverage": 0.3333,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.25,
+            "q95": 0.375,
+            "p_value": 0.574285
+          },
+          "declares": false,
+          "top_bar_rel": 0.0291,
+          "seconds": 0.33
+        },
+        "pc1_order": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.883623
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "pc1_pc2_angle": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.888422
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "circle_fit_angle": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.886623
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "mds_angle": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.887423
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "hc_leaf_order": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.885023
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "greedy_tour": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.879424
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "tsp_2opt": {
+          "score": 0.0833,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.490102
+          },
+          "declares": false,
+          "tour_length": 24.3563,
+          "seconds": 0.32
+        }
+      },
+      "group": "negative",
+      "source": "synthetic",
+      "expects": "line"
+    },
+    {
+      "cloud": "synth_clusters",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.0,
+          "n_visited": 11,
+          "coverage": 0.4583,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.1818,
+            "q95": 0.3636,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "top_bar_rel": 0.0182,
+          "seconds": 0.33
+        },
+        "pc1_order": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "pc1_pc2_angle": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.890022
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "circle_fit_angle": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.888222
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "mds_angle": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.889822
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "hc_leaf_order": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "greedy_tour": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0625,
+            "q95": 0.125,
+            "p_value": 0.889422
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "tsp_2opt": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.882823
+          },
+          "declares": false,
+          "tour_length": 9.9274,
+          "seconds": 0.34
+        }
+      },
+      "group": "negative",
+      "source": "synthetic",
+      "expects": "line"
+    },
+    {
+      "cloud": "synth_clusters#1",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.3333,
+          "n_visited": 6,
+          "coverage": 0.25,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.3333,
+            "q95": 0.5,
+            "p_value": 0.54849
+          },
+          "declares": false,
+          "top_bar_rel": 0.0139,
+          "seconds": 0.32
+        },
+        "pc1_order": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.33
+        },
+        "pc1_pc2_angle": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.33
+        },
+        "circle_fit_angle": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.34
+        },
+        "mds_angle": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "hc_leaf_order": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "greedy_tour": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "tsp_2opt": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "tour_length": 9.8446,
+          "seconds": 0.33
+        }
+      },
+      "group": "negative",
+      "source": "synthetic",
+      "expects": "line"
+    },
+    {
+      "cloud": "synth_clusters#2",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.0,
+          "n_visited": 9,
+          "coverage": 0.375,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2222,
+            "q95": 0.4444,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "top_bar_rel": 0.0205,
+          "seconds": 0.33
+        },
+        "pc1_order": {
+          "score": 0.0833,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.496501
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "pc1_pc2_angle": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.34
+        },
+        "circle_fit_angle": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.34
+        },
+        "mds_angle": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.35
+        },
+        "hc_leaf_order": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "greedy_tour": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.882823
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "tsp_2opt": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.882424
+          },
+          "declares": false,
+          "tour_length": 9.7561,
+          "seconds": 0.34
+        }
+      },
+      "group": "negative",
+      "source": "synthetic",
+      "expects": "line"
+    },
+    {
+      "cloud": "synth_clusters#3",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.0833,
+          "n_visited": 12,
+          "coverage": 0.5,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.1667,
+            "q95": 0.25,
+            "p_value": 0.896421
+          },
+          "declares": false,
+          "top_bar_rel": 0.0209,
+          "seconds": 0.42
+        },
+        "pc1_order": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.891222
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "pc1_pc2_angle": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.883423
+          },
+          "declares": false,
+          "seconds": 0.33
+        },
+        "circle_fit_angle": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.883423
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "mds_angle": {
+          "score": 0.0417,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.883423
+          },
+          "declares": false,
+          "seconds": 0.34
+        },
+        "hc_leaf_order": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "greedy_tour": {
+          "score": 0.0833,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.502899
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "tsp_2opt": {
+          "score": 0.125,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.181164
+          },
+          "declares": false,
+          "tour_length": 9.7643,
+          "seconds": 0.32
+        }
+      },
+      "group": "negative",
+      "source": "synthetic",
+      "expects": "line"
+    },
+    {
+      "cloud": "synth_clusters#4",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.3333,
+          "n_visited": 9,
+          "coverage": 0.375,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2222,
+            "q95": 0.4444,
+            "p_value": 0.210958
+          },
+          "declares": false,
+          "top_bar_rel": 0.009,
+          "seconds": 0.32
+        },
+        "pc1_order": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "pc1_pc2_angle": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "circle_fit_angle": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "mds_angle": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "hc_leaf_order": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.31
+        },
+        "greedy_tour": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "seconds": 0.33
+        },
+        "tsp_2opt": {
+          "score": 0.0,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 1.0
+          },
+          "declares": false,
+          "tour_length": 9.7548,
+          "seconds": 0.35
+        }
+      },
+      "group": "negative",
+      "source": "synthetic",
+      "expects": "line"
+    },
+    {
+      "cloud": "synth_branch",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.4444,
+          "n_visited": 9,
+          "coverage": 0.375,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2222,
+            "q95": 0.4444,
+            "p_value": 0.062587
+          },
+          "declares": true,
+          "top_bar_rel": 0.034,
+          "seconds": 0.32
+        },
+        "pc1_order": {
+          "score": 0.375,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "pc1_pc2_angle": {
+          "score": 0.2917,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "circle_fit_angle": {
+          "score": 0.2917,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "mds_angle": {
+          "score": 0.25,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "hc_leaf_order": {
+          "score": 0.375,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.36
+        },
+        "greedy_tour": {
+          "score": 0.25,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.001
+          },
+          "declares": true,
+          "seconds": 0.33
+        },
+        "tsp_2opt": {
+          "score": 0.2917,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0008
+          },
+          "declares": true,
+          "tour_length": 17.2418,
+          "seconds": 0.33
+        }
+      },
+      "group": "negative",
+      "source": "synthetic",
+      "expects": "line"
+    },
+    {
+      "cloud": "synth_branch#1",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.4286,
+          "n_visited": 7,
+          "coverage": 0.2917,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2857,
+            "q95": 0.5714,
+            "p_value": 0.195161
+          },
+          "declares": false,
+          "top_bar_rel": 0.0317,
+          "seconds": 0.35
+        },
+        "pc1_order": {
+          "score": 0.1667,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.04819
+          },
+          "declares": true,
+          "seconds": 0.33
+        },
+        "pc1_pc2_angle": {
+          "score": 0.3333,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0004
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "circle_fit_angle": {
+          "score": 0.3333,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0004
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "mds_angle": {
+          "score": 0.3333,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0004
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "hc_leaf_order": {
+          "score": 0.0833,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.4989
+          },
+          "declares": false,
+          "seconds": 0.32
+        },
+        "greedy_tour": {
+          "score": 0.1667,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.044591
+          },
+          "declares": true,
+          "seconds": 0.35
+        },
+        "tsp_2opt": {
+          "score": 0.1667,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.041192
+          },
+          "declares": true,
+          "tour_length": 17.1222,
+          "seconds": 0.34
+        }
+      },
+      "group": "negative",
+      "source": "synthetic",
+      "expects": "line"
+    },
+    {
+      "cloud": "synth_branch#2",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.3333,
+          "n_visited": 9,
+          "coverage": 0.375,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2222,
+            "q95": 0.4444,
+            "p_value": 0.209358
+          },
+          "declares": false,
+          "top_bar_rel": 0.0246,
+          "seconds": 0.32
+        },
+        "pc1_order": {
+          "score": 0.2083,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.009398
+          },
+          "declares": true,
+          "seconds": 0.34
+        },
+        "pc1_pc2_angle": {
+          "score": 0.5,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.34
+        },
+        "circle_fit_angle": {
+          "score": 0.5,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.33
+        },
+        "mds_angle": {
+          "score": 0.375,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.33
+        },
+        "hc_leaf_order": {
+          "score": 0.2917,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0004
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "greedy_tour": {
+          "score": 0.1667,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.046791
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "tsp_2opt": {
+          "score": 0.1667,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.043791
+          },
+          "declares": true,
+          "tour_length": 16.9423,
+          "seconds": 0.33
+        }
+      },
+      "group": "negative",
+      "source": "synthetic",
+      "expects": "line"
+    },
+    {
+      "cloud": "synth_branch#3",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.375,
+          "n_visited": 8,
+          "coverage": 0.3333,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.25,
+            "q95": 0.375,
+            "p_value": 0.222555
+          },
+          "declares": false,
+          "top_bar_rel": 0.0295,
+          "seconds": 0.31
+        },
+        "pc1_order": {
+          "score": 0.2917,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0004
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "pc1_pc2_angle": {
+          "score": 0.4167,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "circle_fit_angle": {
+          "score": 0.4167,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "mds_angle": {
+          "score": 0.375,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.3
+        },
+        "hc_leaf_order": {
+          "score": 0.125,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.175965
+          },
+          "declares": false,
+          "seconds": 0.33
+        },
+        "greedy_tour": {
+          "score": 0.1667,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.044991
+          },
+          "declares": true,
+          "seconds": 0.33
+        },
+        "tsp_2opt": {
+          "score": 0.2083,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.009398
+          },
+          "declares": true,
+          "tour_length": 17.2685,
+          "seconds": 0.33
+        }
+      },
+      "group": "negative",
+      "source": "synthetic",
+      "expects": "line"
+    },
+    {
+      "cloud": "synth_branch#4",
+      "n_samples": 24,
+      "n_distinct_times": 24,
+      "methods": {
+        "h1_cycle": {
+          "score": 0.4286,
+          "n_visited": 7,
+          "coverage": 0.2917,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.2857,
+            "q95": 0.5714,
+            "p_value": 0.19876
+          },
+          "declares": false,
+          "top_bar_rel": 0.0302,
+          "seconds": 0.33
+        },
+        "pc1_order": {
+          "score": 0.375,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "pc1_pc2_angle": {
+          "score": 0.375,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "circle_fit_angle": {
+          "score": 0.375,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.32
+        },
+        "mds_angle": {
+          "score": 0.4167,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.3
+        },
+        "hc_leaf_order": {
+          "score": 0.2917,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0417,
+            "q95": 0.125,
+            "p_value": 0.0004
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "greedy_tour": {
+          "score": 0.3333,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.0002
+          },
+          "declares": true,
+          "seconds": 0.31
+        },
+        "tsp_2opt": {
+          "score": 0.25,
+          "n_visited": 24,
+          "coverage": 1.0,
+          "null": {
+            "n_perm": 5000,
+            "median": 0.0833,
+            "q95": 0.125,
+            "p_value": 0.0024
+          },
+          "declares": true,
+          "tour_length": 17.1219,
+          "seconds": 0.33
+        }
+      },
+      "group": "negative",
+      "source": "synthetic",
+      "expects": "line"
+    }
+  ],
+  "summary": {
+    "h1_cycle": {
+      "sensitivity": 0.9167,
+      "sensitivity_ci": [
+        0.6461,
+        0.9851
+      ],
+      "specificity": 0.9565,
+      "specificity_ci": [
+        0.7901,
+        0.9923
+      ],
+      "balanced_accuracy": 0.9366,
+      "true_positives": 11,
+      "n_positive": 12,
+      "false_positives": 1,
+      "n_negative": 23,
+      "false_positive_clouds": [
+        "synth_branch"
+      ]
+    },
+    "pc1_order": {
+      "sensitivity": 0.6667,
+      "sensitivity_ci": [
+        0.3906,
+        0.8619
+      ],
+      "specificity": 0.4783,
+      "specificity_ci": [
+        0.2924,
+        0.6704
+      ],
+      "balanced_accuracy": 0.5725,
+      "true_positives": 8,
+      "n_positive": 12,
+      "false_positives": 12,
+      "n_negative": 23,
+      "false_positive_clouds": [
+        "tomato_fruit_dev:fruit",
+        "ath_recovery:heat",
+        "synth_line",
+        "synth_line#1",
+        "synth_line#2",
+        "synth_line#3",
+        "synth_line#4",
+        "synth_branch",
+        "synth_branch#1",
+        "synth_branch#2",
+        "synth_branch#3",
+        "synth_branch#4"
+      ]
+    },
+    "pc1_pc2_angle": {
+      "sensitivity": 0.9167,
+      "sensitivity_ci": [
+        0.6461,
+        0.9851
+      ],
+      "specificity": 0.5652,
+      "specificity_ci": [
+        0.3681,
+        0.7437
+      ],
+      "balanced_accuracy": 0.7409,
+      "true_positives": 11,
+      "n_positive": 12,
+      "false_positives": 10,
+      "n_negative": 23,
+      "false_positive_clouds": [
+        "tomato_fruit_dev:fruit",
+        "ath_recovery:heat",
+        "synth_line",
+        "synth_line#3",
+        "synth_line#4",
+        "synth_branch",
+        "synth_branch#1",
+        "synth_branch#2",
+        "synth_branch#3",
+        "synth_branch#4"
+      ]
+    },
+    "circle_fit_angle": {
+      "sensitivity": 0.9167,
+      "sensitivity_ci": [
+        0.6461,
+        0.9851
+      ],
+      "specificity": 0.6087,
+      "specificity_ci": [
+        0.4079,
+        0.7784
+      ],
+      "balanced_accuracy": 0.7627,
+      "true_positives": 11,
+      "n_positive": 12,
+      "false_positives": 9,
+      "n_negative": 23,
+      "false_positive_clouds": [
+        "tomato_fruit_dev:fruit",
+        "ath_recovery:heat",
+        "synth_line",
+        "synth_line#3",
+        "synth_branch",
+        "synth_branch#1",
+        "synth_branch#2",
+        "synth_branch#3",
+        "synth_branch#4"
+      ]
+    },
+    "mds_angle": {
+      "sensitivity": 0.9167,
+      "sensitivity_ci": [
+        0.6461,
+        0.9851
+      ],
+      "specificity": 0.4783,
+      "specificity_ci": [
+        0.2924,
+        0.6704
+      ],
+      "balanced_accuracy": 0.6975,
+      "true_positives": 11,
+      "n_positive": 12,
+      "false_positives": 12,
+      "n_negative": 23,
+      "false_positive_clouds": [
+        "tomato_fruit_dev:fruit",
+        "ath_recovery:heat",
+        "synth_line",
+        "synth_line#1",
+        "synth_line#2",
+        "synth_line#3",
+        "synth_line#4",
+        "synth_branch",
+        "synth_branch#1",
+        "synth_branch#2",
+        "synth_branch#3",
+        "synth_branch#4"
+      ]
+    },
+    "hc_leaf_order": {
+      "sensitivity": 0.9167,
+      "sensitivity_ci": [
+        0.6461,
+        0.9851
+      ],
+      "specificity": 0.6087,
+      "specificity_ci": [
+        0.4079,
+        0.7784
+      ],
+      "balanced_accuracy": 0.7627,
+      "true_positives": 11,
+      "n_positive": 12,
+      "false_positives": 9,
+      "n_negative": 23,
+      "false_positive_clouds": [
+        "tomato_fruit_dev:fruit",
+        "synth_line",
+        "synth_line#1",
+        "synth_line#2",
+        "synth_line#3",
+        "synth_line#4",
+        "synth_branch",
+        "synth_branch#2",
+        "synth_branch#4"
+      ]
+    },
+    "greedy_tour": {
+      "sensitivity": 0.8333,
+      "sensitivity_ci": [
+        0.552,
+        0.953
+      ],
+      "specificity": 0.4783,
+      "specificity_ci": [
+        0.2924,
+        0.6704
+      ],
+      "balanced_accuracy": 0.6558,
+      "true_positives": 10,
+      "n_positive": 12,
+      "false_positives": 12,
+      "n_negative": 23,
+      "false_positive_clouds": [
+        "tomato_fruit_dev:fruit",
+        "ath_recovery:heat",
+        "synth_line",
+        "synth_line#1",
+        "synth_line#2",
+        "synth_line#3",
+        "synth_line#4",
+        "synth_branch",
+        "synth_branch#1",
+        "synth_branch#2",
+        "synth_branch#3",
+        "synth_branch#4"
+      ]
+    },
+    "tsp_2opt": {
+      "sensitivity": 0.8333,
+      "sensitivity_ci": [
+        0.552,
+        0.953
+      ],
+      "specificity": 0.4348,
+      "specificity_ci": [
+        0.2563,
+        0.6319
+      ],
+      "balanced_accuracy": 0.6341,
+      "true_positives": 10,
+      "n_positive": 12,
+      "false_positives": 13,
+      "n_negative": 23,
+      "false_positive_clouds": [
+        "tomato_fruit_dev:fruit",
+        "ath_recovery:control",
+        "ath_recovery:heat",
+        "synth_line",
+        "synth_line#1",
+        "synth_line#2",
+        "synth_line#3",
+        "synth_line#4",
+        "synth_branch",
+        "synth_branch#1",
+        "synth_branch#2",
+        "synth_branch#3",
+        "synth_branch#4"
+      ]
+    }
+  },
+  "headline": {
+    "best_rival": "circle_fit_angle",
+    "topological": {
+      "sensitivity": 0.9167,
+      "sensitivity_ci": [
+        0.6461,
+        0.9851
+      ],
+      "specificity": 0.9565,
+      "specificity_ci": [
+        0.7901,
+        0.9923
+      ],
+      "balanced_accuracy": 0.9366,
+      "true_positives": 11,
+      "n_positive": 12,
+      "false_positives": 1,
+      "n_negative": 23,
+      "false_positive_clouds": [
+        "synth_branch"
+      ]
+    },
+    "rival": {
+      "sensitivity": 0.9167,
+      "sensitivity_ci": [
+        0.6461,
+        0.9851
+      ],
+      "specificity": 0.6087,
+      "specificity_ci": [
+        0.4079,
+        0.7784
+      ],
+      "balanced_accuracy": 0.7627,
+      "true_positives": 11,
+      "n_positive": 12,
+      "false_positives": 9,
+      "n_negative": 23,
+      "false_positive_clouds": [
+        "tomato_fruit_dev:fruit",
+        "ath_recovery:heat",
+        "synth_line",
+        "synth_line#3",
+        "synth_branch",
+        "synth_branch#1",
+        "synth_branch#2",
+        "synth_branch#3",
+        "synth_branch#4"
+      ]
+    }
+  },
+  "figures": [
+    "docs\\fig_incremental_value.png"
+  ]
+}

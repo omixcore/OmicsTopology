@@ -352,26 +352,38 @@ one bar and none gives none.  **6/6 designs are read correctly.**
 **C, on measured data.**  A claim built and tested by the same person is not
 worth much, so `examples/prepare_cycle_designs.py` +
 `examples/cycle_counting_real.py` (→ `benchmark/cycle_counting_real.json`)
-run the identical pipeline on four public designs whose sample sheets were
+run the identical pipeline on five public designs whose sample sheets were
 fixed years ago: 5 Douglas-fir trees × 16 dates across a full year (GSE93067),
 6 trees × 12 time points over 48 h (GSE93066), 22 people × 7 circadian phases
-× 2 sleep phases (GSE48113), and the two Douglas-fir series pooled into an
-annual × daily design.
+× 2 sleep phases (GSE48113), the two Douglas-fir series pooled into an
+annual × daily design, and — the one design whose cycle is *not* a clock —
+budding yeast released from an elutriation, wild type vs a `clb1-6` cyclin
+mutant (GSE8799).
 
-Exactly **one of four** designs is counted correctly, and it is the one whose
-cycle dominates its transcriptome: the yearlong series reaches a dominant-bar
-gap of 4.9 and is counted as 1, and sweeping the window shows the same thing
-from the other side — any sub-year window is an open arc and counts 0.  The
-other three return 0, and two diagnostics say why: their H1 spectra decay
+Exactly **two of five** designs are counted correctly, and both are the ones
+whose cycle dominates their transcriptome.  The yearlong series reaches a
+dominant-bar gap of 4.9 and is counted as 1, and sweeping the window shows the
+same thing from the other side — any sub-year window is an open arc and counts
+0.  The yeast cell cycle reaches a gap of 3.6 and is counted as 1 while its
+sample sheet records **three** axes (genotype, replicate, cell-cycle time) of
+which only one is cyclic — the other two carry no cycle at all: genotype is a
+strong two-valued shift (Mantel r = +0.46, p ≤ 0.0005), the elutriation an
+offset, and removing their means is what exposes the single cycle, whereas the
+same cloud without centring returns 0.  Its phase alignment is significant but
+modest (circular Mantel r = +0.16, p ≤ 0.0005), which is why the headline count
+is quoted on the pooled 60-sample cloud rather than on either genotype alone.
+The other three return 0, and two diagnostics say why: their H1 spectra decay
 smoothly (gap 1.06-1.36, i.e. *no dominant bar to count*) while the cycles are
-nevertheless present — the circular Mantel correlation against the design's
-own axis is +0.70 for the diurnal cloud, the same value the yearlong series
-has.  `examples/cycle_counting_power.py` (→
-`benchmark/cycle_counting_power.json`) then measures the variable that
-separates the working case from the failing ones: how many of the 3000
-selected genes actually carry the ring.  The count succeeds only when
-essentially all of them do.  That is the honest envelope of the claim, and it
-is measured rather than asserted.
+nevertheless present — the circular Mantel correlation against the design's own
+axis is +0.70 for the diurnal cloud, the same value the yearlong series has.
+`examples/cycle_counting_power.py` (→ `benchmark/cycle_counting_power.json`)
+then measures the variable that separates the time-axis working cases from the
+failing ones: how many of the 3000 selected genes actually carry the ring.  The
+count succeeds only when essentially all of them do.  That is the honest envelope
+of the claim, and it is measured rather than asserted — and it is an envelope
+about *time-axis* designs, because the yeast cloud shows a dominant bar at
+`r = +0.16`, so a dominant bar and a strong phase alignment are two different
+kinds of evidence.
 
 **D. Incremental value, measured against twenty-one baselines — eight fixed transforms and thirteen learned or trained representations.**
 `examples/incremental_value.py` (→ `benchmark/incremental_value.json`) puts the
@@ -520,11 +532,13 @@ deleted, because a documented failure is more useful than a missing one.
 
 Limits, stated plainly: the *scoring* needs the clock even though the
 *computation* does not; the recovered cycle visits only 44-76 % of a cloud's
-samples; the two-parameter result is demonstrated on simulated data, because
-even the pooled annual × daily design has no dominant bar once the two series'
-signals dilute each other; the counting criterion needs a transcriptome
+samples; the *two-parameter* result (β₁ = 2) is demonstrated on simulated data
+only, because even the pooled annual × daily design has no dominant bar once
+the two series' signals dilute each other — what measured data now do show is
+the *axis-count* trap: the yeast cell-cycle design records three axes and one
+cycle and is counted as one; the counting criterion needs a transcriptome
 dominated by the cycle; and the identifiability rule is a two-threshold
-heuristic calibrated on four designs, not a test with a p-value.  The design
+heuristic calibrated on five designs, not a test with a p-value.  The design
 that would settle the two-parameter case — time against an independently
 cycling factor, sampled densely in both — remains the cheapest experiment this
 analysis points at.
@@ -644,8 +658,8 @@ examples/          runnable demos; see the files
                               how much do replicates contribute? (measured 5 ways)
   benchmark_audit.py          ablation, multiplicity and resolution of the headline
   topology_without_labels.py  what a phase-based test cannot be asked (labels held out)
-  prepare_cycle_designs.py    download + normalise four real cyclic designs (GSE93067/93066/48113)
-  cycle_counting_real.py      block C on measured data: 1 of 4 designs is counted correctly
+  prepare_cycle_designs.py    download + normalise five real cyclic designs (GSE93067/93066/48113/8799)
+  cycle_counting_real.py      block C on measured data: 2 of 5 designs are counted correctly
   cycle_counting_power.py     when does the count work? (measured, not assumed)
   incremental_value.py        the H1 cycle against 21 baselines, fixed and learned
   learned_baselines.py        the thirteen learned representations and why they are fair
@@ -666,14 +680,14 @@ docs/
   index.md results.md api.md  guide, evidence table, generated API reference
   fig_*.png                   every figure the scripts produce
 benchmark/         committed result tables of every experiment
-tests/             191 pytest cases, no network needed
+tests/             194 pytest cases, no network needed
 ```
 
 ## Running the tests
 
 ```bash
 pip install -e ".[dev]"
-pytest                 # 191 tests, no network and no benchmark data required
+pytest                 # 194 tests, no network and no benchmark data required
 sh tools/ci.sh         # install + tests + generated-docs check, as CI runs them
 sh reproduce/run_all.sh   # the third-party reproduction, from this tree or a fresh clone
 ```

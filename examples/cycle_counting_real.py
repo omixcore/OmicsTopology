@@ -4,10 +4,10 @@
 designs built to order: a single time axis gives one loop however many
 oscillators ride on it, and only a genuinely two-dimensional design gives two.
 The obvious objection is that the same person chose the design and wrote the
-claim.  This script asks the same question of four **public, measured**
+claim.  This script asks the same question of five **public, measured**
 datasets whose designs were fixed by other people years ago.
 
-The four designs
+The five designs
 ----------------
 =========================  =========  ==========================================
 key                        accession  what varies
@@ -16,6 +16,7 @@ key                        accession  what varies
 ``psme_diurnal``           GSE93066   6 trees x 6 times of day x 2 days
 ``human_forced_desync``    GSE48113   22 people x 7 circadian phases x 2 sleep
 ``psme_annual_x_diurnal``  both       the two Douglas-fir series pooled
+``yeast_cell_cycle``       GSE8799    2 genotypes x 2 elutriations x 30 times
 =========================  =========  ==========================================
 
 What each one is for
@@ -40,6 +41,15 @@ transcript reference, and between them they carry two independently sampled
 cycles -- a circannual one and a daily one.  This case has to come out as
 **two**.
 
+**A cycle that is not a clock.**  Every other design here turns on a *time*
+axis -- a year, a day, a sleep schedule -- so a critic can say the method is
+reading the calendar.  ``yeast_cell_cycle`` removes that escape: the
+coordinate is the phase of the cell cycle, a cell-intrinsic programme that
+nothing entrains, and the sample sheet records *three* axes -- genotype (wild
+type vs a clb1-6 cyclin mutant), replicate elutriation, and time since release
+-- of which exactly one is cyclic.  A criterion that counted axes would answer
+three; the count must answer one.
+
 The replicate problem, and what is done about it
 ------------------------------------------------
 Real designs have biological replicates -- five trees, twenty-two people -- and
@@ -56,10 +66,12 @@ Gaussian null, count the bars that outrun it.
 
 What came out -- and it is not the 6/6 the simulation gave
 ---------------------------------------------------------
-Exactly one of the four designs is counted correctly, and it is the one with
-the densest phase sampling and the strongest dominant bar: the yearlong series
-(``gap`` ~ 4.9, count 1).  The other three return 0.  Reporting only that
-number would be useless, so two diagnostics are measured alongside it:
+Two of the five designs are counted correctly, and both are the ones whose
+cycle is carried by essentially the whole selected gene set: the yearlong
+series (``gap`` ~ 4.9, count 1) and the yeast cell cycle (``gap`` ~ 3.6,
+count 1 -- the one design whose cycle is not a clock).  The other three return
+0.  Reporting only that number would be useless, so two diagnostics are
+measured alongside it:
 
 * the **dominant-bar gap**, ``bar[0] / bar[1]``, which the counting criterion
   silently requires to be far above 1, and which is 1.06-1.36 for every design
@@ -154,9 +166,11 @@ def score(X: np.ndarray, n_null: int, seed: int, phase=None) -> dict:
     cycle to count however many samples were collected.
 
     ``mantel_r`` is the circular Mantel correlation against the design's own
-    axis.  It uses the label, so it is **not** part of the label-free claim --
-    it is quoted here only to show that the cycles the count misses are really
-    present in the data (a phase-based method can see them; the count cannot).
+    axis, and ``mantel_p`` its permutation p-value.  Both use the label, so
+    they are **not** part of the label-free claim -- they are quoted here only
+    to show that the cycles the count misses are really present in the data
+    (a phase-based method can see them; the count cannot), and to keep the
+    significance claim reproducible from the committed record.
     """
     rec = count_cycles(X, n_null=n_null, seed=seed)
     rec["n_cycles"] = int(rec.pop("n_bars_above_null_q95"))
@@ -166,16 +180,23 @@ def score(X: np.ndarray, n_null: int, seed: int, phase=None) -> dict:
     if phase is not None:
         Z = standardize(X)
         D = pairwise_distances(Z, metric="correlation")
-        r, _ = mantel(D, circular_distance(np.asarray(phase, dtype=float)),
-                      n_perm=1000, seed=seed)
+        r, p = mantel(D, circular_distance(np.asarray(phase, dtype=float)),
+                      n_perm=2000, seed=seed)
         rec["mantel_r"] = round(float(r), 4)
+        rec["mantel_p"] = round(float(p), 6)
     return rec
 
 
 def add(results: dict, label: str, X: np.ndarray, expected: int, n_null: int,
         seed: int, note: str = "", groups: list | None = None,
-        phase=None) -> None:
-    """Score one cloud, and (if replicates are given) the replicate-centred one."""
+        phase=None, primary: bool = False) -> None:
+    """Score one cloud, and (if replicates are given) the replicate-centred one.
+
+    ``primary`` marks the one cloud per design that the headline count refers
+    to.  The other rows are controls -- a single day, a single genotype, the
+    centroids -- and answer different questions, so they are reported but not
+    folded into the headline.
+    """
     if groups is not None:
         raw = score(X, n_null, seed)
         X = centre_by_group(X, groups)
@@ -184,7 +205,7 @@ def add(results: dict, label: str, X: np.ndarray, expected: int, n_null: int,
     rec = score(X, n_null, seed, phase=phase)
     rec.update(label=label, n_cycles_expected=int(expected),
                correct=bool(rec["n_cycles"] == int(expected)), note=note,
-               centred=groups is not None)
+               centred=groups is not None, primary=bool(primary))
     if raw is not None:
         rec["n_cycles_raw"] = raw["n_cycles"]
         rec["top_bars_rel_raw"] = raw["top_bars_rel"]
@@ -212,7 +233,8 @@ def run_annual(root: str, results: dict, sweeps: dict, n_null: int, seed: int):
     phase = np.array([c["axis1_value"] for c in coords], dtype=float)
 
     add(results, "annual_all_samples", X, 1, n_null, seed,
-        "66 samples, 5 trees x 16 dates", groups=groups, phase=phase)
+        "66 samples, 5 trees x 16 dates", groups=groups, phase=phase,
+        primary=True)
     Xc, _ = collapse(X, [(g, d) for g, d in zip(groups, days)])
     add(results, "annual_date_centroids", Xc, 1, n_null, seed,
         "one centroid per (tree, date)")
@@ -246,7 +268,7 @@ def run_diurnal(root: str, results: dict, sweeps: dict, n_null: int, seed: int):
 
     add(results, "diurnal_all_samples", X, 1, n_null, seed,
         "72 samples, 6 trees x 12 time points over 48 h", groups=groups,
-        phase=phase)
+        phase=phase, primary=True)
     for d in (0.0, 1.0):
         keep = [i for i, h in enumerate(hours) if h // 24 == d]
         add(results, f"diurnal_experimental_day{int(d) + 1}", X[keep], 1, n_null, seed,
@@ -283,7 +305,7 @@ def run_forced_desync(root: str, results: dict, n_null: int, seed: int):
     phase = np.array([c["axis1_value"] for c in coords], dtype=float)
     add(results, "fd_all_samples", X, 1, n_null, seed,
         "287 samples, 22 people x 7 circadian phases x 2 sleep phases",
-        groups=groups, phase=phase)
+        groups=groups, phase=phase, primary=True)
     for lab, val in (("in", 0.0), ("out", 1.0)):
         keep = [i for i, c in enumerate(coords) if c["axis2_value"] == val]
         add(results, f"fd_sleep_{lab}", X[keep], 1, n_null, seed,
@@ -301,12 +323,97 @@ def run_pooled(root: str, results: dict, n_null: int, seed: int):
     groups = [c["group"] for c in coords]
     add(results, "pooled_all_samples", X, 2, n_null, seed,
         "138 samples: 66 from the yearlong series + 72 from the 48-h series",
-        groups=groups)
+        groups=groups, primary=True)
     keys = [(c["extra"], round(c["axis1_value"], 6), round(c["axis2_value"], 6))
             for c in coords]
     Xc, _ = collapse(X, keys)
     add(results, "pooled_design_cells", Xc, 2, n_null, seed,
         "16 annual cells + 6 daily cells: the two sampled cycles")
+
+
+def run_yeast_cell_cycle(root: str, results: dict, sweeps: dict, n_null: int,
+                         seed: int):
+    """The one design whose cycle is not a clock.
+
+    GSE8799 records three axes -- genotype (wild type vs a clb1-6 cyclin
+    mutant), replicate elutriation, and time since release -- and only the last
+    carries a cycle.  The design therefore asks the counting criterion the
+    question it claims to answer: *how many independent cyclic parameters are
+    here?*  The answer is one, and a criterion that counted axes would say
+    three.
+    """
+    X, coords, _, info = load("yeast_cell_cycle", root)
+    print(f"yeast_cell_cycle {info['accession']}  {info['title']}")
+    groups = [c["group"] for c in coords]
+    phase = np.array([c["axis1_value"] for c in coords], dtype=float)
+    geno = [c["extra"].rsplit("@", 1)[0] for c in coords]
+    mins = np.array([float(c["extra"].rsplit("@", 1)[1][:-3]) for c in coords])
+    period_min = float(info["period_hours"]) * 60.0
+
+    add(results, "cellcycle_two_genotypes", X, 1, n_null, seed,
+        "60 samples: 2 genotypes x 2 elutriations x 30 time points on an 8-min "
+        "grid -- three recorded axes, one cyclic parameter",
+        groups=groups, phase=phase, primary=True)
+    for key, g in (("wildtype", "WildType"), ("cyclin_mutant", "CyclinMutant")):
+        keep = [i for i, name in enumerate(geno) if name == g]
+        add(results, f"cellcycle_{key}", X[keep], 1, n_null, seed,
+            f"one genotype alone ({g}), 30 samples",
+            groups=[groups[i] for i in keep], phase=[phase[i] for i in keep])
+
+    uniq = sorted(set(mins.tolist()))
+    sweep = []
+    for k in range(3, len(uniq) + 1):
+        chosen = set(uniq[:k])
+        keep = [i for i, m in enumerate(mins) if m in chosen]
+        sub = [groups[i] for i in keep]
+        sizes: dict = {}
+        for g in sub:
+            sizes[g] = sizes.get(g, 0) + 1
+        if min(sizes.values()) < 2:
+            # the two elutriations interleave on an 8-min grid, so a short
+            # window leaves one replicate with a single sample; centring it
+            # gives the zero vector, which has no correlation distance and hence
+            # no H1 bars.  Such a window cannot be scored, so it is skipped.
+            continue
+        rec = score(centre_by_group(X[keep], sub), n_null, seed)
+        bars = rec["top_bars_rel"]
+        sweep.append({
+            "k_timepoints": k,
+            "minutes": float(uniq[k - 1] - uniq[0]),
+            "covered_periods": round(float((uniq[k - 1] - uniq[0]) / period_min), 4),
+            "n_samples": int(rec["n_samples"]),
+            "n_cycles": rec["n_cycles"],
+            "top_bar_rel": bars[0] if bars else None,
+            "null_q95": rec["null_q95"],
+        })
+    sweeps["cellcycle"] = sweep
+    print("  sweep (periods covered -> cycles): "
+          f"{[(s['covered_periods'], s['n_cycles']) for s in sweep]}")
+
+    # What each recorded axis actually carries.  Measured on the *uncentred*
+    # cloud, so the genotype shift is still in the distances: genotype is a
+    # strong *shift* (it takes two values, so it can carry no loop at all), and
+    # the replicate is an offset.  Removing those two non-cyclic axis means is
+    # what leaves the one countable cycle -- which is why the count is one and
+    # not three, and why the same cloud without centring returns zero.
+    geno_num = np.array([0.0 if g == "WildType" else 1.0 for g in geno])
+    gdist = np.abs(np.subtract.outer(geno_num, geno_num))
+    raw_d = pairwise_distances(standardize(X), metric="correlation")
+    r_g, p_g = mantel(raw_d, gdist, n_perm=2000, seed=seed)
+    r_p, p_p = mantel(raw_d, circular_distance(phase), n_perm=2000, seed=seed)
+    checks = {
+        "note": ("Mantel correlations on the uncentred cloud, where the "
+                 "genotype shift is still present in the distances"),
+        "genotype": {"r": round(float(r_g), 4), "p": round(float(p_g), 6)},
+        "phase_uncentred": {"r": round(float(r_p), 4),
+                            "p": round(float(p_p), 6)},
+        "count_uncentred": int(results["cellcycle_two_genotypes"]["n_cycles_raw"]),
+        "count_replicate_centred": int(results["cellcycle_two_genotypes"]["n_cycles"]),
+    }
+    print(f"  axis checks (uncentred): genotype r={r_g:+.3f}, phase "
+          f"r={r_p:+.3f}; count {checks['count_uncentred']} -> "
+          f"{checks['count_replicate_centred']} after removing axis means")
+    return checks
 
 
 # --------------------------------------------------------------------------
@@ -326,21 +433,26 @@ def make_figure(results: dict, sweeps: dict, outdir: str) -> str:
     d = sweeps["diurnal"]
     ax.plot([s["window_hours"] / 24.0 for s in d], [s["n_cycles"] for s in d],
             "s-", color="#c0504d", label="daily axis (GSE93066)")
+    c = sweeps["cellcycle"]
+    ax.plot([s["covered_periods"] for s in c], [s["n_cycles"] for s in c],
+            "^-", color="#2e7d32", label="cell cycle, no clock (GSE8799)")
     ax.axvline(1.0, color="#888888", ls=":", lw=1.0)
-    ax.text(1.015, 1.55, "window closes\nthe cycle", color="#666666", fontsize=7)
+    ax.axvline(2.0, color="#cccccc", ls=":", lw=1.0)
+    ax.text(1.015, 1.62, "window closes\nthe cycle", color="#666666", fontsize=7)
     ax.set_xlabel("sampling window (fraction of one period)")
     ax.set_ylabel(r"$\beta_1$ above the matched null")
     ax.set_yticks([0, 1, 2])
     ax.set_ylim(-0.25, 2.35)
     ax.set_title("A. a partial period is an arc, not a loop", fontsize=10)
-    ax.legend(fontsize=8, loc="upper left")
+    ax.legend(fontsize=7.5, loc="upper left")
     ax.grid(alpha=0.25)
 
     ax = axes[1]
     labels = ["annual_all_samples", "diurnal_all_samples", "fd_all_samples",
-              "pooled_all_samples"]
+              "pooled_all_samples", "cellcycle_two_genotypes"]
     pretty = ["annual\nyearlong\n1 cycle", "diurnal\n2 axes\n1 cycle",
-              "forced desync\n2 axes\n1 cycle", "annual x daily\n2 cycles"]
+              "forced desync\n2 axes\n1 cycle", "annual x daily\n2 cycles",
+              "yeast cell cycle\n3 axes\n1 cycle"]
     got = [results[k]["n_cycles"] for k in labels]
     exp = [results[k]["n_cycles_expected"] for k in labels]
     xpos = np.arange(len(labels))
@@ -364,8 +476,9 @@ def make_figure(results: dict, sweeps: dict, outdir: str) -> str:
     # --- C: the diagnostic that explains panel B -------------------------
     ax = axes[2]
     gap_labels = ["annual_all_samples", "diurnal_all_samples", "fd_all_samples",
-                  "pooled_all_samples"]
-    short = ["annual", "diurnal", "forced\ndesync", "annual\nx daily"]
+                  "pooled_all_samples", "cellcycle_two_genotypes"]
+    short = ["annual", "diurnal", "forced\ndesync", "annual\nx daily",
+             "yeast cell\ncycle"]
     gaps = [results[k].get("gap") or 0.0 for k in gap_labels]
     rs = [results[k].get("mantel_r") for k in gap_labels]
     correct = [results[k]["correct"] for k in gap_labels]
@@ -373,8 +486,8 @@ def make_figure(results: dict, sweeps: dict, outdir: str) -> str:
                   color=["#2e7d32" if c else "#b03030" for c in correct],
                   width=0.6, zorder=3)
     ax.axhline(1.0, color="#888888", ls=":", lw=1.0)
-    ax.text(3.45, 1.05, "no dominant\nbar", color="#666666", fontsize=7.5,
-            ha="right", va="bottom")
+    ax.text(len(gap_labels) - 0.55, 1.05, "no dominant\nbar", color="#666666",
+            fontsize=7.5, ha="right", va="bottom")
     for bar, r in zip(bars, rs):
         if r is not None:
             ax.text(bar.get_x() + bar.get_width() / 2, bar.get_height() / 2.4,
@@ -385,7 +498,7 @@ def make_figure(results: dict, sweeps: dict, outdir: str) -> str:
     ax.set_xticks(np.arange(len(gap_labels)))
     ax.set_xticklabels(short, fontsize=8)
     ax.set_ylabel(r"dominant-bar gap  $bar_1/bar_2$")
-    ax.set_title("C. only the yearlong series has a\ndominant bar  "
+    ax.set_title("C. only two designs have a\ndominant bar  "
                  "(green = counted right)", fontsize=10)
     ax.grid(alpha=0.25, axis="y", which="both")
 
@@ -413,13 +526,18 @@ def main(argv=None) -> int:
     run_diurnal(args.root, results, sweeps, args.n_null, args.seed)
     run_forced_desync(args.root, results, args.n_null, args.seed)
     run_pooled(args.root, results, args.n_null, args.seed)
-
+    axis_checks = run_yeast_cell_cycle(args.root, results, sweeps, args.n_null,
+                                       args.seed)
     n_ok = sum(1 for r in results.values() if r["correct"])
-    print(f"\n{n_ok}/{len(results)} real clouds return the design's own count")
+    prim = [r for r in results.values() if r.get("primary")]
+    n_prim_ok = sum(1 for r in prim if r["correct"])
+    print(f"\n{n_prim_ok}/{len(prim)} designs are counted right "
+          f"({n_ok}/{len(results)} clouds overall)")
     print("  diagnostic: the yearlong series reaches a dominant-bar gap "
-          f"{results['annual_all_samples']['gap']:.2f}; the designs the count "
-          "misses sit near gap 1.1-1.4, i.e. their H1 spectrum has no dominant "
-          "bar to count (see benchmark/cycle_counting_power.json).")
+          f"{results['annual_all_samples']['gap']:.2f}, the yeast cell cycle "
+          f"{results['cellcycle_two_genotypes']['gap']:.2f}; the designs the "
+          "count misses sit near gap 1.1-1.4, i.e. their H1 spectrum has no "
+          "dominant bar to count (see benchmark/cycle_counting_power.json).")
 
     os.makedirs(args.outdir, exist_ok=True)
     payload = {
@@ -428,19 +546,38 @@ def main(argv=None) -> int:
         "designs": {k: dict(v) for k, v in DESIGNS.items()},
         "results": results,
         "window_sweeps": sweeps,
+        "cellcycle_axis_checks": axis_checks,
         "n_correct": n_ok,
         "n_cases": len(results),
+        "n_primary_correct": n_prim_ok,
+        "n_primary": len(prim),
         "finding": {
             "headline": (
                 "On measured data the counting criterion returns the design's "
-                "own number for 1 of 4 designs - the one whose cycle is carried "
-                "by essentially the whole selected gene set."),
+                "own number for 2 of 5 designs: the yearlong series and the "
+                "yeast cell cycle. The cell cycle is the one design whose "
+                "cyclic parameter is not a clock -- every other design here "
+                "turns on a time axis -- and it is the design that separates "
+                "counting axes from counting cycles: three recorded axes, one "
+                "cycle, and the count is one."),
             "what_works": (
                 "psme_annual: 5 Douglas-fir trees x 16 dates over a full year. "
                 "Replicate-centred, the H1 spectrum has a dominant bar "
                 "(gap ~4.9) and the count is 1, as the design predicts. The "
                 "window sweep is the same statement from the other side: any "
-                "sub-year window is an arc and counts 0."),
+                "sub-year window is an arc and counts 0. cellcycle_two_"
+                "genotypes (GSE8799): 2 genotypes x 2 elutriations x 30 time "
+                "points at 8-min resolution, i.e. *three* recorded design axes "
+                "(genotype, replicate, cell-cycle time) and *one* cyclic "
+                "parameter. Replicate-centred the dominant-bar gap is 3.6 and "
+                "the count is 1. The two other recorded axes carry no cycle: "
+                "genotype is a strong two-valued shift (Mantel r = +0.46, "
+                "p <= 0.0005 on the uncentred cloud) and the elutriation is an "
+                "offset, so the count is one and not three -- and without "
+                "removing those two axis means the same cloud returns zero. The "
+                "phase alignment is significant but modest: circular Mantel "
+                "r = +0.16, p <= 0.0005, at the 110-130 min period the "
+                "periodogram gives."),
             "what_fails_and_why": (
                 "diurnal (GSE93066), forced desync (GSE48113) and the pooled "
                 "annual x diurnal design all have a smoothly decaying H1 "
@@ -450,6 +587,20 @@ def main(argv=None) -> int:
                 "the diurnal cloud, i.e. the same strength as the yearlong "
                 "series that *is* counted. The limitation is the power of the "
                 "dominant-bar test, not the biology."),
+            "why_the_single_genotypes_behave_differently": (
+                "Split by genotype, the two 30-sample clouds do not behave "
+                "alike. The wild type alone has no dominant bar (gap 1.35) and "
+                "counts 0. The cyclin mutant alone has a dominant bar (gap "
+                "5.15) and counts 1 - but its circular Mantel correlation "
+                "against the cell-cycle phase is only +0.06, so the bar that "
+                "dominates is not the one the design names, and the decision "
+                "rule would call that cloud 'inconsistent: check the design "
+                "before reporting'. The pooled 60-sample cloud is the one whose "
+                "dominant bar does track the phase (r = +0.16, p = 0.0005), "
+                "which is why the headline count is quoted on it. A large gap, "
+                "in other words, is not by itself evidence that the integer is "
+                "the design's - the same caveat the identifiability rule "
+                "exists to enforce."),
             "why_the_forced_desync_cloud_cannot_test_the_claim": (
                 "human_forced_desync has circular Mantel r = +0.045 against the "
                 "circadian axis: the circadian programme is not in the 3000 "
@@ -457,9 +608,22 @@ def main(argv=None) -> int:
                 "restricted to those genes could count that cycle."),
             "envelope": (
                 "examples/cycle_counting_power.py sweeps how many of the 3000 "
-                "selected genes carry the ring. The count only succeeds when "
-                "essentially all of them do. This is a real limitation of the "
-                "criterion and it is measured, not assumed."),
+                "selected genes carry the ring. Across the time-axis designs "
+                "the count only succeeds when essentially all of them do, and "
+                "at the measured diurnal r ~ 0.70 the simulated gap is 1.2-1.4 "
+                "- the failing clouds sit exactly on that curve. This is a real "
+                "limitation of the criterion and it is measured, not assumed."),
+            "where_the_envelope_does_not_explain_everything": (
+                "The power sweep explains the diurnal and forced-desync "
+                "failures but not the yeast success: there the circular Mantel "
+                "r is only +0.16, far below the +0.70 the failing diurnal cloud "
+                "has, and yet the H1 spectrum still shows a dominant bar. A "
+                "large gap and a large r are therefore two different kinds of "
+                "evidence - the ring is present geometrically even where the "
+                "design axis explains little of the distance variance - and it "
+                "is the first kind that the count needs. The same asymmetry is "
+                "what the identifiability rule in examples/cycle_"
+                "identifiability.py is built to expose."),
         },
     }
     payload["designs"][POOLED_KEY] = {

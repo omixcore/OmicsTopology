@@ -304,3 +304,45 @@ def test_the_design_registry_declares_every_axis_before_the_data():
     assert isinstance(pcd.POOLED_KEY, str) and pcd.POOLED_KEY
     assert pcd.POOLED_KEY not in pcd.DESIGNS
     assert "human_forced_desync" in pcd.DESIGNS
+
+
+def test_cell_cycle_names_give_a_phase_a_genotype_and_a_replicate():
+    """GSE8799's coordinate is a phase of the cell cycle, not a clock reading."""
+    period = pcd.DESIGNS["yeast_cell_cycle"]["period_hours"] * 60.0
+    meta = pcd._parse_yeast_cc_names(
+        ["GSM1", "GSM2", "GSM3", "GSM4"],
+        ["Cerevisiae_WildType_30min_rep1",
+         "Cerevisiae_WildType_70min_rep1",
+         "Cerevisiae_CyclinMutant_30min_rep2",
+         "Cerevisiae_WildType_150min_rep1"],
+        period)
+    assert all(0.0 <= m["axis1_value"] < 2.0 * np.pi for m in meta)
+    assert meta[0]["axis1_value"] == pytest.approx(0.0)       # earliest time, phase 0
+    assert meta[1]["axis1_value"] != pytest.approx(meta[0]["axis1_value"])  # phase moves
+    # the coordinate is a *phase*: 30 and 30 + 120 min are the same point on the circle,
+    # so a criterion that read the clock would see two times where the circle has one
+    assert meta[3]["axis1_value"] == pytest.approx(meta[0]["axis1_value"])
+    # genotype and replicate ride alongside the phase without touching it
+    assert meta[2]["axis1_value"] == pytest.approx(meta[0]["axis1_value"])
+    assert [m["axis2_value"] for m in meta] == [0.0, 0.0, 1.0, 0.0]
+    assert meta[0]["group"] == "WildType_rep1"
+    assert meta[2]["group"] == "CyclinMutant_rep2"
+    assert meta[0]["series"] == "WildType@30min"
+
+
+def test_cell_cycle_names_reject_an_unexpected_format():
+    with pytest.raises(ValueError):
+        pcd._parse_yeast_cc_names(["x"], ["GSM1_WildType_30min_rep1"], 120.0)
+
+
+def test_the_cell_cycle_design_records_three_axes_and_one_cycle():
+    """The whole point of this design: axis count and cycle count differ."""
+    spec = pcd.DESIGNS["yeast_cell_cycle"]
+    assert spec["n_cyclic_parameters"] == 1
+    assert spec["axes"] == ("cell_cycle_phase", "genotype")
+    assert spec["period_hours"] == pytest.approx(2.0)
+    # the third recorded axis (replicate) shows up in the sample grouping
+    meta = pcd._parse_yeast_cc_names(
+        ["a", "b"], ["Cerevisiae_WildType_30min_rep1",
+                     "Cerevisiae_WildType_30min_rep2"], 120.0)
+    assert len({m["group"] for m in meta}) == 2

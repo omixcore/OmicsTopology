@@ -29,7 +29,7 @@ say how far each result can be pushed before it stops being evidence.
 
 ```bash
 pip install -e ".[dev]"          # numpy, scipy, pytest, matplotlib
-python -m pytest                 # 191 tests, no network needed
+python -m pytest                 # 194 tests, no network needed
 python tools/gen_api_docs.py     # regenerate the API reference
 sh tools/ci.sh                   # the same checks the hosted CI runs
 ```

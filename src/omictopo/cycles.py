@@ -349,14 +349,22 @@ def cycle_identifiability(gap: float, mantel_r: float | None = None,
     decays smoothly there is no dominant bar, and any integer returned is an
     artefact of where the null happened to fall.
 
-    Measured on four real designs (see ``examples/cycle_counting_real.py``),
-    the working case had ``gap = 4.9`` and every failing case had
+    Measured on five real designs (see ``examples/cycle_counting_real.py``),
+    the working cases had ``gap = 3.6`` and ``4.9`` and every failing case had
     ``gap = 1.06-1.36``.  ``gap`` alone, however, says nothing about *why* the
     spectrum is flat, and the reason matters for the reader — which is what
     ``mantel_r`` is for.  Two flat cases with very different diagnoses were
     observed: a ring that is genuinely present in the samples but invisible to
     H1 (``r = +0.70``), and no ring in the selected genes at all
     (``r = +0.045``).
+
+    ``r_threshold`` is an *effect-size* cut, and the yeast cell-cycle design
+    exposes its limit: there the ring is real and significant
+    (``r = +0.16``, ``p = 0.0005`` on 60 samples) but explains little of the
+    distance variance, so a dominant bar and a modest ``r`` coexist and the
+    rule returns ``"inconsistent"`` — i.e. it asks for a design check, which is
+    the right response even though the count itself is sound.  Treat the
+    verdict as advice to look, not as a verdict on the integer.
 
     Parameters
     ----------

@@ -1,4 +1,17 @@
 {
+  "cellcycle_axis_checks": {
+    "count_replicate_centred": 1,
+    "count_uncentred": 0,
+    "genotype": {
+      "p": 0.0005,
+      "r": 0.4578
+    },
+    "note": "Mantel correlations on the uncentred cloud, where the genotype shift is still present in the distances",
+    "phase_uncentred": {
+      "p": 0.0005,
+      "r": 0.1182
+    }
+  },
   "designs": {
     "human_forced_desync": {
       "accession": "GSE48113",
@@ -55,32 +68,55 @@
         "counts": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE93nnn/GSE93066/suppl/GSE93066_psme_diurnal_DESeq_counts.txt.gz",
         "series": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE93nnn/GSE93066/matrix/GSE93066_series_matrix.txt.gz"
       }
+    },
+    "yeast_cell_cycle": {
+      "accession": "GSE8799",
+      "axes": [
+        "cell_cycle_phase",
+        "genotype"
+      ],
+      "design_note": "three recorded axes (genotype, replicate, cell-cycle time), one cyclic parameter",
+      "kind": "array",
+      "n_cyclic_parameters": 1,
+      "organism": "Saccharomyces cerevisiae",
+      "parser": "yeast_cell_cycle",
+      "period_hours": 2.0,
+      "title": "Yeast cell cycle: elutriation release, wild type vs cyclin mutant (clb1-6)",
+      "urls": {
+        "series": "https://ftp.ncbi.nlm.nih.gov/geo/series/GSE8nnn/GSE8799/matrix/GSE8799_series_matrix.txt.gz"
+      }
     }
   },
   "finding": {
-    "envelope": "examples/cycle_counting_power.py sweeps how many of the 3000 selected genes carry the ring. The count only succeeds when essentially all of them do. This is a real limitation of the criterion and it is measured, not assumed.",
-    "headline": "On measured data the counting criterion returns the design's own number for 1 of 4 designs - the one whose cycle is carried by essentially the whole selected gene set.",
+    "envelope": "examples/cycle_counting_power.py sweeps how many of the 3000 selected genes carry the ring. Across the time-axis designs the count only succeeds when essentially all of them do, and at the measured diurnal r ~ 0.70 the simulated gap is 1.2-1.4 - the failing clouds sit exactly on that curve. This is a real limitation of the criterion and it is measured, not assumed.",
+    "headline": "On measured data the counting criterion returns the design's own number for 2 of 5 designs: the yearlong series and the yeast cell cycle. The cell cycle is the one design whose cyclic parameter is not a clock -- every other design here turns on a time axis -- and it is the design that separates counting axes from counting cycles: three recorded axes, one cycle, and the count is one.",
     "what_fails_and_why": "diurnal (GSE93066), forced desync (GSE48113) and the pooled annual x diurnal design all have a smoothly decaying H1 spectrum (gap 1.06-1.36), so there is no dominant bar and the count is 0. The cycles are nevertheless present: the circular Mantel correlation against the design's own axis is +0.70 for the diurnal cloud, i.e. the same strength as the yearlong series that *is* counted. The limitation is the power of the dominant-bar test, not the biology.",
-    "what_works": "psme_annual: 5 Douglas-fir trees x 16 dates over a full year. Replicate-centred, the H1 spectrum has a dominant bar (gap ~4.9) and the count is 1, as the design predicts. The window sweep is the same statement from the other side: any sub-year window is an arc and counts 0.",
-    "why_the_forced_desync_cloud_cannot_test_the_claim": "human_forced_desync has circular Mantel r = +0.045 against the circadian axis: the circadian programme is not in the 3000 highest-variance genes of whole blood at all, so no method restricted to those genes could count that cycle."
+    "what_works": "psme_annual: 5 Douglas-fir trees x 16 dates over a full year. Replicate-centred, the H1 spectrum has a dominant bar (gap ~4.9) and the count is 1, as the design predicts. The window sweep is the same statement from the other side: any sub-year window is an arc and counts 0. cellcycle_two_genotypes (GSE8799): 2 genotypes x 2 elutriations x 30 time points at 8-min resolution, i.e. *three* recorded design axes (genotype, replicate, cell-cycle time) and *one* cyclic parameter. Replicate-centred the dominant-bar gap is 3.6 and the count is 1. The two other recorded axes carry no cycle: genotype is a strong two-valued shift (Mantel r = +0.46, p <= 0.0005 on the uncentred cloud) and the elutriation is an offset, so the count is one and not three -- and without removing those two axis means the same cloud returns zero. The phase alignment is significant but modest: circular Mantel r = +0.16, p <= 0.0005, at the 110-130 min period the periodogram gives.",
+    "where_the_envelope_does_not_explain_everything": "The power sweep explains the diurnal and forced-desync failures but not the yeast success: there the circular Mantel r is only +0.16, far below the +0.70 the failing diurnal cloud has, and yet the H1 spectrum still shows a dominant bar. A large gap and a large r are therefore two different kinds of evidence - the ring is present geometrically even where the design axis explains little of the distance variance - and it is the first kind that the count needs. The same asymmetry is what the identifiability rule in examples/cycle_identifiability.py is built to expose.",
+    "why_the_forced_desync_cloud_cannot_test_the_claim": "human_forced_desync has circular Mantel r = +0.045 against the circadian axis: the circadian programme is not in the 3000 highest-variance genes of whole blood at all, so no method restricted to those genes could count that cycle.",
+    "why_the_single_genotypes_behave_differently": "Split by genotype, the two 30-sample clouds do not behave alike. The wild type alone has no dominant bar (gap 1.35) and counts 0. The cyclin mutant alone has a dominant bar (gap 5.15) and counts 1 - but its circular Mantel correlation against the cell-cycle phase is only +0.06, so the bar that dominates is not the one the design names, and the decision rule would call that cloud 'inconsistent: check the design before reporting'. The pooled 60-sample cloud is the one whose dominant bar does track the phase (r = +0.16, p = 0.0005), which is why the headline count is quoted on it. A large gap, in other words, is not by itself evidence that the integer is the design's - the same caveat the identifiability rule exists to enforce."
   },
-  "n_cases": 12,
-  "n_correct": 1,
-  "n_null": 60,
+  "n_cases": 15,
+  "n_correct": 3,
+  "n_null": 200,
+  "n_primary": 5,
+  "n_primary_correct": 2,
   "results": {
     "annual_all_samples": {
       "centred": true,
       "correct": true,
       "gap": 4.9253,
       "label": "annual_all_samples",
+      "mantel_p": 0.0005,
       "mantel_r": 0.7007,
       "n_cycles": 1,
       "n_cycles_expected": 1,
       "n_cycles_raw": 2,
       "n_samples": 66,
       "note": "66 samples, 5 trees x 16 dates",
-      "null_q95": 0.5319,
-      "null_q95_raw": 0.4628,
+      "null_q95": 0.5079,
+      "null_q95_raw": 0.4451,
+      "primary": true,
       "top_bars_rel": [
         0.7383,
         0.1499,
@@ -105,7 +141,8 @@
       "n_cycles_expected": 1,
       "n_samples": 66,
       "note": "one centroid per (tree, date)",
-      "null_q95": 0.4628,
+      "null_q95": 0.4451,
+      "primary": false,
       "top_bars_rel": [
         0.5098,
         0.4852,
@@ -114,19 +151,111 @@
         0.3115
       ]
     },
+    "cellcycle_cyclin_mutant": {
+      "centred": true,
+      "correct": true,
+      "gap": 5.1489,
+      "label": "cellcycle_cyclin_mutant",
+      "mantel_p": 0.093453,
+      "mantel_r": 0.0638,
+      "n_cycles": 1,
+      "n_cycles_expected": 1,
+      "n_cycles_raw": 0,
+      "n_samples": 30,
+      "note": "one genotype alone (CyclinMutant), 30 samples",
+      "null_q95": 0.6879,
+      "null_q95_raw": 0.6526,
+      "primary": false,
+      "top_bars_rel": [
+        0.8125,
+        0.1578,
+        0.1153,
+        0.0616,
+        0.0474
+      ],
+      "top_bars_rel_raw": [
+        0.6208,
+        0.6007,
+        0.1216,
+        0.0723,
+        0.0185
+      ]
+    },
+    "cellcycle_two_genotypes": {
+      "centred": true,
+      "correct": true,
+      "gap": 3.5583,
+      "label": "cellcycle_two_genotypes",
+      "mantel_p": 0.0005,
+      "mantel_r": 0.1554,
+      "n_cycles": 1,
+      "n_cycles_expected": 1,
+      "n_cycles_raw": 0,
+      "n_samples": 60,
+      "note": "60 samples: 2 genotypes x 2 elutriations x 30 time points on an 8-min grid -- three recorded axes, one cyclic parameter",
+      "null_q95": 0.588,
+      "null_q95_raw": 0.5238,
+      "primary": true,
+      "top_bars_rel": [
+        0.7419,
+        0.2085,
+        0.1987,
+        0.1535,
+        0.1295
+      ],
+      "top_bars_rel_raw": [
+        0.4849,
+        0.3725,
+        0.1513,
+        0.1249,
+        0.1135
+      ]
+    },
+    "cellcycle_wildtype": {
+      "centred": true,
+      "correct": false,
+      "gap": 1.3493,
+      "label": "cellcycle_wildtype",
+      "mantel_p": 0.0005,
+      "mantel_r": 0.2825,
+      "n_cycles": 0,
+      "n_cycles_expected": 1,
+      "n_cycles_raw": 0,
+      "n_samples": 30,
+      "note": "one genotype alone (WildType), 30 samples",
+      "null_q95": 0.6239,
+      "null_q95_raw": 0.5942,
+      "primary": false,
+      "top_bars_rel": [
+        0.3036,
+        0.225,
+        0.1971,
+        0.1091,
+        0.1057
+      ],
+      "top_bars_rel_raw": [
+        0.3448,
+        0.2661,
+        0.2475,
+        0.1182,
+        0.0943
+      ]
+    },
     "diurnal_all_samples": {
       "centred": true,
       "correct": false,
       "gap": 1.3555,
       "label": "diurnal_all_samples",
+      "mantel_p": 0.0005,
       "mantel_r": 0.701,
       "n_cycles": 0,
       "n_cycles_expected": 1,
       "n_cycles_raw": 0,
       "n_samples": 72,
       "note": "72 samples, 6 trees x 12 time points over 48 h",
-      "null_q95": 0.403,
-      "null_q95_raw": 0.405,
+      "null_q95": 0.4252,
+      "null_q95_raw": 0.4077,
+      "primary": true,
       "top_bars_rel": [
         0.371,
         0.2737,
@@ -147,14 +276,16 @@
       "correct": false,
       "gap": 1.1316,
       "label": "diurnal_experimental_day1",
+      "mantel_p": 0.0005,
       "mantel_r": 0.7634,
       "n_cycles": 0,
       "n_cycles_expected": 1,
       "n_cycles_raw": 0,
       "n_samples": 36,
       "note": "one full 24-h cycle from a single day -- the two-axis trap",
-      "null_q95": 0.5448,
-      "null_q95_raw": 0.4956,
+      "null_q95": 0.505,
+      "null_q95_raw": 0.4768,
+      "primary": false,
       "top_bars_rel": [
         0.3112,
         0.275,
@@ -175,14 +306,16 @@
       "correct": false,
       "gap": 1.1503,
       "label": "diurnal_experimental_day2",
+      "mantel_p": 0.0005,
       "mantel_r": 0.806,
       "n_cycles": 0,
       "n_cycles_expected": 1,
       "n_cycles_raw": 0,
       "n_samples": 36,
       "note": "one full 24-h cycle from a single day -- the two-axis trap",
-      "null_q95": 0.5049,
-      "null_q95_raw": 0.5349,
+      "null_q95": 0.4724,
+      "null_q95_raw": 0.4813,
+      "primary": false,
       "top_bars_rel": [
         0.2288,
         0.1989,
@@ -207,7 +340,8 @@
       "n_cycles_expected": 1,
       "n_samples": 72,
       "note": "one centroid per (tree, time point)",
-      "null_q95": 0.405,
+      "null_q95": 0.4077,
+      "primary": false,
       "top_bars_rel": [
         0.343,
         0.3349,
@@ -221,14 +355,16 @@
       "correct": false,
       "gap": 1.0692,
       "label": "fd_all_samples",
+      "mantel_p": 0.0005,
       "mantel_r": 0.0448,
       "n_cycles": 0,
       "n_cycles_expected": 1,
       "n_cycles_raw": 2,
       "n_samples": 287,
       "note": "287 samples, 22 people x 7 circadian phases x 2 sleep phases",
-      "null_q95": 0.3412,
-      "null_q95_raw": 0.3428,
+      "null_q95": 0.3524,
+      "null_q95_raw": 0.3571,
+      "primary": true,
       "top_bars_rel": [
         0.3321,
         0.3106,
@@ -253,7 +389,8 @@
       "n_cycles_expected": 1,
       "n_samples": 97,
       "note": "one centroid per (circadian phase, sleep phase) cell",
-      "null_q95": 0.4328,
+      "null_q95": 0.4326,
+      "primary": false,
       "top_bars_rel": [
         0.3327,
         0.3326,
@@ -267,14 +404,16 @@
       "correct": false,
       "gap": 1.1205,
       "label": "fd_sleep_in",
+      "mantel_p": 0.0005,
       "mantel_r": 0.1744,
       "n_cycles": 0,
       "n_cycles_expected": 1,
       "n_cycles_raw": 0,
       "n_samples": 148,
       "note": "one full circadian cycle, sleep in of phase",
-      "null_q95": 0.3766,
-      "null_q95_raw": 0.3767,
+      "null_q95": 0.3864,
+      "null_q95_raw": 0.3763,
+      "primary": false,
       "top_bars_rel": [
         0.3179,
         0.2837,
@@ -295,14 +434,16 @@
       "correct": false,
       "gap": 1.0552,
       "label": "fd_sleep_out",
+      "mantel_p": 0.0005,
       "mantel_r": 0.0588,
       "n_cycles": 0,
       "n_cycles_expected": 1,
       "n_cycles_raw": 2,
       "n_samples": 139,
       "note": "one full circadian cycle, sleep out of phase",
-      "null_q95": 0.3879,
-      "null_q95_raw": 0.4008,
+      "null_q95": 0.3811,
+      "null_q95_raw": 0.3837,
+      "primary": false,
       "top_bars_rel": [
         0.2734,
         0.2591,
@@ -328,8 +469,9 @@
       "n_cycles_raw": 1,
       "n_samples": 138,
       "note": "138 samples: 66 from the yearlong series + 72 from the 48-h series",
-      "null_q95": 0.3498,
-      "null_q95_raw": 0.3745,
+      "null_q95": 0.3562,
+      "null_q95_raw": 0.3703,
+      "primary": true,
       "top_bars_rel": [
         0.3232,
         0.2963,
@@ -350,11 +492,12 @@
       "correct": false,
       "gap": 9.2824,
       "label": "pooled_design_cells",
-      "n_cycles": 1,
+      "n_cycles": 0,
       "n_cycles_expected": 2,
       "n_samples": 22,
       "note": "16 annual cells + 6 daily cells: the two sampled cycles",
-      "null_q95": 0.5758,
+      "null_q95": 0.6155,
+      "primary": false,
       "top_bars_rel": [
         0.608,
         0.0655,
@@ -372,7 +515,7 @@
         "k_dates": 3,
         "n_cycles": 0,
         "n_samples": 15,
-        "null_q95": 0.5932,
+        "null_q95": 0.6003,
         "top_bar_rel": 0.1461
       },
       {
@@ -381,7 +524,7 @@
         "k_dates": 4,
         "n_cycles": 0,
         "n_samples": 20,
-        "null_q95": 0.5828,
+        "null_q95": 0.5732,
         "top_bar_rel": 0.1974
       },
       {
@@ -390,7 +533,7 @@
         "k_dates": 5,
         "n_cycles": 0,
         "n_samples": 25,
-        "null_q95": 0.6615,
+        "null_q95": 0.6387,
         "top_bar_rel": 0.4105
       },
       {
@@ -399,7 +542,7 @@
         "k_dates": 6,
         "n_cycles": 0,
         "n_samples": 29,
-        "null_q95": 0.6511,
+        "null_q95": 0.6505,
         "top_bar_rel": 0.2239
       },
       {
@@ -408,7 +551,7 @@
         "k_dates": 7,
         "n_cycles": 0,
         "n_samples": 34,
-        "null_q95": 0.5531,
+        "null_q95": 0.5529,
         "top_bar_rel": 0.1049
       },
       {
@@ -417,7 +560,7 @@
         "k_dates": 8,
         "n_cycles": 0,
         "n_samples": 38,
-        "null_q95": 0.5769,
+        "null_q95": 0.5328,
         "top_bar_rel": 0.1421
       },
       {
@@ -426,7 +569,7 @@
         "k_dates": 9,
         "n_cycles": 0,
         "n_samples": 42,
-        "null_q95": 0.4978,
+        "null_q95": 0.5101,
         "top_bar_rel": 0.3262
       },
       {
@@ -435,7 +578,7 @@
         "k_dates": 10,
         "n_cycles": 0,
         "n_samples": 46,
-        "null_q95": 0.446,
+        "null_q95": 0.4797,
         "top_bar_rel": 0.4409
       },
       {
@@ -444,7 +587,7 @@
         "k_dates": 11,
         "n_cycles": 0,
         "n_samples": 50,
-        "null_q95": 0.482,
+        "null_q95": 0.4889,
         "top_bar_rel": 0.456
       },
       {
@@ -453,7 +596,7 @@
         "k_dates": 12,
         "n_cycles": 0,
         "n_samples": 54,
-        "null_q95": 0.5187,
+        "null_q95": 0.5308,
         "top_bar_rel": 0.4688
       },
       {
@@ -462,7 +605,7 @@
         "k_dates": 13,
         "n_cycles": 0,
         "n_samples": 58,
-        "null_q95": 0.4941,
+        "null_q95": 0.4931,
         "top_bar_rel": 0.4132
       },
       {
@@ -471,7 +614,7 @@
         "k_dates": 14,
         "n_cycles": 0,
         "n_samples": 60,
-        "null_q95": 0.5085,
+        "null_q95": 0.4931,
         "top_bar_rel": 0.4493
       },
       {
@@ -480,7 +623,7 @@
         "k_dates": 15,
         "n_cycles": 1,
         "n_samples": 63,
-        "null_q95": 0.4969,
+        "null_q95": 0.4995,
         "top_bar_rel": 0.7468
       },
       {
@@ -489,8 +632,253 @@
         "k_dates": 16,
         "n_cycles": 1,
         "n_samples": 66,
-        "null_q95": 0.5319,
+        "null_q95": 0.5079,
         "top_bar_rel": 0.7383
+      }
+    ],
+    "cellcycle": [
+      {
+        "covered_periods": 0.2,
+        "k_timepoints": 4,
+        "minutes": 24.0,
+        "n_cycles": 0,
+        "n_samples": 8,
+        "null_q95": 0.6737,
+        "top_bar_rel": 0.0685
+      },
+      {
+        "covered_periods": 0.2667,
+        "k_timepoints": 5,
+        "minutes": 32.0,
+        "n_cycles": 0,
+        "n_samples": 10,
+        "null_q95": 0.7388,
+        "top_bar_rel": 0.1939
+      },
+      {
+        "covered_periods": 0.3333,
+        "k_timepoints": 6,
+        "minutes": 40.0,
+        "n_cycles": 0,
+        "n_samples": 12,
+        "null_q95": 0.7436,
+        "top_bar_rel": 0.1307
+      },
+      {
+        "covered_periods": 0.4,
+        "k_timepoints": 7,
+        "minutes": 48.0,
+        "n_cycles": 0,
+        "n_samples": 14,
+        "null_q95": 0.7626,
+        "top_bar_rel": 0.1682
+      },
+      {
+        "covered_periods": 0.4667,
+        "k_timepoints": 8,
+        "minutes": 56.0,
+        "n_cycles": 0,
+        "n_samples": 16,
+        "null_q95": 0.735,
+        "top_bar_rel": 0.0633
+      },
+      {
+        "covered_periods": 0.5333,
+        "k_timepoints": 9,
+        "minutes": 64.0,
+        "n_cycles": 0,
+        "n_samples": 18,
+        "null_q95": 0.7462,
+        "top_bar_rel": 0.0471
+      },
+      {
+        "covered_periods": 0.6,
+        "k_timepoints": 10,
+        "minutes": 72.0,
+        "n_cycles": 0,
+        "n_samples": 20,
+        "null_q95": 0.6714,
+        "top_bar_rel": 0.1197
+      },
+      {
+        "covered_periods": 0.6667,
+        "k_timepoints": 11,
+        "minutes": 80.0,
+        "n_cycles": 0,
+        "n_samples": 22,
+        "null_q95": 0.681,
+        "top_bar_rel": 0.1081
+      },
+      {
+        "covered_periods": 0.7333,
+        "k_timepoints": 12,
+        "minutes": 88.0,
+        "n_cycles": 0,
+        "n_samples": 24,
+        "null_q95": 0.6907,
+        "top_bar_rel": 0.3904
+      },
+      {
+        "covered_periods": 0.8,
+        "k_timepoints": 13,
+        "minutes": 96.0,
+        "n_cycles": 0,
+        "n_samples": 26,
+        "null_q95": 0.7176,
+        "top_bar_rel": 0.3767
+      },
+      {
+        "covered_periods": 0.8667,
+        "k_timepoints": 14,
+        "minutes": 104.0,
+        "n_cycles": 0,
+        "n_samples": 28,
+        "null_q95": 0.6388,
+        "top_bar_rel": 0.5984
+      },
+      {
+        "covered_periods": 0.9333,
+        "k_timepoints": 15,
+        "minutes": 112.0,
+        "n_cycles": 0,
+        "n_samples": 30,
+        "null_q95": 0.6487,
+        "top_bar_rel": 0.4197
+      },
+      {
+        "covered_periods": 1.0,
+        "k_timepoints": 16,
+        "minutes": 120.0,
+        "n_cycles": 0,
+        "n_samples": 32,
+        "null_q95": 0.6149,
+        "top_bar_rel": 0.602
+      },
+      {
+        "covered_periods": 1.0667,
+        "k_timepoints": 17,
+        "minutes": 128.0,
+        "n_cycles": 0,
+        "n_samples": 34,
+        "null_q95": 0.6277,
+        "top_bar_rel": 0.5
+      },
+      {
+        "covered_periods": 1.1333,
+        "k_timepoints": 18,
+        "minutes": 136.0,
+        "n_cycles": 0,
+        "n_samples": 36,
+        "null_q95": 0.6325,
+        "top_bar_rel": 0.5944
+      },
+      {
+        "covered_periods": 1.2,
+        "k_timepoints": 19,
+        "minutes": 144.0,
+        "n_cycles": 0,
+        "n_samples": 38,
+        "null_q95": 0.6166,
+        "top_bar_rel": 0.5586
+      },
+      {
+        "covered_periods": 1.2667,
+        "k_timepoints": 20,
+        "minutes": 152.0,
+        "n_cycles": 1,
+        "n_samples": 40,
+        "null_q95": 0.5769,
+        "top_bar_rel": 0.6427
+      },
+      {
+        "covered_periods": 1.3333,
+        "k_timepoints": 21,
+        "minutes": 160.0,
+        "n_cycles": 1,
+        "n_samples": 42,
+        "null_q95": 0.5989,
+        "top_bar_rel": 0.6111
+      },
+      {
+        "covered_periods": 1.4,
+        "k_timepoints": 22,
+        "minutes": 168.0,
+        "n_cycles": 1,
+        "n_samples": 44,
+        "null_q95": 0.6269,
+        "top_bar_rel": 0.6893
+      },
+      {
+        "covered_periods": 1.4667,
+        "k_timepoints": 23,
+        "minutes": 176.0,
+        "n_cycles": 1,
+        "n_samples": 46,
+        "null_q95": 0.5927,
+        "top_bar_rel": 0.6665
+      },
+      {
+        "covered_periods": 1.5333,
+        "k_timepoints": 24,
+        "minutes": 184.0,
+        "n_cycles": 1,
+        "n_samples": 48,
+        "null_q95": 0.5849,
+        "top_bar_rel": 0.7396
+      },
+      {
+        "covered_periods": 1.6,
+        "k_timepoints": 25,
+        "minutes": 192.0,
+        "n_cycles": 1,
+        "n_samples": 50,
+        "null_q95": 0.6213,
+        "top_bar_rel": 0.7177
+      },
+      {
+        "covered_periods": 1.6667,
+        "k_timepoints": 26,
+        "minutes": 200.0,
+        "n_cycles": 1,
+        "n_samples": 52,
+        "null_q95": 0.574,
+        "top_bar_rel": 0.7756
+      },
+      {
+        "covered_periods": 1.7333,
+        "k_timepoints": 27,
+        "minutes": 208.0,
+        "n_cycles": 1,
+        "n_samples": 54,
+        "null_q95": 0.5621,
+        "top_bar_rel": 0.7512
+      },
+      {
+        "covered_periods": 1.8,
+        "k_timepoints": 28,
+        "minutes": 216.0,
+        "n_cycles": 1,
+        "n_samples": 56,
+        "null_q95": 0.5795,
+        "top_bar_rel": 0.7508
+      },
+      {
+        "covered_periods": 1.8667,
+        "k_timepoints": 29,
+        "minutes": 224.0,
+        "n_cycles": 1,
+        "n_samples": 58,
+        "null_q95": 0.56,
+        "top_bar_rel": 0.7331
+      },
+      {
+        "covered_periods": 1.9333,
+        "k_timepoints": 30,
+        "minutes": 232.0,
+        "n_cycles": 1,
+        "n_samples": 60,
+        "null_q95": 0.588,
+        "top_bar_rel": 0.7419
       }
     ],
     "diurnal": [
@@ -498,7 +886,7 @@
         "k_timepoints": 2,
         "n_cycles": 0,
         "n_samples": 12,
-        "null_q95": 0.7569,
+        "null_q95": 0.7141,
         "top_bar_rel": 0.3626,
         "window_hours": 4.0
       },
@@ -506,7 +894,7 @@
         "k_timepoints": 3,
         "n_cycles": 0,
         "n_samples": 18,
-        "null_q95": 0.5803,
+        "null_q95": 0.6254,
         "top_bar_rel": 0.3867,
         "window_hours": 8.0
       },
@@ -514,7 +902,7 @@
         "k_timepoints": 4,
         "n_cycles": 0,
         "n_samples": 24,
-        "null_q95": 0.5435,
+        "null_q95": 0.5553,
         "top_bar_rel": 0.3559,
         "window_hours": 12.0
       },
@@ -522,7 +910,7 @@
         "k_timepoints": 5,
         "n_cycles": 0,
         "n_samples": 30,
-        "null_q95": 0.4858,
+        "null_q95": 0.5408,
         "top_bar_rel": 0.3402,
         "window_hours": 16.0
       },
@@ -530,7 +918,7 @@
         "k_timepoints": 6,
         "n_cycles": 0,
         "n_samples": 36,
-        "null_q95": 0.5448,
+        "null_q95": 0.505,
         "top_bar_rel": 0.3112,
         "window_hours": 20.0
       },
@@ -538,7 +926,7 @@
         "k_timepoints": 7,
         "n_cycles": 0,
         "n_samples": 42,
-        "null_q95": 0.4465,
+        "null_q95": 0.4703,
         "top_bar_rel": 0.2963,
         "window_hours": 24.0
       },
@@ -546,7 +934,7 @@
         "k_timepoints": 8,
         "n_cycles": 0,
         "n_samples": 48,
-        "null_q95": 0.4369,
+        "null_q95": 0.4487,
         "top_bar_rel": 0.2985,
         "window_hours": 28.0
       },
@@ -554,7 +942,7 @@
         "k_timepoints": 9,
         "n_cycles": 0,
         "n_samples": 54,
-        "null_q95": 0.4144,
+        "null_q95": 0.4247,
         "top_bar_rel": 0.2189,
         "window_hours": 32.0
       },
@@ -562,7 +950,7 @@
         "k_timepoints": 10,
         "n_cycles": 0,
         "n_samples": 60,
-        "null_q95": 0.4377,
+        "null_q95": 0.4353,
         "top_bar_rel": 0.2659,
         "window_hours": 36.0
       },
@@ -570,7 +958,7 @@
         "k_timepoints": 11,
         "n_cycles": 0,
         "n_samples": 66,
-        "null_q95": 0.4366,
+        "null_q95": 0.4237,
         "top_bar_rel": 0.2994,
         "window_hours": 40.0
       },
@@ -578,7 +966,7 @@
         "k_timepoints": 12,
         "n_cycles": 0,
         "n_samples": 72,
-        "null_q95": 0.403,
+        "null_q95": 0.4252,
         "top_bar_rel": 0.371,
         "window_hours": 44.0
       }

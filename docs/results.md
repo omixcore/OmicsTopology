@@ -158,27 +158,53 @@ silence is a collapsed bottleneck, which happens to rings as well.
 
 `examples/cycle_counting_real.py` → `benchmark/cycle_counting_real.json`
 
-Four real designs, all publicly available and all designed by other people
+Five real designs, all publicly available and all designed by other people
 years ago, run through the identical pipeline as the simulated block:
 
 | design | cycling parameter(s) | gap | circular Mantel r | count | expected |
 |---|---|---|---|---|---|
 | Douglas-fir yearlong (GSE93067) | annual | 4.93 | +0.70 | **1** | 1 |
+| yeast cell cycle (GSE8799) | cell-cycle phase | 3.56 | +0.16 | **1** | 1 |
 | Douglas-fir 48 h (GSE93066) | daily | 1.36 | +0.70 | 0 | 1 |
 | human forced desynchrony (GSE48113) | circadian | 1.07 | +0.05 | 0 | 1 |
 | yearlong × daily, pooled | annual + daily | 1.09 | — | 0 | 2 |
 
-One of four. The cause was then located rather than guessed:
+Two of five. The cause was then located rather than guessed:
 `examples/cycle_counting_power.py` → `benchmark/cycle_counting_power.json`
 sweeps how many of the 3000 selected genes actually carry the ring and shows
-that the count succeeds only when essentially all of them do. At the measured
-`r ≈ 0.70` the simulated gap is 1.2–1.4 and the measured diurnal gap is 1.36 —
-the failing clouds sit exactly on the curve.
+that, across the time-axis designs, the count succeeds only when essentially all
+of them do. At the measured `r ≈ 0.70` the simulated gap is 1.2–1.4 and the
+measured diurnal gap is 1.36 — the failing clouds sit exactly on the curve. It
+does *not* explain everything: the yeast cloud below has a dominant bar whereas
+its `r` is only +0.16, so a dominant bar and a strong phase alignment are two
+different kinds of evidence, and it is the first kind the count needs.
 
-The yearlong series also supplies the cleanest positive result in the project:
+The yearlong series supplies the cleanest positive result in the project:
 sweeping the sampling window, every window short of a full year counts **0**,
 and only windows that close the cycle count 1. "A partial period is an arc, not
 a loop" therefore rests on a real 365-day cycle rather than on simulated data.
+
+The yeast cell cycle is the second success and the more pointed one. Every
+other design turns on a *time* axis — a year, a day, a sleep schedule — so a
+critic can say the method is only reading the calendar. GSE8799 removes that
+escape: the cycle is a cell-intrinsic state cycle that nothing entrains, and its
+period is not a calendar constant — the periodogram peaks at 110-130 min and had
+to be measured. More to the point, the sample sheet records **three** axes
+(genotype, replicate, cell-cycle time) of which exactly **one** is cyclic, so it
+is the measured counterpart of the simulated "two axis labels, one cycle" trap:
+a criterion that counted axes would answer three, and the count answers one.
+
+The two other axes are not cycles at all. Genotype is a strong two-valued shift
+(Mantel r = +0.46, p ≤ 0.0005, measured on the uncentred cloud so the shift is
+still in the distances) and the elutriation is an offset, so removing their
+means is what exposes the single cycle — the same cloud *without* centring
+returns 0. The result is also honest about its own boundary: the phase alignment
+is significant but modest (circular Mantel r = +0.16, p ≤ 0.0005), and split by
+genotype the two 30-sample clouds behave differently — the wild type alone
+counts 0, while the cyclin mutant alone counts 1 on a dominant bar that does
+*not* track the phase (r = +0.06, p = 0.09). The pooled 60-sample cloud is the
+one whose dominant bar and its phase agree, which is why the headline count is
+quoted on it.
 
 ## 3. The decision rule
 
@@ -203,6 +229,17 @@ integer is right — the pooled design showed `gap = 9.3` and returned 1 against
 a design containing 2. And the unguided dominant cycle recovered the diurnal
 clock order **perfectly** (score 1.000) even though its bar was not dominant, so
 the *ordering* claim survives in places where the *counting* claim does not.
+
+The rule above was calibrated on those four designs and is deliberately left
+that way; the fifth design is its boundary case rather than a fifth data point.
+The yeast cell-cycle cloud has a dominant bar (`gap` 3.56) **and** a phase
+alignment that is significant but modest — `r = +0.16`, `p ≤ 0.0005` on 60
+samples — so the rule returns `inconsistent`, i.e. "check the design before
+reporting". Checking is what §2 does, and the check passes: the phase is real
+and the two other recorded axes are inert. The point is that `r >= 0.5` is an
+*effect-size* cut, and a small effect size can still be significant on a large
+cloud, so the verdict is best read as an instruction to look rather than as a
+ruling on the integer. The function's docstring now says so.
 
 ## 4. A fix that was tried and rejected
 

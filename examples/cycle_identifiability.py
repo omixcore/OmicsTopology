@@ -2,11 +2,20 @@
 
 Two questions, one script
 -------------------------
-The measured block-C result (``examples/cycle_counting_real.py``) was 1 of 4
-designs counted correctly, with a diagnosed cause: on real time courses the
+The measured block-C result (``examples/cycle_counting_real.py``) was 2 of 5
+designs counted correctly, with a diagnosed cause: on most real time courses the
 looping signal sat in a minority of the highest-variance genes, so the H1
 spectrum decayed smoothly and no bar was dominant.  Two things follow, and
 this script closes both.
+
+The four cases below are the time-axis designs and are **kept pre-registered**:
+adding the fifth (the yeast cell cycle, whose cycle is not an external clock)
+would change what the rule was calibrated on rather than test it.  That fifth
+design is reported separately in ``docs/results.md`` §3 as the boundary case,
+because its dominant bar (``gap`` 3.6) coexists with a significant but modest
+phase alignment (``r = +0.16``, ``p = 0.0002``), which is exactly where the
+rule's effect-size threshold returns ``"inconsistent"`` — an instruction to
+check the design, not a verdict on the count.
 
 **1. An identifiability rule.**  A count is meaningful only when one H1 bar
 dominates, so ``gap = longest bar / second longest`` has to be checked before

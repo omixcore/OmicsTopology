@@ -149,6 +149,22 @@ PUBLISHED = {
         "vae": {"kl_beta": 0.01, "weight_decay": 0.01},
         "umap": {"n_neighbors": 12},
     },
+    # block C on measured data (benchmark/cycle_counting_real.json)
+    "cycle_counting_real": {
+        "n_primary_correct": 2, "n_primary": 5,
+        "genotype_shift_r": 0.458,
+        "designs": {
+            "annual_all_samples": {"gap": 4.9253, "mantel_r": 0.7007,
+                                   "n_cycles": 1},
+            "cellcycle_two_genotypes": {"gap": 3.5583, "mantel_r": 0.1554,
+                                        "n_cycles": 1},
+            "diurnal_all_samples": {"gap": 1.3555, "mantel_r": 0.701,
+                                    "n_cycles": 0},
+            "fd_all_samples": {"gap": 1.0692, "mantel_r": 0.0448,
+                               "n_cycles": 0},
+            "pooled_all_samples": {"gap": 1.0908, "n_cycles": 0},
+        },
+    },
 }
 
 failures: list[str] = []
@@ -330,6 +346,28 @@ def check_deep_tuning() -> None:
           "positive controls only" in data.get("protocol", ""))
 
 
+def check_cycle_counting_real() -> None:
+    print("7. block C on measured data")
+    data = json.loads((BENCH / "cycle_counting_real.json").read_text(encoding="utf-8"))
+    res = data["results"]
+    want = PUBLISHED["cycle_counting_real"]
+    prim = {k: v for k, v in res.items() if v.get("primary")}
+    check(f"  {want['n_primary_correct']} of {want['n_primary']} designs counted right",
+          data.get("n_primary_correct") == want["n_primary_correct"]
+          and data.get("n_primary") == want["n_primary"] == len(prim),
+          f"got {data.get('n_primary_correct')}/{data.get('n_primary')}, "
+          f"rows marked primary: {len(prim)}")
+    for label, fields in want["designs"].items():
+        got = {k: res[label].get(k) for k in fields}
+        bad = {k: (got[k], v) for k, v in fields.items() if not close(got[k], v)}
+        check(f"  {label}: gap / mantel r / count match", not bad, str(bad))
+    ax = data.get("cellcycle_axis_checks") or {}
+    g = (ax.get("genotype") or {}).get("r")
+    check("  genotype axis is a shift, not a cycle (r recorded, ~ +0.46)",
+          close(g, want["genotype_shift_r"]),
+          f"got {g}")
+
+
 # --------------------------------------------------------------------------
 # layer 4 (optional): the executable spec
 # --------------------------------------------------------------------------
@@ -369,6 +407,7 @@ def main() -> int:
     check_statistical_audit()
     check_topology_without_labels()
     check_deep_tuning()
+    check_cycle_counting_real()
     if args.full:
         run_full()
 

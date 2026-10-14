@@ -1,12 +1,12 @@
 {
  "note": "sha256 of the committed raw benchmark data; regenerate only when a benchmark is genuinely recomputed",
- "git_head": "d638a6dee0115238cc6501e1840211f7f78a42f4",
+ "git_head": "e924a7407051abf1d063b7d884e6db3d982fbe23",
  "files": {
   "benchmark/incremental_value.json": "6686c0d855666fe6df47d63eb5dd4c1b8af0e87f934116991c9ad3a999b33f37",
   "benchmark/increment_power.json": "788dd514b62fb71d67230aaddd869a4c99048f164103855008ddf7dad012b94f",
   "benchmark/statistical_audit.json": "9901e4e847ce63cc0b94d663ce2e3db1bb7cf4cb05e0d1092785e3a036128d28",
   "benchmark/topology_without_labels.json": "66067b4080df9d5a2f5229567cddb2d4b9af8ecb4fd9ea90894e487b546aac67",
-  "benchmark/cycle_counting_real.json": "d41c162c894a194085ba70ace7fa7927887f9af36a033b016a909d7ee0287ac3",
+  "benchmark/cycle_counting_real.json": "c66c36af3f6a1c9b8d9f57037a2582c0319cf1c2ecb71a4512fc2ddb136a5081",
   "benchmark/cycle_counting_power.json": "0ea20bfb1e333f71165af065f3b4e599145d755e318c1096b923a20ff585aadf",
   "benchmark/cycle_identifiability.json": "b8b563bc7961279a70d3b2a1bf905f0c3395b5178ccd804d55f094709281f034",
   "benchmark/deep_tuning.json": "c5690c27a2d738fbe257fb9d900162362e8ac036115f90f8e67e1bbd3100083a",

@@ -32,6 +32,15 @@ Everything is written in the same layout the rest of the repository uses --
 ``matrix.tsv`` (samples x features, log2 CPM) plus ``design.tsv`` -- with one
 extra file, ``coords.tsv``, carrying the design coordinates block C needs.
 
+``yeast_cell_cycle`` -- GSE8799
+    Budding yeast, 2 x 30 Affymetrix Yeast 2.0 arrays.  Wild-type cells and a
+    cyclin mutant (clb1-6) were synchronised by elutriation and sampled every
+    16 min for 15 points per replicate, the two replicates interleaved to an
+    8-min grid over 232 min (~2 cell cycles).  This is the one design here
+    whose cyclic parameter is **not a clock**: nothing entrains the cell cycle,
+    its coordinate is a cell-intrinsic programme, and the design records *three*
+    axes -- genotype, replicate and time -- of which exactly one is cyclic.
+
 Usage::
 
     python examples/prepare_cycle_designs.py --outdir data/cycle_designs
@@ -102,6 +111,33 @@ DESIGNS: dict[str, dict] = {
         "n_cyclic_parameters": 1,
         "design_note": "circadian cycle resolved; sleep-wake sampled at 2 phases",
     },
+}
+
+# The cell-cycle design drops the clock entirely.  Every other real design in
+# this module turns on a *time* axis -- a year, a day, a sleep schedule -- so a
+# method could read them by reading the calendar.  The cell cycle is a state
+# cycle: it is not a clock, nothing entrains it, and its coordinate is the
+# phase of a cell-intrinsic programme.  GSE8799 carries it in a design with
+# three recorded axes and one cycle.
+DESIGNS["yeast_cell_cycle"] = {
+    "accession": "GSE8799",
+    "organism": "Saccharomyces cerevisiae",
+    "title": ("Yeast cell cycle: elutriation release, wild type vs "
+              "cyclin mutant (clb1-6)"),
+    "kind": "array",
+    "parser": "yeast_cell_cycle",
+    "urls": {
+        "series": f"{FTP}/series/GSE8nnn/GSE8799/matrix/"
+                  "GSE8799_series_matrix.txt.gz",
+    },
+    # 15 samples at 16 min per replicate, the two replicates interleaved to an
+    # 8-min grid over 232 min; the submitters describe that as ~2 cycles, and
+    # the periodogram of the released matrix peaks at 110-130 min.
+    "period_hours": 2.0,
+    "axes": ("cell_cycle_phase", "genotype"),
+    "n_cyclic_parameters": 1,
+    "design_note": ("three recorded axes (genotype, replicate, cell-cycle "
+                    "time), one cyclic parameter"),
 }
 
 MONTHS = {m: i for i, m in enumerate(
@@ -319,8 +355,111 @@ def _prep_fd(path: str, outdir: str, min_expr: float, min_frac: float,
 
 
 # ---------------------------------------------------------------------------
+# the cell-cycle design: a state cycle, not a clock
+# ---------------------------------------------------------------------------
+_YEAST_CC = re.compile(r"^Cerevisiae_(WildType|CyclinMutant)_(\d+)min_rep(\d)$")
+
+
+def _series_matrix_read(path: str):
+    """Read a GEO series matrix -> (accessions, titles, features, X, chars).
+
+    Only the pieces the cell-cycle design needs are extracted; the human
+    forced-desynchrony parser keeps its own reader so that adding a design
+    cannot change a published number.
+    """
+    acc: list[str] = []
+    titles: list[str] = []
+    chars: dict[str, list[str]] = {}
+    table: list[list[str]] = []
+    in_table = False
+    with _open(path) as fh:
+        for line in fh:
+            if line.startswith("!Sample_geo_accession"):
+                acc = [v.strip('"') for v in line.rstrip("\n").split("\t")[1:]]
+            elif line.startswith("!Sample_title"):
+                titles = [v.strip('"') for v in line.rstrip("\n").split("\t")[1:]]
+            elif line.startswith("!Sample_characteristics_ch1"):
+                vals = [v.strip('"') for v in line.rstrip("\n").split("\t")[1:]]
+                key = vals[0].split(":")[0].strip() if vals else ""
+                chars.setdefault(key, []).extend(v.split(":", 1)[-1].strip()
+                                                 for v in vals)
+            elif line.startswith("!series_matrix_table_begin"):
+                in_table = True
+            elif line.startswith("!series_matrix_table_end"):
+                in_table = False
+            elif in_table:
+                table.append(line.rstrip("\n").split("\t"))
+
+    if not table:
+        raise ValueError(f"no data table in {path}")
+    rows = table[1:]
+    features = [r[0].strip('"') for r in rows]
+    raw = np.full((len(rows), len(acc)), np.nan)
+    for i, r in enumerate(rows):
+        for j in range(min(len(acc), len(r) - 1)):
+            v = r[j + 1].strip('"')
+            if v and v.lower() not in ("null", "na", "nan"):
+                try:
+                    raw[i, j] = float(v)
+                except ValueError:
+                    pass
+    return acc, titles, features, raw.T, chars
+
+
+def _parse_yeast_cc_names(acc: list[str], titles: list[str],
+                          period_min: float) -> list[dict]:
+    """``Cerevisiae_WildType_30min_rep1`` -> phase on the cell-cycle circle.
+
+    The coordinate is a *phase* of the cell-intrinsic programme.  It is not a
+    clock reading: the cell cycle is not entrained by anything, and the two
+    other recorded axes (genotype and replicate) are carried alongside it so
+    that a criterion counting axes instead of cycles has something to get wrong.
+    """
+    matched = [_YEAST_CC.match(t) for t in titles]
+    if any(m is None for m in matched):
+        bad = next(t for t, m in zip(titles, matched) if m is None)
+        raise ValueError(f"unexpected cell-cycle sample title: {bad!r}")
+    start = min(int(m.group(2)) for m in matched)
+    meta = []
+    for i, m in enumerate(matched):
+        geno, mins, rep = m.group(1), int(m.group(2)), int(m.group(3))
+        meta.append({
+            "sample": acc[i],
+            "group": f"{geno}_rep{rep}",
+            "axis1_name": "cell_cycle_phase",
+            "axis1_value": 2.0 * np.pi * ((mins - start) % period_min) / period_min,
+            "axis2_name": "genotype",
+            "axis2_value": 0.0 if geno == "WildType" else 1.0,
+            # the coords file carries the raw sampling time as well, so the
+            # window sweep can be taken in order without re-reading the matrix
+            "series": f"{geno}@{mins}min",
+        })
+    return meta
+
+
+def _prep_yeast_cell_cycle(path: str, outdir: str, min_expr: float,
+                           min_frac: float, top_var: int) -> dict:
+    """GSE8799: one cell-cycle axis, plus two axes that carry no cycle."""
+    acc, titles, features, X, _chars = _series_matrix_read(path)
+    if len(titles) != X.shape[0]:
+        raise ValueError("series matrix lost the sample order")
+
+    period_min = float(DESIGNS["yeast_cell_cycle"]["period_hours"]) * 60.0
+    meta = _parse_yeast_cc_names(acc, titles, period_min)
+
+    logx = np.log2(np.maximum(X, 1.0))
+    det = logx >= np.log2(max(min_expr, 1.0) + 1.0)
+    keep = det.mean(axis=0) >= min_frac
+    logx = logx[:, keep]
+    features = [f for f, k in zip(features, keep) if k]
+    return _finalize(meta, features, logx, outdir, min_expr, min_frac, top_var,
+                     already_log=True)
+
+
+# ---------------------------------------------------------------------------
 # shared filtering / writing
 # ---------------------------------------------------------------------------
+
 def _finalize(meta, features, logx, outdir, min_expr, min_frac, top_var,
               already_log: bool = False):
     """Filter to expressed, then high-variance, features and write the bundle."""
@@ -374,8 +513,12 @@ def prepare(key: str, cache: str, outdir: str, min_expr: float = 1.0,
     spec = DESIGNS[key]
     paths = {name: fetch(url, cache) for name, url in spec["urls"].items()}
     dest = os.path.join(outdir, key)
-    if spec["kind"] == "counts":
+    parser = spec.get("parser", spec["kind"])
+    if parser == "counts":
         info = _prep_psme(key, paths["counts"], {}, dest, min_expr, min_frac, top_var)
+    elif parser == "yeast_cell_cycle":
+        info = _prep_yeast_cell_cycle(paths["series"], dest, min_expr, min_frac,
+                                      top_var)
     else:
         info = _prep_fd(paths["series"], dest, min_expr, min_frac, top_var)
     info.update({

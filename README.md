@@ -373,41 +373,52 @@ selected genes actually carry the ring.  The count succeeds only when
 essentially all of them do.  That is the honest envelope of the claim, and it
 is measured rather than asserted.
 
-**D. Incremental value, measured against sixteen baselines — seven fixed transforms and nine trained representations.**
+**D. Incremental value, measured against twenty-one baselines — eight fixed transforms and thirteen learned or trained representations.**
 `examples/incremental_value.py` (→ `benchmark/incremental_value.json`) puts the
-topological cycle on a level field with sixteen cheaper, label-free ways to read
+topological cycle on a level field with twenty-one cheaper, label-free ways to read
 a cyclic order off an expression cloud, over **12 positive clouds** (7 real
 circadian designs plus 5 synthetic rings) and **23 negative clouds** (3 real
 "line" designs plus 5 independent draws each of a ramp, pure noise, three
 clusters and a branching trajectory).  Every method must beat the 95th
 percentile of its own phase-permutation null to count as *declaring* a cycle.
 
-The seven fixed transforms are the classical answers — PC1 order, the PC1-PC2
+The eight fixed transforms are the classical answers — PC1 order, the PC1-PC2
 angle, a circle fitted to PC1-PC2, classical MDS, average-linkage seriation, a
-greedy tour and a 2-opt tour.  The nine trained ones
+greedy tour and a 2-opt tour (diffusion maps sit with the learned spectral rows).
+The thirteen learned ones
 (``examples/learned_baselines.py``) exist because a fixed transform invites an
 obvious reply: *your method wins because the others are weak, not because it is
 wise — a representation with enough capacity to learn the manifold would find
-the clock too, and would not invent one.*  So the field includes a two-layer
-autoencoder with a 1-D and a 2-D bottleneck (~850 trainable parameters on a
-24-sample cloud, hyperparameters tuned on the positive controls alone so that
-every specificity number it earns is out-of-sample), Isomap, locally linear
-embedding, RBF kernel PCA, Laplacian eigenmaps, t-SNE, a Kohonen self-organising
-map and a Hastie principal curve.  With the nonlinearity switched off the
-autoencoder reproduces PCA's order exactly, in both bottleneck widths, so it is
-not losing here because it is broken.
+the clock too, and would not invent one.*  That reply is now taken at face
+value twice.  The field includes a shallow two-layer autoencoder (1-D and 2-D
+bottleneck, 857 trainable parameters on a 24-sample cloud) **and a deep
+64-32-16 autoencoder, a denoising autoencoder and a variational autoencoder on
+the same stack (8 377-8 411 parameters, a 349:1 ratio)**, plus UMAP, Isomap,
+locally linear embedding, RBF kernel PCA, Laplacian eigenmaps, t-SNE, a Kohonen
+self-organising map, a Hastie principal curve and diffusion maps.  Every deep
+hyperparameter is the winner of a grid run on the positive controls alone
+(`examples/tune_deep_baselines.py` → `benchmark/deep_tuning.json`, the whole
+grid committed) and frozen before any negative cloud was scored, so every
+specificity number the deep nets earn is out-of-sample.  With the nonlinearity
+switched off the autoencoders reproduce PCA's order exactly, in both bottleneck
+widths, so they are not losing here because they are broken.
 
 | method | family | sensitivity | specificity | balanced accuracy |
 |---|---|---|---|---|
 | **H1 cycle** | topological | **0.917** | **0.957** | **0.937** |
 | t-SNE angle | learned, neighbour embedding | 0.917 | 0.913 | 0.915 |
 | Isomap angle | learned, neighbour embedding | 0.833 | 0.870 | 0.851 |
+| UMAP angle | learned, neighbour embedding | 0.917 | 0.696 | 0.806 |
+| denoising autoencoder | learned, reconstruction | 0.833 | 0.696 | 0.764 |
 | circle-fit angle | fixed transform | 0.917 | 0.609 | 0.763 |
 | average-linkage seriation | fixed transform | 0.917 | 0.609 | 0.763 |
+| **autoencoder, deep 64-32-16** | learned, reconstruction | 0.917 | 0.609 | 0.763 |
+| **autoencoder, variational** | learned, reconstruction | 0.917 | 0.609 | 0.763 |
 | PC1-PC2 angle | fixed transform | 0.917 | 0.565 | 0.741 |
 | self-organising map | learned, topology preserving | 0.833 | 0.609 | 0.721 |
 | classical MDS angle | fixed transform | 0.917 | 0.478 | 0.698 |
-| **autoencoder, 2-D** | learned, reconstruction | 0.917 | 0.478 | 0.698 |
+| autoencoder, 2-D shallow | learned, reconstruction | 0.917 | 0.478 | 0.698 |
+| diffusion maps | learned, spectral | 0.917 | 0.478 | 0.698 |
 | kernel PCA angle | learned, reconstruction | 0.917 | 0.478 | 0.698 |
 | Laplacian eigenmaps | learned, reconstruction | 0.917 | 0.478 | 0.698 |
 | principal curve | learned, 1-D manifold | 0.833 | 0.522 | 0.677 |
@@ -417,50 +428,64 @@ not losing here because it is broken.
 | PC1 order | fixed transform | 0.667 | 0.478 | 0.573 |
 | autoencoder, 1-D | learned, reconstruction | 0.583 | 0.435 | 0.509 |
 
-Three conclusions, none of them flattering to the method being proposed:
+Four conclusions, none of them flattering to the methods being proposed as
+alternatives:
 
-1. **Learning the manifold bought the autoencoders nothing.**  The 2-D
-   autoencoder has the same specificity (0.478, 12 of 23 false positives) as a
-   circle fitted to two principal axes — a fixed transform from 1971.  Its 857
-   parameters, its nonlinearity and its tuning on the positive controls changed
-   the *sensitivity* by nothing over that circle fit either.  Capacity is not
-   what the comparison was missing.
+1. **Capacity was never what was missing, and that has now been tested twice.**
+   The deep 64-32-16 autoencoder — 8 377 parameters against 24 samples, tuned
+   on the positive controls alone — lands on a specificity of 0.609,
+   *bit-for-bit the specificity of a circle fitted to two principal axes*, the
+   same fixed transform from 1971.  The shallow autoencoder lands on 0.478,
+   bit-for-bit classical MDS.  The tuning grid itself says why: on the four
+   positive controls the deep nets top out at mean scores of 0.84-0.88 where
+   the shallow network reads 1.000 — more depth made the one thing they had to
+   do *harder* at this sample size.
 
 2. **What separates the learned methods is whether they fit the cloud or only
-   its neighbourhoods.**  Every reconstruction method — autoencoders, kernel
-   PCA, Laplacian eigenmaps, LLE, principal curve, and the fixed classical MDS
-   — invents a ring on 11-13 of the 23 non-cyclic clouds.  The two methods that
-   only preserve local neighbourhoods — t-SNE and Isomap — invent one on 2 and
-   3.  The distinction is mechanistic, not a tuning accident: a reconstruction
-   objective is satisfied by any smooth 2-D arrangement, including a circular
-   one, and a non-cyclic cloud has a circular arrangement available.
+   its neighbourhoods.**  Every reconstruction method — autoencoders at every
+   depth, kernel PCA, Laplacian eigenmaps, LLE, principal curve, and the fixed
+   classical MDS — invents a ring on 11-13 of the 23 non-cyclic clouds.  The
+   methods that only preserve local neighbourhoods — t-SNE, Isomap and UMAP —
+   invent one on 2, 3 and 7.  The distinction is mechanistic, not a tuning
+   accident: a reconstruction objective is satisfied by any smooth 2-D
+   arrangement, including a circular one, and a non-cyclic cloud has a
+   circular arrangement available.
 
-3. **The topological cycle is still first, but not by a margin this benchmark
-   can resolve.**  0.937 against t-SNE's 0.915, 1 false positive against 2, is
-   the same number at this sample size.  What *is* resolved is the mechanism of
-   the abstention, and that is the interesting row of the table: on 5 of the 23
-   non-cyclic clouds the H1 cycle **produces no order at all**, while every one
-   of the sixteen baselines produces an order on all 23 and stays quiet only
-   because its score happened to miss its own null — t-SNE by a margin of
-   **+0.042** on its worst cloud, Isomap by +0.167.  A method whose silence is a
-   property of its geometry can be moved by a different geometry; a method that
-   declines to answer has nothing to move.
+3. **Refusal without calibration buys nothing.**  The deep and the variational
+   autoencoders also refuse to answer on 5 of the 23 negative clouds — the
+   bottleneck collapses, outwardly the same behaviour as the topological
+   method's — but on the 18 clouds they *do* answer they still invent 9 rings.
+   The topological method refuses on 5 and errs on 1.  Silence is only worth
+   what the answers are worth.
+
+4. **The topological cycle is still first, and the mechanism is measured, not
+   asserted.**  Every non-topological method produces an order on every
+   negative cloud it does not collapse on, and stays quiet only because its
+   score happened to miss its own null — t-SNE by a margin of **+0.042** on
+   its worst cloud.
 
 `examples/increment_power.py` sizes the comparison that the 23-cloud benchmark
 cannot resolve: 240 further non-cyclic clouds drawn from the same four declared
 families (60 each, on a seed schedule sharing nothing with the benchmark's) and
-40 further rings, with the five methods that mattered rerun on all of them.
-The 1-against-2 was an artefact of sample size. At 240 clouds the H1 cycle's
-false-positive rate is **0.067** [0.04, 0.11] against t-SNE's **0.196**
-[0.15, 0.25] and the autoencoder's **0.442** [0.38, 0.50]; paired on the same
-clouds, the H1 cycle declares on 10 clouds where t-SNE stays quiet and t-SNE
-declares on 41 where it does not, p = 1.5 × 10⁻⁵ (Isomap 7 / 61, p = 7.4 ×
-10⁻¹²; the circle fit 2 / 82, p = 3.7 × 10⁻²²; the autoencoder 4 / 94,
-p = 2.4 × 10⁻²³). And the mechanism that
-the small table could only hint at is now measured: the H1 cycle **produces no
-order at all** on 65 of the 240 non-cyclic clouds — 27.1 % — while t-SNE
-produces no order on **0 of 240**. Every rival's silence is a score that
-happened to miss its null; this one's silence is the absence of a dominant bar.
+40 further rings, with the nine methods that mattered rerun on all of them.
+The 1-against-2 was an artefact of sample size.  At 240 clouds the H1 cycle's
+false-positive rate is **0.067** [0.04, 0.11]; the best learned methods are a
+plateau of neighbour-preserving embeddings — t-SNE **0.196** [0.15, 0.25] and
+UMAP **0.204** [0.16, 0.26] — with the reconstruction methods far behind (deep
+autoencoder 0.421, shallow 0.442).  Paired on the same clouds, the H1 cycle
+declares on fewer than every rival and each pair is significant on its own:
+10 / 41 against t-SNE, p = 1.5 × 10⁻⁵; 9 / 42 against UMAP, p = 3.4 × 10⁻⁶;
+7 / 61 against Isomap, p = 7.4 × 10⁻¹²; 2 / 82 against the circle fit,
+p = 3.7 × 10⁻²²; 4 / 94 against the shallow autoencoder, p = 2.4 × 10⁻²³.
+Confirming a gap of this size unpaired would take 107 clouds per method at 80 %
+power; this used 240.
+
+And the mechanism, now measured at scale: the H1 cycle **produces no order at
+all** on 65 of the 240 non-cyclic clouds — 27.1 % — and errs on one cloud it
+answers, while the deep autoencoders produce no order on 60 (their bottleneck
+collapses) *and still* get 101 wrong, and also miss 3 of the 40 rings.  Refusal
+tied to the cloud's geometry is an advantage; refusal that fires on rings too
+is just failure by another name.
 
 The blemishes are in the same table, not hidden: the topological cycle's false
 positives concentrate entirely in the branching family (0.233 there, 0.000 on
@@ -504,13 +529,26 @@ that would settle the two-parameter case — time against an independently
 cycling factor, sampled densely in both — remains the cheapest experiment this
 analysis points at.
 
+**F. Third-party reproduction.**  `reproduce/` makes the check executable for
+someone who does not trust us: `sh reproduce/run_all.sh` from a fresh clone
+installs the package, runs the test suite, runs the known-topology demo, and
+recomputes every published headline number from the committed raw benchmark
+records with code that re-implements the Wilson interval, the exact binomial
+test (including every McNemar p-value) and Benjamini-Hochberg from their
+textbook definitions rather than importing them — so a bug in the package's own
+statistics module cannot certify itself.  `reproduce/expected/manifest.json`
+pins the sha256 of every benchmark file a published number depends on, and
+`tools/determinism_audit.py` demonstrates the runs are deterministic by
+executing the same seeded pipeline twice in separate interpreters and comparing
+hashes.  A container definition is included.
+
 ![Clock order recovered with the labels held out](docs/fig_labels_held_out.png)
 
 ![The envelope of the cycle count](docs/fig_cycle_counting_power.png)
 
-![The topological cycle against seven fixed transforms and nine learned baselines](docs/fig_incremental_value.png)
+![The topological cycle against eight fixed transforms and thirteen learned baselines](docs/fig_incremental_value.png)
 
-![The same comparison at a sample size that can separate the top three](docs/fig_increment_power.png)
+![The same comparison, at a sample size that separates all nine](docs/fig_increment_power.png)
 
 
 ## API tour
@@ -609,26 +647,35 @@ examples/          runnable demos; see the files
   prepare_cycle_designs.py    download + normalise four real cyclic designs (GSE93067/93066/48113)
   cycle_counting_real.py      block C on measured data: 1 of 4 designs is counted correctly
   cycle_counting_power.py     when does the count work? (measured, not assumed)
-  incremental_value.py        the H1 cycle against 16 baselines, fixed and learned
-  learned_baselines.py        the nine trained representations and why they are fair
-  increment_power.py          is 1 vs 2 false positives real? (240 further clouds)
+  incremental_value.py        the H1 cycle against 21 baselines, fixed and learned
+  learned_baselines.py        the thirteen learned representations and why they are fair
+  tune_deep_baselines.py      the positive-control grid behind the frozen deep settings
+  increment_power.py          is the gap to the best learned baseline real? (280 clouds)
   cycle_identifiability.py    when is a count reportable, and a fix that was rejected
 tools/
   ci.sh                       the checks the hosted CI runs, runnable locally
   gen_api_docs.py             regenerate docs/api.md; --check fails on drift
+  determinism_audit.py        the same seeded pipeline twice, hashes compared
+reproduce/
+  README.md                   the third-party reproduction protocol
+  run_all.sh                  fresh clone -> install -> tests -> verify, one command
+  verify.py                   recomputes every published number from the raw records
+  make_manifest.py            regenerate expected/manifest.json (sha256 pins)
+  Dockerfile                  the same checks in a container
 docs/
   index.md results.md api.md  guide, evidence table, generated API reference
   fig_*.png                   every figure the scripts produce
 benchmark/         committed result tables of every experiment
-tests/             180 pytest cases, no network needed
+tests/             191 pytest cases, no network needed
 ```
 
 ## Running the tests
 
 ```bash
 pip install -e ".[dev]"
-pytest                 # 180 tests, no network and no benchmark data required
+pytest                 # 191 tests, no network and no benchmark data required
 sh tools/ci.sh         # install + tests + generated-docs check, as CI runs them
+sh reproduce/run_all.sh   # the third-party reproduction, from this tree or a fresh clone
 ```
 
 Continuous integration is configured for both hosts and does the same work:

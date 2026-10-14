@@ -193,11 +193,16 @@ def test_the_classical_registry_is_unchanged():
 
 def test_only_the_autoencoders_carry_trainable_parameters():
     counts = lb.parameter_counts()
-    assert counts["ae_1d_order"] > 0 and counts["ae_2d_angle"] > 0
+    trainable = {"ae_1d_order", "ae_2d_angle", "ae_deep_2d_angle",
+                 "dae_2d_angle", "vae_2d_angle"}
+    for name in trainable:
+        assert counts[name] > 0, name
     for name in lb.LEARNED_METHODS:
-        if name.startswith("ae_"):
+        if name in trainable:
             continue
         assert counts[name] == 0, name
+    # the deep stack is genuinely deeper than the shallow one
+    assert counts["ae_deep_2d_angle"] > counts["ae_2d_angle"]
 
 
 def test_a_raising_method_is_recorded_not_fatal():
@@ -237,3 +242,114 @@ def test_summary_reports_family_and_mean_scores():
     assert table["ae_2d_angle"]["mean_seconds"] >= 0.0
     assert set(table["h1_cycle"]) >= {"sensitivity", "specificity",
                                       "balanced_accuracy", "method_failures"}
+
+
+# --------------------------------------------------------------------------
+# the deep variants (added after v6): same fairness rules, more capacity
+# --------------------------------------------------------------------------
+def test_deep_single_layer_reproduces_the_shallow_autoencoder():
+    """Backprop equivalence: one hidden layer at matched settings.
+
+    The deep trainer and the shallow trainer are different code; configured
+    with the same single hidden layer, weight decay, learning rate and epoch
+    count they must behave the same, or the deep baselines would lose for a
+    broken reason.  (The bug this guards against was real: the first deep
+    implementation rebounded its parameter list every Adam step, so the
+    forward pass kept reading the initial weights and nothing trained.)
+    """
+    angles = np.sort(np.random.default_rng(7).uniform(0.0, 2.0 * np.pi, 24))
+    pattern = np.random.default_rng(8).normal(size=(300, 2))
+    X = np.c_[np.cos(angles), np.sin(angles)] @ pattern.T
+    X = standardize(X + np.random.default_rng(9).normal(0.0, 0.35, X.shape))
+    for seed in (0, 1):
+        code_s, _ = lb.autoencoder_latent(X, latent=2, seed=seed)
+        s = iv.circular_succession_score(angles, lb._angle_order(code_s))
+        code_d, _ = lb.deep_autoencoder_latent(
+            X, latent=2, layers=(16,), weight_decay=1e-2, epochs=800,
+            lr=8e-3, seed=seed, kl_beta=0.0, noise_sigma=0.0)
+        d = iv.circular_succession_score(angles, lb._angle_order(code_d))
+        assert abs(s - d) < 0.05, (seed, s, d)
+
+
+def test_deep_autoencoder_is_deterministic_in_all_three_modes():
+    Z, D, _ = _cloud(n=24, p=300)
+    for kw in ({}, {"kl_beta": 0.01}, {"noise_sigma": 0.5}):
+        a = lb.deep_autoencoder_latent(Z, latent=2, **kw)[0]
+        b = lb.deep_autoencoder_latent(Z, latent=2, **kw)[0]
+        assert np.array_equal(a, b), kw
+
+
+def test_deep_code_stays_bounded_in_all_three_modes():
+    """Finite, gauge-pinned, never inflated -- but collapse is allowed.
+
+    A collapsed latent dimension on a non-cyclic cloud is the deep network's
+    way of refusing to answer (the benchmark counts it as producing no
+    order), so per-dimension collapse is legitimate; what may never happen
+    is a code that explodes, drops to all-constant, or exceeds unit scale.
+    """
+    for kind in ("synth_ring", "synth_noise"):
+        Z, _, _ = _cloud(kind=kind, n=24, p=300)
+        for kw in ({}, {"kl_beta": 0.01}, {"noise_sigma": 0.5}):
+            code, info = lb.deep_autoencoder_latent(Z, latent=2, **kw)
+            assert np.all(np.isfinite(code)), (kind, kw)
+            assert float(np.abs(code).max()) < 50.0, (kind, kw)
+            std = code.std(axis=0)
+            assert np.all(std <= 1.0 + 1e-9), (kind, kw, std)
+            assert float(std.max()) > 0.5, (kind, kw, std)
+            assert info["ae_layers"] == [64, 32, 16]
+
+
+def test_diffusion_map_reads_a_ring():
+    """A fixed spectral transform that sits with the learned manifold rows."""
+    scores = []
+    for seed in (7, 108):
+        Z, D, ph = _cloud("synth_ring", seed=seed)
+        order, extra = lb.m_diffusion_map_angle(Z, D)
+        assert not extra.get("error")
+        scores.append(iv.circular_succession_score(ph, order))
+    assert min(scores) >= 0.8, scores
+
+
+def test_umap_reports_unavailability_instead_of_silently_dropping_out():
+    Z, D, _ = _cloud(n=16, p=200)
+    import builtins
+    real_import = builtins.__import__
+
+    def no_umap(name, *a, **k):
+        if name == "umap":
+            raise ImportError("simulated absence")
+        return real_import(name, *a, **k)
+
+    builtins.__import__ = no_umap
+    try:
+        order, extra = lb.m_umap_angle(Z, D)
+    finally:
+        builtins.__import__ = real_import
+    assert extra.get("error") == "umap-learn not installed"
+    assert np.asarray(order).size == 0
+
+
+def test_frozen_deep_settings_match_the_tuning_grid():
+    """Provenance lock: DEEP_SETTINGS must be the grid's winners, verbatim.
+
+    The grid lives in benchmark/deep_tuning.json and was run on positive
+    controls only; if the frozen constants ever drift from it, the
+    "tuned on positives, then frozen" protocol is broken.
+    """
+    import json
+    path = _HERE.parent / "benchmark" / "deep_tuning.json"
+    grid = json.loads(path.read_text(encoding="utf-8"))["grid"]
+    s = lb.DEEP_SETTINGS
+    assert s["weight_decay"] == grid["ae_deep"]["best"]["weight_decay"]
+    assert s["lr"] == grid["ae_deep"]["best"]["lr"]
+    assert s["noise_sigma"] == grid["dae"]["best"]["noise_sigma"]
+    assert s["kl_beta"] == grid["vae"]["best"]["kl_beta"]
+    assert s["umap_n_neighbors"] == grid["umap"]["best"]["n_neighbors"]
+
+
+def test_the_deep_methods_are_in_the_benchmark_registry():
+    for name in ("ae_deep_2d_angle", "dae_2d_angle", "vae_2d_angle",
+                 "umap_angle", "diffusion_map_angle"):
+        assert name in lb.LEARNED_METHODS and name in iv.METHODS
+    assert lb.LEARNED_FAMILY["ae_deep_2d_angle"] == "deep autoencoder"
+    assert lb.LEARNED_FAMILY["diffusion_map_angle"] == "diffusion map"

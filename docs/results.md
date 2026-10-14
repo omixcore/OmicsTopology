@@ -7,9 +7,9 @@ under `benchmark/`. None of it is a summary written by hand.
 
 `examples/incremental_value.py` → `benchmark/incremental_value.json`
 
-Seventeen label-free methods are given the same expression matrix and each must
-produce a **cyclic order of the samples** without seeing the clock. The order is
-then scored against the clock that was withheld
+Twenty-two label-free methods are given the same expression matrix and each
+must produce a **cyclic order of the samples** without seeing the clock. The
+order is then scored against the clock that was withheld
 (`circular_succession_score`: the share of steps that stay at the current phase
 or advance to the next one). A method *declares a cycle* when its score beats
 the 95th percentile of its own phase-permutation null.
@@ -17,22 +17,32 @@ the 95th percentile of its own phase-permutation null.
 Twelve positive clouds (seven real circadian designs plus five draws of the
 synthetic ring) and twenty-three negative clouds (three real "line" designs plus
 five draws each of a linear ramp, pure noise, three clusters and a branching
-trajectory). Seven baselines are fixed transforms; nine are *trained* — a
-two-layer autoencoder at two bottleneck widths (~850 parameters on a 24-sample
-cloud, tuned on the positive controls alone), Isomap, LLE, kernel PCA, Laplacian
-eigenmaps, t-SNE, a self-organising map and a principal curve.
+trajectory). Eight baselines are fixed transforms; fourteen are *trained* or
+learned — a shallow autoencoder at two bottleneck widths (857 parameters on a
+24-sample cloud), a deep autoencoder (64-32-16, 8 377 parameters), a denoising
+autoencoder and a variational autoencoder on the same stack, UMAP, diffusion
+maps, Isomap, LLE, kernel PCA, Laplacian eigenmaps, t-SNE, a self-organising
+map and a principal curve. The deep variants' hyperparameters are the winners
+of a grid run on the positive controls alone
+(`examples/tune_deep_baselines.py` → `benchmark/deep_tuning.json`), frozen
+before any negative cloud was scored.
 
 | method | family | sensitivity | specificity | balanced accuracy |
 |---|---|---|---|---|
 | **h1 cycle** | topological | **0.917** [0.65, 0.99] | **0.957** [0.79, 0.99] | **0.937** |
 | t-SNE angle | learned, neighbour | 0.917 | 0.913 | 0.915 |
 | Isomap angle | learned, neighbour | 0.833 | 0.870 | 0.851 |
+| UMAP angle | learned, neighbour | 0.917 | 0.696 | 0.806 |
+| denoising autoencoder | learned, reconstruction | 0.833 | 0.696 | 0.764 |
 | circle fit angle | fixed transform | 0.917 | 0.609 | 0.763 |
 | average-linkage leaf order | fixed transform | 0.917 | 0.609 | 0.763 |
+| **autoencoder, deep 64-32-16** | learned, reconstruction | 0.917 | 0.609 | 0.763 |
+| **autoencoder, variational** | learned, reconstruction | 0.917 | 0.609 | 0.763 |
 | PC1-PC2 angle | fixed transform | 0.917 | 0.565 | 0.741 |
 | self-organising map | learned | 0.833 | 0.609 | 0.721 |
 | classical MDS angle | fixed transform | 0.917 | 0.478 | 0.698 |
-| **autoencoder, 2-D** | learned, reconstruction | 0.917 | 0.478 | 0.698 |
+| autoencoder, 2-D shallow | learned, reconstruction | 0.917 | 0.478 | 0.698 |
+| diffusion maps | learned, spectral | 0.917 | 0.478 | 0.698 |
 | kernel PCA angle | learned, reconstruction | 0.917 | 0.478 | 0.698 |
 | Laplacian eigenmaps | learned, reconstruction | 0.917 | 0.478 | 0.698 |
 | principal curve | learned, 1-D manifold | 0.833 | 0.522 | 0.677 |
@@ -42,53 +52,78 @@ eigenmaps, t-SNE, a self-organising map and a principal curve.
 | PC1 order | fixed transform | 0.667 | 0.478 | 0.573 |
 | autoencoder, 1-D | learned, reconstruction | 0.583 | 0.435 | 0.509 |
 
-Three things this table says, none of them flattering to the method proposed
-here:
+Four things this table says, none of them flattering to the methods proposed
+as alternatives:
 
-1. **Learning the manifold bought the autoencoder nothing.** Its specificity,
-   0.478 with 12 of 23 false positives, is identical to a circle fitted to two
-   principal axes. Its nonlinearity, its 857 parameters and its tuning on the
-   positive controls changed neither axis of the comparison. Capacity was not
-   what was missing.
-2. **What separates the learned methods is fitting the cloud versus fitting its
-   neighbourhoods.** Every reconstruction method — autoencoders, kernel PCA,
-   Laplacian eigenmaps, LLE, principal curve, and fixed MDS — invents a ring on
-   11-13 of the 23 non-cyclic clouds. The two that only preserve local
-   neighbourhoods — t-SNE and Isomap — invent one on 2 and 3.
-3. **The topology is first, but 1 against 2 is a tie at this sample size.**
-   What the table *does* resolve is the mechanism of the abstention: on **5 of
-   the 23** non-cyclic clouds the H1 cycle produces **no order at all**, while
-   every baseline produces an order on all 23 and stays quiet only because its
-   score missed its own null — t-SNE by **+0.042** on its worst cloud.
+1. **Capacity was never what was missing, and now that has been tested twice.**
+   The deep autoencoder — 8 377 parameters against 24 samples, a 349:1 ratio,
+   tuned on the positives — lands on a specificity of 0.609, *bit-for-bit the
+   specificity of a circle fitted to two principal axes in 1971*. The shallow
+   autoencoder lands on 0.478, bit-for-bit classical MDS. The tuning grid
+   itself says why: on the four positive controls the deep nets top out at
+   mean scores of 0.84–0.88 where the shallow network reads 1.000 — more
+   depth made the one thing they had to do *harder* at this sample size.
+2. **What separates the learned methods is fitting the cloud versus fitting
+   its neighbourhoods.** Every reconstruction method — autoencoders at every
+   depth, kernel PCA, Laplacian eigenmaps, LLE, principal curve, and fixed
+   MDS — invents a ring on 11-13 of the 23 non-cyclic clouds. The three that
+   only preserve local neighbourhoods — t-SNE, Isomap and UMAP — invent one
+   on 2, 3 and 7.
+3. **Refusal without calibration buys nothing.** The deep autoencoder and the
+   variational autoencoder also refuse to answer on 5 of the 23 negative
+   clouds — their bottleneck collapses, the same outward behaviour as the
+   topological method's — but on the 18 clouds they *do* answer they still
+   invent 9 rings. The topological method refuses on 5 and errs on 1. Silence
+   is only worth what the answers are worth.
+4. **The topology is first, and the gap to the best learned method is the
+   abstention mechanism.** Every non-topological method produces an order on
+   all 23 negative clouds and stays quiet only because its score missed its
+   own null — t-SNE by **+0.042** on its worst cloud; the topological method's
+   silence is the absence of a dominant bar, which is a property of the cloud.
 
 Two honest blemishes are visible in the same table: the topological method's
 one false positive is a **branching** cloud (1 of 5 draws), and its one miss is
 `ath_diurnal_ld`, the known 45-hour drift case.
 
-### 1b. Is 1 against 2 real?  240 further clouds say yes
+### 1b. Is the gap to the best learned baseline real?  240 further clouds say yes
 
 `examples/increment_power.py` → `benchmark/increment_power.json`
 
 Twenty-three clouds cannot separate 1 false positive in 23 from 2 in 23 — the
 two rates behind the ordering of the table. The four declared negative families
 were therefore redrawn — 60 independent clouds each, on a seed schedule that
-shares nothing with the benchmark's — and the five methods that mattered were
+shares nothing with the benchmark's — and the nine methods that mattered were
 rerun on all 240, with 40 further rings for sensitivity.
 
 | method | sensitivity (40 rings) | false positives (240) | produced no order |
 |---|---|---|---|
 | **h1 cycle** | 1.000 [0.91, 1.00] | **0.067** [0.04, 0.11] (16) | **0.271** [0.22, 0.33] (65) |
 | t-SNE angle | 1.000 | 0.196 [0.15, 0.25] (47) | 0.000 (0) |
+| UMAP angle | 1.000 | 0.204 [0.16, 0.26] (49) | 0.000 (0) |
 | Isomap angle | 1.000 | 0.292 [0.24, 0.35] (70) | 0.000 (0) |
+| denoising autoencoder | 1.000 | 0.325 [0.27, 0.39] (78) | 0.000 (0) |
 | circle fit angle | 1.000 | 0.400 [0.34, 0.46] (96) | 0.000 (0) |
-| autoencoder, 2-D | 1.000 | 0.442 [0.38, 0.50] (106) | 0.000 (0) |
+| autoencoder, deep | 0.925 [0.80, 0.97] | 0.421 [0.36, 0.48] (101) | 0.250 (60) |
+| autoencoder, variational | 0.925 [0.80, 0.97] | 0.421 [0.36, 0.48] (101) | 0.250 (60) |
+| autoencoder, shallow 2-D | 1.000 | 0.442 [0.38, 0.50] (106) | 0.000 (0) |
 
-Paired on the same clouds (McNemar, exact): the H1 cycle declares on **10**
-clouds where t-SNE stays quiet and t-SNE declares on **41** where the H1 cycle
-stays quiet, p = 1.5 × 10⁻⁵; against Isomap 7 / 61, p = 7.4 × 10⁻¹²; against the
-circle fit 2 / 82, p = 3.7 × 10⁻²²; against the autoencoder 4 / 94,
-p = 2.4 × 10⁻²³. The observed gap of 12.9 points would need 107 clouds per
-method for 80 % power; this used 240.
+Paired on the same negative clouds (McNemar, exact), the H1 cycle declares on
+fewer clouds than every rival, and each pair is significant on its own:
+10 / 41 against t-SNE, p = 1.5 × 10⁻⁵; 9 / 42 against UMAP, p = 3.4 × 10⁻⁶;
+7 / 61 against Isomap, p = 7.4 × 10⁻¹²; 10 / 72 against the denoising
+autoencoder, p = 1.0 × 10⁻¹²; 2 / 82 against the circle fit, p = 3.7 × 10⁻²²;
+5 / 90 against the deep and the variational autoencoder, p = 3.1 × 10⁻²¹;
+4 / 94 against the shallow autoencoder, p = 2.4 × 10⁻²³. The observed gap of
+12.9 points would need 107 clouds per method for 80 % power; this used 240.
+
+Two things the larger field adds. UMAP joins t-SNE at the top of the learned
+methods (0.204 against 0.196, an indistinguishable pair), so "the best learned
+baseline" is now a plateau of neighbour-preserving methods, not a single
+winner. And the deep autoencoders fail in a new way: they refuse to answer on
+60 of the 240 non-cyclic clouds (25 %) but **also** miss 3 of the 40 rings
+(sensitivity 0.925) — their bottleneck collapses when the cloud does not suit
+it, whether or not there is a cycle to find. Refusal is only an advantage when
+it is tied to the cloud's geometry, and the deep nets' refusal is not.
 
 Where the false positives come from matters as much as how many:
 
@@ -96,23 +131,27 @@ Where the false positives come from matters as much as how many:
 |---|---|---|---|---|
 | **h1 cycle** | **0.233** | 0.000 | 0.000 | 0.033 |
 | t-SNE angle | 0.450 | 0.000 | 0.267 | 0.067 |
+| UMAP angle | 0.450 | 0.000 | 0.333 | 0.033 |
 | Isomap angle | 0.583 | 0.000 | 0.533 | 0.050 |
+| denoising autoencoder | 0.483 | 0.000 | 0.783 | 0.033 |
 | circle fit angle | 1.000 | 0.000 | 0.600 | 0.000 |
-| autoencoder, 2-D | 0.850 | 0.000 | 0.900 | 0.017 |
+| autoencoder, deep | 0.683 | 0.000 | 1.000 | 0.000 |
+| autoencoder, variational | 0.683 | 0.000 | 1.000 | 0.000 |
+| autoencoder, shallow 2-D | 0.850 | 0.000 | 0.900 | 0.017 |
 
-A monotone ramp is where the reconstruction methods come apart — the
-autoencoder invents a ring on 90 % of them and the circle fit on 60 %, which is
-what "always returns an order" means when the cloud has a line in it. Separated
-cell groups are trivial for everyone. The branching trajectory is the one family
-that costs the topological method anything, and it costs the others twice as
-much.
+A monotone ramp is where the reconstruction methods come apart — the deep and
+variational autoencoders invent a ring on *every* ramp they answer (they stay
+silent on the rest) and the shallow one on 90 %, which is what "always returns
+an order" means when the cloud has a line in it. Separated cell groups are
+trivial for everyone. The branching trajectory is the one family that costs the
+topological method anything, and it costs every rival at least twice as much.
 
 And the mechanism, now measured at scale instead of asserted: the H1 cycle
 **refuses to answer** on 65 of the 240 non-cyclic clouds — 27.1 % [21.9, 33.0] —
-while t-SNE refuses on **0 of 240** [0, 1.6]. Every other method's silence is a
-score that happened to miss a null; the topological method's silence is the
-absence of a dominant bar, which is a property of the cloud rather than of the
-draw.
+and errs on only one cloud it answers, while the deep autoencoders refuse on 60
+and still get 101 wrong. The topology's silence is the absence of a dominant
+bar, which is a property of the cloud rather than of the draw; the deep nets'
+silence is a collapsed bottleneck, which happens to rings as well.
 
 
 ## 2. When is a cycle count worth reporting?

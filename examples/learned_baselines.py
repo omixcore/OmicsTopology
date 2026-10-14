@@ -16,6 +16,16 @@ baseline below is *trained* on the cloud and then read for an order:
 
 ``ae_1d_order``           autoencoder, 1-D bottleneck   - a learned PC1
 ``ae_2d_angle``           autoencoder, 2-D bottleneck   - a learned PC1-PC2
+``ae_deep_2d_angle``      deep autoencoder (64-32-16, ~8.4k params) - the
+                          "give it real capacity" objection, taken at face value
+``dae_2d_angle``          deep *denoising* autoencoder - corruption-trained,
+                          the standard answer to "it only memorised n = 24"
+``vae_2d_angle``          deep variational autoencoder - a probabilistic latent,
+                          read from the posterior mean
+``umap_angle``            UMAP - the default learned manifold embedding of the
+                          single-cell literature
+``diffusion_map_angle``   diffusion maps - the random-walk eigenbasis of the
+                          same correlation distance every other method reads
 ``isomap_angle``          Isomap: graph geodesics, then an embedding
 ``lle_angle``             locally linear embedding
 ``kernel_pca_angle``      RBF kernel PCA
@@ -77,9 +87,19 @@ variance during training: without that, the weight matrices can be rescaled by
 a constant without changing the loss, and Adam drifts along that flat direction
 instead of fitting (this was observed, with latent scales of 10^5).
 
-No deep-learning framework is required: the network is ~60 lines of NumPy with
-Adam and gradient clipping, so these baselines run inside the base dependency
-set and reproduce bit-for-bit.
+No deep-learning framework is required: the networks are ~120 lines of NumPy
+with Adam and gradient clipping, so these baselines run inside the base
+dependency set and reproduce bit-for-bit.  ``umap-learn`` is the one optional
+import (``pip install -e ".[baselines]"``); when it is absent the UMAP row
+reports itself as unavailable instead of silently dropping out.
+
+The deep variants and their tuning rule
+---------------------------------------
+``DEEP_SETTINGS`` is frozen exactly the way ``AE_SETTINGS`` was: the grid was
+run on four independent positive rings and nothing else
+(``examples/tune_deep_baselines.py`` -> ``benchmark/deep_tuning.json`` records
+the whole grid).  The values below are that grid's winners, committed before
+any negative cloud was scored.
 """
 
 from __future__ import annotations
@@ -92,8 +112,10 @@ __all__ = [
     "LEARNED_METHODS",
     "LEARNED_FAMILY",
     "AE_SETTINGS",
+    "DEEP_SETTINGS",
     "coordinate_view",
     "autoencoder_latent",
+    "deep_autoencoder_latent",
     "autoencoder_linear_check",
     "parameter_counts",
 ]
@@ -104,6 +126,25 @@ AE_SETTINGS = {
     "epochs": 800,
     "lr": 8e-3,
     "weight_decay": 1e-2,
+    "sd_floor": 0.05,
+    "grad_clip": 10.0,
+    "seed": 0,
+}
+
+# The deep variants: winners of the positive-control grid in
+# examples/tune_deep_baselines.py (recorded whole in benchmark/deep_tuning.json).
+# Worth noting what the grid said: the deep nets read the control rings less
+# reliably than the shallow one (best means 0.84-0.88, worst 0.67-0.75, against
+# 1.000 for the shallow network on all four), and UMAP is worse still (0.573).
+# Those are the tuned ceilings, not defaults that were abandoned.
+DEEP_SETTINGS = {
+    "layers": (64, 32, 16),
+    "epochs": 1200,
+    "lr": 6e-3,
+    "weight_decay": 1e-2,
+    "noise_sigma": 0.5,      # denoising corruption, frozen from the same grid
+    "kl_beta": 0.01,         # VAE KL weight, frozen from the same grid
+    "umap_n_neighbors": 12,  # UMAP's winner on the same controls (of 5/8/12/15/23)
     "sd_floor": 0.05,
     "grad_clip": 10.0,
     "seed": 0,
@@ -250,6 +291,202 @@ def autoencoder_latent(Z: np.ndarray, latent: int = 2, hidden: int | None = None
                   "ae_nonlinear": bool(nonlinear), "ae_epochs": int(epochs)}
 
 
+def deep_autoencoder_latent(
+    Z: np.ndarray,
+    latent: int = 2,
+    layers: tuple | None = None,
+    epochs: int | None = None,
+    lr: float | None = None,
+    weight_decay: float | None = None,
+    sd_floor: float | None = None,
+    grad_clip: float | None = None,
+    seed: int | None = None,
+    nonlinear: bool = True,
+    noise_sigma: float | None = None,
+    kl_beta: float | None = None,
+) -> tuple:
+    """Train a deep autoencoder; return its latent code and its size.
+
+    Architecture ``q -> layers -> latent -> layers(reversed) -> q`` with
+    ``tanh`` hidden layers and a linear bottleneck normalised to zero mean and
+    unit variance (the same scale-gauge fix the shallow network needs: without
+    it, Adam drifts along the flat direction where all weights are rescaled by
+    a constant).
+
+    Three modes of the same network:
+
+    * plain (``kl_beta = 0``): mean-squared reconstruction;
+    * denoising (``noise_sigma > 0``, ``kl_beta = 0``): every training step
+      corrupts the *input* with Gaussian noise of that standard deviation and
+      reconstructs the clean cloud;
+    * variational (``kl_beta > 0``): the bottleneck produces ``mu`` and
+      ``log sigma^2`` and the code is ``mu + sigma * eps`` with ``eps`` from the
+      seeded generator, so the run stays deterministic; the loss adds
+      ``kl_beta`` times the usual closed-form KL.  The returned code is the
+      posterior **mean**, which keeps ordering independent of the sampling.
+
+    Full-batch Adam on the reconstruction term, L2 on every weight matrix,
+    gradient clipping.  Deterministic: the only random inputs are the
+    initialisation and (for the VAE / denoiser) the seeded noise stream.
+    """
+    cfg = dict(DEEP_SETTINGS)
+    layers = tuple(cfg["layers"]) if layers is None else tuple(layers)
+    epochs = cfg["epochs"] if epochs is None else epochs
+    lr = cfg["lr"] if lr is None else lr
+    weight_decay = cfg["weight_decay"] if weight_decay is None else weight_decay
+    sd_floor = cfg["sd_floor"] if sd_floor is None else sd_floor
+    grad_clip = cfg["grad_clip"] if grad_clip is None else grad_clip
+    seed = cfg["seed"] if seed is None else seed
+    noise_sigma = cfg["noise_sigma"] if noise_sigma is None else noise_sigma
+    kl_beta = cfg["kl_beta"] if kl_beta is None else kl_beta
+
+    S = coordinate_view(Z)
+    n, q = S.shape
+    latent = int(max(1, min(latent, q)))
+    variational = float(kl_beta) > 0.0
+    rng = np.random.default_rng(seed)
+
+    def init(fan_in: int, fan_out: int) -> np.ndarray:
+        return rng.standard_normal((fan_in, fan_out)) * np.sqrt(
+            2.0 / float(fan_in + fan_out))
+
+    enc_dims = [q] + list(layers)
+    enc = [(init(enc_dims[i], enc_dims[i + 1]), np.zeros(enc_dims[i + 1]))
+           for i in range(len(layers))]
+    dec_dims = [latent] + list(reversed(layers))
+    dec = [(init(dec_dims[i], dec_dims[i + 1]), np.zeros(dec_dims[i + 1]))
+           for i in range(len(dec_dims) - 1)]
+    W_out, b_out = init(layers[0], q), np.zeros(q)
+
+    if variational:
+        W_mu, b_mu = init(layers[-1], latent), np.zeros(latent)
+        W_lv, b_lv = init(layers[-1], latent), np.zeros(latent)
+        Wb = bb = None
+        params = ([w for p in enc for w in p] + [w for p in dec for w in p]
+                  + [W_out, b_out, W_mu, b_mu, W_lv, b_lv])
+    else:
+        Wb, bb = init(layers[-1], latent), np.zeros(latent)
+        W_mu = b_mu = W_lv = b_lv = None
+        params = ([w for p in enc for w in p] + [Wb, bb]
+                  + [w for p in dec for w in p] + [W_out, b_out])
+
+    def act(H):
+        return np.tanh(H) if nonlinear else H
+
+    def grad_act(A):
+        return (1.0 - A ** 2) if nonlinear else 1.0
+
+    m = [np.zeros_like(w) for w in params]
+    v = [np.zeros_like(w) for w in params]
+    slot = {id(w): i for i, w in enumerate(params)}   # biases start as equal
+    beta1, beta2, eps_adam = 0.9, 0.999, 1e-8         # zeros; index() would be
+                                                      # ambiguous, id() is not
+
+    for step in range(1, int(epochs) + 1):
+        S_in = S
+        if float(noise_sigma) > 0.0 and not variational:
+            S_in = S + rng.normal(0.0, float(noise_sigma), S.shape)
+
+        # ---- forward ----------------------------------------------------
+        acts = [S_in]
+        A = S_in
+        for W, b in enc:
+            A = act(A @ W + b)
+            acts.append(A)
+        H = acts[-1]
+        if variational:
+            mu = H @ W_mu + b_mu
+            logvar = np.clip(H @ W_lv + b_lv, -8.0, 8.0)
+            eps = rng.standard_normal(mu.shape)
+            pre = mu + np.exp(0.5 * logvar) * eps
+        else:
+            mu = logvar = eps = None
+            pre = H @ Wb + bb
+        sd = pre.std(axis=0) + sd_floor
+        code = (pre - pre.mean(axis=0)) / sd
+
+        d_acts = [code]
+        A = code
+        for W, b in dec:
+            A = act(A @ W + b)
+            d_acts.append(A)
+        rec = A @ W_out + b_out
+
+        # ---- backward ---------------------------------------------------
+        dR = 2.0 * (rec - S) / float(n * q)
+        grads: list = [None] * len(params)
+
+        def bump(mat, grad):
+            grads[slot[id(mat)]] = grad
+
+        dA = dR @ W_out.T
+        bump(W_out, A.T @ dR + 2.0 * weight_decay * W_out)
+        bump(b_out, dR.sum(axis=0))
+        for i in range(len(dec) - 1, -1, -1):
+            W, b = dec[i]
+            dH = dA * grad_act(d_acts[i + 1])
+            dA = dH @ W.T
+            bump(W, d_acts[i].T @ dH + 2.0 * weight_decay * W)
+            bump(b, dH.sum(axis=0))
+
+        dcode = dA / sd                       # through the gauge normalisation
+
+        if variational:
+            inv_n = 1.0 / float(n)
+            dkl_mu = mu * inv_n
+            dkl_lv = -0.5 * (1.0 - np.exp(logvar)) * inv_n
+            dmu = dcode + kl_beta * dkl_mu
+            dlogvar = kl_beta * dkl_lv + (dcode * 0.5 * np.exp(0.5 * logvar) * eps)
+            bump(W_mu, H.T @ dmu + 2.0 * weight_decay * W_mu)
+            bump(b_mu, dmu.sum(axis=0))
+            bump(W_lv, H.T @ dlogvar + 2.0 * weight_decay * W_lv)
+            bump(b_lv, dlogvar.sum(axis=0))
+            dH = dmu @ W_mu.T + dlogvar @ W_lv.T
+        else:
+            bump(Wb, H.T @ dcode + 2.0 * weight_decay * Wb)
+            bump(bb, dcode.sum(axis=0))
+            dH = dcode @ Wb.T
+
+        for i in range(len(enc) - 1, -1, -1):
+            W, b = enc[i]
+            dH = dH * grad_act(acts[i + 1])
+            dA_prev = dH @ W.T
+            bump(W, acts[i].T @ dH + 2.0 * weight_decay * W)
+            bump(b, dH.sum(axis=0))
+            dH = dA_prev
+
+        norm = float(np.sqrt(sum(float((g ** 2).sum()) for g in grads)))
+        if norm > grad_clip:
+            grads = [g * (grad_clip / norm) for g in grads]
+        for i, g in enumerate(grads):
+            m[i] = beta1 * m[i] + (1.0 - beta1) * g
+            v[i] = beta2 * v[i] + (1.0 - beta2) * g * g
+            # in-place: the forward pass reads enc/dec, which hold the same
+            # array objects -- rebinding here would train a copy nobody reads
+            params[i] -= lr * (m[i] / (1.0 - beta1 ** step)) / (
+                np.sqrt(v[i] / (1.0 - beta2 ** step)) + eps_adam)
+
+    # ---- final clean pass ---------------------------------------------------
+    A = S
+    for W, b in enc:
+        A = act(A @ W + b)
+    H = A
+    if variational:
+        pre = H @ W_mu + b_mu                 # posterior mean, no sampling
+    else:
+        pre = H @ Wb + bb
+    sd = pre.std(axis=0) + sd_floor
+    code = (pre - pre.mean(axis=0)) / sd
+
+    n_params = int(sum(w.size for w in params))
+    return code, {"n_params": n_params, "n_ae_input_dim": int(q),
+                  "ae_layers": [int(x) for x in layers],
+                  "ae_variational": bool(variational),
+                  "ae_noise_sigma": float(noise_sigma) if not variational else 0.0,
+                  "ae_kl_beta": float(kl_beta) if variational else 0.0,
+                  "ae_epochs": int(epochs)}
+
+
 def autoencoder_linear_check(seed: int = 0) -> dict:
     """With the nonlinearity off the network must behave exactly like PCA.
 
@@ -298,9 +535,15 @@ def parameter_counts(seed: int = 0, n_samples: int = 24) -> dict:
     out = {}
     for label, latent in (("ae_1d_order", 1), ("ae_2d_angle", 2)):
         out[label] = int(autoencoder_latent(Z, latent=latent)[1]["n_params"])
-    for label in ("isomap_angle", "lle_angle", "kernel_pca_angle",
-                  "spectral_angle", "tsne_angle", "som_chain_order",
-                  "principal_curve_order"):
+    out["ae_deep_2d_angle"] = int(deep_autoencoder_latent(
+        Z, latent=2, kl_beta=0.0, noise_sigma=0.0)[1]["n_params"])
+    out["dae_2d_angle"] = int(deep_autoencoder_latent(
+        Z, latent=2, kl_beta=0.0, noise_sigma=0.25)[1]["n_params"])
+    out["vae_2d_angle"] = int(deep_autoencoder_latent(
+        Z, latent=2, kl_beta=0.03)[1]["n_params"])
+    for label in ("umap_angle", "diffusion_map_angle", "isomap_angle",
+                  "lle_angle", "kernel_pca_angle", "spectral_angle",
+                  "tsne_angle", "som_chain_order", "principal_curve_order"):
         out[label] = 0            # no fitted parameter vector
     return out
 
@@ -498,9 +741,87 @@ def m_principal_curve_order(Z: np.ndarray, D: np.ndarray) -> tuple:
     return order, {"smoother_span": int(w)}
 
 
+def m_ae_deep_2d_angle(Z: np.ndarray, D: np.ndarray) -> tuple:
+    """Deep autoencoder (64-32-16): the capacity objection at face value."""
+    try:
+        code, extra = deep_autoencoder_latent(Z, latent=2)
+    except Exception as exc:                                   # pragma: no cover
+        return np.array([], dtype=int), {"error": type(exc).__name__}
+    return _angle_order(code), extra
+
+
+def m_dae_2d_angle(Z: np.ndarray, D: np.ndarray) -> tuple:
+    """Deep denoising autoencoder: corruption-trained, same read-out."""
+    try:
+        code, extra = deep_autoencoder_latent(Z, latent=2, kl_beta=0.0)
+    except Exception as exc:                                   # pragma: no cover
+        return np.array([], dtype=int), {"error": type(exc).__name__}
+    return _angle_order(code), extra
+
+
+def m_vae_2d_angle(Z: np.ndarray, D: np.ndarray) -> tuple:
+    """Deep variational autoencoder; order by the posterior mean."""
+    try:
+        code, extra = deep_autoencoder_latent(Z, latent=2)
+    except Exception as exc:                                   # pragma: no cover
+        return np.array([], dtype=int), {"error": type(exc).__name__}
+    return _angle_order(code), extra
+
+
+def m_umap_angle(Z: np.ndarray, D: np.ndarray) -> tuple:
+    """UMAP on the correlation distance matrix, angle in the 2-D embedding.
+
+    Optional dependency: without ``umap-learn`` the method reports itself as
+    unavailable instead of silently vanishing from the table.
+    """
+    try:
+        import umap
+    except Exception:
+        return np.array([], dtype=int), {"error": "umap-learn not installed"}
+    D = np.asarray(D, dtype=float)
+    try:
+        emb = umap.UMAP(n_components=2,
+                        n_neighbors=int(DEEP_SETTINGS["umap_n_neighbors"]),
+                        metric="precomputed", random_state=0).fit_transform(D)
+    except Exception as exc:
+        return np.array([], dtype=int), {"error": type(exc).__name__}
+    return _angle_order(emb), {"n_neighbors": int(DEEP_SETTINGS["umap_n_neighbors"])}
+
+
+def m_diffusion_map_angle(Z: np.ndarray, D: np.ndarray) -> tuple:
+    """Diffusion maps: the random-walk eigenbasis of the same distance matrix.
+
+    The Gaussian affinity is row-normalised into a Markov operator (symmetrised
+    for a stable eigensolver) and the angle is read from the first two
+    non-trivial diffusion coordinates.  Nothing about cycles is built in; a
+    ring emerges only if the random walk actually goes round one.
+    """
+    K = _rbf_kernel(D)
+    deg = K.sum(axis=1)
+    inv_sqrt = 1.0 / np.sqrt(np.where(deg > 1e-12, deg, 1.0))
+    W = inv_sqrt[:, None] * K * inv_sqrt[None, :]
+    W = 0.5 * (W + W.T)
+    try:
+        vals, vecs = np.linalg.eigh(W)
+    except Exception as exc:                                   # pragma: no cover
+        return np.array([], dtype=int), {"error": type(exc).__name__}
+    order_idx = np.argsort(vals)[::-1]
+    if len(order_idx) < 3:
+        return np.array([], dtype=int), {"error": "spectrum too small"}
+    pick = order_idx[1:3]                       # skip the trivial first vector
+    emb = vecs[:, pick]
+    return _angle_order(emb), {"eigenvalues": [round(float(vals[i]), 6)
+                                               for i in pick]}
+
+
 LEARNED_METHODS = {
     "ae_1d_order": m_ae_1d_order,
     "ae_2d_angle": m_ae_2d_angle,
+    "ae_deep_2d_angle": m_ae_deep_2d_angle,
+    "dae_2d_angle": m_dae_2d_angle,
+    "vae_2d_angle": m_vae_2d_angle,
+    "umap_angle": m_umap_angle,
+    "diffusion_map_angle": m_diffusion_map_angle,
     "isomap_angle": m_isomap_angle,
     "lle_angle": m_lle_angle,
     "kernel_pca_angle": m_kernel_pca_angle,
@@ -514,6 +835,11 @@ LEARNED_METHODS = {
 LEARNED_FAMILY = {
     "ae_1d_order": "autoencoder",
     "ae_2d_angle": "autoencoder",
+    "ae_deep_2d_angle": "deep autoencoder",
+    "dae_2d_angle": "denoising autoencoder",
+    "vae_2d_angle": "variational autoencoder",
+    "umap_angle": "manifold learning",
+    "diffusion_map_angle": "diffusion map",
     "isomap_angle": "manifold learning",
     "lle_angle": "manifold learning",
     "spectral_angle": "manifold learning",

@@ -56,15 +56,20 @@ from learned_baselines import LEARNED_METHODS  # noqa: E402
 
 from omictopo.stats import binom_test_two_sided, wilson_interval  # noqa: E402
 
-# The five methods worth spending 240 clouds on: the topological one, the two
-# neighbour-graph learners that came close, the best fixed transform, and the
-# autoencoder -- the method the original objection was actually about.
+# The nine methods worth spending 240 clouds on: the topological one, the two
+# neighbour-graph learners that came close, the best fixed transform, the
+# autoencoder the original objection was actually about, and the four deep
+# variants the "give it real capacity" version of that objection asks for.
 FIELD = {
     "h1_cycle": iv.CLASSICAL_METHODS["h1_cycle"],
     "tsne_angle": LEARNED_METHODS["tsne_angle"],
     "isomap_angle": LEARNED_METHODS["isomap_angle"],
     "circle_fit_angle": iv.CLASSICAL_METHODS["circle_fit_angle"],
     "ae_2d_angle": LEARNED_METHODS["ae_2d_angle"],
+    "ae_deep_2d_angle": LEARNED_METHODS["ae_deep_2d_angle"],
+    "dae_2d_angle": LEARNED_METHODS["dae_2d_angle"],
+    "vae_2d_angle": LEARNED_METHODS["vae_2d_angle"],
+    "umap_angle": LEARNED_METHODS["umap_angle"],
 }
 
 # already-declared negative families, unchanged from the benchmark
@@ -289,7 +294,7 @@ def main(argv=None) -> int:
     print("\n  paired comparison on the same non-cyclic clouds "
           "(McNemar, exact)")
     pairs = {}
-    for rival in ("tsne_angle", "isomap_angle", "circle_fit_angle", "ae_2d_angle"):
+    for rival in [n for n in FIELD if n != "h1_cycle"]:
         mc = _mcnemar(records, "h1_cycle", rival)
         pairs[rival] = mc
         verdict = ("indistinguishable" if mc["p_value"] > 0.05

@@ -39,6 +39,7 @@ Documentation = "https://gitee.com/omixcore/OmicsTopology/blob/main/docs/api.md"
 [project.optional-dependencies]
 plot = ["matplotlib>=3.5"]
 fast = ["ripser>=0.6"]
+baselines = ["umap-learn>=0.5"]
 docs = ["mkdocs>=1.5", "mkdocs-material>=9.0", "mkdocstrings[python]>=0.24"]
 dev = ["pytest>=7", "matplotlib>=3.5", "pyyaml>=6"]
 

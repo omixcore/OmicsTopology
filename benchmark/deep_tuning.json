@@ -1,0 +1,340 @@
+{
+ "protocol": "positive controls only; winners frozen into learned_baselines.DEEP_SETTINGS",
+ "n_control_rings": 4,
+ "epochs": 1200,
+ "layers": [
+  64,
+  32,
+  16
+ ],
+ "grid": {
+  "ae_deep": {
+   "rows": [
+    {
+     "config": {
+      "weight_decay": 0.01,
+      "lr": 0.006
+     },
+     "scores": [
+      0.75,
+      0.75,
+      1.0,
+      0.875
+     ],
+     "mean": 0.8438,
+     "worst": 0.75
+    },
+    {
+     "config": {
+      "weight_decay": 0.01,
+      "lr": 0.02
+     },
+     "scores": [
+      0.75,
+      0.75,
+      1.0,
+      0.875
+     ],
+     "mean": 0.8438,
+     "worst": 0.75
+    },
+    {
+     "config": {
+      "weight_decay": 0.03,
+      "lr": 0.006
+     },
+     "scores": [
+      0.75,
+      0.75,
+      1.0,
+      0.875
+     ],
+     "mean": 0.8438,
+     "worst": 0.75
+    },
+    {
+     "config": {
+      "weight_decay": 0.03,
+      "lr": 0.02
+     },
+     "scores": [
+      0.75,
+      0.75,
+      1.0,
+      0.875
+     ],
+     "mean": 0.8438,
+     "worst": 0.75
+    }
+   ],
+   "best": {
+    "weight_decay": 0.01,
+    "lr": 0.006
+   },
+   "best_mean": 0.8438,
+   "best_worst": 0.75
+  },
+  "dae": {
+   "rows": [
+    {
+     "config": {
+      "noise_sigma": 0.1,
+      "weight_decay": 0.01
+     },
+     "scores": [
+      0.625,
+      0.875,
+      0.875,
+      0.875
+     ],
+     "mean": 0.8125,
+     "worst": 0.625
+    },
+    {
+     "config": {
+      "noise_sigma": 0.1,
+      "weight_decay": 0.03
+     },
+     "scores": [
+      0.75,
+      0.75,
+      1.0,
+      0.875
+     ],
+     "mean": 0.8438,
+     "worst": 0.75
+    },
+    {
+     "config": {
+      "noise_sigma": 0.25,
+      "weight_decay": 0.01
+     },
+     "scores": [
+      0.875,
+      0.875,
+      1.0,
+      0.625
+     ],
+     "mean": 0.8438,
+     "worst": 0.625
+    },
+    {
+     "config": {
+      "noise_sigma": 0.25,
+      "weight_decay": 0.03
+     },
+     "scores": [
+      0.75,
+      0.75,
+      1.0,
+      0.875
+     ],
+     "mean": 0.8438,
+     "worst": 0.75
+    },
+    {
+     "config": {
+      "noise_sigma": 0.5,
+      "weight_decay": 0.01
+     },
+     "scores": [
+      0.6667,
+      0.875,
+      1.0,
+      0.875
+     ],
+     "mean": 0.8542,
+     "worst": 0.6667
+    },
+    {
+     "config": {
+      "noise_sigma": 0.5,
+      "weight_decay": 0.03
+     },
+     "scores": [
+      0.75,
+      0.75,
+      1.0,
+      0.625
+     ],
+     "mean": 0.7812,
+     "worst": 0.625
+    }
+   ],
+   "best": {
+    "noise_sigma": 0.5,
+    "weight_decay": 0.01
+   },
+   "best_mean": 0.8542,
+   "best_worst": 0.6667
+  },
+  "vae": {
+   "rows": [
+    {
+     "config": {
+      "kl_beta": 0.01,
+      "weight_decay": 0.01
+     },
+     "scores": [
+      0.75,
+      0.875,
+      0.875,
+      1.0
+     ],
+     "mean": 0.875,
+     "worst": 0.75
+    },
+    {
+     "config": {
+      "kl_beta": 0.01,
+      "weight_decay": 0.03
+     },
+     "scores": [
+      0.2083,
+      0.2083,
+      0.2083,
+      0.2083
+     ],
+     "mean": 0.2083,
+     "worst": 0.2083
+    },
+    {
+     "config": {
+      "kl_beta": 0.03,
+      "weight_decay": 0.01
+     },
+     "scores": [
+      0.75,
+      0.875,
+      0.875,
+      0.875
+     ],
+     "mean": 0.8438,
+     "worst": 0.75
+    },
+    {
+     "config": {
+      "kl_beta": 0.03,
+      "weight_decay": 0.03
+     },
+     "scores": [
+      0.375,
+      0.25,
+      0.2083,
+      0.25
+     ],
+     "mean": 0.2708,
+     "worst": 0.2083
+    },
+    {
+     "config": {
+      "kl_beta": 0.1,
+      "weight_decay": 0.01
+     },
+     "scores": [
+      0.2083,
+      0.2917,
+      0.1667,
+      0.25
+     ],
+     "mean": 0.2292,
+     "worst": 0.1667
+    },
+    {
+     "config": {
+      "kl_beta": 0.1,
+      "weight_decay": 0.03
+     },
+     "scores": [
+      0.25,
+      0.2917,
+      0.25,
+      0.25
+     ],
+     "mean": 0.2604,
+     "worst": 0.25
+    }
+   ],
+   "best": {
+    "kl_beta": 0.01,
+    "weight_decay": 0.01
+   },
+   "best_mean": 0.875,
+   "best_worst": 0.75
+  },
+  "umap": {
+   "rows": [
+    {
+     "config": {
+      "n_neighbors": 5
+     },
+     "scores": [
+      0.5833,
+      0.1667,
+      0.8333,
+      0.4583
+     ],
+     "mean": 0.5104,
+     "worst": 0.1667
+    },
+    {
+     "config": {
+      "n_neighbors": 8
+     },
+     "scores": [
+      0.25,
+      0.2083,
+      1.0,
+      0.25
+     ],
+     "mean": 0.4271,
+     "worst": 0.2083
+    },
+    {
+     "config": {
+      "n_neighbors": 12
+     },
+     "scores": [
+      0.375,
+      0.5417,
+      0.625,
+      0.75
+     ],
+     "mean": 0.5729,
+     "worst": 0.375
+    },
+    {
+     "config": {
+      "n_neighbors": 15
+     },
+     "scores": [
+      0.4167,
+      0.0417,
+      0.75,
+      0.625
+     ],
+     "mean": 0.4584,
+     "worst": 0.0417
+    },
+    {
+     "config": {
+      "n_neighbors": 23
+     },
+     "scores": [
+      0.7083,
+      0.125,
+      0.5417,
+      0.1667
+     ],
+     "mean": 0.3854,
+     "worst": 0.125
+    }
+   ],
+   "best": {
+    "n_neighbors": 12
+   },
+   "best_mean": 0.5729,
+   "best_worst": 0.375
+  }
+ }
+}

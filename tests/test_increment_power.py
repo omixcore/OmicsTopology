@@ -34,16 +34,20 @@ def _cloud(name, **by_method):
 
 
 # --------------------------------------------------------------------------
-# the field is the five methods worth spending 280 clouds on
+# the field is the nine methods worth spending 280 clouds on
 # --------------------------------------------------------------------------
-def test_the_field_is_the_five_methods_that_matter():
+def test_the_field_is_the_nine_methods_that_matter():
     assert set(ip.FIELD) == {"h1_cycle", "tsne_angle", "isomap_angle",
-                             "circle_fit_angle", "ae_2d_angle"}
+                             "circle_fit_angle", "ae_2d_angle",
+                             "ae_deep_2d_angle", "dae_2d_angle",
+                             "vae_2d_angle", "umap_angle"}
     for name, fn in ip.FIELD.items():
         assert callable(fn), name
     assert ip.FIELD["h1_cycle"] is iv.CLASSICAL_METHODS["h1_cycle"]
     assert ip.FIELD["tsne_angle"] is lb.LEARNED_METHODS["tsne_angle"]
     assert ip.FIELD["ae_2d_angle"] is lb.LEARNED_METHODS["ae_2d_angle"]
+    assert ip.FIELD["ae_deep_2d_angle"] is lb.LEARNED_METHODS["ae_deep_2d_angle"]
+    assert ip.FIELD["umap_angle"] is lb.LEARNED_METHODS["umap_angle"]
 
 
 def test_the_control_families_are_the_benchmark_ones_unchanged():

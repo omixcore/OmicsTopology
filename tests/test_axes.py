@@ -25,7 +25,7 @@ import pytest
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "examples"))
 
-from omictopo.axes import (  # noqa: E402
+from omictopo.legacy_axes import (  # noqa: E402
     AXIS_VERDICTS,
     CRITERIA,
     axis_geometry,

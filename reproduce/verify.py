@@ -321,7 +321,7 @@ def check_integrity(manifest: dict) -> None:
         if not path.exists():
             check(rel, False, "missing file")
             continue
-        got = hashlib.sha256(path.read_bytes()).hexdigest()
+        got = hashlib.sha256(path.read_bytes().replace(b"\r\n", b"\n") if manifest.get("newline_policy") == "LF" else path.read_bytes()).hexdigest()
         check(rel, got == want, f"sha {got[:12]}... want {want[:12]}...")
 
 
@@ -580,7 +580,7 @@ def check_protocol() -> None:
     want = PUBLISHED["protocol"]
     try:
         sys.path.insert(0, str(REPO / "src"))
-        from omictopo.protocol import envelope  # noqa: E402
+        from omictopo.legacy_protocol import envelope  # noqa: E402
         env = envelope()["measured"]
     except Exception as exc:  # pragma: no cover - package not importable
         print(f"  skip  package import unavailable ({exc})")

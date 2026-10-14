@@ -176,7 +176,7 @@ def test_a_heat_treatment_reproduces_a_high_mantel_effect():
     if root is None:
         pytest.skip("arabidopsis_heat not prepared on this machine")
     from axis_regularity import _load_plant, _plant_axes
-    from omictopo.axes import axis_geometry
+    from omictopo.legacy_axes import axis_geometry
 
     for key in ("arabidopsis_heat", "arabidopsis_TR"):
         X, hours, treat = _load_plant(root, key)

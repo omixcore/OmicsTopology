@@ -66,7 +66,7 @@ if _HERE not in sys.path:
 
 from prepare_cycle_designs import load  # noqa: E402
 
-from omictopo.axes import axis_geometry, summarise_axis  # noqa: E402
+from omictopo.legacy_axes import axis_geometry, summarise_axis  # noqa: E402
 
 # ---------------------------------------------------------------------------
 # the designs, with the answer that is already known about each one

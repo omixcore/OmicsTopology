@@ -32,6 +32,7 @@ from .cycles import (
     dominant_h1_cycles,
     h1_bar_lengths,
 )
+from .inference import spectral_count, stable_cycle_count, signal_spectrum
 from . import protocol
 from .protocol import analyse, envelope, summarise
 from . import axes
@@ -50,7 +51,7 @@ from .stats import (
 from .pipeline import run_states, StateTopologyReport
 from . import datasets
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 __all__ = [
     "PersistenceDiagram",
@@ -68,6 +69,9 @@ __all__ = [
     "count_cycles",
     "covariance_matched_null",
     "cycle_identifiability",
+    "spectral_count",
+    "stable_cycle_count",
+    "signal_spectrum",
     "analyse",
     "envelope",
     "summarise",

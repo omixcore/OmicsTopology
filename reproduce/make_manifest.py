@@ -38,6 +38,9 @@ INCLUDE = [
     "diagnosis_replicate_contribution.json",
     "diagnosis_period_drift.json",
     "results.json",
+    "v2/validation_plan.json",
+    "v2/validation.json",
+    "v2/real_validation.json",
 ]
 
 
@@ -59,13 +62,15 @@ def main() -> int:
             missing.append(name)
             continue
         files[f"benchmark/{name}"] = hashlib.sha256(
-            path.read_bytes()).hexdigest()
+            path.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
     if missing:
         print("missing (skipped):", ", ".join(missing))
     manifest = {
         "note": "sha256 of the committed raw benchmark data; regenerate only "
                 "when a benchmark is genuinely recomputed",
         "git_head": git_head(),
+        "newline_policy": "LF",
+        "schema_version": 2,
         "files": files,
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)

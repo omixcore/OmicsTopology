@@ -145,7 +145,7 @@ def adjust_pvalues(pvalues, method: str = "bh") -> np.ndarray:
     return out
 
 
-def mantel(a: np.ndarray, b: np.ndarray, n_perm: int = 5000,
+def legacy_mantel(a: np.ndarray, b: np.ndarray, n_perm: int = 5000,
            seed: int = 0) -> tuple:
     """Mantel correlation of two distance matrices, with a permutation p.
 
@@ -175,9 +175,61 @@ def mantel(a: np.ndarray, b: np.ndarray, n_perm: int = 5000,
     return r, p
 
 
+def mantel(a: np.ndarray, b: np.ndarray, n_perm: int = 5000,
+           seed: int = 0, *, strata=None, permutation="samples") -> tuple:
+    """Mantel effect and a joint row/column permutation tail probability.
+
+``strata`` restricts exchanges to samples in the same declared block. With
+``permutation='none'`` only the effect is returned and p is None, appropriate
+when temporal dependence or the study design does not justify exchangeability.
+Distance entries are never shuffled independently. The tail is one-sided.
+"""
+    a, b = np.asarray(a, float), np.asarray(b, float)
+    if a.ndim != 2 or a.shape != b.shape or a.shape[0] != a.shape[1]:
+        raise ValueError("matching square distance matrices are required")
+    if not np.isfinite(a).all() or not np.isfinite(b).all():
+        raise ValueError("distance matrices must be finite")
+    if not np.allclose(a, a.T) or not np.allclose(b, b.T):
+        raise ValueError("distance matrices must be symmetric")
+    if permutation not in ("samples", "none"):
+        raise ValueError("permutation must be samples or none")
+    n = len(a)
+    iu = np.triu_indices(n, 1)
+    u, v = a[iu], b[iu]
+    if u.size < 3 or np.std(u) <= 1e-15 or np.std(v) <= 1e-15:
+        return 0.0, None if permutation == "none" else 1.0
+    r = float(np.corrcoef(u, v)[0, 1])
+    if permutation == "none":
+        return r, None
+    if int(n_perm) != n_perm or n_perm < 1:
+        raise ValueError("n_perm must be a positive integer")
+    blocks = [np.arange(n)]
+    if strata is not None:
+        s = np.asarray(strata)
+        if s.shape != (n,):
+            raise ValueError("strata must have one label per sample")
+        blocks = [np.flatnonzero(s == level) for level in np.unique(s)]
+    if all(len(block) < 2 for block in blocks):
+        return r, None
+    rng = np.random.default_rng(seed)
+    exceed = 0
+    changed = False
+    for _ in range(int(n_perm)):
+        order = np.arange(n)
+        for block in blocks:
+            order[block] = rng.permutation(block)
+        shuffled = b[np.ix_(order, order)][iu]
+        changed = changed or not np.allclose(shuffled, v)
+        value = float(np.corrcoef(u, shuffled)[0, 1])
+        exceed += value >= r - 1e-12
+    return r, (exceed + 1.0) / (n_perm + 1.0) if changed else None
+
+
 def circular_distance(phase: np.ndarray, period: float = 2.0 * np.pi) -> np.ndarray:
     """Pairwise distance on a circle, taking the shorter way round."""
-    a = np.asarray(phase, dtype=float)
+    if not np.isfinite(period) or period <= 0:
+        raise ValueError("period must be positive and finite")
+    a = np.mod(np.asarray(phase, dtype=float), period)
     d = np.abs(a[:, None] - a[None, :])
     return np.minimum(d, period - d)
 

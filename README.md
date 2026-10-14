@@ -631,9 +631,11 @@ verdict is carried by the Mantel `r` of axis 2 and the geometry describes the
 axis pairs from 6 independent experiments and 5 organisms**, with the hypothesis
 written down before anything is scored. The natural hypothesis is **falsified** —
 a 1 h heat treatment reaches `r2 = +0.98` in both RNA fractions — and what
-survives is narrower: `r2` is ordered by *displacement* (`separation_ratio`), not
-by factor kind, so it answers "does axis 2 move the cloud?" rather than "is axis 2
-a second cycle?". A third negative result, and the honest form of the axis claim.
+survives is narrower, and true of this corpus rather than of the geometry in
+general: across the 7 real axis pairs `r2` is ordered by *displacement*
+(`separation_ratio`), not by factor kind, so it answers "does axis 2 move the
+cloud?" rather than "is axis 2 a second cycle?". A third negative result, and the
+honest form of the axis claim.
 See [Evidence §7b](docs/results.md#7b-across-the-corpus-a-hypothesis-dies-an-ordering-survives).
 
 

@@ -487,6 +487,13 @@ no Mantel effect however large the shift, while a condition that relocates sampl
 to a different region does. `r2` therefore answers *"does axis 2 displace the
 cloud?"*, which is a **different question** from *"is axis 2 a second cycle?"*.
 
+The ordering is true **of this corpus, not of the geometry in general**: the
+synthetic 8×8 grid of §7 (`synth_independent`) sits *under* a step of axis 1
+(ratio 0.557) and still reaches `r2 = +0.665`, so it is a counterexample to any
+claim that displacement always orders the Mantel effect. The ordering is reported
+as an empirical corpus-level observation — which is why the script scores it only
+on the real designs — and not as a law.
+
 This is the third negative result published for the axis module, and it is the
 honest form of the axis claim: the diagnostic measures displacement, and
 displacement is not cycle-ness. Two facts from the same corpus sharpen it:

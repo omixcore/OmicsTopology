@@ -32,6 +32,7 @@ INCLUDE = [
     "axis_separability.json",
     "axis_geometry_multi.json",
     "ultradian_two_oscillator.json",
+    "axis_regularity.json",
     "cycle_identifiability.json",
     "deep_tuning.json",
     "diagnosis_replicate_contribution.json",

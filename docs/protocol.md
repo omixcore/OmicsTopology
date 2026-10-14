@@ -140,6 +140,24 @@ Mantel `r` of axis 2 (+0.70 for two independent axes against −0.04 for a
 modulated or inert one), which is why the criteria let `r` carry the decision and
 use the geometric quantities to describe the *shape* of the effect.
 
+### The corpus-scale reading
+
+`examples/axis_regularity.py` (→ `benchmark/axis_regularity.json`) asks the
+cross-dataset question on **7 real axis pairs from 6 independent published
+experiments and 5 organisms**, on one code path, with the hypothesis and the
+criteria written into the script docstring *before* any dataset is scored. Its
+pre-registered hypothesis — "a condition-shaped second axis never carries an
+independent Mantel effect" — is **falsified**: a 1 h heat treatment reaches
+`r2 = +0.982` in both RNA fractions of the same experiment. What survives is an
+*ordering* rather than a partition: `r2` is set by displacement
+(`matched.separation_ratio`), and every design whose second axis moves points by
+more than 1.2 steps of axis 1 carries the largest effects. So `r2` answers *"does
+axis 2 displace the cloud?"*, which is a **different question** from *"is axis 2 a
+second cycle?"* — the third negative result published for this module. The one
+independently sampled second cycle in the corpus is also the one design where axis
+2 is confounded with the experiment, so there is still no clean positive case on
+real data. See [Evidence §7b](results.md#7b-across-the-corpus-a-hypothesis-dies-an-ordering-survives).
+
 ## Usage
 
 ```python

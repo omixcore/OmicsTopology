@@ -255,6 +255,30 @@ PUBLISHED = {
         "grid_13x9_full_signal_count": 2,
         "grid_13x9_half_signal_count": 1,
     },
+    # the cross-dataset regularity study (benchmark/axis_regularity.json)
+    "axis_regularity": {
+        "n_real_axis_pairs": 7,
+        "n_independent_experiments": 6,
+        "n_organisms": 5,
+        "same_experiment_groups": [["arabidopsis_heat", "arabidopsis_TR"]],
+        "r_strong": 0.5,
+        "condition_axes": 6,
+        "condition_axes_below_threshold": 4,
+        "coordinate_axes": 2,
+        "coordinate_axes_above_threshold": 2,
+        # the pre-registered hypothesis R1 dies here: a 1 h heat treatment is
+        # condition-shaped and reaches +0.98, in both RNA fractions
+        "R1_falsified_keys": ["arabidopsis_TR", "arabidopsis_heat"],
+        "R1_falsified_r2": 0.9821,
+        "R2_holds": True,
+        "R3_holds": True,
+        # what survives: an ordering by displacement rather than a partition by
+        # factor kind. >1.47 steps of axis 1 -> r2 >= 0.98; the highest r2
+        # under a step is the confounded pooled design at 0.54
+        "displacement_over_a_step_min_r2": 0.9794,
+        "displacement_under_a_step_max_r2": 0.5408,
+        "psme_annual_x_diurnal_r2": 0.5408,
+    },
     # the protocol's declared envelope (src/omictopo/protocol.py)
     "protocol": {
         "real_designs": 6,
@@ -788,11 +812,77 @@ def check_ultradian_two_oscillator() -> None:
           data["conclusion"][:60] + "...")
 
 
+def check_axis_regularity() -> None:
+    """The axis diagnostic across the whole corpus: the hypothesis that dies
+    and the ordering that survives."""
+    print("14. across the corpus: what the hypothesis got wrong, and what holds")
+    path = BENCH / "axis_regularity.json"
+    if not path.exists():
+        check("  benchmark/axis_regularity.json exists", False, "missing")
+        return
+    data = json.loads(path.read_text(encoding="utf-8"))
+    want = PUBLISHED["axis_regularity"]
+    t = data["tally"]
+
+    check("  the corpus is the size claimed",
+          t["n_real_axis_pairs"] == want["n_real_axis_pairs"]
+          and t["n_independent_experiments"] == want["n_independent_experiments"]
+          and t["n_organisms"] == want["n_organisms"]
+          and abs(t["r_strong"] - want["r_strong"]) < 1e-9,
+          f"{t['n_real_axis_pairs']} pairs, "
+          f"{t['n_independent_experiments']} experiments, {t['n_organisms']} organisms")
+
+    check("  the two RNA fractions of one experiment are declared, not counted twice",
+          [list(g) for g in t["same_experiment_groups"]]
+          == want["same_experiment_groups"],
+          str(t["same_experiment_groups"]))
+
+    check("  the pre-registered hypothesis R1 is falsified, and recorded as such",
+          t["R1_holds"] is False
+          and t["condition_axes_below_threshold"]
+          == want["condition_axes_below_threshold"],
+          f"R1_holds={t['R1_holds']}, "
+          f"{t['condition_axes_below_threshold']}/{t['condition_axes']} "
+          "condition axes below threshold")
+
+    above = {r["key"]: r["r2"] for r in t["condition_axes_above_threshold"]}
+    check("  the falsifier is the same heat treatment in both RNA fractions",
+          sorted(above) == sorted(want["R1_falsified_keys"])
+          and all(abs(v - want["R1_falsified_r2"]) < 0.02 for v in above.values()),
+          str(above))
+
+    check("  R2 survives: the one independently sampled cycle clears r_strong",
+          t["R2_holds"] is True
+          and t["coordinate_axes_above_threshold"]
+          == want["coordinate_axes_above_threshold"],
+          f"{t['coordinate_axes_above_threshold']}/{t['coordinate_axes']}")
+
+    check("  R3 survives: the number of axis-2 levels does not order r2",
+          t["R3_holds"] is True,
+          t["R3_levels_vs_r2"]["note"])
+
+    do = t["displacement_ordering"]
+    check("  the ordering that replaces the hypothesis is displacement, not kind",
+          do["over_a_step_of_axis1"]["min_r2"]
+          >= want["displacement_over_a_step_min_r2"] - 0.01
+          and do["under_a_step_of_axis1"]["max_r2"]
+          <= want["displacement_under_a_step_max_r2"] + 0.01,
+          f"over a step {do['over_a_step_of_axis1']['min_r2']} > "
+          f"under a step {do['under_a_step_of_axis1']['max_r2']}")
+
+    check("  the one candidate positive case keeps its caveat rather than "
+          "being sold as a clean one",
+          "confounded" in t["R2_caveat"]
+          and abs(do["under_a_step_of_axis1"]["max_r2"]
+                  - want["psme_annual_x_diurnal_r2"]) < 0.01,
+          t["R2_caveat"][:70] + "...")
+
+
 # --------------------------------------------------------------------------
 # layer 4 (optional): the executable spec
 # --------------------------------------------------------------------------
 def run_full() -> None:
-    print("14. the executable spec (--full)")
+    print("15. the executable spec (--full)")
     r = subprocess.run([sys.executable, "-m", "pytest", "-q", str(REPO)],
                        capture_output=True, text=True)
     tail = (r.stdout.strip().splitlines() or ["<no output>"])[-1]
@@ -834,6 +924,7 @@ def main() -> int:
     check_axis_separability()
     check_axis_geometry_multi()
     check_ultradian_two_oscillator()
+    check_axis_regularity()
     if args.full:
         run_full()
 

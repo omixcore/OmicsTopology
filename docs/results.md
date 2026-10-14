@@ -445,3 +445,56 @@ modulated or inert one). The criteria are therefore written so that `r` carries
 the decision and the geometric quantities describe the *shape* of the effect —
 which is the honest statement of what the diagnostic is doing, and the reason the
 negative results above are in the record rather than in a footnote.
+
+### 7b. Across the corpus: a hypothesis dies, an ordering survives
+
+§7 validated the diagnostic on seven axis pairs read as independent results.
+`examples/axis_regularity.py` (→ `benchmark/axis_regularity.json`) asks the
+*cross-dataset* question instead, on the same **7 real axis pairs from 6
+independent published experiments and 5 organisms**, all scored on one code path.
+The hypothesis and the criteria are written into the script's docstring **before**
+any dataset is scored.
+
+**The pre-registered hypothesis is false.** The natural guess — "a
+condition-shaped second axis never carries an independent Mantel effect" — is
+falsified by a 1 h heat treatment. `GSE158444` is a time × treatment design whose
+treatment axis is unambiguously a *condition*, and it reaches **r2 = +0.982**, and
+does so in *both* RNA fractions of the same experiment (+0.979), so the
+counterexample is not one noisy library set. The oestrous, sleep-wake and
+day-index axes stay near zero; the heat axis does not. There is no partition by
+factor kind.
+
+**What survives is an ordering, not a partition.** The quantity that orders the
+corpus is *displacement* — how far axis 2 moves the state cloud relative to a step
+of axis 1, reported as `matched.separation_ratio`. The two designs whose second
+axis moves points by **more than 1.2 steps of axis 1** carry the two largest
+Mantel effects in the corpus; every design whose second axis moves points by less
+sits at +0.54 or below.
+
+| design | axis 2 | levels | r2 | ratio | over 1.2 steps? |
+|---|---|---|---|---|---|
+| estrous_circadian_grid | oestrous phase | 4 | +0.006 | 0.876 | no |
+| human_forced_desync | sleep-wake | 2 | +0.003 | 0.915 | no |
+| psme_diurnal | day index | 2 | +0.098 | 0.826 | no |
+| yeast_cell_cycle | genotype | 2 | +0.458 | 1.089 | no |
+| psme_annual_x_diurnal | annual phase (pooled) | 16 | +0.541 | 0.782 | no |
+| arabidopsis_TR | 1 h heat | 2 | +0.979 | 1.462 | **yes** |
+| arabidopsis_heat | 1 h heat | 2 | +0.982 | 1.471 | **yes** |
+
+The mechanism is geometric: a coherent phase shift is an *isometry* of axis 1's
+own loop — it relabels the points without changing their distances — so it leaves
+no Mantel effect however large the shift, while a condition that relocates samples
+to a different region does. `r2` therefore answers *"does axis 2 displace the
+cloud?"*, which is a **different question** from *"is axis 2 a second cycle?"*.
+
+This is the third negative result published for the axis module, and it is the
+honest form of the axis claim: the diagnostic measures displacement, and
+displacement is not cycle-ness. Two facts from the same corpus sharpen it:
+
+* the one independently sampled second cycle (`psme_annual_x_diurnal`) is also the
+  one design where axis 2 is *perfectly confounded* with which of the two pooled
+  experiments a sample came from — so there is still **no clean positive case on
+  real data**, the same wall `two_cycle_search.py` reports from the counting side,
+  arriving here from the axis side;
+* the number of axis-2 levels does not order `r2`: a 2-level label spans almost the
+  whole observed range (+0.003 to +0.982).

@@ -117,9 +117,30 @@ calibration in ``examples/axis_geometry_multi.py``, is ``mantel_r_axis2``:
 criteria above are therefore written so that ``r2`` carries the decision and the
 geometric quantities describe the shape of the effect.
 
+* **``mantel_r_axis2`` measures displacement, not cyclicity** -- the third
+  negative result, and the one with the widest consequence.  The corpus in
+  ``examples/axis_regularity.py`` (seven axis pairs, six independent
+  experiments, five organisms) was scored against the natural hypothesis that a
+  *condition*-shaped second axis never carries an independent effect, and the
+  hypothesis is **falsified**: a 1 h 37 C heat treatment reaches
+  ``r2 = +0.982`` and does so in both RNA fractions of the same experiment,
+  while the oestrous cycle -- four sampled phases on a real 96 h cycle --
+  reaches ``+0.006``.  The mechanism is that a coherent phase shift is an
+  *isometry* of axis 1's own loop: it relabels the points without changing their
+  distances, so it leaves no Mantel effect however large the shift, whereas a
+  condition that relocates samples to a different region leaves a large one.
+  ``independent_axes`` therefore means **"axis 2 carries a displaced copy of the
+  cloud"**, which is *not* the same as "axis 2 is a second cycle".  Read the
+  verdict with that in mind, and read :mod:`omictopo.protocol` for the cyclic
+  question: the two modules answer two different questions and this is the
+  boundary between them.
+
 Reference: on the one measured grid where the question has a published answer
 (PRJNA1348461, mouse liver clock x oestrous) this returns ``"modulation"`` with
-``r2 = +0.006``, ``coh = 0.92``, ``shift_qp = 0.37``, ``ratio = 0.88``.
+``r2 = +0.006``, ``coh = 0.92``, ``shift_qp = 0.37``, ``ratio = 0.88``.  The
+corpus that puts that number in context is in
+``examples/axis_regularity.py``; its falsified hypothesis and its surviving
+ordering are recorded there rather than here.
 """
 from __future__ import annotations
 

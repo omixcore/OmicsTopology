@@ -627,6 +627,15 @@ matched-distance ratio is not monotone in the size of the second axis — so the
 verdict is carried by the Mantel `r` of axis 2 and the geometry describes the
 *shape* of the effect.
 
+`examples/axis_regularity.py` then asks the cross-dataset question on **7 real
+axis pairs from 6 independent experiments and 5 organisms**, with the hypothesis
+written down before anything is scored. The natural hypothesis is **falsified** —
+a 1 h heat treatment reaches `r2 = +0.98` in both RNA fractions — and what
+survives is narrower: `r2` is ordered by *displacement* (`separation_ratio`), not
+by factor kind, so it answers "does axis 2 move the cloud?" rather than "is axis 2
+a second cycle?". A third negative result, and the honest form of the axis claim.
+See [Evidence §7b](docs/results.md#7b-across-the-corpus-a-hypothesis-dies-an-ordering-survives).
+
 
 ## API tour
 
@@ -729,6 +738,7 @@ examples/          runnable demos; see the files
   estrous_grid_cycles.py      the one measured 12x4 clock x oestrous grid: why it counts 1
   axis_separability.py        what the topology says a per-gene clock fit cannot
   axis_geometry_multi.py      the axis diagnostic on 3 calibrations + every 2-axis design
+  axis_regularity.py          the same question across 6 experiments / 5 organisms (pre-registered)
   ultradian_two_oscillator.py GSE220120: two frequencies in one tissue, and why it counts 0
   cycle_counting_power.py     when does the count work? (measured, not assumed)
   incremental_value.py        the H1 cycle against 21 baselines, fixed and learned
@@ -752,14 +762,14 @@ docs/
                               guide, evidence table, the protocol, generated API reference
   fig_*.png                   every figure the scripts produce
 benchmark/         committed result tables of every experiment
-tests/             229 pytest cases, no network needed
+tests/             239 pytest cases, no network needed
 ```
 
 ## Running the tests
 
 ```bash
 pip install -e ".[dev]"
-pytest                 # 229 tests, no network and no benchmark data required
+pytest                 # 239 tests, no network and no benchmark data required
 sh tools/ci.sh         # install + tests + generated-docs check, as CI runs them
 sh reproduce/run_all.sh   # the third-party reproduction, from this tree or a fresh clone
 ```

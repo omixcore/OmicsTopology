@@ -39,7 +39,7 @@ say how far each result can be pushed before it stops being evidence.
 
 ```bash
 pip install -e ".[dev]"          # numpy, scipy, pytest, matplotlib
-python -m pytest                 # 229 tests, no network needed
+python -m pytest                 # 239 tests, no network needed
 python tools/gen_api_docs.py     # regenerate the API reference
 sh tools/ci.sh                   # the same checks the hosted CI runs
 ```
@@ -59,6 +59,7 @@ python examples/two_cycle_search.py --cache data/geo_cache
 python examples/estrous_grid_cycles.py --root data/cycle_designs
 python examples/axis_separability.py --root data/cycle_designs
 python examples/axis_geometry_multi.py --root data/cycle_designs
+python examples/axis_regularity.py --designs data/cycle_designs --plant data
 python examples/ultradian_two_oscillator.py --cache data/geo_cache
 ```
 
@@ -82,6 +83,14 @@ they constrain what the method may be used for:
   coherent phase offset of the clock's own loop (coherence 0.92), not an
   independent coordinate. `examples/two_cycle_search.py` states the grid that
   *would* count 2 as a number (>= 64 samples, at full signal).
+* The axis-geometry diagnostic does **not** partition axes by kind. Across 7 real
+  axis pairs from 6 independent experiments and 5 organisms, the pre-registered
+  guess — "a condition-shaped second axis never carries an independent Mantel
+  effect" — is falsified by a 1 h heat treatment at `r2 = +0.98`. What the corpus
+  supports is an *ordering by displacement*, not a rule about factor kind: `r2`
+  measures whether axis 2 moves the cloud, which is a different question from
+  whether it is a second cycle. The diagnostic publishes this as its third
+  negative result (`benchmark/axis_regularity.json`).
 * A topology-guided gene-selection procedure was implemented, tested on four
   real designs and **rejected**: it improved nothing and its calibration fired
   on a cloud with no cycle in it. It remains in the package with that warning

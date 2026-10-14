@@ -137,6 +137,15 @@ _ENVELOPE = {
             "topological obstruction. See examples/ultradian_two_oscillator.py"),
         "axis_geometry_designs": 7,
         "axis_geometry_verdicts_agree": 7,
+        "axis_regularity_experiments": 6,
+        "axis_regularity_axis_pairs": 7,
+        "axis_regularity_organisms": 5,
+        "axis_regularity_pre_registered_hypothesis": (
+            "falsified -- a 1 h heat treatment is a condition-shaped second "
+            "axis and reaches Mantel r2 = +0.98 in both RNA fractions, so a "
+            "condition is not automatically a modulation; what survives is an "
+            "ordering by displacement, not a rule about factor kind. See "
+            "examples/axis_regularity.py"),
     },
     "cannot_do": [
         "recover a loop whose signal sits in a minority of the selected genes",

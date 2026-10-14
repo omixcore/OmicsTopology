@@ -1,6 +1,6 @@
 {
  "note": "sha256 of the committed raw benchmark data; regenerate only when a benchmark is genuinely recomputed",
- "git_head": "2d815edb377d057e440559c5bae67821f1a4037d",
+ "git_head": "6fe612c72791528e1f1dcd0f7c96c4e5b0e07f37",
  "files": {
   "benchmark/incremental_value.json": "6686c0d855666fe6df47d63eb5dd4c1b8af0e87f934116991c9ad3a999b33f37",
   "benchmark/increment_power.json": "788dd514b62fb71d67230aaddd869a4c99048f164103855008ddf7dad012b94f",

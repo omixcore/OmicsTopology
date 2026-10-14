@@ -165,6 +165,25 @@ PUBLISHED = {
             "pooled_all_samples": {"gap": 1.0908, "n_cycles": 0},
         },
     },
+    # the two-parameter search (benchmark/two_cycle_search.json)
+    "two_cycle_search": {
+        "estrous_count": 0,
+        "estrous_mantel_r_24h": 0.1076,
+        "estrous_mantel_r_96h": 0.1440,
+        "grid_min_samples_full_signal": 64,
+        "grid_min_grid": "8x8",
+        "grid_13x9_full_signal_count": 2,
+        "grid_13x9_half_signal_count": 1,
+    },
+    # the protocol's declared envelope (src/omictopo/protocol.py)
+    "protocol": {
+        "real_designs": 5,
+        "real_designs_counted_correctly": 2,
+        "gap_on_designs_counted_right": [3.56, 4.93],
+        "gap_on_designs_not_counted": [1.07, 1.09, 1.36],
+        "two_parameter_grid_min_samples_at_full_signal": 64,
+        "two_parameter_grid_grid": "8x8",
+    },
 }
 
 failures: list[str] = []
@@ -371,8 +390,122 @@ def check_cycle_counting_real() -> None:
 # --------------------------------------------------------------------------
 # layer 4 (optional): the executable spec
 # --------------------------------------------------------------------------
+def check_two_cycle_search() -> None:
+    print("8. the two-parameter search (the missing experiment is a grid)")
+    data = json.loads((BENCH / "two_cycle_search.json").read_text(encoding="utf-8"))
+    want = PUBLISHED["two_cycle_search"]
+
+    est = data["measured_single_axis_case"]
+    check("  GSE12289: one sampling axis, two frequencies -> count 0",
+          est["n_cycles_detected"] == want["estrous_count"],
+          f"got {est['n_cycles_detected']}")
+    # the point of the measured case: both rhythms are there, neither dominates
+    check("  both rhythms present and significant (24 h and 96 h)",
+          close(est["mantel_r_time_of_day"], want["estrous_mantel_r_24h"])
+          and close(est["mantel_r_estrous"], want["estrous_mantel_r_96h"])
+          and est["mantel_p_time_of_day"] < 0.05
+          and est["mantel_p_estrous"] < 0.05,
+          f"r24={est['mantel_r_time_of_day']} r96={est['mantel_r_estrous']}")
+
+    rows = data["grid_requirement"]["rows"]
+    full = [r for r in rows if r["signal_fraction"] == 1.0 and r["correct"]]
+    smallest = min(full, key=lambda r: r["n_samples"]) if full else {}
+    check("  two cycles only above 64 samples at full signal",
+          smallest.get("n_samples") == want["grid_min_samples_full_signal"]
+          and smallest.get("grid") == want["grid_min_grid"],
+          f"smallest working grid: {smallest.get('grid')} "
+          f"({smallest.get('n_samples')})")
+    check("  the published 13 x 9 grid is reproduced end to end",
+          any(r["grid"] == "13x9" and r["signal_fraction"] == 1.0
+              and r["n_cycles_detected"] == want["grid_13x9_full_signal_count"]
+              for r in rows))
+    check("  dilution destroys the second loop",
+          any(r["grid"] == "13x9" and r["signal_fraction"] == 0.5
+              and r["n_cycles_detected"] == want["grid_13x9_half_signal_count"]
+              for r in rows)
+          and all(not r["correct"] for r in rows
+                  if r["signal_fraction"] <= 0.25))
+
+
+def check_protocol() -> None:
+    print("9. the protocol's decisions agree with the committed record")
+    data = json.loads((BENCH / "cycle_counting_real.json").read_text(encoding="utf-8"))
+    prim = {k: v for k, v in data["results"].items() if v.get("primary")}
+
+    # the rule re-implemented from its definition, not imported
+    def status_of(res: dict) -> str:
+        gap = res.get("gap") or 0.0
+        r = res.get("mantel_r")
+        dominant = gap >= 2.0            # the calibrated dominant-bar threshold
+        ring = r is not None and r >= 0.5  # the effect-size cut
+        if dominant and ring:
+            st = "counted"
+        elif dominant and not ring:
+            st = "inconsistent"
+        elif ring and not dominant:
+            st = "underpowered"
+        else:
+            st = "no_cycle"
+        if st == "counted" and res["n_cycles"] < 1:
+            st = "underpowered"
+        return st
+
+    # four of the five primary designs: no dominant bar -> the rule refuses,
+    # and a refusal is the correct response to a count that is also wrong
+    for label, res in prim.items():
+        if label == "cellcycle_two_genotypes":
+            continue  # the documented exception, asserted separately below
+        if res["correct"]:
+            check(f"  {label}: counted", status_of(res) == "counted",
+                  f"status {status_of(res)} gap {res['gap']}")
+        else:
+            check(f"  {label}: no dominant bar -> refusal",
+                  status_of(res) in ("underpowered", "no_cycle")
+                  and res["gap"] < 2.0,
+                  f"status {status_of(res)} gap {res['gap']}")
+
+    # the boundary the protocol is honest about
+    y = prim["cellcycle_two_genotypes"]
+    check("  yeast cell cycle: counted right but the effect-size rule flags it "
+          "(documented, not a bug)",
+          bool(y["correct"]) and y["gap"] >= 2.0 and y["mantel_r"] < 0.5
+          and status_of(y) == "inconsistent",
+          f"gap {y['gap']} r {y['mantel_r']} status {status_of(y)}")
+
+    # the package's declared envelope must match the records it summarises
+    want = PUBLISHED["protocol"]
+    try:
+        sys.path.insert(0, str(REPO / "src"))
+        from omictopo.protocol import envelope  # noqa: E402
+        env = envelope()["measured"]
+    except Exception as exc:  # pragma: no cover - package not importable
+        print(f"  skip  package import unavailable ({exc})")
+        return
+    check("  package envelope: design counts match the record",
+          env["real_designs"] == want["real_designs"] == data["n_primary"]
+          and env["real_designs_counted_correctly"]
+          == want["real_designs_counted_correctly"]
+          == data["n_primary_correct"],
+          f"envelope {env['real_designs']} designs / "
+          f"{env['real_designs_counted_correctly']} right")
+    check("  package envelope: both gap lists match the record",
+          sorted(env["gap_on_designs_counted_right"])
+          == sorted(want["gap_on_designs_counted_right"])
+          and sorted(env["gap_on_designs_not_counted"])
+          == sorted(want["gap_on_designs_not_counted"]),
+          f"{env['gap_on_designs_counted_right']} / "
+          f"{env['gap_on_designs_not_counted']}")
+    check("  package envelope: grid minimum matches the search record",
+          env["two_parameter_grid_min_samples_at_full_signal"]
+          == want["two_parameter_grid_min_samples_at_full_signal"]
+          and env["two_parameter_grid_grid"] == want["two_parameter_grid_grid"])
+
+
+# --------------------------------------------------------------------------
+# layer 4 (optional): the executable spec
+# --------------------------------------------------------------------------
 def run_full() -> None:
-    print("7. the executable spec (--full)")
+    print("10. the executable spec (--full)")
     r = subprocess.run([sys.executable, "-m", "pytest", "-q", str(REPO)],
                        capture_output=True, text=True)
     tail = (r.stdout.strip().splitlines() or ["<no output>"])[-1]
@@ -408,6 +541,8 @@ def main() -> int:
     check_topology_without_labels()
     check_deep_tuning()
     check_cycle_counting_real()
+    check_two_cycle_search()
+    check_protocol()
     if args.full:
         run_full()
 

@@ -145,6 +145,43 @@ def adjust_pvalues(pvalues, method: str = "bh") -> np.ndarray:
     return out
 
 
+def mantel(a: np.ndarray, b: np.ndarray, n_perm: int = 5000,
+           seed: int = 0) -> tuple:
+    """Mantel correlation of two distance matrices, with a permutation p.
+
+    This is the protocol's *second, orthogonal* diagnostic.  ``count_cycles``
+    answers "is there a dominant loop in the geometry?"; a Mantel correlation
+    against the design's own cyclic axis answers "is that loop the one the
+    design was built to sample?"  The two disagree in both directions and the
+    disagreement is informative — a flat spectrum with a strong Mantel ``r`` is
+    a real cycle that the count cannot resolve, while a dominant bar with a
+    weak ``r`` is a loop that does not follow the axis.
+
+    Note that this uses the design axis, so it is **not** part of the
+    label-free claim; it is the check that keeps the label-free claim honest.
+    """
+    a = np.asarray(a, dtype=float)
+    b = np.asarray(b, dtype=float)
+    iu = np.triu_indices(a.shape[0], 1)
+    u, v = a[iu], b[iu]
+    if u.size < 3 or np.std(u) == 0 or np.std(v) == 0:
+        return 0.0, 1.0
+    r = float(np.corrcoef(u, v)[0, 1])
+    rng = np.random.default_rng(seed)
+    null = np.empty(int(n_perm), dtype=float)
+    for i in range(int(n_perm)):
+        null[i] = np.corrcoef(u, v[rng.permutation(v.size)])[0, 1]
+    p = float((np.count_nonzero(null >= r) + 1) / (n_perm + 1))
+    return r, p
+
+
+def circular_distance(phase: np.ndarray, period: float = 2.0 * np.pi) -> np.ndarray:
+    """Pairwise distance on a circle, taking the shorter way round."""
+    a = np.asarray(phase, dtype=float)
+    d = np.abs(a[:, None] - a[None, :])
+    return np.minimum(d, period - d)
+
+
 def _statistic(
     name: str,
     dgm_a: PersistenceDiagram,

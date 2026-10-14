@@ -24,12 +24,16 @@ say how far each result can be pushed before it stops being evidence.
 * **A cycle count**: `beta_1` read as a model-selection answer, "how many
   independent cyclic parameters does this state space have?", together with the
   decision rule that says when the count is worth reporting at all.
+* **A calibrated protocol** (`omictopo.protocol`): the decision rule wrapped as a
+  reusable procedure that returns a *status* — `counted`, `underpowered`,
+  `inconsistent`, `no_cycle` — and refuses to quote an integer the spectrum does
+  not support. See [The protocol](protocol.md).
 
 ## Quick start
 
 ```bash
 pip install -e ".[dev]"          # numpy, scipy, pytest, matplotlib
-python -m pytest                 # 194 tests, no network needed
+python -m pytest                 # 207 tests, no network needed
 python tools/gen_api_docs.py     # regenerate the API reference
 sh tools/ci.sh                   # the same checks the hosted CI runs
 ```
@@ -45,6 +49,7 @@ python examples/cycle_counting_real.py --root data/cycle_designs
 python examples/cycle_counting_power.py
 python examples/incremental_value.py --data-root data/datasets
 python examples/cycle_identifiability.py --root data/cycle_designs
+python examples/two_cycle_search.py --cache data/geo_cache
 ```
 
 ## Read this before quoting a number
@@ -56,9 +61,14 @@ they constrain what the method may be used for:
   test score the same for **detection** (8/10). The audit is in
   `benchmark/statistical_audit.json` and it is why the claims here are about
   ordering rather than about detection.
-* The cycle count works on **one of four** real designs. The other three fail
+* The cycle count works on **two of five** real designs. The other three fail
   for a measured reason, not an unknown one, and the decision rule that
   separates them is part of the package.
+* The two-parameter claim — "the count returns 2" — holds on a simulated grid
+  and on **no measured design**: a single sampling axis with two frequencies is
+  a closed geodesic, not a torus. The missing experiment is a *grid*, and
+  `examples/two_cycle_search.py` states it as a number (>= 64 samples, at full
+  signal).
 * A topology-guided gene-selection procedure was implemented, tested on four
   real designs and **rejected**: it improved nothing and its calibration fired
   on a cloud with no cycle in it. It remains in the package with that warning

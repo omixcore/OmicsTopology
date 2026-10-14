@@ -56,9 +56,12 @@ test suite.
 
 Recomputable offline from committed raw records: every number in the
 17-method incremental-value benchmark, the detection-axis audit, the
-label-free phase-recovery results and the cycle-count results.  The
-per-cloud records behind them are committed under `benchmark/`, and
-`verify.py` re-derives all of them without the network.
+label-free phase-recovery results, the cycle-count results and the
+two-parameter search.  The per-cloud records behind them are committed under
+`benchmark/`, and `verify.py` re-derives all of them without the network.  The
+two-parameter section additionally checks the *protocol's own declared
+envelope* (`omictopo.protocol.envelope()`) against those records, so the
+boundary the package publishes about itself cannot go stale.
 
 Not re-runnable offline: re-running the incremental-value benchmark end to
 end, which needs the ten public GEO series.  The `data/` caches are

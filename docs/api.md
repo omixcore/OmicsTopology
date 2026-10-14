@@ -17,6 +17,7 @@ quoting a number.
 - [omictopo.compare](#omictopocompare) — Distances between diagrams
 - [omictopo.stats](#omictopostats) — Permutation tests, corrections and intervals
 - [omictopo.cycles](#omictopocycles) — Representative cycles, cyclic order, cycle counts
+- [omictopo.protocol](#omictopoprotocol) — The calibrated inference protocol: cloud -> status
 - [omictopo.pipeline](#omictopopipeline) — End-to-end comparison of two state clouds
 - [omictopo.summary](#omictoposummary) — Human-readable reports
 - [omictopo.io](#omictopoio) — Reading and writing tables
@@ -184,6 +185,26 @@ GF(2) boundary reduction that also returns the reduced columns.
 ### `topology_guided_cycle(X: 'np.ndarray', n_keep: 'int | None' = None, n_iter: 'int' = 2, rank: 'int' = 1, metric: 'str' = 'correlation', max_simplices: 'int' = 1000000) -> 'dict'`
 
 Find a cycle, keep the genes that follow it, and look again.
+
+## omictopoprotocol
+
+*The calibrated inference protocol: cloud -> status*
+
+### `STATUSES`
+
+Built-in immutable sequence.
+
+### `analyse(X: 'np.ndarray', axis=None, *, period: 'float | None' = None, n_null: 'int' = 120, n_perm: 'int' = 2000, seed: 'int' = 0, metric: 'str' = 'correlation', gap_threshold: 'float' = 2.0, r_threshold: 'float' = 0.5) -> 'dict'`
+
+Run the whole protocol on one cloud and return a status, not just a count.
+
+### `envelope() -> 'dict'`
+
+The declared applicability conditions of the protocol.
+
+### `summarise(rec: 'dict') -> 'str'`
+
+One line for a results table, in the protocol's voice.
 
 ## omictopopipeline
 

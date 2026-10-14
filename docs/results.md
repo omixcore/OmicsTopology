@@ -262,3 +262,62 @@ It failed on both counts.
 The function stays in the package with that warning in its docstring, because
 a documented failure is more useful than a missing one. The decision rule in
 §3 does not depend on it.
+
+## 5. The two-parameter case: the missing experiment is a *grid*
+
+`beta_1` claims to count independent cyclic *parameters*. The positive half of
+that claim — "there are two cycles here and the count returns 2" — holds on a
+simulated grid and on **no measured design**. `examples/two_cycle_search.py`
+(→ `benchmark/two_cycle_search.json`) is the accounting, and the reason is
+topological rather than statistical.
+
+**One axis, two frequencies, is a knot — not a torus.** If
+`t -> (t/P1, t/P2)` wraps a closed curve in the state space, its image is a
+closed geodesic on the torus, which is topologically a circle, so `beta_1 <= 1`
+however many rhythms ride on the single axis. The prediction was checked on the
+one downloadable dataset of that shape:
+
+| cloud | samples | count | gap | Mantel vs 24 h | Mantel vs 96 h |
+|---|---|---|---|---|---|
+| GSE12289 (rat mammary, ~4-day estrous time course) | 32 | **0** | 1.25 | +0.11 (p = 0.0085) | +0.14 (p = 0.001) |
+
+Both rhythms are present and significant, and neither dominates the selected
+genes: the cloud is an arc, so there is nothing to count. The topological
+prediction holds on real data.
+
+**No public grid with processed data was found.** The candidates, and where each
+one stopped, are recorded in the JSON. The closest is a 2026 mouse-liver study
+sampling the four estrous phases against twelve two-hourly clock times — a
+genuine 4 x 12 grid — but only raw FASTQ is deposited, and its own analysis
+reports the estrous effect as a modulation of circadian *amplitude* rather than
+a second cycle of comparable size. The canonical two-oscillator protocol, human
+forced desynchrony (GSE48113), releases only two sleep/wake phases, which is an
+arc rather than a loop.
+
+**So the experiment can be stated as a number.** Simulating the grid the
+analysis points at — one period of each parameter, both fully sampled, with a
+realistic dilution of the signal across the selected genes:
+
+| grid | samples | signal fraction | count |
+|---|---|---|---|
+| 6 x 6 | 36 | 1.00 | 0 |
+| **8 x 8** | **64** | **1.00** | **2** |
+| 13 x 9 | 117 | 1.00 | 2 |
+| 13 x 9 | 117 | 0.50 | 1 |
+| 13 x 9 | 117 | 0.25 | 0 |
+
+The count survives only when the grid is large (**>= 64 samples**) *and* the
+cycles are carried by essentially all of the high-variance genes. That is the
+honest envelope of the two-parameter claim, and it is the cheapest experiment
+this analysis points at.
+
+## 6. The protocol
+
+`omictopo.protocol` turns the decision rule of §3 into a reusable procedure that
+returns a status — `counted`, `underpowered`, `inconsistent`, `no_cycle` — and
+refuses to quote an integer the spectrum does not support. Applied to the five
+real designs of block C it says *counted* twice and **refuses three times**,
+with the two diagnostics (`gap` and the circular Mantel `r`) reported alongside
+so every refusal can be audited. The declared envelope is returned by
+`envelope()` and re-checked by `reproduce/verify.py`. See
+[docs/protocol.md](protocol.md).

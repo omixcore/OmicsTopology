@@ -1,0 +1,319 @@
+{
+ "question": "does any measured design have two independent cyclic parameters, and does the count return 2?",
+ "topological_requirement": "two independently sampled axes; one axis with two frequencies is a closed geodesic",
+ "candidates": [
+  {
+   "source": "GSE12289",
+   "organism": "Rattus norvegicus",
+   "tissue": "mammary gland",
+   "design": "singlet sampling every ~2-3 h over ~4 days of the estrous cycle",
+   "n_samples": 32,
+   "axes": 1,
+   "cyclic_parameters": 1,
+   "verdict": "one sampling axis with two frequencies -- a (4,1) torus knot, topologically a circle; measured below"
+  },
+  {
+   "source": "PRJNA1348461 (Smith et al., bioRxiv 2026)",
+   "organism": "Mus musculus",
+   "tissue": "liver",
+   "design": "4 estrous phases x 12 two-hourly clock times (48 females)",
+   "n_samples": 48,
+   "axes": 2,
+   "cyclic_parameters": 2,
+   "verdict": "the one genuine grid found; only raw FASTQ deposited, and the authors' own analysis reports the estrous effect as a modulation of circadian *amplitude* rather than a second cycle of comparable size"
+  },
+  {
+   "source": "GSE48113",
+   "organism": "Homo sapiens",
+   "tissue": "whole blood (forced desynchrony)",
+   "design": "22 people x 7 circadian phases x 2 sleep/wake phases",
+   "n_samples": 287,
+   "axes": 2,
+   "cyclic_parameters": 2,
+   "verdict": "the canonical two-oscillator protocol, but only 2 sleep/wake phases are released -- an arc, not a loop; and the circadian program is absent from the high-variance blood genes (Mantel r = +0.045), so it counts 0 for a second reason"
+  },
+  {
+   "source": "GSE93067 + GSE93066",
+   "organism": "Pseudotsuga menziesii",
+   "tissue": "needles",
+   "design": "yearlong series pooled with a 48 h series",
+   "n_samples": 138,
+   "axes": 2,
+   "cyclic_parameters": 2,
+   "verdict": "two independent real cycles, but two separate sample collections: pooling dilutes both and the count returns 0"
+  }
+ ],
+ "measured_single_axis_case": {
+  "accession": "GSE12289",
+  "n_samples": 32,
+  "span_hours": 81.1,
+  "n_cycles_detected": 0,
+  "top_bars_rel": [
+   0.3604,
+   0.2891,
+   0.1776,
+   0.1498
+  ],
+  "null_q95": 0.4523,
+  "gap": 1.247,
+  "mantel_r_time_of_day": 0.1076,
+  "mantel_p_time_of_day": 0.008496,
+  "mantel_r_estrous": 0.144,
+  "mantel_p_estrous": 0.001
+ },
+ "grid_requirement": {
+  "periods_hours": [
+   24.0,
+   96.0
+  ],
+  "n_genes": 3000,
+  "noise_sd": 1.0,
+  "rows": [
+   {
+    "grid": "3x3",
+    "n_samples": 9,
+    "signal_fraction": 1.0,
+    "n_signal_genes": 3000,
+    "n_cycles_detected": 0,
+    "top_bar": 0.3946,
+    "second_bar": 0.0239,
+    "gap": 16.51,
+    "null_q95": 0.5977,
+    "correct": false
+   },
+   {
+    "grid": "3x3",
+    "n_samples": 9,
+    "signal_fraction": 0.5,
+    "n_signal_genes": 1500,
+    "n_cycles_detected": 0,
+    "top_bar": 0.2315,
+    "second_bar": 0.0095,
+    "gap": 24.368,
+    "null_q95": 0.5092,
+    "correct": false
+   },
+   {
+    "grid": "3x3",
+    "n_samples": 9,
+    "signal_fraction": 0.25,
+    "n_signal_genes": 750,
+    "n_cycles_detected": 0,
+    "top_bar": 0.1068,
+    "second_bar": 0.0055,
+    "gap": 19.418,
+    "null_q95": 0.5473,
+    "correct": false
+   },
+   {
+    "grid": "3x3",
+    "n_samples": 9,
+    "signal_fraction": 0.1,
+    "n_signal_genes": 300,
+    "n_cycles_detected": 0,
+    "top_bar": 0.0577,
+    "second_bar": 0.0091,
+    "gap": 6.341,
+    "null_q95": 0.5508,
+    "correct": false
+   },
+   {
+    "grid": "4x4",
+    "n_samples": 16,
+    "signal_fraction": 1.0,
+    "n_signal_genes": 3000,
+    "n_cycles_detected": 0,
+    "top_bar": 0.507,
+    "second_bar": 0.3994,
+    "gap": 1.269,
+    "null_q95": 0.5466,
+    "correct": false
+   },
+   {
+    "grid": "4x4",
+    "n_samples": 16,
+    "signal_fraction": 0.5,
+    "n_signal_genes": 1500,
+    "n_cycles_detected": 0,
+    "top_bar": 0.2809,
+    "second_bar": 0.2256,
+    "gap": 1.245,
+    "null_q95": 0.4744,
+    "correct": false
+   },
+   {
+    "grid": "4x4",
+    "n_samples": 16,
+    "signal_fraction": 0.25,
+    "n_signal_genes": 750,
+    "n_cycles_detected": 0,
+    "top_bar": 0.1152,
+    "second_bar": 0.1069,
+    "gap": 1.078,
+    "null_q95": 0.4794,
+    "correct": false
+   },
+   {
+    "grid": "4x4",
+    "n_samples": 16,
+    "signal_fraction": 0.1,
+    "n_signal_genes": 300,
+    "n_cycles_detected": 0,
+    "top_bar": 0.0508,
+    "second_bar": 0.0422,
+    "gap": 1.204,
+    "null_q95": 0.4647,
+    "correct": false
+   },
+   {
+    "grid": "6x6",
+    "n_samples": 36,
+    "signal_fraction": 1.0,
+    "n_signal_genes": 3000,
+    "n_cycles_detected": 0,
+    "top_bar": 0.3629,
+    "second_bar": 0.3178,
+    "gap": 1.142,
+    "null_q95": 0.4768,
+    "correct": false
+   },
+   {
+    "grid": "6x6",
+    "n_samples": 36,
+    "signal_fraction": 0.5,
+    "n_signal_genes": 1500,
+    "n_cycles_detected": 0,
+    "top_bar": 0.1816,
+    "second_bar": 0.1641,
+    "gap": 1.107,
+    "null_q95": 0.3523,
+    "correct": false
+   },
+   {
+    "grid": "6x6",
+    "n_samples": 36,
+    "signal_fraction": 0.25,
+    "n_signal_genes": 750,
+    "n_cycles_detected": 0,
+    "top_bar": 0.1019,
+    "second_bar": 0.084,
+    "gap": 1.213,
+    "null_q95": 0.3125,
+    "correct": false
+   },
+   {
+    "grid": "6x6",
+    "n_samples": 36,
+    "signal_fraction": 0.1,
+    "n_signal_genes": 300,
+    "n_cycles_detected": 0,
+    "top_bar": 0.0435,
+    "second_bar": 0.0395,
+    "gap": 1.101,
+    "null_q95": 0.3039,
+    "correct": false
+   },
+   {
+    "grid": "8x8",
+    "n_samples": 64,
+    "signal_fraction": 1.0,
+    "n_signal_genes": 3000,
+    "n_cycles_detected": 2,
+    "top_bar": 0.5225,
+    "second_bar": 0.4837,
+    "gap": 1.08,
+    "null_q95": 0.3847,
+    "correct": true
+   },
+   {
+    "grid": "8x8",
+    "n_samples": 64,
+    "signal_fraction": 0.5,
+    "n_signal_genes": 1500,
+    "n_cycles_detected": 0,
+    "top_bar": 0.2537,
+    "second_bar": 0.2464,
+    "gap": 1.03,
+    "null_q95": 0.2858,
+    "correct": false
+   },
+   {
+    "grid": "8x8",
+    "n_samples": 64,
+    "signal_fraction": 0.25,
+    "n_signal_genes": 750,
+    "n_cycles_detected": 0,
+    "top_bar": 0.1242,
+    "second_bar": 0.1131,
+    "gap": 1.098,
+    "null_q95": 0.263,
+    "correct": false
+   },
+   {
+    "grid": "8x8",
+    "n_samples": 64,
+    "signal_fraction": 0.1,
+    "n_signal_genes": 300,
+    "n_cycles_detected": 0,
+    "top_bar": 0.0531,
+    "second_bar": 0.0495,
+    "gap": 1.073,
+    "null_q95": 0.2503,
+    "correct": false
+   },
+   {
+    "grid": "13x9",
+    "n_samples": 117,
+    "signal_fraction": 1.0,
+    "n_signal_genes": 3000,
+    "n_cycles_detected": 2,
+    "top_bar": 0.5173,
+    "second_bar": 0.5116,
+    "gap": 1.011,
+    "null_q95": 0.3463,
+    "correct": true
+   },
+   {
+    "grid": "13x9",
+    "n_samples": 117,
+    "signal_fraction": 0.5,
+    "n_signal_genes": 1500,
+    "n_cycles_detected": 1,
+    "top_bar": 0.2585,
+    "second_bar": 0.2352,
+    "gap": 1.099,
+    "null_q95": 0.2543,
+    "correct": false
+   },
+   {
+    "grid": "13x9",
+    "n_samples": 117,
+    "signal_fraction": 0.25,
+    "n_signal_genes": 750,
+    "n_cycles_detected": 0,
+    "top_bar": 0.1221,
+    "second_bar": 0.113,
+    "gap": 1.081,
+    "null_q95": 0.2165,
+    "correct": false
+   },
+   {
+    "grid": "13x9",
+    "n_samples": 117,
+    "signal_fraction": 0.1,
+    "n_signal_genes": 300,
+    "n_cycles_detected": 0,
+    "top_bar": 0.0444,
+    "second_bar": 0.0443,
+    "gap": 1.002,
+    "null_q95": 0.1948,
+    "correct": false
+   }
+  ]
+ },
+ "conclusion": "No public two-cycle grid with processed data exists. The single-axis case is measured, not assumed: GSE12289 returns 0 with both rhythms significant, i.e. the topological prediction holds. The missing experiment is a grid, and its cheapest form is quoted above.",
+ "n_genes": 3000,
+ "noise_sd": 1.0,
+ "n_null": 120,
+ "seed": 0
+}

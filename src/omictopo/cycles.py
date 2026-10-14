@@ -271,6 +271,84 @@ def h1_bar_lengths(D: np.ndarray, normalized: bool = True,
     return lengths / scale if normalized else lengths
 
 
+def covariance_matched_null(Z: np.ndarray, metric: str = "correlation",
+                            n_draws: int = 200, seed: int = 0) -> np.ndarray:
+    """H1 values from Gaussian clouds that share the data's own covariance.
+
+    The null is built in *sample* space and then pushed through the **same**
+    pipeline as the real data: draw ``n`` points from a Gaussian with the
+    empirical covariance of the standardised expression vectors, compute the
+    same metric, take the same H1 summary.  Every nuisance property — sample
+    size, overall spread, anisotropy — is preserved; only structure is
+    removed.  A plain isotropic null would be far too easy to beat.
+
+    Because PCA is a rotation, distances computed from the full-rank PCA
+    scores are identical to those computed from the standardised matrix, so
+    the null lives in exactly the same geometry as the observation.
+
+    Draws are rounded to four decimals so that this function and the
+    benchmark's own ``h1_summary``-based version consume the null identically;
+    ``tests/test_protocol.py`` pins that equivalence.
+    """
+    from .geometry import pca_embed, pairwise_distances
+
+    n = Z.shape[0]
+    k = int(min(n - 1, Z.shape[1]))
+    scores = pca_embed(Z, n_components=k)
+    sd = scores.std(axis=0, ddof=1)
+    rng = np.random.default_rng(seed)
+    draws = np.empty(int(n_draws), dtype=float)
+    for i in range(int(n_draws)):
+        pts = rng.standard_normal((n, k)) * sd
+        draws[i] = round(
+            float(h1_bar_lengths(pairwise_distances(pts, metric=metric))[0]), 4)
+    return draws
+
+
+def count_cycles(X: np.ndarray, metric: str = "correlation", n_null: int = 120,
+                 seed: int = 0) -> dict:
+    """How many H1 bars outrun the covariance-matched null?
+
+    The count is the top of the protocol: it answers "how many independent
+    loops are here?" with an integer, and the integer is only interpretable
+    when one bar *dominates* the spectrum (``top_bars_rel[0]`` far above
+    ``top_bars_rel[1]``).  Report the two together, never the integer alone —
+    see :func:`omictopo.protocol.analyse`, which refuses to quote a count that
+    the spectrum does not support.
+
+    Parameters
+    ----------
+    X : np.ndarray, shape (n_samples, n_features)
+        Expression matrix; standardised internally.
+    metric : str
+        Distance metric, ``"correlation"`` by default to match the benchmark.
+    n_null : int
+        Number of covariance-matched null draws.
+    seed : int
+        Seed for the null draws.
+
+    Returns
+    -------
+    dict
+        ``n_samples``, ``top_bars_rel`` (the five longest bars, normalised),
+        ``null_q95`` (the 95th percentile of the null), and
+        ``n_bars_above_null_q95`` (the count).
+    """
+    from .geometry import pairwise_distances, standardize
+
+    Z = standardize(X)
+    D = pairwise_distances(Z, metric=metric)
+    bars = h1_bar_lengths(D)
+    draws = covariance_matched_null(Z, metric=metric, n_draws=n_null, seed=seed)
+    q95 = float(np.quantile(draws, 0.95))
+    return {
+        "n_samples": int(X.shape[0]),
+        "top_bars_rel": [round(float(v), 4) for v in bars[:5]],
+        "null_q95": round(q95, 4),
+        "n_bars_above_null_q95": int(np.count_nonzero(bars > q95)),
+    }
+
+
 # --------------------------------------------------------------------------
 # scoring a recovered cyclic order against an external periodic variable
 # --------------------------------------------------------------------------

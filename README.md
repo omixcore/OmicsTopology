@@ -565,6 +565,37 @@ hashes.  A container definition is included.
 ![The same comparison, at a sample size that separates all nine](docs/fig_increment_power.png)
 
 
+## The protocol
+
+The reusable contribution is not a statistic that wins benchmarks — measured
+against 24 baselines on 280 clouds it does not — but a **decision procedure that
+returns a status rather than a bare number**:
+
+```python
+from omictopo.protocol import analyse, summarise, envelope
+
+rec = analyse(X, axis=phase, period=2 * np.pi)
+print(rec["status"])        # 'counted' | 'underpowered' | 'inconsistent' | 'no_cycle'
+print(summarise(rec))       # counted 1 cycle(s)  (gap 4.93, Mantel r +0.70)
+print(envelope()["requires"])
+```
+
+| status | meaning |
+|---|---|
+| `counted` | a dominant loop exists **and** it follows the design axis — the integer may be quoted |
+| `underpowered` | the cycle is real but H1 cannot resolve it in this gene set — report the failure, not a count |
+| `inconsistent` | a dominant loop exists but ignores the design axis — check the design |
+| `no_cycle` | nothing to count; the cloud is not a test of the count |
+
+Two diagnostics drive the decision and are always reported so the decision can
+be audited: `gap` (longest H1 bar over the second longest) and the circular
+Mantel `r` against the design's own axis. On the five real public designs the
+protocol says *counted* twice and **refuses three times**; it never quotes an
+integer the spectrum does not support. The declared envelope — when the count is
+trustworthy, and what it cannot do — is returned by `envelope()` and re-checked
+by `reproduce/verify.py`. Full description: [docs/protocol.md](docs/protocol.md).
+
+
 ## API tour
 
 ```python
@@ -574,6 +605,8 @@ from omictopo import (
     betti_curve, persistence_landscape,           # summaries
     bottleneck_distance, wasserstein_distance,    # diagram distances
     permutation_test_pointclouds,                 # significance
+    count_cycles, cycle_identifiability,          # the protocol's primitives
+    analyse, envelope, summarise,                 # the calibrated protocol
     run_states,                                   # the whole workflow
 )
 from omictopo import datasets                   # shapes with known topology
@@ -637,8 +670,9 @@ src/omictopo/
   diagram.py       persistence diagrams and their statistics
   summary.py       Betti curves, persistence landscapes
   compare.py       exact bottleneck and Wasserstein distances
-  stats.py         permutation tests, FDR correction, Wilson intervals, exact binomial
-  cycles.py        representative cycles, cyclic order, identifiability rule
+  stats.py         permutation tests, FDR correction, Wilson intervals, exact binomial, Mantel
+  cycles.py        cycle counting, H1 bars, cyclic order, identifiability rule
+  protocol.py      the calibrated inference protocol: cloud -> status, not a number
   plots.py         publication-oriented figures
   pipeline.py      run_states(): matrix -> verdict
   cli.py           omictopo command
@@ -666,6 +700,7 @@ examples/          runnable demos; see the files
   tune_deep_baselines.py      the positive-control grid behind the frozen deep settings
   increment_power.py          is the gap to the best learned baseline real? (280 clouds)
   cycle_identifiability.py    when is a count reportable, and a fix that was rejected
+  two_cycle_search.py         can a measured design have two independent cycles?
 tools/
   ci.sh                       the checks the hosted CI runs, runnable locally
   gen_api_docs.py             regenerate docs/api.md; --check fails on drift
@@ -677,17 +712,18 @@ reproduce/
   make_manifest.py            regenerate expected/manifest.json (sha256 pins)
   Dockerfile                  the same checks in a container
 docs/
-  index.md results.md api.md  guide, evidence table, generated API reference
+  index.md results.md protocol.md api.md
+                              guide, evidence table, the protocol, generated API reference
   fig_*.png                   every figure the scripts produce
 benchmark/         committed result tables of every experiment
-tests/             194 pytest cases, no network needed
+tests/             207 pytest cases, no network needed
 ```
 
 ## Running the tests
 
 ```bash
 pip install -e ".[dev]"
-pytest                 # 194 tests, no network and no benchmark data required
+pytest                 # 207 tests, no network and no benchmark data required
 sh tools/ci.sh         # install + tests + generated-docs check, as CI runs them
 sh reproduce/run_all.sh   # the third-party reproduction, from this tree or a fresh clone
 ```
@@ -701,6 +737,8 @@ Continuous integration is configured for both hosts and does the same work:
 ## Documentation
 
 * [docs/index.md](docs/index.md) — what the package is for and what to read first
+* [docs/protocol.md](docs/protocol.md) — the calibrated inference protocol, its
+  four statuses and its declared envelope
 * [docs/results.md](docs/results.md) — every headline number, with the script
   that produced it
 * [docs/api.md](docs/api.md) — generated reference; CI fails if it drifts from

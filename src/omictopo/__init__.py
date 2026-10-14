@@ -25,13 +25,26 @@ from .filtration import build_rips, choose_threshold
 from .homology import persistent_homology
 from .cycles import (
     circular_succession_score,
+    count_cycles,
+    covariance_matched_null,
+    cycle_identifiability,
     cycles_from_edges,
     dominant_h1_cycles,
     h1_bar_lengths,
 )
+from . import protocol
+from .protocol import analyse, envelope, summarise
 from .summary import betti_curve, persistence_landscape, topological_summary
 from .compare import bottleneck_distance, compare_diagrams, wasserstein_distance
-from .stats import permutation_test_pointclouds, permutation_test_replicates
+from .stats import (
+    adjust_pvalues,
+    binom_test_two_sided,
+    circular_distance,
+    mantel,
+    permutation_test_pointclouds,
+    permutation_test_replicates,
+    wilson_interval,
+)
 from .pipeline import run_states, StateTopologyReport
 from . import datasets
 
@@ -50,6 +63,13 @@ __all__ = [
     "cycles_from_edges",
     "h1_bar_lengths",
     "circular_succession_score",
+    "count_cycles",
+    "covariance_matched_null",
+    "cycle_identifiability",
+    "analyse",
+    "envelope",
+    "summarise",
+    "protocol",
     "betti_curve",
     "persistence_landscape",
     "topological_summary",
@@ -58,6 +78,11 @@ __all__ = [
     "compare_diagrams",
     "permutation_test_pointclouds",
     "permutation_test_replicates",
+    "mantel",
+    "circular_distance",
+    "wilson_interval",
+    "binom_test_two_sided",
+    "adjust_pvalues",
     "run_states",
     "StateTopologyReport",
     "datasets",

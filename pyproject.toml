@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "omictopo"
-version = "0.1.0"
+version = "0.2.0"
 description = "Topological data analysis of omics state spaces: persistent homology for stress response, developmental transition and cell differentiation."
 readme = "README.md"
 requires-python = ">=3.9"
@@ -31,17 +31,17 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://gitee.com/omixcore/OmicsTopology"
-Repository = "https://gitee.com/omixcore/OmicsTopology"
-Issues = "https://gitee.com/omixcore/OmicsTopology/issues"
-Documentation = "https://gitee.com/omixcore/OmicsTopology/blob/main/docs/api.md"
+Homepage = "https://github.com/omixcore/OmicsTopology"
+Repository = "https://github.com/omixcore/OmicsTopology"
+Issues = "https://github.com/omixcore/OmicsTopology/issues"
+Documentation = "https://github.com/omixcore/OmicsTopology/blob/main/docs/api.md"
 
 [project.optional-dependencies]
 plot = ["matplotlib>=3.5"]
 fast = ["ripser>=0.6"]
 baselines = ["umap-learn>=0.5"]
 docs = ["mkdocs>=1.5", "mkdocs-material>=9.0", "mkdocstrings[python]>=0.24"]
-dev = ["pytest>=7", "matplotlib>=3.5", "pyyaml>=6"]
+dev = ["pytest>=7", "matplotlib>=3.5", "pyyaml>=6", "ripser>=0.6", "umap-learn>=0.5"]
 
 [project.scripts]
 omictopo = "omictopo.cli:main"

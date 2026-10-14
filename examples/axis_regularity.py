@@ -145,7 +145,7 @@ from prepare_cycle_designs import load  # noqa: E402
 
 from axis_geometry_multi import CALIBRATIONS, _synth  # noqa: E402
 
-from omictopo.axes import axis_geometry, summarise_axis  # noqa: E402
+from omictopo.legacy_axes import axis_geometry, summarise_axis  # noqa: E402
 
 # ---------------------------------------------------------------------------
 # the corpus -- expectations written before the numbers are computed

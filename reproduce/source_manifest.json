@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "sources": {
+    "GSE3431": {
+      "filename": "GSE3431_series_matrix.txt.gz",
+      "sha256": "6d7c9b65f710d588604d731e2d177264f06eaee36919aa6e3a8d89b56b5dda5b",
+      "retrieved_utc": "2026-10-14",
+      "source": "NCBI GEO processed matrix",
+      "redistributed": false
+    },
+    "GSE158444": {
+      "filename": "GSE158444_Counts_Time.txt.gz",
+      "sha256": "04c6b7e53b058fda37410cd7d9e78ac8be3a88b064a3f8f42f941bd939a0aeeb",
+      "retrieved_utc": "2026-10-14",
+      "source": "NCBI GEO processed matrix",
+      "redistributed": false
+    }
+  }
+}

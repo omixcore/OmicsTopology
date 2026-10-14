@@ -1,0 +1,52 @@
+{
+  "schema_version": 2,
+  "registration": "internal frozen plan; not external preregistration",
+  "algorithm_sha256": "9b6f2d268440de0bf82a69c4aa88b2f7de4e40eefcb1957089416a246ea4f54d",
+  "development_seeds": [
+    701,
+    79,
+    101,
+    113
+  ],
+  "validation_seed_start": 1010001,
+  "axis_validation_seed_start": 1030001,
+  "replicates_per_family": 6,
+  "families": [
+    "gaussian",
+    "ramp",
+    "clusters",
+    "branch",
+    "arc",
+    "drift",
+    "one_cycle",
+    "two_cycles",
+    "unequal_two",
+    "three_cycles"
+  ],
+  "axis_families": [
+    "inert",
+    "phase",
+    "shape",
+    "independent",
+    "shift"
+  ],
+  "held_out_real_accession": "GSE3431",
+  "development_real_accession": "GSE158444",
+  "real_preprocessing": {
+    "top_var": 1000,
+    "holdout_transform": "released_values",
+    "arabidopsis_transform": "log2 CPM + 1"
+  },
+  "settings": {
+    "metric": "correlation",
+    "n_null": 99,
+    "alpha": 0.05,
+    "n_resamples": 8,
+    "resample_n_null": 39,
+    "resample_fraction": 0.9,
+    "stability_threshold": 0.75,
+    "backend": "ripser"
+  },
+  "quick_smoke": false,
+  "reference": "latent generator H1 ranks; finite samples may not resolve them"
+}

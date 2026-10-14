@@ -2,13 +2,17 @@ name: ci
 
 on:
   push:
-    branches: [main]
+    branches: [main, "fix/**"]
   pull_request:
     branches: [main]
   workflow_dispatch:
 
 jobs:
   test:
+    env:
+      OPENBLAS_NUM_THREADS: "1"
+      OMP_NUM_THREADS: "1"
+      NUMBA_NUM_THREADS: "1"
     name: pytest (${{ matrix.os }}, py${{ matrix.python-version }})
     runs-on: ${{ matrix.os }}
     strategy:
@@ -36,3 +40,9 @@ jobs:
 
       - name: CLI is importable and answers --help
         run: python -m omictopo --help
+
+      - name: Historical numerical records and portable integrity manifest
+        run: python reproduce/verify.py
+
+      - name: Version 2 records and fresh inference smoke checks
+        run: python reproduce/verify_v2.py --smoke

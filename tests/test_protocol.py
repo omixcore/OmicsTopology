@@ -26,7 +26,7 @@ if str(_EXAMPLES) not in sys.path:
 
 import topology_without_labels as twl  # noqa: E402
 
-from omictopo import protocol  # noqa: E402
+from omictopo import legacy_protocol as protocol  # noqa: E402
 from omictopo.cycles import count_cycles, covariance_matched_null  # noqa: E402
 
 

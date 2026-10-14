@@ -17,7 +17,8 @@ quoting a number.
 - [omictopo.compare](#omictopocompare) — Distances between diagrams
 - [omictopo.stats](#omictopostats) — Permutation tests, corrections and intervals
 - [omictopo.cycles](#omictopocycles) — Representative cycles, cyclic order, cycle counts
-- [omictopo.protocol](#omictopoprotocol) — The calibrated inference protocol: cloud -> status
+- [omictopo.inference](#omictopoinference) — Surrogate H1 detection and resampling stability
+- [omictopo.protocol](#omictopoprotocol) — Detected H1 counts and separate design association
 - [omictopo.axes](#omictopoaxes) — Is a second design axis a coordinate or a modulation?
 - [omictopo.pipeline](#omictopopipeline) — End-to-end comparison of two state clouds
 - [omictopo.summary](#omictoposummary) — Human-readable reports
@@ -187,25 +188,41 @@ GF(2) boundary reduction that also returns the reduced columns.
 
 Find a cycle, keep the genes that follow it, and look again.
 
+## omictopoinference
+
+*Surrogate H1 detection and resampling stability*
+
+### `signal_spectrum(lengths, null_maxima, alpha=0.05)`
+
+Compare *each* H1 length with one maximum-statistic surrogate null.
+
+### `spectral_count(X, *, metric='correlation', n_null=199, alpha=0.05, seed=0, backend='ripser')`
+
+Count H1 bars against Gaussian draws reconstructed in feature space.
+
+### `stable_cycle_count(X, *, metric='correlation', n_null=199, alpha=0.05, seed=0, backend='ripser', n_resamples=12, resample_fraction=0.9, stability_threshold=0.75, resample_n_null=99, units=None, strata=None)`
+
+Return a stable detected count or abstain, without a dominant-bar gate.
+
 ## omictopoprotocol
 
-*The calibrated inference protocol: cloud -> status*
+*Detected H1 counts and separate design association*
 
 ### `STATUSES`
 
 Built-in immutable sequence.
 
-### `analyse(X: 'np.ndarray', axis=None, *, period: 'float | None' = None, n_null: 'int' = 120, n_perm: 'int' = 2000, seed: 'int' = 0, metric: 'str' = 'correlation', gap_threshold: 'float' = 2.0, r_threshold: 'float' = 0.5) -> 'dict'`
+### `analyse(X, axis=None, *, period=None, n_null=199, n_perm=2000, seed=0, metric='correlation', alpha=0.05, backend='ripser', n_resamples=12, resample_fraction=0.9, stability_threshold=0.75, resample_n_null=99, units=None, strata=None, permutation='none', permutation_strata=None)`
 
-Run the whole protocol on one cloud and return a status, not just a count.
+Detect robust H1 features and separately describe design alignment.
 
-### `envelope() -> 'dict'`
+### `envelope()`
 
-The declared applicability conditions of the protocol.
+Declare current assumptions; no universal sample-size minimum is asserted.
 
-### `summarise(rec: 'dict') -> 'str'`
+### `summarise(rec)`
 
-One line for a results table, in the protocol's voice.
+Brief count and uncertainty statement with no integer on abstention.
 
 ## omictopoaxes
 
@@ -215,21 +232,29 @@ One line for a results table, in the protocol's voice.
 
 Built-in immutable sequence.
 
-### `axis_geometry(X: 'np.ndarray', axis1, axis2, groups=None, *, period1: 'float | None' = None, period2: 'float | None' = None, seed: 'int' = 0, n_perm: 'int' = 2000, n_boot: 'int' = 2000, n_perm_sep: 'int' = 1000) -> 'dict'`
+### `CRITERIA`
 
-Ask whether ``axis2`` is a new coordinate or a modulation of ``axis1``.
+dict() -> new empty dictionary dict(mapping) -> new dictionary initialized from a mapping object's (key, value) pairs dict(iterable) -> new dictionary initialized as if via: d = {} for k, v in iterable: d[k] = v dict(**kwargs) -> new dictionary initialized with the name=value pairs in the keyword argument list.  For example:  dict(one=1, two=2)
 
-### `classify_axis(dominant: 'dict', separable: 'dict', phase_or_shape: 'dict', matched: 'dict', criteria: 'dict | None' = None) -> 'tuple'`
+### `axis_geometry(X, axis1, axis2, groups=None, *, period1=None, period2=None, axis2_kind='categorical', seed=0, n_perm=2000, n_boot=2000, n_perm_sep=1000, units=None, permutation='none', permutation_strata=None, cycle_result=None)`
 
-Apply the pre-registered criteria; return ``(verdict, reason)``.
+Separate distance effects, phase structure and optional H1 evidence.
 
-### `harmonic_amplitude(y: 'np.ndarray', theta: 'np.ndarray') -> 'tuple[float, float]'`
+### `circular_phase_decomposition(X, theta, blocks, *, min_phase_r2=0.2)`
 
-Least-squares amplitude and phase of a fixed-period harmonic.
+Fit block-specific phases and decompose *circular* residual dispersion.
 
-### `summarise_axis(rec: 'dict') -> 'str'`
+### `classify_axis(dominant, separable, phase_or_shape, matched, criteria=None)`
 
-One line for a results table, in the same voice as the protocol.
+Assign descriptive labels, never an independent-coordinate verdict.
+
+### `harmonic_amplitude(y, theta)`
+
+Intercept-inclusive harmonic amplitude and phase in radians.
+
+### `summarise_axis(rec)`
+
+Brief descriptive label and the separate cycle-evidence limit.
 
 ## omictopopipeline
 

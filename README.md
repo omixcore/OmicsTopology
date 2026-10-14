@@ -46,10 +46,10 @@ curves** and **persistence landscapes**; between two conditions you get exact
 ## Install
 
 ```bash
-pip install git+https://gitee.com/omixcore/OmicsTopology.git
+pip install git+https://github.com/omixcore/OmicsTopology.git
 
 # with plotting
-pip install "OmicsTopology[plot] @ git+https://gitee.com/omixcore/OmicsTopology.git"
+pip install "OmicsTopology[plot] @ git+https://github.com/omixcore/OmicsTopology.git"
 ```
 
 Only `numpy` and `scipy` are required. `matplotlib` is optional and used only

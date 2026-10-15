@@ -5,6 +5,15 @@ state spaces. The current protocol detects **H1 features under a specified
 reference model**; it does not count biological oscillators or establish
 independent latent coordinates.
 
+## Visual overview
+
+![State-space topology compared](docs/topology_comparison.png)
+
+Conceptual comparison of state-space geometries. This illustration does not
+establish the number of biological oscillators in an observed dataset.
+
+![Current v2 analysis workflow](docs/figures/v2_figure1.svg)
+
 ## Install
 
 ```bash
@@ -86,6 +95,55 @@ Version-1 JSON records remain unchanged in `benchmark/`. Their old protocol
 and phase classifier are available explicitly as `omictopo.legacy_protocol`
 and `omictopo.legacy_axes` to reproduce historical records. They are not v2
 validation. See [docs/migration_v2.md](docs/migration_v2.md).
+
+### Current validation figures
+
+![Frozen v2 synthetic validation and detection limitations](docs/figures/v2_figure2.svg)
+
+The frozen synthetic study reports successful cases, undercounts and unresolved
+cases together; stable detection is not a guarantee of complete recovery.
+
+![Circular phase and axis simulations](docs/figures/v2_figure3.svg)
+
+![GSE3431 persistence spectrum and resampling stability](docs/figures/v2_figure4.svg)
+
+The GSE3431 candidate is unresolved under resampling.
+
+![GSE158444 phase residuals and treatment association](docs/figures/v2_figure5.svg)
+
+Treatment association does not establish an independent cycle or cycle loss.
+
+## Historical figure gallery (v1)
+
+The original figures below remain available for inspecting the earlier analyses.
+Their numerical panels use v1 records and methods, not the corrected v2 protocol.
+Read [the historical results](docs/results_v1.md) alongside the
+[current evidence and limitations](docs/results.md). These panels should not be
+used as current validation or as evidence for counting biological oscillators.
+
+### Circadian geometry and replicate sensitivity
+
+![Historical circadian loop analysis](docs/fig_circadian_loop.png)
+
+![Historical circularity and replicate analysis](docs/fig_circularity_replicates.png)
+
+### Benchmark trajectories and reference comparisons
+
+![Historical benchmark trajectories](docs/fig_benchmark_trajectories.png)
+
+![Historical H1 versus null comparison](docs/fig_benchmark_h1_vs_null.png)
+
+![Historical circular versus linear Mantel comparison](docs/fig_benchmark_mantel.png)
+
+### Label withholding, sample size and baseline comparisons
+
+![Historical clock ordering with labels held out](docs/fig_labels_held_out.png)
+
+![Historical cycle-counting sample-size analysis](docs/fig_cycle_counting_power.png)
+
+![Historical fixed-transform and learned-baseline comparison](docs/fig_incremental_value.png)
+
+![Historical sample-size comparison](docs/fig_increment_power.png)
 
 ## Reproduce
 

@@ -19,7 +19,7 @@ The SVG/PDF files are editable vector reconstructions of the manuscript's embedd
 
 Separates calibrated H1 detection, design-axis diagnostics, and numerical provenance.
 
-[Editable PDF](docs/figures/paper_figure1.pdf) · [SVG source](docs/figures/paper_figure1.png)
+[Editable PDF](docs/figures/paper_figure1.pdf) · [SVG source](docs/figures/paper_figure1.svg)
 
 ### Figure 2. Calibrated detection and explicit abstention
 
@@ -27,7 +27,7 @@ Separates calibrated H1 detection, design-axis diagnostics, and numerical proven
 
 Shows balanced-loop detection, resampling instability, undercounting, and withheld results.
 
-[Editable PDF](docs/figures/paper_figure2.pdf) · [SVG source](docs/figures/paper_figure2.png)
+[Editable PDF](docs/figures/paper_figure2.pdf) · [SVG source](docs/figures/paper_figure2.svg)
 
 ### Figure 3. Axis-aware phase diagnostics
 
@@ -35,7 +35,7 @@ Shows balanced-loop detection, resampling instability, undercounting, and withhe
 
 Separates coding-invariant treatment distances from circular phase modulation and gene-specific dispersion.
 
-[Editable PDF](docs/figures/paper_figure3.pdf) · [SVG source](docs/figures/paper_figure3.png)
+[Editable PDF](docs/figures/paper_figure3.pdf) · [SVG source](docs/figures/paper_figure3.svg)
 
 ### Figure 4. Numerical provenance and reproducibility
 
@@ -43,7 +43,7 @@ Separates coding-invariant treatment distances from circular phase modulation an
 
 Connects public inputs and frozen settings to scored records and regeneration.
 
-[Editable PDF](docs/figures/paper_figure4.pdf) · [SVG source](docs/figures/paper_figure4.png)
+[Editable PDF](docs/figures/paper_figure4.pdf) · [SVG source](docs/figures/paper_figure4.svg)
 
 ### Figure 5. External source evaluation and matched ordering comparison
 
@@ -51,7 +51,7 @@ Connects public inputs and frozen settings to scored records and regeneration.
 
 Shows cyclic-succession scores, H1 walk coverage, and time-associated geometry across seven matrices.
 
-[Editable PDF](docs/figures/paper_figure5.pdf) · [SVG source](docs/figures/paper_figure5.png)
+[Editable PDF](docs/figures/paper_figure5.pdf) · [SVG source](docs/figures/paper_figure5.svg)
 
 ### Figure 6. Cross-experiment evidence for a heat-program association
 
@@ -59,7 +59,7 @@ Shows cyclic-succession scores, H1 walk coverage, and time-associated geometry a
 
 Phase-difference candidates are enriched for external heat responses, while clock-genotype specificity remains unsupported.
 
-[Editable PDF](docs/figures/paper_figure6.pdf) · [SVG source](docs/figures/paper_figure6.png)
+[Editable PDF](docs/figures/paper_figure6.pdf) · [SVG source](docs/figures/paper_figure6.svg)
 
 
 ## Software overview diagrams

@@ -9,6 +9,8 @@ independent latent coordinates.
 
 These six figures are the current main-figure set for the manuscript. Each preview is vector-based; select **PDF** for an editable vector PDF or **SVG source** to edit the original vector artwork. The `v2_figure*.svg` files below remain protocol/documentation figures and are **not** the manuscript's Figure 1-6 numbering.
 
+The SVG/PDF files are editable vector reconstructions of the manuscript's embedded figure panels. Because the draft does not include the original vector sources, verify unlabelled bar endpoints and confidence-interval limits against the final analysis tables before submission.
+
 ### Figure 1. Software logic architecture
 
 ![Figure 1: Software logic architecture](docs/figures/paper_figure1.svg)

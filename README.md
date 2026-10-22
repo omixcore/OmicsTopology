@@ -5,59 +5,61 @@ state spaces. The current protocol detects **H1 features under a specified
 reference model**; it does not count biological oscillators or establish
 independent latent coordinates.
 
-## Manuscript main figures (final, editable)
+## Manuscript figures and revised paper
 
-These six figures are the current main-figure set for the manuscript. Each preview is vector-based; select **PDF** for an editable vector PDF or **SVG source** to edit the original vector artwork. The `v2_figure*.svg` files below remain protocol/documentation figures and are **not** the manuscript's Figure 1-6 numbering.
+The six PNG previews below are the manuscript's main figures and are rendered inline for reliable display on GitHub. Select **Editable PDF** for the vector artwork or **SVG source** to edit it. The `v2_figure*.svg` files remain protocol/documentation figures and are **not** the manuscript's Figure 1–6 numbering.
 
-The SVG/PDF files are editable vector reconstructions of the manuscript's embedded figure panels. Because the draft does not include the original vector sources, verify unlabelled bar endpoints and confidence-interval limits against the final analysis tables before submission.
+[Revised manuscript draft (DOCX)](manuscript/OmicsTopology_AdvancedScience_manuscript_revised.docx)
+
+The SVG/PDF files are editable vector reconstructions of the manuscript's embedded panels. Check unlabelled bar endpoints and confidence-interval limits against the final analysis tables before submission.
 
 ### Figure 1. Software logic architecture
 
-![Figure 1: Software logic architecture](docs/figures/paper_figure1.svg)
+![Figure 1: Software logic architecture](docs/figures/paper_figure1.png)
 
 Separates calibrated H1 detection, design-axis diagnostics, and numerical provenance.
 
-[Editable PDF](docs/figures/paper_figure1.pdf) · [SVG source](docs/figures/paper_figure1.svg)
+[Editable PDF](docs/figures/paper_figure1.pdf) · [SVG source](docs/figures/paper_figure1.png)
 
 ### Figure 2. Calibrated detection and explicit abstention
 
-![Figure 2: Calibrated detection and explicit abstention](docs/figures/paper_figure2.svg)
+![Figure 2: Calibrated detection and explicit abstention](docs/figures/paper_figure2.png)
 
 Shows balanced-loop detection, resampling instability, undercounting, and withheld results.
 
-[Editable PDF](docs/figures/paper_figure2.pdf) · [SVG source](docs/figures/paper_figure2.svg)
+[Editable PDF](docs/figures/paper_figure2.pdf) · [SVG source](docs/figures/paper_figure2.png)
 
 ### Figure 3. Axis-aware phase diagnostics
 
-![Figure 3: Axis-aware phase diagnostics](docs/figures/paper_figure3.svg)
+![Figure 3: Axis-aware phase diagnostics](docs/figures/paper_figure3.png)
 
 Separates coding-invariant treatment distances from circular phase modulation and gene-specific dispersion.
 
-[Editable PDF](docs/figures/paper_figure3.pdf) · [SVG source](docs/figures/paper_figure3.svg)
+[Editable PDF](docs/figures/paper_figure3.pdf) · [SVG source](docs/figures/paper_figure3.png)
 
 ### Figure 4. Numerical provenance and reproducibility
 
-![Figure 4: Numerical provenance and reproducibility](docs/figures/paper_figure4.svg)
+![Figure 4: Numerical provenance and reproducibility](docs/figures/paper_figure4.png)
 
 Connects public inputs and frozen settings to scored records and regeneration.
 
-[Editable PDF](docs/figures/paper_figure4.pdf) · [SVG source](docs/figures/paper_figure4.svg)
+[Editable PDF](docs/figures/paper_figure4.pdf) · [SVG source](docs/figures/paper_figure4.png)
 
 ### Figure 5. External source evaluation and matched ordering comparison
 
-![Figure 5: External source evaluation and matched ordering comparison](docs/figures/paper_figure5.svg)
+![Figure 5: External source evaluation and matched ordering comparison](docs/figures/paper_figure5.png)
 
 Shows cyclic-succession scores, H1 walk coverage, and time-associated geometry across seven matrices.
 
-[Editable PDF](docs/figures/paper_figure5.pdf) · [SVG source](docs/figures/paper_figure5.svg)
+[Editable PDF](docs/figures/paper_figure5.pdf) · [SVG source](docs/figures/paper_figure5.png)
 
 ### Figure 6. Cross-experiment evidence for a heat-program association
 
-![Figure 6: Cross-experiment evidence for a heat-program association](docs/figures/paper_figure6.svg)
+![Figure 6: Cross-experiment evidence for a heat-program association](docs/figures/paper_figure6.png)
 
 Phase-difference candidates are enriched for external heat responses, while clock-genotype specificity remains unsupported.
 
-[Editable PDF](docs/figures/paper_figure6.pdf) · [SVG source](docs/figures/paper_figure6.svg)
+[Editable PDF](docs/figures/paper_figure6.pdf) · [SVG source](docs/figures/paper_figure6.png)
 
 
 ## Software overview diagrams

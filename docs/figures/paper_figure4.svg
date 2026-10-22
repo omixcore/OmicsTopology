@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="1200pt" height="820pt" viewBox="0 0 1200 820">
-<rect width="1200" height="820" fill="#ffffff"/>
-<text x="70" y="82" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="70">a</tspan></text>
-<text x="104" y="82" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="104">Source provenance</tspan></text>
-<rect x="70" y="100" width="490" height="250" rx="8" fill="#edf4f8" stroke="#28799c" stroke-width="2"/>
-<text x="315" y="138" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#20323d" text-anchor="middle"><tspan x="315">Public accession + processed file</tspan></text>
-<text x="315" y="170" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="315">Hash-verified bytes</tspan><tspan x="315" dy="22">Sample IDs and design</tspan><tspan x="315" dy="22">Transformations and feature IDs</tspan></text>
-<text x="640" y="82" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="640">b</tspan></text>
-<text x="674" y="82" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="674">Frozen analysis contract</tspan></text>
-<rect x="640" y="100" width="490" height="250" rx="8" fill="#edf4f8" stroke="#28799c" stroke-width="2"/>
-<text x="885" y="138" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#20323d" text-anchor="middle"><tspan x="885">Settings + algorithm digest</tspan></text>
-<text x="885" y="170" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="885">Reference construction</tspan><tspan x="885" dy="22">Backend and random seeds</tspan><tspan x="885" dy="22">Declared resampling unit</tspan></text>
-<text x="70" y="437" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="70">c</tspan></text>
-<text x="104" y="437" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="104">Numerical evidence</tspan></text>
-<rect x="70" y="455" width="490" height="250" rx="8" fill="#edf4f8" stroke="#28799c" stroke-width="2"/>
-<text x="315" y="493" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#20323d" text-anchor="middle"><tspan x="315">Per-cloud and per-study records</tspan></text>
-<text x="315" y="525" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="315">Bar lengths and reference draws</tspan><tspan x="315" dy="22">Candidate and reduced-cloud counts</tspan><tspan x="315" dy="22">Effect sizes and abstention</tspan></text>
-<text x="640" y="437" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="640">d</tspan></text>
-<text x="674" y="437" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="674">Regeneration and scrutiny</tspan></text>
-<rect x="640" y="455" width="490" height="250" rx="8" fill="#edf4f8" stroke="#28799c" stroke-width="2"/>
-<text x="885" y="493" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#20323d" text-anchor="middle"><tspan x="885">Verification and regeneration</tspan></text>
-<text x="885" y="525" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="885">Inspect committed evidence</tspan><tspan x="885" dy="22">Download and regenerate analyses</tspan><tspan x="885" dy="22">Editable publication figures</tspan></text>
-<text x="600" y="775" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="400" fill="#28799c" text-anchor="middle"><tspan x="600">Traceability supports scrutiny; it does not imply biological certification.</tspan></text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200pt" height="640pt" viewBox="0 0 1200 640">
+<rect width="1200" height="640" fill="#ffffff"/>
+<text x="70" y="82" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#20323d" text-anchor="start">a</text>
+<text x="104" y="82" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#20323d" text-anchor="start">Source provenance</text>
+<rect x="70" y="100" width="490" height="185" rx="8" fill="#edf4f8" stroke="#28799c" stroke-width="2"/>
+<text x="315" y="139" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#20323d" text-anchor="middle">Public accession + processed file</text>
+<text x="315" y="174" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#5e707c" text-anchor="middle"><tspan x="315">Hash-verified bytes</tspan><tspan x="315" dy="25">Sample IDs and design</tspan><tspan x="315" dy="25">Transformations and feature IDs</tspan></text>
+<text x="640" y="82" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#20323d" text-anchor="start">b</text>
+<text x="674" y="82" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#20323d" text-anchor="start">Frozen analysis contract</text>
+<rect x="640" y="100" width="490" height="185" rx="8" fill="#edf4f8" stroke="#28799c" stroke-width="2"/>
+<text x="885" y="139" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#20323d" text-anchor="middle">Settings + algorithm digest</text>
+<text x="885" y="174" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#5e707c" text-anchor="middle"><tspan x="885">Reference construction</tspan><tspan x="885" dy="25">Backend and random seeds</tspan><tspan x="885" dy="25">Declared resampling unit</tspan></text>
+<text x="70" y="355" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#20323d" text-anchor="start">c</text>
+<text x="104" y="355" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#20323d" text-anchor="start">Numerical evidence</text>
+<rect x="70" y="373" width="490" height="185" rx="8" fill="#edf4f8" stroke="#28799c" stroke-width="2"/>
+<text x="315" y="412" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#20323d" text-anchor="middle">Per-cloud and per-study records</text>
+<text x="315" y="447" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#5e707c" text-anchor="middle"><tspan x="315">Bar lengths and reference draws</tspan><tspan x="315" dy="25">Candidate and reduced-cloud counts</tspan><tspan x="315" dy="25">Effect sizes and abstention</tspan></text>
+<text x="640" y="355" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#20323d" text-anchor="start">d</text>
+<text x="674" y="355" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#20323d" text-anchor="start">Regeneration and scrutiny</text>
+<rect x="640" y="373" width="490" height="185" rx="8" fill="#edf4f8" stroke="#28799c" stroke-width="2"/>
+<text x="885" y="412" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#20323d" text-anchor="middle">Verification and regeneration</text>
+<text x="885" y="447" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#5e707c" text-anchor="middle"><tspan x="885">Inspect committed evidence</tspan><tspan x="885" dy="25">Download and regenerate analyses</tspan><tspan x="885" dy="25">Editable publication figures</tspan></text>
+<text x="600" y="610" font-family="Arial, Helvetica, sans-serif" font-size="17" fill="#28799c" text-anchor="middle">Traceability supports scrutiny; it does not imply biological certification.</text>
 </svg>

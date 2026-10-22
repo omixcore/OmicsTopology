@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1500pt" height="760pt" viewBox="0 0 1500 760">
+<rect width="1500" height="760" fill="#ffffff"/>
+<text x="45" y="60" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="45">a</tspan></text>
+<text x="77" y="60" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="77">Coding-invariant design</tspan></text>
+<text x="139" y="187" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#20323d" text-anchor="middle"><tspan x="139">C</tspan></text>
+<text x="88" y="239" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#20323d" text-anchor="middle"><tspan x="88">C</tspan></text>
+<text x="197" y="187" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#20323d" text-anchor="middle"><tspan x="197">C</tspan></text>
+<text x="88" y="297" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#20323d" text-anchor="middle"><tspan x="88">C</tspan></text>
+<text x="255" y="187" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#20323d" text-anchor="middle"><tspan x="255">H</tspan></text>
+<text x="88" y="355" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#20323d" text-anchor="middle"><tspan x="88">H</tspan></text>
+<text x="313" y="187" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#20323d" text-anchor="middle"><tspan x="313">H</tspan></text>
+<text x="88" y="413" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#20323d" text-anchor="middle"><tspan x="88">H</tspan></text>
+<rect x="110" y="205" width="56" height="56" fill="#f0f5f7" stroke="#ffffff" stroke-width="1"/>
+<text x="138" y="239" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#20323d" text-anchor="middle"><tspan x="138">0</tspan></text>
+<rect x="168" y="205" width="56" height="56" fill="#f0f5f7" stroke="#ffffff" stroke-width="1"/>
+<text x="196" y="239" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#20323d" text-anchor="middle"><tspan x="196">0</tspan></text>
+<rect x="226" y="205" width="56" height="56" fill="#08306b" stroke="#ffffff" stroke-width="1"/>
+<text x="254" y="239" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle"><tspan x="254">1</tspan></text>
+<rect x="284" y="205" width="56" height="56" fill="#08306b" stroke="#ffffff" stroke-width="1"/>
+<text x="312" y="239" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle"><tspan x="312">1</tspan></text>
+<rect x="110" y="263" width="56" height="56" fill="#f0f5f7" stroke="#ffffff" stroke-width="1"/>
+<text x="138" y="297" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#20323d" text-anchor="middle"><tspan x="138">0</tspan></text>
+<rect x="168" y="263" width="56" height="56" fill="#f0f5f7" stroke="#ffffff" stroke-width="1"/>
+<text x="196" y="297" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#20323d" text-anchor="middle"><tspan x="196">0</tspan></text>
+<rect x="226" y="263" width="56" height="56" fill="#08306b" stroke="#ffffff" stroke-width="1"/>
+<text x="254" y="297" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle"><tspan x="254">1</tspan></text>
+<rect x="284" y="263" width="56" height="56" fill="#08306b" stroke="#ffffff" stroke-width="1"/>
+<text x="312" y="297" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle"><tspan x="312">1</tspan></text>
+<rect x="110" y="321" width="56" height="56" fill="#08306b" stroke="#ffffff" stroke-width="1"/>
+<text x="138" y="355" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle"><tspan x="138">1</tspan></text>
+<rect x="168" y="321" width="56" height="56" fill="#08306b" stroke="#ffffff" stroke-width="1"/>
+<text x="196" y="355" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle"><tspan x="196">1</tspan></text>
+<rect x="226" y="321" width="56" height="56" fill="#f0f5f7" stroke="#ffffff" stroke-width="1"/>
+<text x="254" y="355" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#20323d" text-anchor="middle"><tspan x="254">0</tspan></text>
+<rect x="284" y="321" width="56" height="56" fill="#f0f5f7" stroke="#ffffff" stroke-width="1"/>
+<text x="312" y="355" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#20323d" text-anchor="middle"><tspan x="312">0</tspan></text>
+<rect x="110" y="379" width="56" height="56" fill="#08306b" stroke="#ffffff" stroke-width="1"/>
+<text x="138" y="413" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle"><tspan x="138">1</tspan></text>
+<rect x="168" y="379" width="56" height="56" fill="#08306b" stroke="#ffffff" stroke-width="1"/>
+<text x="196" y="413" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle"><tspan x="196">1</tspan></text>
+<rect x="226" y="379" width="56" height="56" fill="#f0f5f7" stroke="#ffffff" stroke-width="1"/>
+<text x="254" y="413" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#20323d" text-anchor="middle"><tspan x="254">0</tspan></text>
+<rect x="284" y="379" width="56" height="56" fill="#f0f5f7" stroke="#ffffff" stroke-width="1"/>
+<text x="312" y="413" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#20323d" text-anchor="middle"><tspan x="312">0</tspan></text>
+<text x="110" y="470" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#5e707c" text-anchor="start"><tspan x="110">0 = same group; 1 = different group</tspan></text>
+<text x="110" y="495" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#5e707c" text-anchor="start"><tspan x="110">Independent of numeric label coding</tspan></text>
+<text x="405" y="60" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="405">b</tspan></text>
+<text x="437" y="60" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="437">Thirty simulated axis cases</tspan></text>
+<text x="647.5" y="150" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#5e707c" text-anchor="middle"><tspan x="647.5">No effect</tspan></text>
+<text x="742.5" y="150" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#5e707c" text-anchor="middle"><tspan x="742.5">Phase mod.</tspan></text>
+<text x="837.5" y="150" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#5e707c" text-anchor="middle"><tspan x="837.5">Shape change</tspan></text>
+<text x="932.5" y="150" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="700" fill="#5e707c" text-anchor="middle"><tspan x="932.5">Strong axis</tspan></text>
+<text x="582" y="219" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#20323d" text-anchor="end"><tspan x="582">Inert</tspan></text>
+<rect x="600" y="185" width="92" height="55" fill="#28799c" stroke="#ffffff" stroke-width="1"/>
+<text x="646" y="219" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle"><tspan x="646">6</tspan></text>
+<rect x="695" y="185" width="92" height="55" fill="#f5f8fa" stroke="#ffffff" stroke-width="1"/>
+<text x="741" y="219" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#687984" text-anchor="middle"><tspan x="741">0</tspan></text>
+<rect x="790" y="185" width="92" height="55" fill="#f5f8fa" stroke="#ffffff" stroke-width="1"/>
+<text x="836" y="219" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#687984" text-anchor="middle"><tspan x="836">0</tspan></text>
+<rect x="885" y="185" width="92" height="55" fill="#f5f8fa" stroke="#ffffff" stroke-width="1"/>
+<text x="931" y="219" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#687984" text-anchor="middle"><tspan x="931">0</tspan></text>
+<text x="582" y="277" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#20323d" text-anchor="end"><tspan x="582">Common phase</tspan></text>
+<rect x="600" y="243" width="92" height="55" fill="#f5f8fa" stroke="#ffffff" stroke-width="1"/>
+<text x="646" y="277" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#687984" text-anchor="middle"><tspan x="646">0</tspan></text>
+<rect x="695" y="243" width="92" height="55" fill="#28799c" stroke="#ffffff" stroke-width="1"/>
+<text x="741" y="277" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle"><tspan x="741">6</tspan></text>
+<rect x="790" y="243" width="92" height="55" fill="#f5f8fa" stroke="#ffffff" stroke-width="1"/>
+<text x="836" y="277" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#687984" text-anchor="middle"><tspan x="836">0</tspan></text>
+<rect x="885" y="243" width="92" height="55" fill="#f5f8fa" stroke="#ffffff" stroke-width="1"/>
+<text x="931" y="277" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#687984" text-anchor="middle"><tspan x="931">0</tspan></text>
+<text x="582" y="335" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#20323d" text-anchor="end"><tspan x="582">Gene-specific</tspan></text>
+<rect x="600" y="301" width="92" height="55" fill="#f5f8fa" stroke="#ffffff" stroke-width="1"/>
+<text x="646" y="335" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#687984" text-anchor="middle"><tspan x="646">0</tspan></text>
+<rect x="695" y="301" width="92" height="55" fill="#f5f8fa" stroke="#ffffff" stroke-width="1"/>
+<text x="741" y="335" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#687984" text-anchor="middle"><tspan x="741">0</tspan></text>
+<rect x="790" y="301" width="92" height="55" fill="#28799c" stroke="#ffffff" stroke-width="1"/>
+<text x="836" y="335" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle"><tspan x="836">6</tspan></text>
+<rect x="885" y="301" width="92" height="55" fill="#f5f8fa" stroke="#ffffff" stroke-width="1"/>
+<text x="931" y="335" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#687984" text-anchor="middle"><tspan x="931">0</tspan></text>
+<text x="582" y="393" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#20323d" text-anchor="end"><tspan x="582">Independent phase</tspan></text>
+<rect x="600" y="359" width="92" height="55" fill="#f5f8fa" stroke="#ffffff" stroke-width="1"/>
+<text x="646" y="393" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#687984" text-anchor="middle"><tspan x="646">0</tspan></text>
+<rect x="695" y="359" width="92" height="55" fill="#f5f8fa" stroke="#ffffff" stroke-width="1"/>
+<text x="741" y="393" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#687984" text-anchor="middle"><tspan x="741">0</tspan></text>
+<rect x="790" y="359" width="92" height="55" fill="#f5f8fa" stroke="#ffffff" stroke-width="1"/>
+<text x="836" y="393" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#687984" text-anchor="middle"><tspan x="836">0</tspan></text>
+<rect x="885" y="359" width="92" height="55" fill="#28799c" stroke="#ffffff" stroke-width="1"/>
+<text x="931" y="393" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle"><tspan x="931">6</tspan></text>
+<text x="582" y="451" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#20323d" text-anchor="end"><tspan x="582">Discrete shift</tspan></text>
+<rect x="600" y="417" width="92" height="55" fill="#f5f8fa" stroke="#ffffff" stroke-width="1"/>
+<text x="646" y="451" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#687984" text-anchor="middle"><tspan x="646">0</tspan></text>
+<rect x="695" y="417" width="92" height="55" fill="#f5f8fa" stroke="#ffffff" stroke-width="1"/>
+<text x="741" y="451" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#687984" text-anchor="middle"><tspan x="741">0</tspan></text>
+<rect x="790" y="417" width="92" height="55" fill="#f5f8fa" stroke="#ffffff" stroke-width="1"/>
+<text x="836" y="451" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="400" fill="#687984" text-anchor="middle"><tspan x="836">0</tspan></text>
+<rect x="885" y="417" width="92" height="55" fill="#28799c" stroke="#ffffff" stroke-width="1"/>
+<text x="931" y="451" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle"><tspan x="931">6</tspan></text>
+<text x="790" y="520" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="790">Six seeded cases per scenario</tspan></text>
+<text x="1050" y="60" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="1050">c</tspan></text>
+<text x="1082" y="60" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="1082">Real phase diagnostics</tspan></text>
+<text x="1110" y="480" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="1110">Total RNA</tspan></text>
+<rect x="1110" y="500" width="7.502" height="42" fill="#269a91"/>
+<rect x="1117.502" y="500" width="302.498" height="42" fill="#9eacb5"/>
+<text x="1265" y="564" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="1265">2.42% common</tspan></text>
+<text x="1110" y="355" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="1110">Translating RNA</tspan></text>
+<rect x="1110" y="375" width="2.7899999999999996" height="42" fill="#269a91"/>
+<rect x="1112.79" y="375" width="307.21" height="42" fill="#9eacb5"/>
+<text x="1265" y="439" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="1265">0.90% common</tspan></text>
+<rect x="1110" y="650" width="16" height="12" fill="#269a91"/>
+<text x="1134" y="661" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#5e707c" text-anchor="start"><tspan x="1134">Common offset</tspan></text>
+<rect x="1270" y="650" width="16" height="12" fill="#9eacb5"/>
+<text x="1294" y="661" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#5e707c" text-anchor="start"><tspan x="1294">Gene-specific</tspan></text>
+<text x="1265" y="710" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="1265">Shares describe circular phase dispersion,</tspan><tspan x="1265" dy="17">not total expression variance.</tspan></text>
+</svg>

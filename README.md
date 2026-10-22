@@ -5,7 +5,60 @@ state spaces. The current protocol detects **H1 features under a specified
 reference model**; it does not count biological oscillators or establish
 independent latent coordinates.
 
-## Visual overview
+## Manuscript main figures (final, editable)
+
+These six figures are the current main-figure set for the manuscript. Each preview is vector-based; select **PDF** for an editable vector PDF or **SVG source** to edit the original vector artwork. The `v2_figure*.svg` files below remain protocol/documentation figures and are **not** the manuscript's Figure 1-6 numbering.
+
+### Figure 1. Software logic architecture
+
+![Figure 1: Software logic architecture](docs/figures/paper_figure1.svg)
+
+Separates calibrated H1 detection, design-axis diagnostics, and numerical provenance.
+
+[Editable PDF](docs/figures/paper_figure1.pdf) · [SVG source](docs/figures/paper_figure1.svg)
+
+### Figure 2. Calibrated detection and explicit abstention
+
+![Figure 2: Calibrated detection and explicit abstention](docs/figures/paper_figure2.svg)
+
+Shows balanced-loop detection, resampling instability, undercounting, and withheld results.
+
+[Editable PDF](docs/figures/paper_figure2.pdf) · [SVG source](docs/figures/paper_figure2.svg)
+
+### Figure 3. Axis-aware phase diagnostics
+
+![Figure 3: Axis-aware phase diagnostics](docs/figures/paper_figure3.svg)
+
+Separates coding-invariant treatment distances from circular phase modulation and gene-specific dispersion.
+
+[Editable PDF](docs/figures/paper_figure3.pdf) · [SVG source](docs/figures/paper_figure3.svg)
+
+### Figure 4. Numerical provenance and reproducibility
+
+![Figure 4: Numerical provenance and reproducibility](docs/figures/paper_figure4.svg)
+
+Connects public inputs and frozen settings to scored records and regeneration.
+
+[Editable PDF](docs/figures/paper_figure4.pdf) · [SVG source](docs/figures/paper_figure4.svg)
+
+### Figure 5. External source evaluation and matched ordering comparison
+
+![Figure 5: External source evaluation and matched ordering comparison](docs/figures/paper_figure5.svg)
+
+Shows cyclic-succession scores, H1 walk coverage, and time-associated geometry across seven matrices.
+
+[Editable PDF](docs/figures/paper_figure5.pdf) · [SVG source](docs/figures/paper_figure5.svg)
+
+### Figure 6. Cross-experiment evidence for a heat-program association
+
+![Figure 6: Cross-experiment evidence for a heat-program association](docs/figures/paper_figure6.svg)
+
+Phase-difference candidates are enriched for external heat responses, while clock-genotype specificity remains unsupported.
+
+[Editable PDF](docs/figures/paper_figure6.pdf) · [SVG source](docs/figures/paper_figure6.svg)
+
+
+## Software overview diagrams
 
 ![State-space topology compared](docs/topology_comparison.png)
 
@@ -96,12 +149,11 @@ and phase classifier are available explicitly as `omictopo.legacy_protocol`
 and `omictopo.legacy_axes` to reproduce historical records. They are not v2
 validation. See [docs/migration_v2.md](docs/migration_v2.md).
 
-### Current validation figures
+### Protocol-specific v2 validation figures (separate from manuscript Figure 1-6)
 
 ![Frozen v2 synthetic validation and detection limitations](docs/figures/v2_figure2.svg)
 
-The frozen synthetic study reports successful cases, undercounts and unresolved
-cases together; stable detection is not a guarantee of complete recovery.
+These protocol-specific figures document the v2 software validation route. They are retained separately from the six manuscript main figures above; successful cases, undercounts and unresolved cases are all shown.
 
 ![Circular phase and axis simulations](docs/figures/v2_figure3.svg)
 

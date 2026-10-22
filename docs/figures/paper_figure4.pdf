@@ -1,0 +1,69 @@
+%PDF-1.4
+% OmicsTopology editable vector figure
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 1200 820] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Length 2208 >>
+stream
+BT /F2 22 Tf 0.1255 0.1961 0.2392 rg 1 0 0 1 70 738 Tm (a) Tj ET
+0.9294 0.9569 0.9725 rg
+0.1569 0.4745 0.6118 RG 2 w
+70 470 490 250 re B
+BT /F2 19 Tf 0.1255 0.1961 0.2392 rg 1 0 0 1 139.44 682 Tm (Public accession + processed file) Tj ET
+BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 240.9 650 Tm (Hash-verified bytes) Tj ET
+BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 233.1 628 Tm (Sample IDs and design) Tj ET
+BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 194.1 606 Tm (Transformations and feature IDs) Tj ET
+BT /F2 22 Tf 0.1255 0.1961 0.2392 rg 1 0 0 1 640 738 Tm (b) Tj ET
+0.9294 0.9569 0.9725 rg
+0.1569 0.4745 0.6118 RG 2 w
+640 470 490 250 re B
+BT /F2 19 Tf 0.1255 0.1961 0.2392 rg 1 0 0 1 741.36 682 Tm (Settings + algorithm digest) Tj ET
+BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 799.2 650 Tm (Reference construction) Tj ET
+BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 791.4 628 Tm (Backend and random seeds) Tj ET
+BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 791.4 606 Tm (Declared resampling unit) Tj ET
+BT /F2 22 Tf 0.1255 0.1961 0.2392 rg 1 0 0 1 70 383 Tm (c) Tj ET
+0.9294 0.9569 0.9725 rg
+0.1569 0.4745 0.6118 RG 2 w
+70 115 490 250 re B
+BT /F2 19 Tf 0.1255 0.1961 0.2392 rg 1 0 0 1 150.08 327 Tm (Per-cloud and per-study records) Tj ET
+BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 194.1 295 Tm (Bar lengths and reference draws) Tj ET
+BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 182.4 273 Tm (Candidate and reduced-cloud counts) Tj ET
+BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 209.7 251 Tm (Effect sizes and abstention) Tj ET
+BT /F2 22 Tf 0.1255 0.1961 0.2392 rg 1 0 0 1 640 383 Tm (d) Tj ET
+0.9294 0.9569 0.9725 rg
+0.1569 0.4745 0.6118 RG 2 w
+640 115 490 250 re B
+BT /F2 19 Tf 0.1255 0.1961 0.2392 rg 1 0 0 1 730.72 327 Tm (Verification and regeneration) Tj ET
+BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 783.6 295 Tm (Inspect committed evidence) Tj ET
+BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 760.2 273 Tm (Download and regenerate analyses) Tj ET
+BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 775.8 251 Tm (Editable publication figures) Tj ET
+BT /F1 15 Tf 0.1569 0.4745 0.6118 rg 1 0 0 1 307.5 45 Tm (Traceability supports scrutiny; it does not imply biological certification.) Tj ET
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000048 00000 n 
+0000000097 00000 n 
+0000000154 00000 n 
+0000000291 00000 n 
+0000000361 00000 n 
+0000000436 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+2695
+%%EOF

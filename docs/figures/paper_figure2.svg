@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1500pt" height="980pt" viewBox="0 0 1500 980">
+<rect width="1500" height="980" fill="#ffffff"/>
+<text x="45" y="55" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="45">a</tspan></text>
+<text x="77" y="55" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="77">Multiple bars can pass</tspan></text>
+<text x="790" y="55" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="790">b</tspan></text>
+<text x="822" y="55" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="822">Stability can withhold a count</tspan></text>
+<line x1="105" y1="150" x2="105" y2="420" stroke="#20323d" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="105" y1="420" x2="650" y2="420" stroke="#20323d" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="100" y1="420" x2="105" y2="420" stroke="#20323d" stroke-width="1.2" stroke-linecap="round"/>
+<text x="93" y="425" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#5e707c" text-anchor="end"><tspan x="93">0.0</tspan></text>
+<line x1="100" y1="285" x2="105" y2="285" stroke="#20323d" stroke-width="1.2" stroke-linecap="round"/>
+<text x="93" y="290" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#5e707c" text-anchor="end"><tspan x="93">0.4</tspan></text>
+<line x1="100" y1="150" x2="105" y2="150" stroke="#20323d" stroke-width="1.2" stroke-linecap="round"/>
+<text x="93" y="155" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#5e707c" text-anchor="end"><tspan x="93">0.8</tspan></text>
+<text x="90" y="115" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#5e707c" text-anchor="start"><tspan x="90">Normalized persistence</tspan></text>
+<rect x="140" y="163.5" width="52" height="256.5" fill="#28799c"/>
+<text x="166" y="445" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="166">1</tspan></text>
+<rect x="220" y="177.00000000000003" width="52" height="242.99999999999997" fill="#28799c"/>
+<text x="246" y="445" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="246">2</tspan></text>
+<rect x="300" y="349.125" width="52" height="70.87499999999999" fill="#28799c"/>
+<text x="326" y="445" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="326">3</tspan></text>
+<rect x="380" y="349.125" width="52" height="70.87499999999999" fill="#28799c"/>
+<text x="406" y="445" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="406">4</tspan></text>
+<rect x="460" y="352.5" width="52" height="67.5" fill="#28799c"/>
+<text x="486" y="445" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="486">5</tspan></text>
+<rect x="540" y="352.5" width="52" height="67.5" fill="#28799c"/>
+<text x="566" y="445" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="566">6</tspan></text>
+<line x1="105" y1="251.25" x2="650" y2="251.25" stroke="#b95f54" stroke-width="2" stroke-dasharray="8 6" stroke-linecap="round"/>
+<text x="645" y="241.25" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#b95f54" text-anchor="end"><tspan x="645">Maximum-null threshold</tspan></text>
+<text x="377.5" y="474" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="377.5">H1 bar rank</tspan></text>
+<line x1="845" y1="150" x2="845" y2="420" stroke="#20323d" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="845" y1="420" x2="1395" y2="420" stroke="#20323d" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="840" y1="420" x2="845" y2="420" stroke="#20323d" stroke-width="1.2" stroke-linecap="round"/>
+<text x="833" y="425" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#5e707c" text-anchor="end"><tspan x="833">0</tspan></text>
+<line x1="840" y1="210" x2="845" y2="210" stroke="#20323d" stroke-width="1.2" stroke-linecap="round"/>
+<text x="833" y="215" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#5e707c" text-anchor="end"><tspan x="833">1</tspan></text>
+<rect x="870" y="210" width="43" height="210" fill="#9eacb5"/>
+<text x="891.5" y="445" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="891.5">1</tspan></text>
+<rect x="937" y="210" width="43" height="210" fill="#9eacb5"/>
+<text x="958.5" y="445" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="958.5">2</tspan></text>
+<text x="1025.5" y="445" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="1025.5">3</tspan></text>
+<rect x="1071" y="210" width="43" height="210" fill="#9eacb5"/>
+<text x="1092.5" y="445" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="1092.5">4</tspan></text>
+<rect x="1138" y="210" width="43" height="210" fill="#9eacb5"/>
+<text x="1159.5" y="445" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="1159.5">5</tspan></text>
+<text x="1226.5" y="445" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="1226.5">6</tspan></text>
+<text x="1293.5" y="445" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="1293.5">7</tspan></text>
+<text x="1360.5" y="445" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="1360.5">8</tspan></text>
+<text x="1120" y="474" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="1120">Reduced cloud</tspan></text>
+<text x="1120" y="135" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="700" fill="#5e707c" text-anchor="middle"><tspan x="1120">4/8 agreement -&gt; unresolved</tspan></text>
+<text x="45" y="520" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="45">c</tspan></text>
+<text x="77" y="520" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="77">Successes and missed features</tspan></text>
+<line x1="105" y1="600" x2="105" y2="835" stroke="#20323d" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="105" y1="835" x2="690" y2="835" stroke="#20323d" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="100" y1="835" x2="105" y2="835" stroke="#20323d" stroke-width="1" stroke-linecap="round"/>
+<text x="93" y="839" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#5e707c" text-anchor="end"><tspan x="93">0</tspan></text>
+<line x1="100" y1="756.6666666666666" x2="105" y2="756.6666666666666" stroke="#20323d" stroke-width="1" stroke-linecap="round"/>
+<text x="93" y="760.6666666666666" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#5e707c" text-anchor="end"><tspan x="93">1</tspan></text>
+<line x1="100" y1="678.3333333333334" x2="105" y2="678.3333333333334" stroke="#20323d" stroke-width="1" stroke-linecap="round"/>
+<text x="93" y="682.3333333333334" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#5e707c" text-anchor="end"><tspan x="93">2</tspan></text>
+<line x1="100" y1="600" x2="105" y2="600" stroke="#20323d" stroke-width="1" stroke-linecap="round"/>
+<text x="93" y="604" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#5e707c" text-anchor="end"><tspan x="93">3</tspan></text>
+<line x1="117.25" y1="835" x2="151.25" y2="835" stroke="#d08a3c" stroke-width="3" stroke-linecap="round"/>
+<circle cx="121.75" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="126.75" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="131.75" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="136.75" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="141.75" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="146.75" cy="835" r="3.5" fill="#28799c"/>
+<text x="134.25" y="875" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="134.25">Noise</tspan></text>
+<line x1="175.75" y1="835" x2="209.75" y2="835" stroke="#d08a3c" stroke-width="3" stroke-linecap="round"/>
+<circle cx="180.25" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="185.25" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="190.25" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="195.25" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="200.25" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="205.25" cy="835" r="3.5" fill="#28799c"/>
+<text x="192.75" y="875" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="192.75">Ramp</tspan></text>
+<line x1="234.25" y1="835" x2="268.25" y2="835" stroke="#d08a3c" stroke-width="3" stroke-linecap="round"/>
+<circle cx="238.75" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="243.75" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="248.75" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="253.75" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="258.75" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="263.75" cy="835" r="3.5" fill="#28799c"/>
+<text x="251.25" y="875" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="251.25">Clusters</tspan></text>
+<line x1="292.75" y1="835" x2="326.75" y2="835" stroke="#d08a3c" stroke-width="3" stroke-linecap="round"/>
+<circle cx="297.25" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="302.25" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="307.25" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="312.25" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="317.25" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="322.25" cy="835" r="3.5" fill="#28799c"/>
+<text x="309.75" y="875" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="309.75">Branch</tspan></text>
+<line x1="351.25" y1="835" x2="385.25" y2="835" stroke="#d08a3c" stroke-width="3" stroke-linecap="round"/>
+<circle cx="355.75" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="360.75" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="365.75" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="370.75" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="375.75" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="380.75" cy="835" r="3.5" fill="#28799c"/>
+<text x="368.25" y="875" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="368.25">Open arc</tspan></text>
+<line x1="409.75" y1="835" x2="443.75" y2="835" stroke="#d08a3c" stroke-width="3" stroke-linecap="round"/>
+<circle cx="414.25" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="419.25" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="424.25" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="429.25" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="434.25" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="439.25" cy="835" r="3.5" fill="#28799c"/>
+<text x="426.75" y="875" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="426.75">Drift</tspan></text>
+<line x1="468.25" y1="756.6666666666666" x2="502.25" y2="756.6666666666666" stroke="#d08a3c" stroke-width="3" stroke-linecap="round"/>
+<circle cx="472.75" cy="756.6666666666666" r="3.5" fill="#28799c"/>
+<circle cx="477.75" cy="756.6666666666666" r="3.5" fill="#28799c"/>
+<circle cx="482.75" cy="756.6666666666666" r="3.5" fill="#28799c"/>
+<circle cx="487.75" cy="756.6666666666666" r="3.5" fill="#28799c"/>
+<circle cx="492.75" cy="756.6666666666666" r="3.5" fill="#28799c"/>
+<circle cx="497.75" cy="756.6666666666666" r="3.5" fill="#28799c"/>
+<text x="485.25" y="875" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="485.25">1-cycle</tspan></text>
+<line x1="526.75" y1="678.3333333333334" x2="560.75" y2="678.3333333333334" stroke="#d08a3c" stroke-width="3" stroke-linecap="round"/>
+<circle cx="531.25" cy="678.3333333333334" r="3.5" fill="#28799c"/>
+<circle cx="536.25" cy="678.3333333333334" r="3.5" fill="#28799c"/>
+<circle cx="541.25" cy="678.3333333333334" r="3.5" fill="#28799c"/>
+<circle cx="546.25" cy="678.3333333333334" r="3.5" fill="#28799c"/>
+<circle cx="551.25" cy="678.3333333333334" r="3.5" fill="#28799c"/>
+<circle cx="556.25" cy="678.3333333333334" r="3.5" fill="#28799c"/>
+<text x="543.75" y="875" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="543.75">2-equal</tspan></text>
+<line x1="585.25" y1="678.3333333333334" x2="619.25" y2="678.3333333333334" stroke="#d08a3c" stroke-width="3" stroke-linecap="round"/>
+<circle cx="589.75" cy="756.6666666666666" r="3.5" fill="#28799c"/>
+<circle cx="594.75" cy="756.6666666666666" r="3.5" fill="#28799c"/>
+<circle cx="599.75" cy="756.6666666666666" r="3.5" fill="#28799c"/>
+<circle cx="604.75" cy="756.6666666666666" r="3.5" fill="#28799c"/>
+<circle cx="609.75" cy="756.6666666666666" r="3.5" fill="#28799c"/>
+<circle cx="614.75" cy="756.6666666666666" r="3.5" fill="#28799c"/>
+<text x="602.25" y="875" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="602.25">2-unequal</tspan></text>
+<line x1="643.75" y1="600" x2="677.75" y2="600" stroke="#d08a3c" stroke-width="3" stroke-linecap="round"/>
+<circle cx="648.25" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="653.25" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="658.25" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="663.25" cy="835" r="3.5" fill="#28799c"/>
+<circle cx="668.25" cy="835" r="3.5" fill="#28799c"/>
+<polygon points="673.25,852 668.25,862 678.25,862" fill="#9eacb5"/>
+<text x="660.75" y="875" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="660.75">3-sparse</tspan></text>
+<text x="397.5" y="904" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="397.5">Blue: detected count | orange: generator rank | gray below zero: unresolved</tspan></text>
+<text x="790" y="520" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="790">d</tspan></text>
+<text x="822" y="520" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#20323d" text-anchor="start"><tspan x="822">Explicit abstention</tspan></text>
+<rect x="850" y="625" width="560" height="82" rx="7" fill="#edf4f8" stroke="#28799c" stroke-width="2"/>
+<text x="1130" y="657" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="700" fill="#20323d" text-anchor="middle"><tspan x="1130">candidate_count = 1</tspan></text>
+<text x="1130" y="684" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="1130">Full-cloud reference comparison</tspan></text>
+<rect x="850" y="730" width="560" height="88" rx="7" fill="#edf4f8" stroke="#28799c" stroke-width="2"/>
+<text x="1130" y="765" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#20323d" text-anchor="middle"><tspan x="1130">n_cycles = None; status = unresolved</tspan></text>
+<text x="1130" y="792" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="1130">Agreement 0.50 &lt; required 0.75</tspan></text>
+<text x="1130" y="860" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="400" fill="#5e707c" text-anchor="middle"><tspan x="1130">Separate output fields preserve uncertainty.</tspan></text>
+</svg>

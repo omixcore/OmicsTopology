@@ -1,0 +1,89 @@
+%PDF-1.4
+% OmicsTopology editable vector figure
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 1200 700] /Resources << /Font << /F1 4 0 R /F2 5 0 R >> >> /Contents 6 0 R >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+6 0 obj
+<< /Length 3010 >>
+stream
+0.9294 0.9569 0.9725 rg
+0.1569 0.4745 0.6118 RG 2 w
+350 583 500 82 re B
+BT /F2 21 Tf 0.1255 0.1961 0.2392 rg 1 0 0 1 411.84 635 Tm (Input and declared preprocessing) Tj ET
+BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 436.2 612 Tm (Finite samples x features; source metadata) Tj ET
+0.9294 0.9569 0.9725 rg
+0.1569 0.4745 0.6118 RG 2 w
+65 403 470 112 re B
+BT /F2 21 Tf 0.1255 0.1961 0.2392 rg 1 0 0 1 188.28 485 Tm (v2 H1 inference API) Tj ET
+BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 151.8 462 Tm (Full-feature correlation dissimilarity) Tj ET
+BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 163.5 443 Tm (Ripser + Gaussian maximum reference) Tj ET
+0.9294 0.9569 0.9725 rg
+0.1569 0.4745 0.6118 RG 2 w
+665 403 470 112 re B
+BT /F2 21 Tf 0.1255 0.1961 0.2392 rg 1 0 0 1 770.64 485 Tm (General comparison CLI) Tj ET
+BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 802.5 462 Tm (Shared PCA representation) Tj ET
+BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 775.2 443 Tm (Condition geometry and summaries) Tj ET
+0.9294 0.9569 0.9725 rg
+0.1569 0.4745 0.6118 RG 2 w
+65 208 470 112 re B
+BT /F2 21 Tf 0.1255 0.1961 0.2392 rg 1 0 0 1 141.24 290 Tm (Reduced-cloud recalibration) Tj ET
+BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 159.6 267 Tm (Refit reference after sample removal) Tj ET
+BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 171.3 248 Tm (Stable count or unresolved result) Tj ET
+0.9294 0.9569 0.9725 rg
+0.1569 0.4745 0.6118 RG 2 w
+665 208 470 112 re B
+BT /F2 21 Tf 0.1255 0.1961 0.2392 rg 1 0 0 1 764.76 290 Tm (Design-axis diagnostics) Tj ET
+BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 759.6 267 Tm (Circular time; categorical treatment) Tj ET
+BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 747.9 248 Tm (Association and fitted phase dispersion) Tj ET
+0.9294 0.9569 0.9725 rg
+0.1569 0.4745 0.6118 RG 2 w
+350 57 500 78 re B
+BT /F2 21 Tf 0.1255 0.1961 0.2392 rg 1 0 0 1 429.48 105 Tm (Auditable records and reports) Tj ET
+BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 350.4 82 Tm (Settings | source hashes | selected features | numerical outputs) Tj ET
+0.6196 0.6745 0.7098 RG 2.5 w [] 0 d 480 583 m 300 515 l S [] 0 d
+0.6196 0.6745 0.7098 rg
+300 515 m 306.005 522.996 l 309.792 512.971 l h f
+0.6196 0.6745 0.7098 RG 2.5 w [] 0 d 720 583 m 900 515 l S [] 0 d
+0.6196 0.6745 0.7098 rg
+900 515 m 890.208 512.971 l 893.995 522.996 l h f
+0.6196 0.6745 0.7098 RG 2.5 w [] 0 d 300 403 m 300 320 l S [] 0 d
+0.6196 0.6745 0.7098 rg
+300 320 m 294.642 328.443 l 305.358 328.443 l h f
+0.6196 0.6745 0.7098 RG 2.5 w [] 0 d 900 403 m 900 320 l S [] 0 d
+0.6196 0.6745 0.7098 rg
+900 320 m 894.642 328.443 l 905.358 328.443 l h f
+0.6196 0.6745 0.7098 RG 2.5 w [] 0 d 300 208 m 450 135 l S [] 0 d
+0.6196 0.6745 0.7098 rg
+450 135 m 440.063 133.877 l 444.753 143.513 l h f
+0.6196 0.6745 0.7098 RG 2.5 w [] 0 d 900 208 m 750 135 l S [] 0 d
+0.6196 0.6745 0.7098 rg
+750 135 m 755.247 143.513 l 759.937 133.877 l h f
+BT /F1 16 Tf 0.1569 0.4745 0.6118 rg 1 0 0 1 346.24 25 Tm (Detected H1 features do not enumerate biological oscillators.) Tj ET
+endstream
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000048 00000 n 
+0000000097 00000 n 
+0000000154 00000 n 
+0000000291 00000 n 
+0000000361 00000 n 
+0000000436 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+3497
+%%EOF

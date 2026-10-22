@@ -16,9 +16,10 @@ endobj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
 endobj
 6 0 obj
-<< /Length 2208 >>
+<< /Length 2552 >>
 stream
 BT /F2 22 Tf 0.1255 0.1961 0.2392 rg 1 0 0 1 70 738 Tm (a) Tj ET
+BT /F2 22 Tf 0.1255 0.1961 0.2392 rg 1 0 0 1 104 738 Tm (Source provenance) Tj ET
 0.9294 0.9569 0.9725 rg
 0.1569 0.4745 0.6118 RG 2 w
 70 470 490 250 re B
@@ -27,6 +28,7 @@ BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 240.9 650 Tm (Hash-verified bytes) 
 BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 233.1 628 Tm (Sample IDs and design) Tj ET
 BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 194.1 606 Tm (Transformations and feature IDs) Tj ET
 BT /F2 22 Tf 0.1255 0.1961 0.2392 rg 1 0 0 1 640 738 Tm (b) Tj ET
+BT /F2 22 Tf 0.1255 0.1961 0.2392 rg 1 0 0 1 674 738 Tm (Frozen analysis contract) Tj ET
 0.9294 0.9569 0.9725 rg
 0.1569 0.4745 0.6118 RG 2 w
 640 470 490 250 re B
@@ -35,6 +37,7 @@ BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 799.2 650 Tm (Reference constructio
 BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 791.4 628 Tm (Backend and random seeds) Tj ET
 BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 791.4 606 Tm (Declared resampling unit) Tj ET
 BT /F2 22 Tf 0.1255 0.1961 0.2392 rg 1 0 0 1 70 383 Tm (c) Tj ET
+BT /F2 22 Tf 0.1255 0.1961 0.2392 rg 1 0 0 1 104 383 Tm (Numerical evidence) Tj ET
 0.9294 0.9569 0.9725 rg
 0.1569 0.4745 0.6118 RG 2 w
 70 115 490 250 re B
@@ -43,6 +46,7 @@ BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 194.1 295 Tm (Bar lengths and refer
 BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 182.4 273 Tm (Candidate and reduced-cloud counts) Tj ET
 BT /F1 15 Tf 0.3686 0.4392 0.4863 rg 1 0 0 1 209.7 251 Tm (Effect sizes and abstention) Tj ET
 BT /F2 22 Tf 0.1255 0.1961 0.2392 rg 1 0 0 1 640 383 Tm (d) Tj ET
+BT /F2 22 Tf 0.1255 0.1961 0.2392 rg 1 0 0 1 674 383 Tm (Regeneration and scrutiny) Tj ET
 0.9294 0.9569 0.9725 rg
 0.1569 0.4745 0.6118 RG 2 w
 640 115 490 250 re B
@@ -65,5 +69,5 @@ xref
 trailer
 << /Size 7 /Root 1 0 R >>
 startxref
-2695
+3039
 %%EOF

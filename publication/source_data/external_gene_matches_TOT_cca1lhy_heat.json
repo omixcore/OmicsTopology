@@ -1,0 +1,4027 @@
+[
+  {
+    "gene_id": "AT1G01060",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.91804268006637,
+    "published_fdr": 1.55320484905822e-06
+  },
+  {
+    "gene_id": "AT1G01940",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.80655602882062,
+    "published_fdr": 1.08265662595784e-09
+  },
+  {
+    "gene_id": "AT1G02700",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 4.06955370005732,
+    "published_fdr": 1.1817772767458e-11
+  },
+  {
+    "gene_id": "AT1G02820",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.22558322323886,
+    "published_fdr": 0.0242231240892014
+  },
+  {
+    "gene_id": "AT1G03820",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.42175573072306,
+    "published_fdr": 0.00107577008304044
+  },
+  {
+    "gene_id": "AT1G04130",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.05473614745979,
+    "published_fdr": 2.22089691726671e-06
+  },
+  {
+    "gene_id": "AT1G04280",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.9412774138204,
+    "published_fdr": 1.7235394972069e-05
+  },
+  {
+    "gene_id": "AT1G04503",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.64359862471358,
+    "published_fdr": 0.000161172104347184
+  },
+  {
+    "gene_id": "AT1G04560",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.35607079463564,
+    "published_fdr": 0.00064662142653914
+  },
+  {
+    "gene_id": "AT1G04733",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.281260595533188,
+    "published_fdr": 0.455034960755428
+  },
+  {
+    "gene_id": "AT1G05163",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.115843317749558,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT1G05353",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 5.09121526423228,
+    "published_fdr": 4.25860071101067e-11
+  },
+  {
+    "gene_id": "AT1G06000",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.82467959704291,
+    "published_fdr": 6.46627541269789e-09
+  },
+  {
+    "gene_id": "AT1G06002",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.82467959704291,
+    "published_fdr": 6.46627541269789e-09
+  },
+  {
+    "gene_id": "AT1G06450",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.270512286587178,
+    "published_fdr": 0.592269326669696
+  },
+  {
+    "gene_id": "AT1G06760",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.77906973381216,
+    "published_fdr": 9.9813334828096e-06
+  },
+  {
+    "gene_id": "AT1G07050",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.14192335991877,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT1G07128",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.466338500023273,
+    "published_fdr": 0.272649615855419
+  },
+  {
+    "gene_id": "AT1G07180",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.0644275178566893,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT1G07350",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 3.47995743423429,
+    "published_fdr": 1.43109303507081e-09
+  },
+  {
+    "gene_id": "AT1G09765",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.21010167070464,
+    "published_fdr": 0.000227119974601261
+  },
+  {
+    "gene_id": "AT1G09855",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.595238856052549,
+    "published_fdr": 0.0196171603802843
+  },
+  {
+    "gene_id": "AT1G10970",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 2.57697780769619,
+    "published_fdr": 4.29661464080027e-07
+  },
+  {
+    "gene_id": "AT1G11210",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.314338089174316,
+    "published_fdr": 0.692161935897808
+  },
+  {
+    "gene_id": "AT1G11580",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.96981565550668,
+    "published_fdr": 1.12752773703794e-08
+  },
+  {
+    "gene_id": "AT1G11700",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.5672305328529,
+    "published_fdr": 5.74161890395494e-05
+  },
+  {
+    "gene_id": "AT1G11850",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.69509589939762,
+    "published_fdr": 0.00067967584732699
+  },
+  {
+    "gene_id": "AT1G12090",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.72151503350697,
+    "published_fdr": 5.67472310400704e-05
+  },
+  {
+    "gene_id": "AT1G13420",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.1945127769969,
+    "published_fdr": 0.008511875641708
+  },
+  {
+    "gene_id": "AT1G13650",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.44253287974387,
+    "published_fdr": 0.000166884891895581
+  },
+  {
+    "gene_id": "AT1G14160",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.761912571921285,
+    "published_fdr": 0.0276596303337464
+  },
+  {
+    "gene_id": "AT1G14200",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.83997009150964,
+    "published_fdr": 5.68692672877461e-09
+  },
+  {
+    "gene_id": "AT1G14205",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 1.88326882568502,
+    "published_fdr": 6.93729374470795e-07
+  },
+  {
+    "gene_id": "AT1G14360",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 4.32096200339059,
+    "published_fdr": 6.7618669502514e-13
+  },
+  {
+    "gene_id": "AT1G14980",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.54589809963649,
+    "published_fdr": 1.68091434897323e-07
+  },
+  {
+    "gene_id": "AT1G15405",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.149210548735105,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT1G16060",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.467667375891987,
+    "published_fdr": 0.199060976754987
+  },
+  {
+    "gene_id": "AT1G16410",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.40104980098854,
+    "published_fdr": 0.000446072461530451
+  },
+  {
+    "gene_id": "AT1G17180",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.14452352554945,
+    "published_fdr": 0.0366962746814705
+  },
+  {
+    "gene_id": "AT1G18265",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.0217664290500779,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT1G18330",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.25349507905756,
+    "published_fdr": 4.39549995947179e-09
+  },
+  {
+    "gene_id": "AT1G18590",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -2.2553929509202,
+    "published_fdr": 9.5989816667419e-05
+  },
+  {
+    "gene_id": "AT1G18710",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.6257776717817,
+    "published_fdr": 0.000327581333295838
+  },
+  {
+    "gene_id": "AT1G19550",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.230516017908241,
+    "published_fdr": 0.694018702432226
+  },
+  {
+    "gene_id": "AT1G19960",
+    "candidate": true,
+    "external_positive": false,
+    "log2fc": -0.900957079861992,
+    "published_fdr": 0.138774815671469
+  },
+  {
+    "gene_id": "AT1G20190",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.96984105298061,
+    "published_fdr": 4.05935197070937e-05
+  },
+  {
+    "gene_id": "AT1G20640",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.092069137392,
+    "published_fdr": 2.73637735799721e-09
+  },
+  {
+    "gene_id": "AT1G20693",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.59150352358742,
+    "published_fdr": 0.000298750105242204
+  },
+  {
+    "gene_id": "AT1G21100",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.65160741007043,
+    "published_fdr": 0.000258161213145191
+  },
+  {
+    "gene_id": "AT1G21130",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.450693834526788,
+    "published_fdr": 0.310370824539691
+  },
+  {
+    "gene_id": "AT1G22110",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.66018265502143,
+    "published_fdr": 9.91025232714148e-09
+  },
+  {
+    "gene_id": "AT1G22590",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.35205330049141,
+    "published_fdr": 0.00577350495440498
+  },
+  {
+    "gene_id": "AT1G22885",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.511102269778335,
+    "published_fdr": 0.310990365124045
+  },
+  {
+    "gene_id": "AT1G23390",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.753799638903597,
+    "published_fdr": 0.0913601788751435
+  },
+  {
+    "gene_id": "AT1G24793",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.4763753878471,
+    "published_fdr": 0.445221480684439
+  },
+  {
+    "gene_id": "AT1G24800",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.408871620913489,
+    "published_fdr": 0.00245408208679358
+  },
+  {
+    "gene_id": "AT1G24822",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.166844422326325,
+    "published_fdr": 0.950994061898607
+  },
+  {
+    "gene_id": "AT1G24880",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.123463586935365,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT1G24881",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.563353435228353,
+    "published_fdr": 0.063200431494004
+  },
+  {
+    "gene_id": "AT1G24996",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.0363071687531535,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT1G25054",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.326266391104824,
+    "published_fdr": 0.442992361865201
+  },
+  {
+    "gene_id": "AT1G25055",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.576882593285161,
+    "published_fdr": 0.0133020431180854
+  },
+  {
+    "gene_id": "AT1G25097",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.174820341962355,
+    "published_fdr": 0.693127145916406
+  },
+  {
+    "gene_id": "AT1G25098",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.140549927266155,
+    "published_fdr": 0.690626562962702
+  },
+  {
+    "gene_id": "AT1G25145",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.451742266411926,
+    "published_fdr": 0.178783969682788
+  },
+  {
+    "gene_id": "AT1G25150",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.403757421499088,
+    "published_fdr": 0.176236080138873
+  },
+  {
+    "gene_id": "AT1G25175",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.00961922499941803,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT1G25210",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.298058574562965,
+    "published_fdr": 0.495923437300539
+  },
+  {
+    "gene_id": "AT1G26560",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.04388216891627,
+    "published_fdr": 0.000699289480444337
+  },
+  {
+    "gene_id": "AT1G26800",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 6.19800923583623,
+    "published_fdr": 3.87463120812899e-12
+  },
+  {
+    "gene_id": "AT1G27930",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.08359167321956,
+    "published_fdr": 0.000119816380995069
+  },
+  {
+    "gene_id": "AT1G28330",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 1.09181998456203,
+    "published_fdr": 0.0457853099059848
+  },
+  {
+    "gene_id": "AT1G29910",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.58833646659077,
+    "published_fdr": 4.68963495189757e-07
+  },
+  {
+    "gene_id": "AT1G29920",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.82969610086714,
+    "published_fdr": 1.23301796163162e-09
+  },
+  {
+    "gene_id": "AT1G30060",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.24411543810374,
+    "published_fdr": 4.56997498703703e-06
+  },
+  {
+    "gene_id": "AT1G30473",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.41014014465741,
+    "published_fdr": 1.22658041321188e-07
+  },
+  {
+    "gene_id": "AT1G30510",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.6543452731642,
+    "published_fdr": 0.00138315958388014
+  },
+  {
+    "gene_id": "AT1G30530",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.12003955551507,
+    "published_fdr": 4.34713994244886e-07
+  },
+  {
+    "gene_id": "AT1G31580",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.33031756378575,
+    "published_fdr": 8.28994259601248e-05
+  },
+  {
+    "gene_id": "AT1G31770",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.48608703800146,
+    "published_fdr": 0.000392867357790592
+  },
+  {
+    "gene_id": "AT1G32870",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 2.43080592607109,
+    "published_fdr": 1.64674454363185e-07
+  },
+  {
+    "gene_id": "AT1G32900",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.88620462591698,
+    "published_fdr": 1.88418368281217e-08
+  },
+  {
+    "gene_id": "AT1G33055",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.98926175285158,
+    "published_fdr": 3.80643318221894e-07
+  },
+  {
+    "gene_id": "AT1G33350",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 4.34054931738265,
+    "published_fdr": 6.72590691312544e-11
+  },
+  {
+    "gene_id": "AT1G34340",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.17224732526225,
+    "published_fdr": 0.00525776081799196
+  },
+  {
+    "gene_id": "AT1G35250",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.09646429130787,
+    "published_fdr": 0.0143997582860136
+  },
+  {
+    "gene_id": "AT1G35260",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.25407946766944,
+    "published_fdr": 0.000211982356222057
+  },
+  {
+    "gene_id": "AT1G35560",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.37101494466273,
+    "published_fdr": 1.53555364639201e-05
+  },
+  {
+    "gene_id": "AT1G38065",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.613817273563879,
+    "published_fdr": 0.0966598149139428
+  },
+  {
+    "gene_id": "AT1G44000",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.862167308038876,
+    "published_fdr": 0.00428962540243263
+  },
+  {
+    "gene_id": "AT1G45201",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.1862853668482,
+    "published_fdr": 8.32624071595456e-08
+  },
+  {
+    "gene_id": "AT1G47210",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.04632454559258,
+    "published_fdr": 0.00287917172016719
+  },
+  {
+    "gene_id": "AT1G47395",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.499271483702059,
+    "published_fdr": 0.52777143149122
+  },
+  {
+    "gene_id": "AT1G47530",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.28319636822933,
+    "published_fdr": 5.43297086269274e-08
+  },
+  {
+    "gene_id": "AT1G48130",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 1.97839123730128,
+    "published_fdr": 0.00143959222241835
+  },
+  {
+    "gene_id": "AT1G49500",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.65001766747512,
+    "published_fdr": 0.530298398486158
+  },
+  {
+    "gene_id": "AT1G51680",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.14819850753933,
+    "published_fdr": 1.55320484905822e-06
+  },
+  {
+    "gene_id": "AT1G52000",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -2.06381058821467,
+    "published_fdr": 0.000347981510053222
+  },
+  {
+    "gene_id": "AT1G52040",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.573217299977561,
+    "published_fdr": 0.552018654802883
+  },
+  {
+    "gene_id": "AT1G52560",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 9.36152035606083,
+    "published_fdr": 2.54815815932783e-14
+  },
+  {
+    "gene_id": "AT1G52690",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.54598030514427,
+    "published_fdr": 5.51695410150343e-05
+  },
+  {
+    "gene_id": "AT1G52870",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.10542881993378,
+    "published_fdr": 3.30235110023882e-11
+  },
+  {
+    "gene_id": "AT1G53230",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.39483150505419,
+    "published_fdr": 1.80402600771652e-06
+  },
+  {
+    "gene_id": "AT1G53233",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.36221565994206,
+    "published_fdr": 2.01930090026153e-06
+  },
+  {
+    "gene_id": "AT1G53870",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.214305857702732,
+    "published_fdr": 0.820683224938435
+  },
+  {
+    "gene_id": "AT1G53875",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.09647909697693,
+    "published_fdr": 0.00505738826793322
+  },
+  {
+    "gene_id": "AT1G53880",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.279890070833586,
+    "published_fdr": 0.324102687450686
+  },
+  {
+    "gene_id": "AT1G53890",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.107661345747889,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT1G53900",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.319879534802952,
+    "published_fdr": 0.350663255930982
+  },
+  {
+    "gene_id": "AT1G54660",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.29988693558152,
+    "published_fdr": 0.00115579090593858
+  },
+  {
+    "gene_id": "AT1G55450",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.695403418379863,
+    "published_fdr": 0.0597590979465488
+  },
+  {
+    "gene_id": "AT1G55960",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.84047174543979,
+    "published_fdr": 1.56038265765031e-06
+  },
+  {
+    "gene_id": "AT1G56010",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.01113336997006,
+    "published_fdr": 0.000727869131726828
+  },
+  {
+    "gene_id": "AT1G56170",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.67970460418953,
+    "published_fdr": 6.90478319298485e-10
+  },
+  {
+    "gene_id": "AT1G56220",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.663058107959667,
+    "published_fdr": 0.0872230992961214
+  },
+  {
+    "gene_id": "AT1G56300",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 2.53944071194376,
+    "published_fdr": 9.83194050838888e-11
+  },
+  {
+    "gene_id": "AT1G58170",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.71114273828616,
+    "published_fdr": 6.67176628138289e-08
+  },
+  {
+    "gene_id": "AT1G58590",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.174977501310454,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT1G58602",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -2.37481850968598,
+    "published_fdr": 1.11691788746347e-05
+  },
+  {
+    "gene_id": "AT1G58684",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.73374999241492,
+    "published_fdr": 0.000675395485342978
+  },
+  {
+    "gene_id": "AT1G58807",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.484133578679557,
+    "published_fdr": 0.258287095297748
+  },
+  {
+    "gene_id": "AT1G58848",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.475798599939506,
+    "published_fdr": 0.244263382117698
+  },
+  {
+    "gene_id": "AT1G58983",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.726412697793851,
+    "published_fdr": 0.000306500492785257
+  },
+  {
+    "gene_id": "AT1G59124",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.385306912020234,
+    "published_fdr": 0.308455136181511
+  },
+  {
+    "gene_id": "AT1G59218",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.72513896011958,
+    "published_fdr": 0.215241747745049
+  },
+  {
+    "gene_id": "AT1G59359",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.901193889176455,
+    "published_fdr": 1.94751444563596e-05
+  },
+  {
+    "gene_id": "AT1G59870",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.945174117465134,
+    "published_fdr": 0.048864878000386
+  },
+  {
+    "gene_id": "AT1G62422",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.1053046370824,
+    "published_fdr": 0.00265121500124426
+  },
+  {
+    "gene_id": "AT1G62510",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.33098190310011,
+    "published_fdr": 1.26675191073044e-05
+  },
+  {
+    "gene_id": "AT1G62515",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.28099476196917,
+    "published_fdr": 2.46222543469038e-05
+  },
+  {
+    "gene_id": "AT1G62560",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.79684207467053,
+    "published_fdr": 0.00015249271097256
+  },
+  {
+    "gene_id": "AT1G62740",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 2.19954972593278,
+    "published_fdr": 9.89584405085952e-07
+  },
+  {
+    "gene_id": "AT1G64390",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -3.57915675274231,
+    "published_fdr": 7.18408178043944e-08
+  },
+  {
+    "gene_id": "AT1G64500",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.0062812462128,
+    "published_fdr": 0.00051880066513793
+  },
+  {
+    "gene_id": "AT1G65980",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.41424128310975,
+    "published_fdr": 8.83485319835777e-09
+  },
+  {
+    "gene_id": "AT1G66090",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 1.96936228080125,
+    "published_fdr": 9.46386079383534e-06
+  },
+  {
+    "gene_id": "AT1G66480",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.527488,
+    "published_fdr": 0.001795364
+  },
+  {
+    "gene_id": "AT1G66725",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.356918,
+    "published_fdr": 5.658955e-05
+  },
+  {
+    "gene_id": "AT1G66820",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.9780822,
+    "published_fdr": 0.01051237
+  },
+  {
+    "gene_id": "AT1G66830",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.9655636,
+    "published_fdr": 0.01090749
+  },
+  {
+    "gene_id": "AT1G67365",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 3.463847,
+    "published_fdr": 2.295974e-10
+  },
+  {
+    "gene_id": "AT1G67370",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 1.930843,
+    "published_fdr": 3.136462e-09
+  },
+  {
+    "gene_id": "AT1G68050",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 2.220446e-16,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT1G68238",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.05852638,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT1G69530",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -3.389977,
+    "published_fdr": 1.064751e-09
+  },
+  {
+    "gene_id": "AT1G69870",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.286132,
+    "published_fdr": 1.832076e-06
+  },
+  {
+    "gene_id": "AT1G70090",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 1.716656,
+    "published_fdr": 6.18033e-05
+  },
+  {
+    "gene_id": "AT1G71000",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 5.689063,
+    "published_fdr": 5.469518e-14
+  },
+  {
+    "gene_id": "AT1G71030",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.9089561,
+    "published_fdr": 0.03808727
+  },
+  {
+    "gene_id": "AT1G72416",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 3.15955,
+    "published_fdr": 3.446887e-09
+  },
+  {
+    "gene_id": "AT1G72760",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 3.872335,
+    "published_fdr": 8.568591e-13
+  },
+  {
+    "gene_id": "AT1G72930",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.6813866,
+    "published_fdr": 0.1552259
+  },
+  {
+    "gene_id": "AT1G73480",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 1.985305,
+    "published_fdr": 8.957008e-10
+  },
+  {
+    "gene_id": "AT1G73600",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.176508,
+    "published_fdr": 0.0001680973
+  },
+  {
+    "gene_id": "AT1G73870",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.2541617,
+    "published_fdr": 0.2380446
+  },
+  {
+    "gene_id": "AT1G74090",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.24653,
+    "published_fdr": 0.0004222822
+  },
+  {
+    "gene_id": "AT1G74100",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.752862,
+    "published_fdr": 9.992066e-05
+  },
+  {
+    "gene_id": "AT1G74675",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.3309865,
+    "published_fdr": 0.9915392
+  },
+  {
+    "gene_id": "AT1G75190",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.5430641,
+    "published_fdr": 0.2466859
+  },
+  {
+    "gene_id": "AT1G75750",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 1.523218,
+    "published_fdr": 0.0579625
+  },
+  {
+    "gene_id": "AT1G76680",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.377092,
+    "published_fdr": 7.98594e-05
+  },
+  {
+    "gene_id": "AT1G76790",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.700353,
+    "published_fdr": 9.598982e-05
+  },
+  {
+    "gene_id": "AT1G77000",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.948136,
+    "published_fdr": 1.708649e-10
+  },
+  {
+    "gene_id": "AT1G77520",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.163098,
+    "published_fdr": 0.001558441
+  },
+  {
+    "gene_id": "AT1G77760",
+    "candidate": true,
+    "external_positive": false,
+    "log2fc": -0.301677,
+    "published_fdr": 0.644529
+  },
+  {
+    "gene_id": "AT1G77885",
+    "candidate": true,
+    "external_positive": false,
+    "log2fc": -0.1666195,
+    "published_fdr": 0.8998398
+  },
+  {
+    "gene_id": "AT1G77990",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.199269,
+    "published_fdr": 0.005716091
+  },
+  {
+    "gene_id": "AT1G78000",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.559658,
+    "published_fdr": 5.224393e-06
+  },
+  {
+    "gene_id": "AT1G78020",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.9226602,
+    "published_fdr": 0.009418104
+  },
+  {
+    "gene_id": "AT1G78380",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 2.128845,
+    "published_fdr": 1.475187e-05
+  },
+  {
+    "gene_id": "AT1G78460",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.4141254,
+    "published_fdr": 0.499741
+  },
+  {
+    "gene_id": "AT1G78995",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.918101,
+    "published_fdr": 2.714324e-06
+  },
+  {
+    "gene_id": "AT1G79075",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.3345266,
+    "published_fdr": 0.7057665
+  },
+  {
+    "gene_id": "AT1G79920",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.604958,
+    "published_fdr": 2.023204e-06
+  },
+  {
+    "gene_id": "AT2G01010",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.1902782,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT2G01020",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.900765,
+    "published_fdr": 0.3487869
+  },
+  {
+    "gene_id": "AT2G01021",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.6491641,
+    "published_fdr": 0.7130201
+  },
+  {
+    "gene_id": "AT2G02810",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 2.521529,
+    "published_fdr": 8.432189e-09
+  },
+  {
+    "gene_id": "AT2G03090",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.007623,
+    "published_fdr": 0.0003474775
+  },
+  {
+    "gene_id": "AT2G03410",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.9220959,
+    "published_fdr": 0.006159291
+  },
+  {
+    "gene_id": "AT2G03420",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.9168203,
+    "published_fdr": 0.005512849
+  },
+  {
+    "gene_id": "AT2G03440",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.9994134,
+    "published_fdr": 0.02155142
+  },
+  {
+    "gene_id": "AT2G03865",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.7228547,
+    "published_fdr": 0.5738822
+  },
+  {
+    "gene_id": "AT2G03875",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.5248537,
+    "published_fdr": 0.7725373
+  },
+  {
+    "gene_id": "AT2G04030",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 2.139964,
+    "published_fdr": 2.494164e-10
+  },
+  {
+    "gene_id": "AT2G05070",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.307454,
+    "published_fdr": 3.348793e-09
+  },
+  {
+    "gene_id": "AT2G05100",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.291598,
+    "published_fdr": 4.160412e-10
+  },
+  {
+    "gene_id": "AT2G05230",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.6591421,
+    "published_fdr": 0.04032732
+  },
+  {
+    "gene_id": "AT2G05250",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.1245936,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT2G05540",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.7147947,
+    "published_fdr": 0.5655006
+  },
+  {
+    "gene_id": "AT2G06925",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.036584,
+    "published_fdr": 0.01599886
+  },
+  {
+    "gene_id": "AT2G08470",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.83177,
+    "published_fdr": 0.03452364
+  },
+  {
+    "gene_id": "AT2G09250",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.0717372,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT2G14750",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.73831,
+    "published_fdr": 3.266583e-06
+  },
+  {
+    "gene_id": "AT2G15020",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.8148809,
+    "published_fdr": 0.001403968
+  },
+  {
+    "gene_id": "AT2G15790",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.972082,
+    "published_fdr": 9.669049e-10
+  },
+  {
+    "gene_id": "AT2G15830",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.4554776,
+    "published_fdr": 0.3367154
+  },
+  {
+    "gene_id": "AT2G15880",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.7650369,
+    "published_fdr": 0.1066801
+  },
+  {
+    "gene_id": "AT2G15890",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.8440162,
+    "published_fdr": 0.02644423
+  },
+  {
+    "gene_id": "AT2G15960",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.8169638,
+    "published_fdr": 0.1239258
+  },
+  {
+    "gene_id": "AT2G16367",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.371271,
+    "published_fdr": 1.623195e-05
+  },
+  {
+    "gene_id": "AT2G16500",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.289576,
+    "published_fdr": 7.296907e-11
+  },
+  {
+    "gene_id": "AT2G16586",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.760269,
+    "published_fdr": 4.280012e-05
+  },
+  {
+    "gene_id": "AT2G18050",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.2936085,
+    "published_fdr": 0.72067
+  },
+  {
+    "gene_id": "AT2G18120",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.329792,
+    "published_fdr": 0.00120157
+  },
+  {
+    "gene_id": "AT2G18210",
+    "candidate": true,
+    "external_positive": false,
+    "log2fc": -0.5428549,
+    "published_fdr": 0.278114
+  },
+  {
+    "gene_id": "AT2G18540",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 1.624077,
+    "published_fdr": 0.001478012
+  },
+  {
+    "gene_id": "AT2G18969",
+    "candidate": true,
+    "external_positive": false,
+    "log2fc": -0.2273942,
+    "published_fdr": 0.6684389
+  },
+  {
+    "gene_id": "AT2G18970",
+    "candidate": true,
+    "external_positive": false,
+    "log2fc": -0.08309867,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT2G18980",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.5797,
+    "published_fdr": 0.000530017
+  },
+  {
+    "gene_id": "AT2G19310",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 5.256634,
+    "published_fdr": 4.303469e-14
+  },
+  {
+    "gene_id": "AT2G19580",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 2.891353,
+    "published_fdr": 6.904783e-10
+  },
+  {
+    "gene_id": "AT2G19582",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 2.731239,
+    "published_fdr": 7.08322e-09
+  },
+  {
+    "gene_id": "AT2G20570",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -2.459402,
+    "published_fdr": 8.969711e-09
+  },
+  {
+    "gene_id": "AT2G20610",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -2.702961,
+    "published_fdr": 6.419971e-08
+  },
+  {
+    "gene_id": "AT2G21130",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 4.142215,
+    "published_fdr": 6.30577e-11
+  },
+  {
+    "gene_id": "AT2G21640",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.133868,
+    "published_fdr": 4.26396e-05
+  },
+  {
+    "gene_id": "AT2G21660",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.6836568,
+    "published_fdr": 0.1144151
+  },
+  {
+    "gene_id": "AT2G21820",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 4.269085,
+    "published_fdr": 6.675476e-10
+  },
+  {
+    "gene_id": "AT2G22240",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.416549,
+    "published_fdr": 5.609726e-10
+  },
+  {
+    "gene_id": "AT2G23110",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 4.224912,
+    "published_fdr": 2.437281e-12
+  },
+  {
+    "gene_id": "AT2G23910",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.1590339,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT2G25160",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.9601331,
+    "published_fdr": 0.05143312
+  },
+  {
+    "gene_id": "AT2G25510",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.3217866,
+    "published_fdr": 0.6724821
+  },
+  {
+    "gene_id": "AT2G27402",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.616431,
+    "published_fdr": 0.003037875
+  },
+  {
+    "gene_id": "AT2G27420",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.803316,
+    "published_fdr": 1.926565e-06
+  },
+  {
+    "gene_id": "AT2G28000",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 1.797486,
+    "published_fdr": 7.003827e-07
+  },
+  {
+    "gene_id": "AT2G28100",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.4237643,
+    "published_fdr": 0.2038591
+  },
+  {
+    "gene_id": "AT2G28620",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.231124,
+    "published_fdr": 0.002178956
+  },
+  {
+    "gene_id": "AT2G28720",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.7845,
+    "published_fdr": 0.001018099
+  },
+  {
+    "gene_id": "AT2G28900",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.14391,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT2G29170",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.7854408,
+    "published_fdr": 0.003735145
+  },
+  {
+    "gene_id": "AT2G29320",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.6948065,
+    "published_fdr": 0.05963215
+  },
+  {
+    "gene_id": "AT2G29450",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 2.077102,
+    "published_fdr": 2.731893e-06
+  },
+  {
+    "gene_id": "AT2G29490",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.1068597,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT2G30424",
+    "candidate": true,
+    "external_positive": false,
+    "log2fc": -0.133662,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT2G30760",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.143557,
+    "published_fdr": 0.03568418
+  },
+  {
+    "gene_id": "AT2G30766",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.232565,
+    "published_fdr": 0.02205784
+  },
+  {
+    "gene_id": "AT2G31380",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.481917,
+    "published_fdr": 0.0646591
+  },
+  {
+    "gene_id": "AT2G32140",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.8624679,
+    "published_fdr": 0.002112593
+  },
+  {
+    "gene_id": "AT2G32220",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.503956,
+    "published_fdr": 5.878498e-05
+  },
+  {
+    "gene_id": "AT2G32290",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.9099337,
+    "published_fdr": 0.006108398
+  },
+  {
+    "gene_id": "AT2G33480",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.5572131,
+    "published_fdr": 0.2639794
+  },
+  {
+    "gene_id": "AT2G33590",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.557707,
+    "published_fdr": 1.37494e-13
+  },
+  {
+    "gene_id": "AT2G33830",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.3029183,
+    "published_fdr": 0.8941782
+  },
+  {
+    "gene_id": "AT2G35960",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.556651,
+    "published_fdr": 7.320789e-08
+  },
+  {
+    "gene_id": "AT2G36880",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -3.381788,
+    "published_fdr": 1.585655e-11
+  },
+  {
+    "gene_id": "AT2G36970",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.403201,
+    "published_fdr": 5.666281e-07
+  },
+  {
+    "gene_id": "AT2G37040",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.163095,
+    "published_fdr": 0.0001271866
+  },
+  {
+    "gene_id": "AT2G37180",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.89131,
+    "published_fdr": 1.938256e-09
+  },
+  {
+    "gene_id": "AT2G37450",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.118609,
+    "published_fdr": 0.003778236
+  },
+  {
+    "gene_id": "AT2G37710",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.472214,
+    "published_fdr": 9.233787e-06
+  },
+  {
+    "gene_id": "AT2G38210",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -2.01755,
+    "published_fdr": 6.119932e-06
+  },
+  {
+    "gene_id": "AT2G38860",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.07392,
+    "published_fdr": 0.0005960931
+  },
+  {
+    "gene_id": "AT2G39220",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.986204,
+    "published_fdr": 5.625945e-05
+  },
+  {
+    "gene_id": "AT2G39700",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.827644,
+    "published_fdr": 1.143956e-06
+  },
+  {
+    "gene_id": "AT2G40020",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.514339,
+    "published_fdr": 6.556719e-05
+  },
+  {
+    "gene_id": "AT2G40080",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.4075856,
+    "published_fdr": 0.2711857
+  },
+  {
+    "gene_id": "AT2G40610",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.956524,
+    "published_fdr": 0.0005768042
+  },
+  {
+    "gene_id": "AT2G41480",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.869713,
+    "published_fdr": 0.0001041168
+  },
+  {
+    "gene_id": "AT2G41560",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.287015,
+    "published_fdr": 0.0002846767
+  },
+  {
+    "gene_id": "AT2G42530",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.4858031,
+    "published_fdr": 0.4460176
+  },
+  {
+    "gene_id": "AT2G42560",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.561354,
+    "published_fdr": 0.0001464131
+  },
+  {
+    "gene_id": "AT2G43010",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 1.949899,
+    "published_fdr": 7.141745e-08
+  },
+  {
+    "gene_id": "AT2G43530",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.131784,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT2G44010",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.9318097,
+    "published_fdr": 0.04311524
+  },
+  {
+    "gene_id": "AT2G44300",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.8585187,
+    "published_fdr": 0.004560327
+  },
+  {
+    "gene_id": "AT2G44490",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.943013,
+    "published_fdr": 1.964841e-08
+  },
+  {
+    "gene_id": "AT2G45360",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 2.42439,
+    "published_fdr": 1.08396e-06
+  },
+  {
+    "gene_id": "AT2G45380",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 2.677522,
+    "published_fdr": 9.426805e-11
+  },
+  {
+    "gene_id": "AT2G46240",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 8.660614,
+    "published_fdr": 2.548158e-14
+  },
+  {
+    "gene_id": "AT2G46450",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.88118,
+    "published_fdr": 0.0001147917
+  },
+  {
+    "gene_id": "AT2G46650",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.908413,
+    "published_fdr": 0.0003489988
+  },
+  {
+    "gene_id": "AT2G46670",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 1.329227,
+    "published_fdr": 2.299183e-05
+  },
+  {
+    "gene_id": "AT2G46750",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.778454,
+    "published_fdr": 2.003842e-06
+  },
+  {
+    "gene_id": "AT2G46790",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 1.212563,
+    "published_fdr": 6.505468e-05
+  },
+  {
+    "gene_id": "AT2G46830",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.1369873,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT2G47180",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 6.329863,
+    "published_fdr": 1.27705e-13
+  },
+  {
+    "gene_id": "AT3G01550",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.102995,
+    "published_fdr": 0.00142217
+  },
+  {
+    "gene_id": "AT3G01660",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.9907479,
+    "published_fdr": 0.02488872
+  },
+  {
+    "gene_id": "AT3G02020",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.116376,
+    "published_fdr": 0.0002712914
+  },
+  {
+    "gene_id": "AT3G02380",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.9062592,
+    "published_fdr": 0.0001723739
+  },
+  {
+    "gene_id": "AT3G03190",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.462341,
+    "published_fdr": 0.0002469556
+  },
+  {
+    "gene_id": "AT3G03270",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 4.456455,
+    "published_fdr": 8.644597e-10
+  },
+  {
+    "gene_id": "AT3G03780",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -4.020631,
+    "published_fdr": 4.467687e-08
+  },
+  {
+    "gene_id": "AT3G04255",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.7728842,
+    "published_fdr": 0.1246965
+  },
+  {
+    "gene_id": "AT3G04910",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.6849479,
+    "published_fdr": 0.006077082
+  },
+  {
+    "gene_id": "AT3G05345",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.6358438,
+    "published_fdr": 0.0236934
+  },
+  {
+    "gene_id": "AT3G05800",
+    "candidate": true,
+    "external_positive": false,
+    "log2fc": -0.6646518,
+    "published_fdr": 0.111264
+  },
+  {
+    "gene_id": "AT3G05936",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.692871,
+    "published_fdr": 0.06984682
+  },
+  {
+    "gene_id": "AT3G06145",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.281937,
+    "published_fdr": 0.02164519
+  },
+  {
+    "gene_id": "AT3G06355",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.024659,
+    "published_fdr": 0.00190929
+  },
+  {
+    "gene_id": "AT3G07230",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.5254464,
+    "published_fdr": 0.07260565
+  },
+  {
+    "gene_id": "AT3G07555",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.69554,
+    "published_fdr": 2.029795e-05
+  },
+  {
+    "gene_id": "AT3G07650",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.6769405,
+    "published_fdr": 0.1268607
+  },
+  {
+    "gene_id": "AT3G08405",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.5983998,
+    "published_fdr": 0.4534767
+  },
+  {
+    "gene_id": "AT3G08590",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.800718,
+    "published_fdr": 1.657309e-12
+  },
+  {
+    "gene_id": "AT3G08690",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.049603,
+    "published_fdr": 2.279281e-09
+  },
+  {
+    "gene_id": "AT3G09160",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.4453722,
+    "published_fdr": 0.4310908
+  },
+  {
+    "gene_id": "AT3G09220",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.362781,
+    "published_fdr": 4.847105e-05
+  },
+  {
+    "gene_id": "AT3G09270",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.773838,
+    "published_fdr": 4.208187e-07
+  },
+  {
+    "gene_id": "AT3G09600",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.6222689,
+    "published_fdr": 0.01221615
+  },
+  {
+    "gene_id": "AT3G10020",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 8.14396,
+    "published_fdr": 2.610112e-13
+  },
+  {
+    "gene_id": "AT3G10113",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.575133,
+    "published_fdr": 1.398823e-07
+  },
+  {
+    "gene_id": "AT3G12320",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.6772442,
+    "published_fdr": 0.01636383
+  },
+  {
+    "gene_id": "AT3G13110",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.278764,
+    "published_fdr": 1.074513e-07
+  },
+  {
+    "gene_id": "AT3G13470",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 4.066691,
+    "published_fdr": 1.048793e-09
+  },
+  {
+    "gene_id": "AT3G13480",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.442235,
+    "published_fdr": 3.65536e-10
+  },
+  {
+    "gene_id": "AT3G13720",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.8328791,
+    "published_fdr": 0.01636383
+  },
+  {
+    "gene_id": "AT3G14620",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 2.011443,
+    "published_fdr": 1.283539e-08
+  },
+  {
+    "gene_id": "AT3G15450",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.2352896,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT3G15630",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.2186029,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT3G16410",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.710217,
+    "published_fdr": 0.001370595
+  },
+  {
+    "gene_id": "AT3G16870",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.365324,
+    "published_fdr": 0.0002646844
+  },
+  {
+    "gene_id": "AT3G17611",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 4.504698,
+    "published_fdr": 5.18949e-13
+  },
+  {
+    "gene_id": "AT3G18830",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.570248,
+    "published_fdr": 9.809074e-08
+  },
+  {
+    "gene_id": "AT3G19450",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.167635,
+    "published_fdr": 3.250685e-11
+  },
+  {
+    "gene_id": "AT3G19660",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.379748,
+    "published_fdr": 0.0001914395
+  },
+  {
+    "gene_id": "AT3G20220",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.19958,
+    "published_fdr": 0.5707595
+  },
+  {
+    "gene_id": "AT3G20370",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.321166,
+    "published_fdr": 0.0002391911
+  },
+  {
+    "gene_id": "AT3G20810",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.4711674,
+    "published_fdr": 0.4951787
+  },
+  {
+    "gene_id": "AT3G21670",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.739312,
+    "published_fdr": 7.109684e-07
+  },
+  {
+    "gene_id": "AT3G21720",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 1.877878,
+    "published_fdr": 0.004317829
+  },
+  {
+    "gene_id": "AT3G21870",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.4552704,
+    "published_fdr": 0.05283886
+  },
+  {
+    "gene_id": "AT3G22235",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.2454333,
+    "published_fdr": 0.7712792
+  },
+  {
+    "gene_id": "AT3G22840",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 2.460692,
+    "published_fdr": 1.674354e-06
+  },
+  {
+    "gene_id": "AT3G23810",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.422238,
+    "published_fdr": 2.03153e-08
+  },
+  {
+    "gene_id": "AT3G24460",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.7527907,
+    "published_fdr": 0.04348046
+  },
+  {
+    "gene_id": "AT3G25030",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.771794,
+    "published_fdr": 0.0569578
+  },
+  {
+    "gene_id": "AT3G25717",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.264397,
+    "published_fdr": 0.01325233
+  },
+  {
+    "gene_id": "AT3G25770",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.1955404,
+    "published_fdr": 0.9335713
+  },
+  {
+    "gene_id": "AT3G25820",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.642905,
+    "published_fdr": 3.056974e-05
+  },
+  {
+    "gene_id": "AT3G25830",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.618051,
+    "published_fdr": 6.115056e-06
+  },
+  {
+    "gene_id": "AT3G26395",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.3317647,
+    "published_fdr": 0.6563035
+  },
+  {
+    "gene_id": "AT3G26590",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.376165,
+    "published_fdr": 8.66007e-05
+  },
+  {
+    "gene_id": "AT3G26740",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 1.467828,
+    "published_fdr": 0.0008677082
+  },
+  {
+    "gene_id": "AT3G27210",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.1334562,
+    "published_fdr": 0.8981851
+  },
+  {
+    "gene_id": "AT3G27690",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.343853,
+    "published_fdr": 1.642748e-07
+  },
+  {
+    "gene_id": "AT3G27700",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.9552326,
+    "published_fdr": 0.002084823
+  },
+  {
+    "gene_id": "AT3G27997",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 3.845868,
+    "published_fdr": 4.147614e-12
+  },
+  {
+    "gene_id": "AT3G28210",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 4.967876,
+    "published_fdr": 3.139288e-13
+  },
+  {
+    "gene_id": "AT3G28220",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.531811,
+    "published_fdr": 0.005110979
+  },
+  {
+    "gene_id": "AT3G28270",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.9480375,
+    "published_fdr": 0.02975261
+  },
+  {
+    "gene_id": "AT3G28290",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.675833,
+    "published_fdr": 0.003240418
+  },
+  {
+    "gene_id": "AT3G28300",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.60375,
+    "published_fdr": 0.00686308
+  },
+  {
+    "gene_id": "AT3G29035",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.6335665,
+    "published_fdr": 0.05975718
+  },
+  {
+    "gene_id": "AT3G41979",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.7665183,
+    "published_fdr": 0.4646663
+  },
+  {
+    "gene_id": "AT3G45930",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.39044,
+    "published_fdr": 0.0008829263
+  },
+  {
+    "gene_id": "AT3G46820",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.012714,
+    "published_fdr": 0.002082028
+  },
+  {
+    "gene_id": "AT3G46970",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.4130909,
+    "published_fdr": 0.3510928
+  },
+  {
+    "gene_id": "AT3G47340",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.773075,
+    "published_fdr": 0.24102
+  },
+  {
+    "gene_id": "AT3G48240",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 1.87829,
+    "published_fdr": 3.901679e-05
+  },
+  {
+    "gene_id": "AT3G48360",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.06924815,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT3G49940",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.143526,
+    "published_fdr": 0.00148022
+  },
+  {
+    "gene_id": "AT3G51280",
+    "candidate": true,
+    "external_positive": false,
+    "log2fc": -0.866606,
+    "published_fdr": 0.02898623
+  },
+  {
+    "gene_id": "AT3G51520",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 2.386142,
+    "published_fdr": 6.138472e-09
+  },
+  {
+    "gene_id": "AT3G51910",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 5.061257,
+    "published_fdr": 3.97907e-12
+  },
+  {
+    "gene_id": "AT3G52740",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.189715,
+    "published_fdr": 0.0002091303
+  },
+  {
+    "gene_id": "AT3G52870",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.37652,
+    "published_fdr": 2.502391e-09
+  },
+  {
+    "gene_id": "AT3G53040",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.02833,
+    "published_fdr": 8.267954e-07
+  },
+  {
+    "gene_id": "AT3G53230",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 4.584158,
+    "published_fdr": 1.687081e-12
+  },
+  {
+    "gene_id": "AT3G53260",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.612189,
+    "published_fdr": 1.158011e-08
+  },
+  {
+    "gene_id": "AT3G53730",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.521583,
+    "published_fdr": 2.818653e-05
+  },
+  {
+    "gene_id": "AT3G54490",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.581162,
+    "published_fdr": 0.6475649
+  },
+  {
+    "gene_id": "AT3G54500",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.534873,
+    "published_fdr": 3.103609e-05
+  },
+  {
+    "gene_id": "AT3G54600",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.18908,
+    "published_fdr": 2.541585e-05
+  },
+  {
+    "gene_id": "AT3G54830",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.717499,
+    "published_fdr": 7.447913e-05
+  },
+  {
+    "gene_id": "AT3G54990",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.819642,
+    "published_fdr": 4.637493e-05
+  },
+  {
+    "gene_id": "AT3G55120",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.049595,
+    "published_fdr": 0.000266837
+  },
+  {
+    "gene_id": "AT3G55240",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.7198226,
+    "published_fdr": 0.3037121
+  },
+  {
+    "gene_id": "AT3G55580",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 1.108113,
+    "published_fdr": 0.0003455426
+  },
+  {
+    "gene_id": "AT3G56290",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.6991303,
+    "published_fdr": 0.01413446
+  },
+  {
+    "gene_id": "AT3G57880",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.299617,
+    "published_fdr": 2.127645e-09
+  },
+  {
+    "gene_id": "AT3G58990",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -2.518305,
+    "published_fdr": 6.354417e-05
+  },
+  {
+    "gene_id": "AT3G62260",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.259743,
+    "published_fdr": 3.573695e-09
+  },
+  {
+    "gene_id": "AT3G62410",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.9128546,
+    "published_fdr": 0.008762926
+  },
+  {
+    "gene_id": "AT3G62550",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.007202859,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT3G63160",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.3737043,
+    "published_fdr": 0.5383035
+  },
+  {
+    "gene_id": "AT4G00050",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.951142,
+    "published_fdr": 1.918932e-05
+  },
+  {
+    "gene_id": "AT4G01870",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.8687051,
+    "published_fdr": 0.0001218419
+  },
+  {
+    "gene_id": "AT4G02425",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 2.724167,
+    "published_fdr": 1.716873e-07
+  },
+  {
+    "gene_id": "AT4G02980",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.115049,
+    "published_fdr": 1.863113e-09
+  },
+  {
+    "gene_id": "AT4G04020",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.447226,
+    "published_fdr": 2.249321e-11
+  },
+  {
+    "gene_id": "AT4G04330",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.3197756,
+    "published_fdr": 0.231425
+  },
+  {
+    "gene_id": "AT4G04610",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.06638472,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT4G04850",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.308641,
+    "published_fdr": 0.000105698
+  },
+  {
+    "gene_id": "AT4G05910",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.155252,
+    "published_fdr": 1.165234e-08
+  },
+  {
+    "gene_id": "AT4G08035",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.6044905,
+    "published_fdr": 0.1421973
+  },
+  {
+    "gene_id": "AT4G08230",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.759591,
+    "published_fdr": 2.473609e-09
+  },
+  {
+    "gene_id": "AT4G09150",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 4.180186,
+    "published_fdr": 3.061206e-11
+  },
+  {
+    "gene_id": "AT4G09200",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.5162115,
+    "published_fdr": 0.1417216
+  },
+  {
+    "gene_id": "AT4G09250",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.9339798,
+    "published_fdr": 0.04620881
+  },
+  {
+    "gene_id": "AT4G09310",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.02531,
+    "published_fdr": 0.01755997
+  },
+  {
+    "gene_id": "AT4G09845",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 1.648466,
+    "published_fdr": 0.000104605
+  },
+  {
+    "gene_id": "AT4G10040",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.185824,
+    "published_fdr": 4.476916e-07
+  },
+  {
+    "gene_id": "AT4G10120",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.622484,
+    "published_fdr": 3.160369e-07
+  },
+  {
+    "gene_id": "AT4G11080",
+    "candidate": true,
+    "external_positive": false,
+    "log2fc": -0.3246753,
+    "published_fdr": 0.6725714
+  },
+  {
+    "gene_id": "AT4G13770",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.141605,
+    "published_fdr": 3.250429e-05
+  },
+  {
+    "gene_id": "AT4G14270",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.861219,
+    "published_fdr": 8.573737e-09
+  },
+  {
+    "gene_id": "AT4G15440",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.114891,
+    "published_fdr": 0.0108408
+  },
+  {
+    "gene_id": "AT4G15450",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.438726,
+    "published_fdr": 0.0009812683
+  },
+  {
+    "gene_id": "AT4G15500",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.271472,
+    "published_fdr": 0.008770363
+  },
+  {
+    "gene_id": "AT4G15680",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 1.993825,
+    "published_fdr": 1.065482e-07
+  },
+  {
+    "gene_id": "AT4G16146",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.2917646,
+    "published_fdr": 0.5512505
+  },
+  {
+    "gene_id": "AT4G16500",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 2.944776,
+    "published_fdr": 5.156175e-10
+  },
+  {
+    "gene_id": "AT4G16880",
+    "candidate": true,
+    "external_positive": false,
+    "log2fc": -0.8027271,
+    "published_fdr": 0.01304764
+  },
+  {
+    "gene_id": "AT4G18630",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.53525,
+    "published_fdr": 0.0002449782
+  },
+  {
+    "gene_id": "AT4G19120",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.502082,
+    "published_fdr": 0.002016768
+  },
+  {
+    "gene_id": "AT4G19160",
+    "candidate": true,
+    "external_positive": false,
+    "log2fc": -0.8544349,
+    "published_fdr": 0.005357864
+  },
+  {
+    "gene_id": "AT4G20240",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.509276,
+    "published_fdr": 0.0001365836
+  },
+  {
+    "gene_id": "AT4G21580",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 2.552792,
+    "published_fdr": 2.540061e-10
+  },
+  {
+    "gene_id": "AT4G21990",
+    "candidate": true,
+    "external_positive": false,
+    "log2fc": -0.3044733,
+    "published_fdr": 0.3021207
+  },
+  {
+    "gene_id": "AT4G22610",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.305268,
+    "published_fdr": 0.001530839
+  },
+  {
+    "gene_id": "AT4G22690",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.4619594,
+    "published_fdr": 0.2649355
+  },
+  {
+    "gene_id": "AT4G22710",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.1583957,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT4G22880",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.4327963,
+    "published_fdr": 0.4730857
+  },
+  {
+    "gene_id": "AT4G23290",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.759841,
+    "published_fdr": 6.991938e-06
+  },
+  {
+    "gene_id": "AT4G24410",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.165643,
+    "published_fdr": 6.007517e-07
+  },
+  {
+    "gene_id": "AT4G24413",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 3.899041,
+    "published_fdr": 6.64762e-11
+  },
+  {
+    "gene_id": "AT4G24415",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 4.839949,
+    "published_fdr": 3.335152e-12
+  },
+  {
+    "gene_id": "AT4G24700",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.5898116,
+    "published_fdr": 0.1421973
+  },
+  {
+    "gene_id": "AT4G24780",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -3.100095,
+    "published_fdr": 3.91284e-09
+  },
+  {
+    "gene_id": "AT4G24810",
+    "candidate": true,
+    "external_positive": false,
+    "log2fc": -0.699457,
+    "published_fdr": 0.09665981
+  },
+  {
+    "gene_id": "AT4G25640",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.410881,
+    "published_fdr": 1.006141e-06
+  },
+  {
+    "gene_id": "AT4G26270",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 5.202523,
+    "published_fdr": 1.714308e-11
+  },
+  {
+    "gene_id": "AT4G26370",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.8525164,
+    "published_fdr": 0.05188181
+  },
+  {
+    "gene_id": "AT4G26850",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.269913,
+    "published_fdr": 6.933785e-10
+  },
+  {
+    "gene_id": "AT4G27310",
+    "candidate": true,
+    "external_positive": false,
+    "log2fc": -0.2294263,
+    "published_fdr": 0.6142184
+  },
+  {
+    "gene_id": "AT4G27360",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.01652571,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT4G27560",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.337519,
+    "published_fdr": 0.0003463771
+  },
+  {
+    "gene_id": "AT4G27595",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.306549,
+    "published_fdr": 0.01552059
+  },
+  {
+    "gene_id": "AT4G27657",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 1.822704,
+    "published_fdr": 4.515629e-05
+  },
+  {
+    "gene_id": "AT4G29720",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.510446,
+    "published_fdr": 2.518376e-09
+  },
+  {
+    "gene_id": "AT4G30650",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.164969,
+    "published_fdr": 0.01219062
+  },
+  {
+    "gene_id": "AT4G30660",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.09872119,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT4G30662",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.45235,
+    "published_fdr": 0.3651373
+  },
+  {
+    "gene_id": "AT4G31500",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.387552,
+    "published_fdr": 9.468665e-08
+  },
+  {
+    "gene_id": "AT4G32340",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.7626967,
+    "published_fdr": 0.05823347
+  },
+  {
+    "gene_id": "AT4G32480",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 2.379763,
+    "published_fdr": 2.962926e-05
+  },
+  {
+    "gene_id": "AT4G32570",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.260544,
+    "published_fdr": 2.860426e-06
+  },
+  {
+    "gene_id": "AT4G33220",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.062634,
+    "published_fdr": 0.0003899124
+  },
+  {
+    "gene_id": "AT4G33960",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.3660855,
+    "published_fdr": 0.5179472
+  },
+  {
+    "gene_id": "AT4G34881",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.404993,
+    "published_fdr": 1.242925e-05
+  },
+  {
+    "gene_id": "AT4G34950",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.2393186,
+    "published_fdr": 0.745862
+  },
+  {
+    "gene_id": "AT4G35160",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -2.14296,
+    "published_fdr": 1.788622e-05
+  },
+  {
+    "gene_id": "AT4G35770",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.6036523,
+    "published_fdr": 0.7765347
+  },
+  {
+    "gene_id": "AT4G36670",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.01638,
+    "published_fdr": 0.03726915
+  },
+  {
+    "gene_id": "AT4G36850",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.1053944,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT4G38550",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.141297,
+    "published_fdr": 0.0008379231
+  },
+  {
+    "gene_id": "AT4G38552",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.106372,
+    "published_fdr": 0.00114717
+  },
+  {
+    "gene_id": "AT4G38960",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.4454184,
+    "published_fdr": 0.1195167
+  },
+  {
+    "gene_id": "AT4G39260",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.344109,
+    "published_fdr": 0.0008751376
+  },
+  {
+    "gene_id": "AT4G39795",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.2090792,
+    "published_fdr": 0.8839101
+  },
+  {
+    "gene_id": "AT4G39940",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -2.33514,
+    "published_fdr": 1.143632e-06
+  },
+  {
+    "gene_id": "AT4G39950",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.794348,
+    "published_fdr": 5.212308e-08
+  },
+  {
+    "gene_id": "AT5G01990",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 3.536041,
+    "published_fdr": 4.246889e-11
+  },
+  {
+    "gene_id": "AT5G02270",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.159732,
+    "published_fdr": 4.574709e-08
+  },
+  {
+    "gene_id": "AT5G02810",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 1.684997,
+    "published_fdr": 4.382289e-06
+  },
+  {
+    "gene_id": "AT5G03210",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.537786,
+    "published_fdr": 1.386561e-08
+  },
+  {
+    "gene_id": "AT5G03230",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.3184811,
+    "published_fdr": 0.8793726
+  },
+  {
+    "gene_id": "AT5G03285",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.295088,
+    "published_fdr": 6.26564e-06
+  },
+  {
+    "gene_id": "AT5G03340",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 2.339163,
+    "published_fdr": 1.800442e-10
+  },
+  {
+    "gene_id": "AT5G03740",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 1.974748,
+    "published_fdr": 1.6237e-09
+  },
+  {
+    "gene_id": "AT5G03990",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.067099,
+    "published_fdr": 9.943955e-11
+  },
+  {
+    "gene_id": "AT5G04340",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.59729,
+    "published_fdr": 1.626313e-08
+  },
+  {
+    "gene_id": "AT5G04950",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -2.890931,
+    "published_fdr": 4.416925e-05
+  },
+  {
+    "gene_id": "AT5G05250",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.975673,
+    "published_fdr": 0.0003065783
+  },
+  {
+    "gene_id": "AT5G05270",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.763973,
+    "published_fdr": 5.730756e-05
+  },
+  {
+    "gene_id": "AT5G05410",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 4.842076,
+    "published_fdr": 1.470461e-10
+  },
+  {
+    "gene_id": "AT5G06690",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.4133847,
+    "published_fdr": 0.2640726
+  },
+  {
+    "gene_id": "AT5G06845",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.6331539,
+    "published_fdr": 0.02323398
+  },
+  {
+    "gene_id": "AT5G06980",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.2177467,
+    "published_fdr": 0.6851644
+  },
+  {
+    "gene_id": "AT5G07150",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.159527,
+    "published_fdr": 0.003602699
+  },
+  {
+    "gene_id": "AT5G07152",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.159527,
+    "published_fdr": 0.003594993
+  },
+  {
+    "gene_id": "AT5G07440",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.9603185,
+    "published_fdr": 0.007167267
+  },
+  {
+    "gene_id": "AT5G08640",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.954098,
+    "published_fdr": 2.452421e-05
+  },
+  {
+    "gene_id": "AT5G09760",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.838769,
+    "published_fdr": 1.336928e-06
+  },
+  {
+    "gene_id": "AT5G09820",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.9591881,
+    "published_fdr": 0.07251472
+  },
+  {
+    "gene_id": "AT5G10400",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.393097,
+    "published_fdr": 0.0008982711
+  },
+  {
+    "gene_id": "AT5G10580",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -2.514756,
+    "published_fdr": 5.545401e-06
+  },
+  {
+    "gene_id": "AT5G10700",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 2.852946,
+    "published_fdr": 1.69265e-07
+  },
+  {
+    "gene_id": "AT5G11100",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 3.334804,
+    "published_fdr": 4.955011e-12
+  },
+  {
+    "gene_id": "AT5G11150",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.2181003,
+    "published_fdr": 0.4596204
+  },
+  {
+    "gene_id": "AT5G11680",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 4.474641,
+    "published_fdr": 3.139288e-13
+  },
+  {
+    "gene_id": "AT5G14760",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.4713647,
+    "published_fdr": 0.04524783
+  },
+  {
+    "gene_id": "AT5G15450",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.516211,
+    "published_fdr": 1.31409e-09
+  },
+  {
+    "gene_id": "AT5G15860",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.344506,
+    "published_fdr": 8.957008e-10
+  },
+  {
+    "gene_id": "AT5G17220",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.8219205,
+    "published_fdr": 0.01594426
+  },
+  {
+    "gene_id": "AT5G17310",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.033227,
+    "published_fdr": 1.953679e-06
+  },
+  {
+    "gene_id": "AT5G20630",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.9095165,
+    "published_fdr": 0.0447172
+  },
+  {
+    "gene_id": "AT5G20935",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.4630143,
+    "published_fdr": 0.6185111
+  },
+  {
+    "gene_id": "AT5G20940",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.1136555,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT5G22060",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 1.592436,
+    "published_fdr": 2.350079e-08
+  },
+  {
+    "gene_id": "AT5G22270",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.3775205,
+    "published_fdr": 0.5714141
+  },
+  {
+    "gene_id": "AT5G23235",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.03063638,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT5G23240",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.105147,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT5G23380",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 2.059359,
+    "published_fdr": 4.423369e-06
+  },
+  {
+    "gene_id": "AT5G23730",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -2.144044,
+    "published_fdr": 2.391997e-05
+  },
+  {
+    "gene_id": "AT5G25190",
+    "candidate": true,
+    "external_positive": false,
+    "log2fc": -0.279597,
+    "published_fdr": 0.5086329
+  },
+  {
+    "gene_id": "AT5G25210",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.04107343,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT5G25280",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.418361,
+    "published_fdr": 3.028294e-10
+  },
+  {
+    "gene_id": "AT5G27660",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 3.073774,
+    "published_fdr": 4.61529e-05
+  },
+  {
+    "gene_id": "AT5G28450",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.1844291,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT5G35660",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 1.352928,
+    "published_fdr": 0.08286421
+  },
+  {
+    "gene_id": "AT5G35970",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.403875,
+    "published_fdr": 1.190207e-08
+  },
+  {
+    "gene_id": "AT5G36700",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.1996956,
+    "published_fdr": 0.4762176
+  },
+  {
+    "gene_id": "AT5G36790",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.1380903,
+    "published_fdr": 0.7294536
+  },
+  {
+    "gene_id": "AT5G37710",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 2.416177,
+    "published_fdr": 4.50573e-10
+  },
+  {
+    "gene_id": "AT5G38020",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.498377,
+    "published_fdr": 0.008873387
+  },
+  {
+    "gene_id": "AT5G38980",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.272662,
+    "published_fdr": 6.164942e-05
+  },
+  {
+    "gene_id": "AT5G38990",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.8739894,
+    "published_fdr": 0.0006644059
+  },
+  {
+    "gene_id": "AT5G39210",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.7348398,
+    "published_fdr": 0.04909108
+  },
+  {
+    "gene_id": "AT5G39860",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": -1.050205,
+    "published_fdr": 0.0001929588
+  },
+  {
+    "gene_id": "AT5G40420",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 1.278,
+    "published_fdr": 0.05897836
+  },
+  {
+    "gene_id": "AT5G42800",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.753758,
+    "published_fdr": 0.04600147
+  },
+  {
+    "gene_id": "AT5G42900",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.6374488,
+    "published_fdr": 0.04872178
+  },
+  {
+    "gene_id": "AT5G44120",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 1.052931,
+    "published_fdr": 0.2296539
+  },
+  {
+    "gene_id": "AT5G44410",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.9039595,
+    "published_fdr": 0.01260813
+  },
+  {
+    "gene_id": "AT5G44550",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.544125,
+    "published_fdr": 0.001475246
+  },
+  {
+    "gene_id": "AT5G45820",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 1.532835,
+    "published_fdr": 0.0003818472
+  },
+  {
+    "gene_id": "AT5G47240",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.2707245,
+    "published_fdr": 0.7140519
+  },
+  {
+    "gene_id": "AT5G47560",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.145961,
+    "published_fdr": 7.868223e-07
+  },
+  {
+    "gene_id": "AT5G47610",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.878245,
+    "published_fdr": 6.675476e-10
+  },
+  {
+    "gene_id": "AT5G47980",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.161588,
+    "published_fdr": 0.0002427897
+  },
+  {
+    "gene_id": "AT5G48490",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.777902,
+    "published_fdr": 0.0170274
+  },
+  {
+    "gene_id": "AT5G48850",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.2796805,
+    "published_fdr": 0.562551
+  },
+  {
+    "gene_id": "AT5G49015",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.172608,
+    "published_fdr": 0.9480863
+  },
+  {
+    "gene_id": "AT5G49760",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.712721,
+    "published_fdr": 1.011915e-07
+  },
+  {
+    "gene_id": "AT5G50335",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.5007113,
+    "published_fdr": 0.0816274
+  },
+  {
+    "gene_id": "AT5G50530",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.09316888,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT5G50550",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.80956,
+    "published_fdr": 0.02797012
+  },
+  {
+    "gene_id": "AT5G50565",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.5283431,
+    "published_fdr": 0.2667486
+  },
+  {
+    "gene_id": "AT5G50570",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.1849875,
+    "published_fdr": 0.7869836
+  },
+  {
+    "gene_id": "AT5G50580",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.4518934,
+    "published_fdr": 0.4241538
+  },
+  {
+    "gene_id": "AT5G50640",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.2068943,
+    "published_fdr": 0.8112363
+  },
+  {
+    "gene_id": "AT5G50650",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.9378381,
+    "published_fdr": 0.02422644
+  },
+  {
+    "gene_id": "AT5G50665",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.05368226,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT5G50670",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.2057349,
+    "published_fdr": 0.8636265
+  },
+  {
+    "gene_id": "AT5G50680",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.315482,
+    "published_fdr": 0.5676934
+  },
+  {
+    "gene_id": "AT5G51740",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 3.65968,
+    "published_fdr": 6.001748e-10
+  },
+  {
+    "gene_id": "AT5G52570",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 1.458621,
+    "published_fdr": 0.0001571359
+  },
+  {
+    "gene_id": "AT5G53400",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.489499,
+    "published_fdr": 7.759934e-11
+  },
+  {
+    "gene_id": "AT5G53460",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.934284,
+    "published_fdr": 0.0007403274
+  },
+  {
+    "gene_id": "AT5G54130",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.9831609,
+    "published_fdr": 0.0005873375
+  },
+  {
+    "gene_id": "AT5G54170",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 1.594059,
+    "published_fdr": 3.743489e-06
+  },
+  {
+    "gene_id": "AT5G54270",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.429804,
+    "published_fdr": 5.326518e-05
+  },
+  {
+    "gene_id": "AT5G54940",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 3.134976,
+    "published_fdr": 1.749397e-10
+  },
+  {
+    "gene_id": "AT5G56000",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 1.566646,
+    "published_fdr": 5.831897e-06
+  },
+  {
+    "gene_id": "AT5G56010",
+    "candidate": true,
+    "external_positive": false,
+    "log2fc": 0.7895103,
+    "published_fdr": 0.02228976
+  },
+  {
+    "gene_id": "AT5G56795",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.3376579,
+    "published_fdr": 0.6482434
+  },
+  {
+    "gene_id": "AT5G57560",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 1.604528,
+    "published_fdr": 0.0007959105
+  },
+  {
+    "gene_id": "AT5G57760",
+    "candidate": true,
+    "external_positive": false,
+    "log2fc": -0.8660129,
+    "published_fdr": 0.05650631
+  },
+  {
+    "gene_id": "AT5G57770",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.9024348,
+    "published_fdr": 0.01400855
+  },
+  {
+    "gene_id": "AT5G58110",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.70868,
+    "published_fdr": 1.646745e-07
+  },
+  {
+    "gene_id": "AT5G58770",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.532711,
+    "published_fdr": 2.10857e-06
+  },
+  {
+    "gene_id": "AT5G58787",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 4.000059,
+    "published_fdr": 2.873077e-07
+  },
+  {
+    "gene_id": "AT5G59870",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.650542,
+    "published_fdr": 0.0006255653
+  },
+  {
+    "gene_id": "AT5G60100",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.00290828,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT5G60890",
+    "candidate": true,
+    "external_positive": false,
+    "log2fc": -0.6923447,
+    "published_fdr": 0.001384722
+  },
+  {
+    "gene_id": "AT5G61420",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.818944,
+    "published_fdr": 6.278998e-05
+  },
+  {
+    "gene_id": "AT5G62360",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.7999806,
+    "published_fdr": 0.02875731
+  },
+  {
+    "gene_id": "AT5G62680",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.090747,
+    "published_fdr": 1.749412e-08
+  },
+  {
+    "gene_id": "AT5G63180",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -2.127225,
+    "published_fdr": 6.329602e-05
+  },
+  {
+    "gene_id": "AT5G63980",
+    "candidate": true,
+    "external_positive": false,
+    "log2fc": -0.9780527999999999,
+    "published_fdr": 0.0009182298
+  },
+  {
+    "gene_id": "AT5G64120",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.697736,
+    "published_fdr": 0.002976992
+  },
+  {
+    "gene_id": "AT5G64170",
+    "candidate": true,
+    "external_positive": false,
+    "log2fc": -0.00612854,
+    "published_fdr": 1.0
+  },
+  {
+    "gene_id": "AT5G64570",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.525257,
+    "published_fdr": 1.631595e-05
+  },
+  {
+    "gene_id": "AT5G64572",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.497454,
+    "published_fdr": 0.0001166821
+  },
+  {
+    "gene_id": "AT5G65870",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": -0.3233104,
+    "published_fdr": 0.6883788
+  },
+  {
+    "gene_id": "AT5G66090",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 2.304677,
+    "published_fdr": 2.50591e-06
+  },
+  {
+    "gene_id": "AT5G66620",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": 1.47354,
+    "published_fdr": 0.0002239379
+  },
+  {
+    "gene_id": "AT5G66880",
+    "candidate": true,
+    "external_positive": true,
+    "log2fc": 3.370982,
+    "published_fdr": 3.250234e-09
+  },
+  {
+    "gene_id": "AT5G67510",
+    "candidate": false,
+    "external_positive": true,
+    "log2fc": -1.638053,
+    "published_fdr": 4.484472e-05
+  },
+  {
+    "gene_id": "MIR5630a",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.1995709,
+    "published_fdr": 0.6655366
+  },
+  {
+    "gene_id": "MIR5630b",
+    "candidate": false,
+    "external_positive": false,
+    "log2fc": 0.276948,
+    "published_fdr": 0.3002455
+  }
+]

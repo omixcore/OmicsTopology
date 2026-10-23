@@ -1,0 +1,6 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "repository_commit": "8b21f89749be1106ea3633c15bd70b5a4d207f1b",
+  "inference_core_commit": "13b1955c8a01c56e2c10c5578c395cdbb09f84d1"
+}

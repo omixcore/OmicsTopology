@@ -1,0 +1,4825 @@
+[
+  {
+    "gene_id": "AT1G01060",
+    "phase_difference_rad": -0.16947419818768128,
+    "r2_control": 0.9780777587500693,
+    "r2_heat": 0.9758497590349052,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G01420",
+    "phase_difference_rad": -2.489554488038596,
+    "r2_control": 0.36118695628577824,
+    "r2_heat": 0.5233485702976572,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G01940",
+    "phase_difference_rad": 0.4310628088173405,
+    "r2_control": 0.6667880446003364,
+    "r2_heat": 0.9192618697223176,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G02700",
+    "phase_difference_rad": 0.8269892400702683,
+    "r2_control": 0.685055305048887,
+    "r2_heat": 0.6560867919332288,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G02730",
+    "phase_difference_rad": 0.11279833441020637,
+    "r2_control": 0.7548311518838531,
+    "r2_heat": 0.39581763033492756,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G02820",
+    "phase_difference_rad": 0.05234073561850494,
+    "r2_control": 0.8912628930444305,
+    "r2_heat": 0.7151726832604752,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G03820",
+    "phase_difference_rad": -0.060101033065584175,
+    "r2_control": 0.7272894229913046,
+    "r2_heat": 0.6950850427346125,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G04280",
+    "phase_difference_rad": -0.43708085190999,
+    "r2_control": 0.666509618953349,
+    "r2_heat": 0.4199822164696413,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G04503",
+    "phase_difference_rad": 1.7883362763038664,
+    "r2_control": 0.765511743019327,
+    "r2_heat": 0.21303451747762847,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G04560",
+    "phase_difference_rad": 0.12744531262479739,
+    "r2_control": 0.7391220028976055,
+    "r2_heat": 0.7754892742455936,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G05090",
+    "phase_difference_rad": -0.2366388878181218,
+    "r2_control": 0.8469442584567933,
+    "r2_heat": 0.6718943028954811,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G05927",
+    "phase_difference_rad": -0.26283536036271543,
+    "r2_control": 0.812596399754095,
+    "r2_heat": 0.68982424942519,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G06000",
+    "phase_difference_rad": -0.26471847525903347,
+    "r2_control": 0.9487471794020897,
+    "r2_heat": 0.5994428819416118,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G06002",
+    "phase_difference_rad": -0.26471847525903347,
+    "r2_control": 0.9487471794020897,
+    "r2_heat": 0.5994428819416118,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G06760",
+    "phase_difference_rad": 2.1194796698883067,
+    "r2_control": 0.8445820108629141,
+    "r2_heat": 0.3383614855923037,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G07050",
+    "phase_difference_rad": -0.14777778909975428,
+    "r2_control": 0.9387196638397113,
+    "r2_heat": 0.765065542737895,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G07090",
+    "phase_difference_rad": -0.0748416352185739,
+    "r2_control": 0.46174943051001005,
+    "r2_heat": 0.35277931675437557,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G07180",
+    "phase_difference_rad": 0.04136165148406559,
+    "r2_control": 0.9360300544067647,
+    "r2_heat": 0.9319878675384778,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G07350",
+    "phase_difference_rad": 1.1358386255832424,
+    "r2_control": 0.7971441926761775,
+    "r2_heat": 0.288941332028928,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G09140",
+    "phase_difference_rad": -0.6165336996912603,
+    "r2_control": 0.5247502547958165,
+    "r2_heat": 0.7429720034276963,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G09765",
+    "phase_difference_rad": -0.1969904348967111,
+    "r2_control": 0.8349043153144593,
+    "r2_heat": 0.7717582063782542,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G11210",
+    "phase_difference_rad": 0.43059614367600507,
+    "r2_control": 0.9008432042332715,
+    "r2_heat": 0.4513945967360996,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G11260",
+    "phase_difference_rad": 0.1394864496759043,
+    "r2_control": 0.9572906343941125,
+    "r2_heat": 0.913343083471682,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G11580",
+    "phase_difference_rad": 0.017666059666705414,
+    "r2_control": 0.7135384172746723,
+    "r2_heat": 0.5157299750140442,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G11700",
+    "phase_difference_rad": 0.34750819154413226,
+    "r2_control": 0.8152864006680867,
+    "r2_heat": 0.5660801986861914,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G12090",
+    "phase_difference_rad": 0.023416628516973678,
+    "r2_control": 0.9011682850316446,
+    "r2_heat": 0.8267528492489544,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G12120",
+    "phase_difference_rad": 0.10829782914176223,
+    "r2_control": 0.7890306842569645,
+    "r2_heat": 0.39609424792420345,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G13210",
+    "phase_difference_rad": 0.3671440101770296,
+    "r2_control": 0.8754834318853555,
+    "r2_heat": 0.3115665946390853,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G13300",
+    "phase_difference_rad": 1.4888898572709828,
+    "r2_control": 0.36050003053477764,
+    "r2_heat": 0.36174111296955,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G13650",
+    "phase_difference_rad": 0.3279531497989471,
+    "r2_control": 0.858224692866135,
+    "r2_heat": 0.8394738315137223,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G14160",
+    "phase_difference_rad": -0.11790904349590692,
+    "r2_control": 0.7747503412000399,
+    "r2_heat": 0.7907817292230824,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G14200",
+    "phase_difference_rad": -0.5298532026378178,
+    "r2_control": 0.4386237112295249,
+    "r2_heat": 0.4705353433532182,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G14980",
+    "phase_difference_rad": -0.6989695670039502,
+    "r2_control": 0.8085459289999735,
+    "r2_heat": 0.791456930442966,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G15125",
+    "phase_difference_rad": 0.2083240985016297,
+    "r2_control": 0.8286641876035796,
+    "r2_heat": 0.8034214340651418,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G15290",
+    "phase_difference_rad": 0.6679819738003895,
+    "r2_control": 0.7021760739771874,
+    "r2_heat": 0.7341465655429117,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G16400",
+    "phase_difference_rad": 0.9760927177478059,
+    "r2_control": 0.5542358956171065,
+    "r2_heat": 0.4654395882590975,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G16410",
+    "phase_difference_rad": 0.2562669783117417,
+    "r2_control": 0.8731440067882936,
+    "r2_heat": 0.8400894209907283,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G18265",
+    "phase_difference_rad": -0.12755127454639892,
+    "r2_control": 0.9086775171900243,
+    "r2_heat": 0.6898109427701538,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G18330",
+    "phase_difference_rad": -0.23732587399089677,
+    "r2_control": 0.9452408674747395,
+    "r2_heat": 0.8168639896031006,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G18370",
+    "phase_difference_rad": -0.15639497288345428,
+    "r2_control": 0.6117794810810089,
+    "r2_heat": 0.20697510768878125,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G18590",
+    "phase_difference_rad": -1.3005602036590531,
+    "r2_control": 0.8448413406810684,
+    "r2_heat": 0.6550834768120766,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G18710",
+    "phase_difference_rad": 0.22461448708815676,
+    "r2_control": 0.7687419857247456,
+    "r2_heat": 0.5567125235924253,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G19540",
+    "phase_difference_rad": -0.16085055028824402,
+    "r2_control": 0.8513725606405276,
+    "r2_heat": 0.7631335860394255,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G19550",
+    "phase_difference_rad": -0.1800947617247337,
+    "r2_control": 0.848354881240853,
+    "r2_heat": 0.7949533614367956,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G20190",
+    "phase_difference_rad": -0.46636781108215364,
+    "r2_control": 0.9211623557093855,
+    "r2_heat": 0.42355766887511814,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G20440",
+    "phase_difference_rad": 0.39458268504846594,
+    "r2_control": 0.9582941594754545,
+    "r2_heat": 0.8972476544257654,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G20693",
+    "phase_difference_rad": 0.1631329039996845,
+    "r2_control": 0.9050969101498687,
+    "r2_heat": 0.7987236695262662,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G21100",
+    "phase_difference_rad": -0.09222157782199503,
+    "r2_control": 0.7900311715462114,
+    "r2_heat": 0.5794574956793022,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G21110",
+    "phase_difference_rad": -0.24664485849440632,
+    "r2_control": 0.4081581474123833,
+    "r2_heat": 0.20560403194733956,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G21130",
+    "phase_difference_rad": -0.29314910520651694,
+    "r2_control": 0.9698306244514928,
+    "r2_heat": 0.8634395022916003,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G21590",
+    "phase_difference_rad": -0.47466015475082246,
+    "r2_control": 0.7482434537804828,
+    "r2_heat": 0.22124623084714523,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G21910",
+    "phase_difference_rad": 0.812473386571204,
+    "r2_control": 0.5212781561956901,
+    "r2_heat": 0.7538254581926888,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G22360",
+    "phase_difference_rad": 0.01994803342618745,
+    "r2_control": 0.8533805383193249,
+    "r2_heat": 0.6468931027464815,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G22570",
+    "phase_difference_rad": 0.02490908923955537,
+    "r2_control": 0.9062199669481439,
+    "r2_heat": 0.681794639108293,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G22590",
+    "phase_difference_rad": -0.16185741523078256,
+    "r2_control": 0.7919057288169871,
+    "r2_heat": 0.6867321520825571,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G23180",
+    "phase_difference_rad": 1.9154351269962444,
+    "r2_control": 0.33423550736533336,
+    "r2_heat": 0.20073267947547246,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G23390",
+    "phase_difference_rad": 0.037361063042734566,
+    "r2_control": 0.9322974651928599,
+    "r2_heat": 0.8670916533165045,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G24800",
+    "phase_difference_rad": -0.167120980158608,
+    "r2_control": 0.8486076282573912,
+    "r2_heat": 0.7579540931012705,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G24822",
+    "phase_difference_rad": -0.06559979797745406,
+    "r2_control": 0.8552635940262496,
+    "r2_heat": 0.7602399385545056,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G24880",
+    "phase_difference_rad": -0.10721580124581599,
+    "r2_control": 0.8555804709091138,
+    "r2_heat": 0.7648100079419223,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G24881",
+    "phase_difference_rad": -0.17730834122686367,
+    "r2_control": 0.8510000628925628,
+    "r2_heat": 0.7925615072300664,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G24996",
+    "phase_difference_rad": -0.11228328864092507,
+    "r2_control": 0.8127726342855546,
+    "r2_heat": 0.7937883980933629,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G25055",
+    "phase_difference_rad": -0.16699756821317058,
+    "r2_control": 0.8598288386075292,
+    "r2_heat": 0.7566974877860018,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G25097",
+    "phase_difference_rad": -0.1335069232967336,
+    "r2_control": 0.8534934716627687,
+    "r2_heat": 0.7824171315056673,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G25098",
+    "phase_difference_rad": -0.15294435028097483,
+    "r2_control": 0.8460607657147293,
+    "r2_heat": 0.7284673039433973,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G25150",
+    "phase_difference_rad": -0.15897304580646376,
+    "r2_control": 0.8610471062984073,
+    "r2_heat": 0.778975037540536,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G25175",
+    "phase_difference_rad": -0.13413241641265206,
+    "r2_control": 0.8716166010763771,
+    "r2_heat": 0.7794450965667267,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G25211",
+    "phase_difference_rad": -0.2641760883219848,
+    "r2_control": 0.8140134430191168,
+    "r2_heat": 0.6936001948574362,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G26560",
+    "phase_difference_rad": 0.10852374202059456,
+    "r2_control": 0.9534095861344235,
+    "r2_heat": 0.8841753772239757,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G26770",
+    "phase_difference_rad": -0.338263735627395,
+    "r2_control": 0.8570743379632503,
+    "r2_heat": 0.771259707019583,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G26800",
+    "phase_difference_rad": 0.1868445650570485,
+    "r2_control": 0.8606548302396875,
+    "r2_heat": 0.6843466644186411,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G26930",
+    "phase_difference_rad": -0.09933314604053534,
+    "r2_control": 0.6803854607235648,
+    "r2_heat": 0.3915296580652131,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G27480",
+    "phase_difference_rad": 0.1860966621942255,
+    "r2_control": 0.9216917597847014,
+    "r2_heat": 0.8938529053809179,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G27580",
+    "phase_difference_rad": -0.12596787484390348,
+    "r2_control": 0.8534434880795886,
+    "r2_heat": 0.7634284200047757,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G27730",
+    "phase_difference_rad": 1.7027093787965817,
+    "r2_control": 0.4411184285018156,
+    "r2_heat": 0.5255518527637859,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G27930",
+    "phase_difference_rad": 0.23364010270887192,
+    "r2_control": 0.8231742082139855,
+    "r2_heat": 0.6029876260437215,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G28330",
+    "phase_difference_rad": 0.13605362829761194,
+    "r2_control": 0.9486975872122813,
+    "r2_heat": 0.9441127859735813,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G29640",
+    "phase_difference_rad": 0.11135229662888223,
+    "r2_control": 0.6922152725114512,
+    "r2_heat": 0.6473813785535969,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G29910",
+    "phase_difference_rad": -0.12499938821375145,
+    "r2_control": 0.9359645500192129,
+    "r2_heat": 0.9252527329510188,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G29920",
+    "phase_difference_rad": -0.16991529137893222,
+    "r2_control": 0.9117339250704319,
+    "r2_heat": 0.8886802999827974,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G30510",
+    "phase_difference_rad": -0.032081421185684474,
+    "r2_control": 0.8681928983778313,
+    "r2_heat": 0.34959930202961076,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G30530",
+    "phase_difference_rad": 0.2212447739726752,
+    "r2_control": 0.9692181625350037,
+    "r2_heat": 0.8133112813205541,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G31320",
+    "phase_difference_rad": 0.025954571217434164,
+    "r2_control": 0.7797963418866505,
+    "r2_heat": 0.484970843763728,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G32900",
+    "phase_difference_rad": 0.169264473985028,
+    "r2_control": 0.96107164368175,
+    "r2_heat": 0.9732447271545608,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G33055",
+    "phase_difference_rad": -0.32766220725686646,
+    "r2_control": 0.9201771312758873,
+    "r2_heat": 0.7907954300810324,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G35250",
+    "phase_difference_rad": 0.2814681040242266,
+    "r2_control": 0.23499733032462822,
+    "r2_heat": 0.2828189888964546,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G35260",
+    "phase_difference_rad": 0.8271462114193382,
+    "r2_control": 0.4057918046305464,
+    "r2_heat": 0.35776656533263373,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G35560",
+    "phase_difference_rad": 0.34543264078327635,
+    "r2_control": 0.8967780485552429,
+    "r2_heat": 0.6814773073433034,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G35660",
+    "phase_difference_rad": -0.850726226862524,
+    "r2_control": 0.305750876995202,
+    "r2_heat": 0.3257977933152957,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G38065",
+    "phase_difference_rad": -0.21399948683250059,
+    "r2_control": 0.8797324756516396,
+    "r2_heat": 0.7499090551866321,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G44100",
+    "phase_difference_rad": 1.3231328935948665,
+    "r2_control": 0.7886717176792747,
+    "r2_heat": 0.38066328841810493,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G44800",
+    "phase_difference_rad": -0.6779331098191191,
+    "r2_control": 0.27243286042581105,
+    "r2_heat": 0.2003604341108901,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G47395",
+    "phase_difference_rad": 0.1943957673235579,
+    "r2_control": 0.536289300832767,
+    "r2_heat": 0.24535471318985125,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G48330",
+    "phase_difference_rad": 0.0893605324242146,
+    "r2_control": 0.8912988651595002,
+    "r2_heat": 0.5813142505506219,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G49430",
+    "phase_difference_rad": 0.5975182162053868,
+    "r2_control": 0.6179511610665545,
+    "r2_heat": 0.49672430758324015,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G49500",
+    "phase_difference_rad": -0.22243961873328377,
+    "r2_control": 0.8019127541500007,
+    "r2_heat": 0.768916638061492,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G51680",
+    "phase_difference_rad": 0.3411935445477682,
+    "r2_control": 0.8307574914836885,
+    "r2_heat": 0.864483455156968,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G52000",
+    "phase_difference_rad": 0.40732919540981594,
+    "r2_control": 0.8496992509547139,
+    "r2_heat": 0.7470089432866047,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G52040",
+    "phase_difference_rad": 0.0643195921389581,
+    "r2_control": 0.7955265231373734,
+    "r2_heat": 0.5614508908630678,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G52200",
+    "phase_difference_rad": -0.06653571266759384,
+    "r2_control": 0.6830796963755825,
+    "r2_heat": 0.4410273378947732,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G52560",
+    "phase_difference_rad": -1.4513699438533143,
+    "r2_control": 0.4064006742731403,
+    "r2_heat": 0.7348157124686202,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G52690",
+    "phase_difference_rad": 0.17683687197781106,
+    "r2_control": 0.6581661086183909,
+    "r2_heat": 0.6600911107812235,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G52870",
+    "phase_difference_rad": 0.15680922627589494,
+    "r2_control": 0.8508340344097345,
+    "r2_heat": 0.8072029225600634,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G53230",
+    "phase_difference_rad": 0.23867552785413304,
+    "r2_control": 0.941996662415382,
+    "r2_heat": 0.8618381649120941,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G53233",
+    "phase_difference_rad": 0.2334316607011817,
+    "r2_control": 0.9307864786625848,
+    "r2_heat": 0.8662763327293487,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G53870",
+    "phase_difference_rad": -0.08821346846662759,
+    "r2_control": 0.8808009753046664,
+    "r2_heat": 0.7991644223969482,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G53875",
+    "phase_difference_rad": -0.10468847150302496,
+    "r2_control": 0.8595164631431087,
+    "r2_heat": 0.8321265704947975,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G53880",
+    "phase_difference_rad": -0.14216773964194207,
+    "r2_control": 0.8619941749720109,
+    "r2_heat": 0.7377099933496867,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G53890",
+    "phase_difference_rad": -0.19687657141472448,
+    "r2_control": 0.8714647744618083,
+    "r2_heat": 0.8118750440882896,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G53900",
+    "phase_difference_rad": -0.15803741713018438,
+    "r2_control": 0.863750924685269,
+    "r2_heat": 0.7937418813399904,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G54660",
+    "phase_difference_rad": -0.6792018615858618,
+    "r2_control": 0.38803328497295253,
+    "r2_heat": 0.5042217783870663,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G54870",
+    "phase_difference_rad": 0.1665831857322757,
+    "r2_control": 0.6828987089100804,
+    "r2_heat": 0.7036894001150243,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G55450",
+    "phase_difference_rad": -0.2858449959613596,
+    "r2_control": 0.7562258538119743,
+    "r2_heat": 0.6987294250163927,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G55530",
+    "phase_difference_rad": 2.707375549939205,
+    "r2_control": 0.2555664029881881,
+    "r2_heat": 0.5236962508607743,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G56010",
+    "phase_difference_rad": 0.5093889197081309,
+    "r2_control": 0.5750484969686729,
+    "r2_heat": 0.48576572535269646,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G56170",
+    "phase_difference_rad": -0.1600750789697114,
+    "r2_control": 0.9167146734495566,
+    "r2_heat": 0.8323279340349133,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G56220",
+    "phase_difference_rad": -0.08514877382181842,
+    "r2_control": 0.9132008884930188,
+    "r2_heat": 0.9000514564340654,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G56300",
+    "phase_difference_rad": 0.6537133908217305,
+    "r2_control": 0.9150914760067326,
+    "r2_heat": 0.8573012662456762,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G56430",
+    "phase_difference_rad": 0.383688306576457,
+    "r2_control": 0.6864764150055714,
+    "r2_heat": 0.7807012792458725,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G58602",
+    "phase_difference_rad": -1.328221762840273,
+    "r2_control": 0.5315768128082603,
+    "r2_heat": 0.3875540263622369,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G58684",
+    "phase_difference_rad": -0.1256825669610171,
+    "r2_control": 0.8443801647941389,
+    "r2_heat": 0.7802794163009659,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G58807",
+    "phase_difference_rad": -0.12481035954420648,
+    "r2_control": 0.8394372598039388,
+    "r2_heat": 0.7862949503801763,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G58848",
+    "phase_difference_rad": -0.12724073097795707,
+    "r2_control": 0.856355705291175,
+    "r2_heat": 0.792379959350241,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G58983",
+    "phase_difference_rad": -0.14416444997041045,
+    "r2_control": 0.8421007682281545,
+    "r2_heat": 0.778785674680345,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G59124",
+    "phase_difference_rad": -0.11557283089545956,
+    "r2_control": 0.8454813569363713,
+    "r2_heat": 0.7842926662397625,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G59218",
+    "phase_difference_rad": -0.12693496332284582,
+    "r2_control": 0.8480597574119699,
+    "r2_heat": 0.7875484087421727,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G59359",
+    "phase_difference_rad": -0.1380116884790945,
+    "r2_control": 0.852680639267193,
+    "r2_heat": 0.7742451551507272,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G59870",
+    "phase_difference_rad": -0.1688353509059577,
+    "r2_control": 0.9298715555519412,
+    "r2_heat": 0.8536808421751843,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G60390",
+    "phase_difference_rad": -0.5471107494356366,
+    "r2_control": 0.6659947009614766,
+    "r2_heat": 0.41104160773662735,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G61340",
+    "phase_difference_rad": -0.6275575443539587,
+    "r2_control": 0.29460128126371077,
+    "r2_heat": 0.6849694621260489,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G62422",
+    "phase_difference_rad": 1.4614513286557687,
+    "r2_control": 0.5893756533944503,
+    "r2_heat": 0.37644222900592694,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G62510",
+    "phase_difference_rad": -0.33472753540573463,
+    "r2_control": 0.8697451009696897,
+    "r2_heat": 0.7311987000844116,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G62515",
+    "phase_difference_rad": -0.4274053546307529,
+    "r2_control": 0.8115602893674546,
+    "r2_heat": 0.7001172838509252,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G62560",
+    "phase_difference_rad": 0.29099508591817785,
+    "r2_control": 0.9276022861523255,
+    "r2_heat": 0.5219291985966645,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G63470",
+    "phase_difference_rad": 0.4821562441959979,
+    "r2_control": 0.5459069129816279,
+    "r2_heat": 0.25127022080153594,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G64200",
+    "phase_difference_rad": -1.4046422107832433,
+    "r2_control": 0.5937581079201955,
+    "r2_heat": 0.3819864878217053,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G64390",
+    "phase_difference_rad": 0.3521488673120779,
+    "r2_control": 0.8446262271015037,
+    "r2_heat": 0.6835575053521279,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G64500",
+    "phase_difference_rad": 0.1030096030706208,
+    "r2_control": 0.9413446800934581,
+    "r2_heat": 0.9175164675616544,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G65060",
+    "phase_difference_rad": 0.3016613204083727,
+    "r2_control": 0.9263420611925521,
+    "r2_heat": 0.6849836212788396,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G65860",
+    "phase_difference_rad": 0.026666617757357958,
+    "r2_control": 0.8064695265703421,
+    "r2_heat": 0.3012452178864313,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G65870",
+    "phase_difference_rad": -0.11131612410652525,
+    "r2_control": 0.9711660928593424,
+    "r2_heat": 0.4286861944979866,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G66080",
+    "phase_difference_rad": -2.383652862022857,
+    "r2_control": 0.2210622959340568,
+    "r2_heat": 0.3639901420800008,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G66480",
+    "phase_difference_rad": -0.5540572811959842,
+    "r2_control": 0.7330316174270528,
+    "r2_heat": 0.24787291578615067,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G66820",
+    "phase_difference_rad": -0.08491841135913969,
+    "r2_control": 0.8738403098233636,
+    "r2_heat": 0.7937428060308329,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G66830",
+    "phase_difference_rad": -0.08516981930439593,
+    "r2_control": 0.8709626951409897,
+    "r2_heat": 0.7869181296766303,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G67195",
+    "phase_difference_rad": -0.6896519990943639,
+    "r2_control": 0.760887355487734,
+    "r2_heat": 0.28467074543044935,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G67360",
+    "phase_difference_rad": 0.934685190656193,
+    "r2_control": 0.5488726864751574,
+    "r2_heat": 0.7567887165256332,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G68050",
+    "phase_difference_rad": 0.03743285754312886,
+    "r2_control": 0.9152039426300866,
+    "r2_heat": 0.8625067222673377,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G68238",
+    "phase_difference_rad": 0.23109889155321928,
+    "r2_control": 0.9085532240147574,
+    "r2_heat": 0.4817529196100583,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G68570",
+    "phase_difference_rad": 0.10118190974450503,
+    "r2_control": 0.9539209657422626,
+    "r2_heat": 0.8179900882650377,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G68760",
+    "phase_difference_rad": -0.7027414729889101,
+    "r2_control": 0.6551593934673504,
+    "r2_heat": 0.5749657048737016,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G69040",
+    "phase_difference_rad": -0.054289354906361,
+    "r2_control": 0.8635931451405695,
+    "r2_heat": 0.20646645002626318,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G69530",
+    "phase_difference_rad": -0.05642176908237273,
+    "r2_control": 0.7013474820473629,
+    "r2_heat": 0.5797622808439187,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G69890",
+    "phase_difference_rad": 0.26528685199814633,
+    "r2_control": 0.9156058194029533,
+    "r2_heat": 0.5225384064445694,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G70300",
+    "phase_difference_rad": -1.2539079258041803,
+    "r2_control": 0.4977839895737274,
+    "r2_heat": 0.3226104266931151,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G70420",
+    "phase_difference_rad": -0.35966847541803615,
+    "r2_control": 0.7858498100227822,
+    "r2_heat": 0.27460539624206304,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G71030",
+    "phase_difference_rad": 0.27061097799025324,
+    "r2_control": 0.9593237261715786,
+    "r2_heat": 0.9674489529498072,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G71880",
+    "phase_difference_rad": -0.7616607703267544,
+    "r2_control": 0.47418893910686866,
+    "r2_heat": 0.4600249722934484,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G71970",
+    "phase_difference_rad": 0.04677689164059373,
+    "r2_control": 0.8564891042658357,
+    "r2_heat": 0.6931001934731644,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G72416",
+    "phase_difference_rad": -0.5653831835166034,
+    "r2_control": 0.7145252455884461,
+    "r2_heat": 0.5960671562585154,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G72670",
+    "phase_difference_rad": -2.9002098892681403,
+    "r2_control": 0.5803777112440764,
+    "r2_heat": 0.5254837115774105,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G72930",
+    "phase_difference_rad": -0.798780680290549,
+    "r2_control": 0.5734425940677027,
+    "r2_heat": 0.24346497382270293,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G73480",
+    "phase_difference_rad": -1.0202752007084663,
+    "r2_control": 0.9104118358593444,
+    "r2_heat": 0.7196087794145265,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G73600",
+    "phase_difference_rad": 0.4752160307835145,
+    "r2_control": 0.902918152466307,
+    "r2_heat": 0.627652750268854,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G73870",
+    "phase_difference_rad": -0.16647238478766324,
+    "r2_control": 0.9514980240633344,
+    "r2_heat": 0.9103120869897461,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G74090",
+    "phase_difference_rad": -0.727404612487274,
+    "r2_control": 0.821217853302039,
+    "r2_heat": 0.2978153986073706,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G74320",
+    "phase_difference_rad": -1.064054314853516,
+    "r2_control": 0.48057027010116204,
+    "r2_heat": 0.46595293060441645,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G74675",
+    "phase_difference_rad": 0.08270555111146027,
+    "r2_control": 0.5496387527920339,
+    "r2_heat": 0.594297699129109,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G74680",
+    "phase_difference_rad": 0.5843630680303873,
+    "r2_control": 0.75596315523732,
+    "r2_heat": 0.21136339510675006,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G75190",
+    "phase_difference_rad": 0.2874694676159877,
+    "r2_control": 0.8510461019739022,
+    "r2_heat": 0.3404180635106474,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G75750",
+    "phase_difference_rad": -0.7398133491599783,
+    "r2_control": 0.4385720942618777,
+    "r2_heat": 0.23040135583992938,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G75960",
+    "phase_difference_rad": 0.34098067757522044,
+    "r2_control": 0.9194637767322474,
+    "r2_heat": 0.45790979149816224,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G76560",
+    "phase_difference_rad": 0.19038628294477045,
+    "r2_control": 0.6927503111947158,
+    "r2_heat": 0.5902602997238338,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G76790",
+    "phase_difference_rad": 0.9854897793497616,
+    "r2_control": 0.7185879389825864,
+    "r2_heat": 0.7335732221896696,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G77400",
+    "phase_difference_rad": 0.1986052085879597,
+    "r2_control": 0.7658770102826864,
+    "r2_heat": 0.21728773200986695,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G77520",
+    "phase_difference_rad": 0.005454247039431204,
+    "r2_control": 0.7295104036669526,
+    "r2_heat": 0.4639264306734773,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G77760",
+    "phase_difference_rad": 1.0215457429389188,
+    "r2_control": 0.4856768885512506,
+    "r2_heat": 0.3705649320009816,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G77990",
+    "phase_difference_rad": 0.21055286282553487,
+    "r2_control": 0.8492376619418612,
+    "r2_heat": 0.5070451301091989,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G78020",
+    "phase_difference_rad": 0.012966572942395116,
+    "r2_control": 0.9489521494583484,
+    "r2_heat": 0.9365423465907582,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G78180",
+    "phase_difference_rad": 0.25462666644728893,
+    "r2_control": 0.7880326123582088,
+    "r2_heat": 0.5551743187497215,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G78380",
+    "phase_difference_rad": 2.0304710307687808,
+    "r2_control": 0.660411435907313,
+    "r2_heat": 0.7965824883144373,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT1G78460",
+    "phase_difference_rad": -0.005419495574022548,
+    "r2_control": 0.8872988915009081,
+    "r2_heat": 0.8825526205132045,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G78995",
+    "phase_difference_rad": 0.3316297611655492,
+    "r2_control": 0.9045948832064392,
+    "r2_heat": 0.7563460205246495,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G79080",
+    "phase_difference_rad": -0.17307435282862293,
+    "r2_control": 0.4450388066073101,
+    "r2_heat": 0.289136421952468,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G79410",
+    "phase_difference_rad": 0.5918521608004923,
+    "r2_control": 0.6373105834833324,
+    "r2_heat": 0.2760069281163665,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT1G79920",
+    "phase_difference_rad": 0.7508383028584512,
+    "r2_control": 0.38512306467053403,
+    "r2_heat": 0.5103967498772218,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT2G00550",
+    "phase_difference_rad": -0.2347428053141407,
+    "r2_control": 0.8232097940912793,
+    "r2_heat": 0.7587680053227566,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G01010",
+    "phase_difference_rad": -0.15485637740220026,
+    "r2_control": 0.8440942552858601,
+    "r2_heat": 0.7745962143189855,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G01020",
+    "phase_difference_rad": -0.2578966572704484,
+    "r2_control": 0.8198005601136948,
+    "r2_heat": 0.7204982073094616,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G01021",
+    "phase_difference_rad": -0.15861791280611204,
+    "r2_control": 0.8322550417263743,
+    "r2_heat": 0.7556853073596479,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G03090",
+    "phase_difference_rad": 0.24376600638296583,
+    "r2_control": 0.8892490992359825,
+    "r2_heat": 0.7314180920305575,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G03410",
+    "phase_difference_rad": 0.10014487910746306,
+    "r2_control": 0.8761189588969249,
+    "r2_heat": 0.7944765027832476,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G03420",
+    "phase_difference_rad": 0.09980377287927357,
+    "r2_control": 0.8768299677384299,
+    "r2_heat": 0.7951068078240753,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G03440",
+    "phase_difference_rad": -0.10068824597720827,
+    "r2_control": 0.8388236117912266,
+    "r2_heat": 0.6136872346629798,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G03865",
+    "phase_difference_rad": -0.1771520965875446,
+    "r2_control": 0.7695869959198176,
+    "r2_heat": 0.7492574673904362,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G03875",
+    "phase_difference_rad": -0.18216899828795682,
+    "r2_control": 0.8022514338610862,
+    "r2_heat": 0.7297117166779384,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G04030",
+    "phase_difference_rad": 0.9207933058110698,
+    "r2_control": 0.7859831124880627,
+    "r2_heat": 0.27888640059388703,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT2G05070",
+    "phase_difference_rad": -0.09306627356808317,
+    "r2_control": 0.9410229420786089,
+    "r2_heat": 0.9403426695627941,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G05100",
+    "phase_difference_rad": -0.10819206121146353,
+    "r2_control": 0.9216305200224324,
+    "r2_heat": 0.9455639353339232,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G05230",
+    "phase_difference_rad": -0.14017366544950094,
+    "r2_control": 0.8538138679930326,
+    "r2_heat": 0.770583999320129,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G05250",
+    "phase_difference_rad": -0.14701780906533712,
+    "r2_control": 0.8353603958704657,
+    "r2_heat": 0.7333630488238874,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G05540",
+    "phase_difference_rad": 0.11462771051050602,
+    "r2_control": 0.8779487896871288,
+    "r2_heat": 0.8659686941343435,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G06925",
+    "phase_difference_rad": -0.030492899875486312,
+    "r2_control": 0.9612659919792219,
+    "r2_heat": 0.9133923743364557,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G08470",
+    "phase_difference_rad": -0.02893327254031841,
+    "r2_control": 0.8227980575435345,
+    "r2_heat": 0.309278403919825,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G12462",
+    "phase_difference_rad": -0.5774991848560875,
+    "r2_control": 0.7073213192195749,
+    "r2_heat": 0.28064092369856364,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G14660",
+    "phase_difference_rad": -0.08761575759266016,
+    "r2_control": 0.676214069790186,
+    "r2_heat": 0.5540115902247396,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G14750",
+    "phase_difference_rad": 0.4412333523575685,
+    "r2_control": 0.7878566344439325,
+    "r2_heat": 0.2960866417939303,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G15020",
+    "phase_difference_rad": 0.007274789562283224,
+    "r2_control": 0.8815251211839571,
+    "r2_heat": 0.8439382889835386,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G15830",
+    "phase_difference_rad": 0.046323216428273195,
+    "r2_control": 0.6851631131698648,
+    "r2_heat": 0.6286676797262661,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G15880",
+    "phase_difference_rad": 0.2830613580576062,
+    "r2_control": 0.9223319067593937,
+    "r2_heat": 0.9591599521947575,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G15890",
+    "phase_difference_rad": -0.002595453572290296,
+    "r2_control": 0.9679973262930214,
+    "r2_heat": 0.9284598141217495,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G15960",
+    "phase_difference_rad": 0.07301683057114206,
+    "r2_control": 0.8548178365467654,
+    "r2_heat": 0.8768144564765712,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G16367",
+    "phase_difference_rad": 0.07861616194520749,
+    "r2_control": 0.9219640231312838,
+    "r2_heat": 0.7130497224278991,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G16500",
+    "phase_difference_rad": 0.05116500712642824,
+    "r2_control": 0.6589787331630637,
+    "r2_heat": 0.3233835961938484,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G18050",
+    "phase_difference_rad": 0.016758947032457172,
+    "r2_control": 0.8244237555130863,
+    "r2_heat": 0.7796249225043397,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G18150",
+    "phase_difference_rad": -0.057158966146449226,
+    "r2_control": 0.40572960857409957,
+    "r2_heat": 0.28164764772957007,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G19310",
+    "phase_difference_rad": -0.0760524712958155,
+    "r2_control": 0.7844378383228726,
+    "r2_heat": 0.6902344478913561,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G20570",
+    "phase_difference_rad": 2.422183197181931,
+    "r2_control": 0.46897032580560394,
+    "r2_heat": 0.2806587611405228,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT2G21130",
+    "phase_difference_rad": 0.12658684453492342,
+    "r2_control": 0.8614784408729577,
+    "r2_heat": 0.8733381919205392,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G21640",
+    "phase_difference_rad": -0.26750201719451194,
+    "r2_control": 0.7823491963611083,
+    "r2_heat": 0.8566188453913641,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G21660",
+    "phase_difference_rad": 0.10099958581670546,
+    "r2_control": 0.9127598704524834,
+    "r2_heat": 0.9174918721767757,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G21820",
+    "phase_difference_rad": -0.15196538776676152,
+    "r2_control": 0.6210590202117476,
+    "r2_heat": 0.5320061256223337,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G21940",
+    "phase_difference_rad": 2.0986149387959276,
+    "r2_control": 0.3083832577769777,
+    "r2_heat": 0.2683383860889007,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT2G22240",
+    "phase_difference_rad": -0.497922138685446,
+    "r2_control": 0.9112877513015131,
+    "r2_heat": 0.7836258019228288,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G22590",
+    "phase_difference_rad": -0.8464459430902701,
+    "r2_control": 0.7962353355305514,
+    "r2_heat": 0.28210403938092043,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT2G22770",
+    "phase_difference_rad": 0.7218912168558563,
+    "r2_control": 0.6065756078729776,
+    "r2_heat": 0.4404561292526481,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT2G23110",
+    "phase_difference_rad": -0.44237956050603794,
+    "r2_control": 0.7223814519247261,
+    "r2_heat": 0.6500373927649732,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G23430",
+    "phase_difference_rad": -1.3922281726738193,
+    "r2_control": 0.6599610807107883,
+    "r2_heat": 0.689531834183855,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT2G23910",
+    "phase_difference_rad": -0.16210673608002724,
+    "r2_control": 0.8968781982629219,
+    "r2_heat": 0.8730905085946816,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G24100",
+    "phase_difference_rad": -0.0021798925925280432,
+    "r2_control": 0.460819960209674,
+    "r2_heat": 0.4268561975198575,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G25140",
+    "phase_difference_rad": 1.4896906299423376,
+    "r2_control": 0.26975228013653596,
+    "r2_heat": 0.5147103594917701,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT2G25510",
+    "phase_difference_rad": 0.4149542597245557,
+    "r2_control": 0.727651348137178,
+    "r2_heat": 0.6826606147932768,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G25900",
+    "phase_difference_rad": 0.43450283818198043,
+    "r2_control": 0.9743574354197311,
+    "r2_heat": 0.9310663034646416,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G26010",
+    "phase_difference_rad": -0.25912198605118286,
+    "r2_control": 0.4226017001112876,
+    "r2_heat": 0.44425612667069647,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G26695",
+    "phase_difference_rad": -0.2458849627134735,
+    "r2_control": 0.833826092516225,
+    "r2_heat": 0.5850056827851915,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G26760",
+    "phase_difference_rad": -0.43870337102371754,
+    "r2_control": 0.715559888084935,
+    "r2_heat": 0.3704641195386177,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G27402",
+    "phase_difference_rad": 0.6082732661976855,
+    "r2_control": 0.7029666244288766,
+    "r2_heat": 0.3724873496663449,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G27420",
+    "phase_difference_rad": 0.08943487047190068,
+    "r2_control": 0.977423268913595,
+    "r2_heat": 0.9004880870800747,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G27840",
+    "phase_difference_rad": 0.014617833631408894,
+    "r2_control": 0.38662949526140256,
+    "r2_heat": 0.26664252372878205,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G28550",
+    "phase_difference_rad": 0.11890608733210371,
+    "r2_control": 0.5810214463499593,
+    "r2_heat": 0.7245524221099613,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G28720",
+    "phase_difference_rad": 0.1764104323029838,
+    "r2_control": 0.948655737824169,
+    "r2_heat": 0.7531766612969861,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G28890",
+    "phase_difference_rad": -1.7764869603821016,
+    "r2_control": 0.636171486302409,
+    "r2_heat": 0.21557990493818024,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT2G29320",
+    "phase_difference_rad": -0.2506937951270918,
+    "r2_control": 0.5501271791746152,
+    "r2_heat": 0.4485728914564274,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G29450",
+    "phase_difference_rad": -2.0237223512884857,
+    "r2_control": 0.8851406288813163,
+    "r2_heat": 0.7496294074957044,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT2G29490",
+    "phase_difference_rad": -0.16508268532205062,
+    "r2_control": 0.8631332907064062,
+    "r2_heat": 0.6260552404994086,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G30000",
+    "phase_difference_rad": 2.0656201783915384,
+    "r2_control": 0.45174896743732007,
+    "r2_heat": 0.6112252324533867,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT2G30424",
+    "phase_difference_rad": 0.8823210472250704,
+    "r2_control": 0.4863357497153127,
+    "r2_heat": 0.33327213597444905,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT2G30760",
+    "phase_difference_rad": 0.8425368603847231,
+    "r2_control": 0.7914151338267399,
+    "r2_heat": 0.4889383707134761,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT2G30766",
+    "phase_difference_rad": 0.8687149617413741,
+    "r2_control": 0.7800257098816937,
+    "r2_heat": 0.5128822577590944,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT2G31280",
+    "phase_difference_rad": 0.22817861201457082,
+    "r2_control": 0.27839662568252166,
+    "r2_heat": 0.23163657920512837,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G31790",
+    "phase_difference_rad": 0.46046939890567784,
+    "r2_control": 0.8653365289611156,
+    "r2_heat": 0.720738553784531,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G32220",
+    "phase_difference_rad": -0.3655014653316684,
+    "r2_control": 0.7430115048942633,
+    "r2_heat": 0.5582242547557354,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G32290",
+    "phase_difference_rad": 0.26878936398095915,
+    "r2_control": 0.8428277645195508,
+    "r2_heat": 0.6020704631258793,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G33590",
+    "phase_difference_rad": 0.07140153585189937,
+    "r2_control": 0.7797249393656089,
+    "r2_heat": 0.7524701889380608,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G33830",
+    "phase_difference_rad": 0.1440030860184687,
+    "r2_control": 0.968785985960687,
+    "r2_heat": 0.9413707502215721,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G33860",
+    "phase_difference_rad": 0.11821986827834376,
+    "r2_control": 0.8448147144523539,
+    "r2_heat": 0.2383016420958476,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G34410",
+    "phase_difference_rad": 0.4335781993936858,
+    "r2_control": 0.562114288040235,
+    "r2_heat": 0.3447395936700349,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G34710",
+    "phase_difference_rad": -0.19996750143448483,
+    "r2_control": 0.36524567888170745,
+    "r2_heat": 0.46720978776788635,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G35960",
+    "phase_difference_rad": 0.5911631652190186,
+    "r2_control": 0.8695335532469581,
+    "r2_heat": 0.46711187684312216,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G36830",
+    "phase_difference_rad": 0.2908589994720818,
+    "r2_control": 0.571252210601124,
+    "r2_heat": 0.22586600211540586,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G36880",
+    "phase_difference_rad": -0.45059385873300284,
+    "r2_control": 0.8856386555549585,
+    "r2_heat": 0.6681141262754848,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G37040",
+    "phase_difference_rad": -0.08253252475425082,
+    "r2_control": 0.9035266198741368,
+    "r2_heat": 0.6339707088062945,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G37180",
+    "phase_difference_rad": -0.27117690631892205,
+    "r2_control": 0.7360182397161245,
+    "r2_heat": 0.8019506789273516,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G37460",
+    "phase_difference_rad": 0.22512322827272957,
+    "r2_control": 0.8556476982233562,
+    "r2_heat": 0.6142955120400935,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G37950",
+    "phase_difference_rad": -0.5846974365382869,
+    "r2_control": 0.7836620717197936,
+    "r2_heat": 0.4068927472299564,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G38210",
+    "phase_difference_rad": 0.31017206668605124,
+    "r2_control": 0.4787893370287337,
+    "r2_heat": 0.7436740023962848,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G38860",
+    "phase_difference_rad": -0.8260744115424878,
+    "r2_control": 0.502421308745333,
+    "r2_heat": 0.5508968298709787,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT2G39220",
+    "phase_difference_rad": -0.22574538545370687,
+    "r2_control": 0.8514037891446128,
+    "r2_heat": 0.22913557333638956,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G39250",
+    "phase_difference_rad": -1.022057806591889,
+    "r2_control": 0.6777157414408128,
+    "r2_heat": 0.2561312765180137,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT2G39700",
+    "phase_difference_rad": -0.4565368474909118,
+    "r2_control": 0.6600140836965556,
+    "r2_heat": 0.856693773274138,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G39800",
+    "phase_difference_rad": 0.26457037113731885,
+    "r2_control": 0.4874704356208779,
+    "r2_heat": 0.6992302528297085,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G40020",
+    "phase_difference_rad": -0.3021379616591717,
+    "r2_control": 0.9176580766899841,
+    "r2_heat": 0.34001312627754854,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G40080",
+    "phase_difference_rad": 0.06487210603165927,
+    "r2_control": 0.9149552786044306,
+    "r2_heat": 0.8828821706884836,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G40460",
+    "phase_difference_rad": -0.34501132079387065,
+    "r2_control": 0.8611039814037167,
+    "r2_heat": 0.5046118184712332,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G40475",
+    "phase_difference_rad": -0.3573025299798114,
+    "r2_control": 0.7259314668123218,
+    "r2_heat": 0.2649892249804586,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G40480",
+    "phase_difference_rad": 0.36338764275591695,
+    "r2_control": 0.8748411949227987,
+    "r2_heat": 0.5708270533568716,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G40610",
+    "phase_difference_rad": 0.033463867571917216,
+    "r2_control": 0.7297426780307776,
+    "r2_heat": 0.5544996889446994,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G41160",
+    "phase_difference_rad": 1.0872723562335378,
+    "r2_control": 0.42257387731084195,
+    "r2_heat": 0.28419925486803155,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT2G41178",
+    "phase_difference_rad": -0.39239570290342884,
+    "r2_control": 0.7809197446527892,
+    "r2_heat": 0.30404387091951635,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G41180",
+    "phase_difference_rad": -0.3602504272301843,
+    "r2_control": 0.7833063886531499,
+    "r2_heat": 0.31211104831839565,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G41560",
+    "phase_difference_rad": -0.12560844430882012,
+    "r2_control": 0.6831869951010202,
+    "r2_heat": 0.7239126055067883,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G42530",
+    "phase_difference_rad": 0.20293102374555994,
+    "r2_control": 0.8619715103132307,
+    "r2_heat": 0.8110566105581497,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G42560",
+    "phase_difference_rad": 0.21012990453523117,
+    "r2_control": 0.7309560850780861,
+    "r2_heat": 0.7601834688088512,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G43010",
+    "phase_difference_rad": 0.5158107921930875,
+    "r2_control": 0.9051334644795097,
+    "r2_heat": 0.9425835176180478,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G43060",
+    "phase_difference_rad": 0.5580957658408949,
+    "r2_control": 0.5282632140747633,
+    "r2_heat": 0.3983853091602133,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G43530",
+    "phase_difference_rad": 0.16021260989936348,
+    "r2_control": 0.9472765420609414,
+    "r2_heat": 0.7689031746159289,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G44300",
+    "phase_difference_rad": -0.09663015432655464,
+    "r2_control": 0.8185888582908087,
+    "r2_heat": 0.7741150629503296,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G44490",
+    "phase_difference_rad": 0.05035063802189654,
+    "r2_control": 0.9277718100859409,
+    "r2_heat": 0.7489799158710921,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G44730",
+    "phase_difference_rad": 0.1294181974619657,
+    "r2_control": 0.3968651509947152,
+    "r2_heat": 0.5520775263877242,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G45380",
+    "phase_difference_rad": 1.9061318808773111,
+    "r2_control": 0.6098468537634198,
+    "r2_heat": 0.25151974009416433,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT2G45830",
+    "phase_difference_rad": -2.064650865218967,
+    "r2_control": 0.4369084336731428,
+    "r2_heat": 0.23648036804998585,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT2G45850",
+    "phase_difference_rad": 0.1399524653551958,
+    "r2_control": 0.9031937175944368,
+    "r2_heat": 0.5943617073477527,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G46240",
+    "phase_difference_rad": -1.2433644409855056,
+    "r2_control": 0.20078244525428368,
+    "r2_heat": 0.4217827805028439,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT2G46450",
+    "phase_difference_rad": 0.29763437403995957,
+    "r2_control": 0.8351419502439005,
+    "r2_heat": 0.7790577652817885,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G46650",
+    "phase_difference_rad": -0.047571453969328825,
+    "r2_control": 0.8072306430087112,
+    "r2_heat": 0.7100203605661479,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G46790",
+    "phase_difference_rad": -0.7567741067593833,
+    "r2_control": 0.9363735181234352,
+    "r2_heat": 0.8710882889520746,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT2G46830",
+    "phase_difference_rad": -0.062354278722336724,
+    "r2_control": 0.981702317938193,
+    "r2_heat": 0.9726917851782242,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G46870",
+    "phase_difference_rad": 0.006623396992290864,
+    "r2_control": 0.21452039908025888,
+    "r2_heat": 0.20018506762159904,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT2G47180",
+    "phase_difference_rad": -2.5753285971758055,
+    "r2_control": 0.7491225637794197,
+    "r2_heat": 0.5310257004219576,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT2G47240",
+    "phase_difference_rad": -0.4735491184078547,
+    "r2_control": 0.8004730842127763,
+    "r2_heat": 0.5893735641912303,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G01660",
+    "phase_difference_rad": -0.20435121625927488,
+    "r2_control": 0.9205705620805513,
+    "r2_heat": 0.6781445189293516,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G02380",
+    "phase_difference_rad": 0.11769899580675709,
+    "r2_control": 0.990586937140496,
+    "r2_heat": 0.9544211179788508,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G03190",
+    "phase_difference_rad": -1.4819343741346338,
+    "r2_control": 0.7076120526094662,
+    "r2_heat": 0.3735484114469293,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G03270",
+    "phase_difference_rad": -0.1985568057188667,
+    "r2_control": 0.5153101249031111,
+    "r2_heat": 0.8140588052875938,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G03780",
+    "phase_difference_rad": 0.39926243763120894,
+    "r2_control": 0.926256573387968,
+    "r2_heat": 0.9160590417890143,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G04255",
+    "phase_difference_rad": -0.27183503986221824,
+    "r2_control": 0.9090121420084866,
+    "r2_heat": 0.5891737690685634,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G04710",
+    "phase_difference_rad": -0.797685687435348,
+    "r2_control": 0.3173019394981923,
+    "r2_heat": 0.34262761737716385,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G04910",
+    "phase_difference_rad": 0.3036158752543554,
+    "r2_control": 0.9548358187655858,
+    "r2_heat": 0.8555677654354447,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G05800",
+    "phase_difference_rad": 0.7001242042710536,
+    "r2_control": 0.8538032039565566,
+    "r2_heat": 0.5180219373141911,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G06145",
+    "phase_difference_rad": 0.5859578029574974,
+    "r2_control": 0.8205685702638166,
+    "r2_heat": 0.401980066269065,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G06355",
+    "phase_difference_rad": -0.08438042042211569,
+    "r2_control": 0.7733828154049088,
+    "r2_heat": 0.6587532507832278,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G06365",
+    "phase_difference_rad": -0.11991051994952429,
+    "r2_control": 0.5747657311592302,
+    "r2_heat": 0.35512209021959784,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G06880",
+    "phase_difference_rad": -0.17202856221479346,
+    "r2_control": 0.560566223197248,
+    "r2_heat": 0.6564000528961749,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G07080",
+    "phase_difference_rad": 0.4286022186398859,
+    "r2_control": 0.49406023037882396,
+    "r2_heat": 0.2518575663555124,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G07230",
+    "phase_difference_rad": -0.13165545670729273,
+    "r2_control": 0.4007489955297797,
+    "r2_heat": 0.4450944460679235,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G07650",
+    "phase_difference_rad": 0.0565875688497246,
+    "r2_control": 0.9407298030551573,
+    "r2_heat": 0.8888722019223255,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G08590",
+    "phase_difference_rad": 0.057534963355124764,
+    "r2_control": 0.8783174655326624,
+    "r2_heat": 0.6251214994279677,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G08690",
+    "phase_difference_rad": 0.2429352468407977,
+    "r2_control": 0.6770401707926337,
+    "r2_heat": 0.8081263648955103,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G09270",
+    "phase_difference_rad": 0.769840081419282,
+    "r2_control": 0.30362101565443755,
+    "r2_heat": 0.3261049997357709,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G09440",
+    "phase_difference_rad": 2.305074112684151,
+    "r2_control": 0.7631740640167781,
+    "r2_heat": 0.24102185659568265,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G09450",
+    "phase_difference_rad": -0.23359096650634875,
+    "r2_control": 0.8812972195122195,
+    "r2_heat": 0.8195960836562,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G09540",
+    "phase_difference_rad": 1.024555305915774,
+    "r2_control": 0.4948849763787786,
+    "r2_heat": 0.4729031424128346,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G09600",
+    "phase_difference_rad": -0.04184950241672637,
+    "r2_control": 0.9570124852525017,
+    "r2_heat": 0.9669761208562957,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G10020",
+    "phase_difference_rad": 1.2867311278191897,
+    "r2_control": 0.8726441191722886,
+    "r2_heat": 0.34680328097798196,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G10113",
+    "phase_difference_rad": -0.30052569238858506,
+    "r2_control": 0.8974522476586886,
+    "r2_heat": 0.7783486743210414,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G10340",
+    "phase_difference_rad": -0.9294316239200959,
+    "r2_control": 0.5195647371495893,
+    "r2_heat": 0.31217047480141646,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G12320",
+    "phase_difference_rad": -0.393417643359655,
+    "r2_control": 0.9857785122620822,
+    "r2_heat": 0.9571998594451784,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G12580",
+    "phase_difference_rad": 1.5435574805585612,
+    "r2_control": 0.36956909365265633,
+    "r2_heat": 0.22307363658914403,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G12710",
+    "phase_difference_rad": 0.2737940473621967,
+    "r2_control": 0.753528031990397,
+    "r2_heat": 0.6505402657115126,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G12950",
+    "phase_difference_rad": 0.6837927190128765,
+    "r2_control": 0.6312424059424391,
+    "r2_heat": 0.3229917447629511,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G13110",
+    "phase_difference_rad": 0.6625103125734613,
+    "r2_control": 0.9048125636957307,
+    "r2_heat": 0.5766193139585869,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G13190",
+    "phase_difference_rad": 1.775851423759476,
+    "r2_control": 0.3289906259201645,
+    "r2_heat": 0.23281669448498976,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G13470",
+    "phase_difference_rad": 0.6051447864877553,
+    "r2_control": 0.8059186513671396,
+    "r2_heat": 0.693543245521899,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G13480",
+    "phase_difference_rad": -0.694563197870373,
+    "r2_control": 0.7557145023768966,
+    "r2_heat": 0.6760503890550382,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G13690",
+    "phase_difference_rad": -0.04269947317977074,
+    "r2_control": 0.8855911138687312,
+    "r2_heat": 0.6018611085671023,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G14840",
+    "phase_difference_rad": -0.22741820584616734,
+    "r2_control": 0.7712801730444983,
+    "r2_heat": 0.6408409011737357,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G15450",
+    "phase_difference_rad": -0.07526466784031927,
+    "r2_control": 0.9808778131359752,
+    "r2_heat": 0.8676029402210824,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G15630",
+    "phase_difference_rad": -0.014554176764203675,
+    "r2_control": 0.9728490844122545,
+    "r2_heat": 0.7918132368888342,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G16340",
+    "phase_difference_rad": 2.91005321879681,
+    "r2_control": 0.5554745185165851,
+    "r2_heat": 0.24455542591075552,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G16410",
+    "phase_difference_rad": -0.21564487627820125,
+    "r2_control": 0.8429255041442445,
+    "r2_heat": 0.7672656398252546,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G16870",
+    "phase_difference_rad": -0.19940873597495812,
+    "r2_control": 0.5816074255397692,
+    "r2_heat": 0.39584448123187,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G17611",
+    "phase_difference_rad": -0.03790472115895738,
+    "r2_control": 0.6942235791843192,
+    "r2_heat": 0.5295184295655802,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G18830",
+    "phase_difference_rad": -0.15308251494194305,
+    "r2_control": 0.8159421820381572,
+    "r2_heat": 0.5319762988556714,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G19000",
+    "phase_difference_rad": 1.1161911514781768,
+    "r2_control": 0.6570409306827936,
+    "r2_heat": 0.42952562164800423,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G19010",
+    "phase_difference_rad": -0.5905356374155364,
+    "r2_control": 0.6130086483012689,
+    "r2_heat": 0.562218476396634,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G19450",
+    "phase_difference_rad": 0.5542290812969849,
+    "r2_control": 0.9546465761619312,
+    "r2_heat": 0.9209003611692744,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G19553",
+    "phase_difference_rad": 0.48302580768873726,
+    "r2_control": 0.9374396751051085,
+    "r2_heat": 0.7594864635305758,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G19680",
+    "phase_difference_rad": 0.9486928823393923,
+    "r2_control": 0.8723217449608673,
+    "r2_heat": 0.6036801811825743,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G19930",
+    "phase_difference_rad": -0.630106747190712,
+    "r2_control": 0.7706930907936492,
+    "r2_heat": 0.4897603992625096,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G20015",
+    "phase_difference_rad": 1.6184035221632285,
+    "r2_control": 0.32554204695673095,
+    "r2_heat": 0.43672651473350443,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G20150",
+    "phase_difference_rad": -0.20623539787733847,
+    "r2_control": 0.8419382363060695,
+    "r2_heat": 0.48509035338455986,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G20370",
+    "phase_difference_rad": -0.20913497467786468,
+    "r2_control": 0.4371479673977453,
+    "r2_heat": 0.5713172387873917,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G20810",
+    "phase_difference_rad": -0.013727145866788694,
+    "r2_control": 0.9467314091132791,
+    "r2_heat": 0.9533080599198267,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G20820",
+    "phase_difference_rad": -0.1050499094835935,
+    "r2_control": 0.6474530808271682,
+    "r2_heat": 0.5149746602432015,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G21150",
+    "phase_difference_rad": -0.19124442979979375,
+    "r2_control": 0.9733970165046495,
+    "r2_heat": 0.8784055272051385,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G21390",
+    "phase_difference_rad": -0.06930840677087402,
+    "r2_control": 0.864913975235188,
+    "r2_heat": 0.8792305134630705,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G21720",
+    "phase_difference_rad": 0.08208882550263663,
+    "r2_control": 0.7242784980861343,
+    "r2_heat": 0.7054292641576924,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G21870",
+    "phase_difference_rad": 0.4790309932595783,
+    "r2_control": 0.871704908370789,
+    "r2_heat": 0.8070443485679852,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G22231",
+    "phase_difference_rad": 0.5727392993512274,
+    "r2_control": 0.5062219500240058,
+    "r2_heat": 0.36981288970553605,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G22235",
+    "phase_difference_rad": 0.04647979734351948,
+    "r2_control": 0.6317544080311965,
+    "r2_heat": 0.5277004350200631,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G22840",
+    "phase_difference_rad": 2.9533205580633433,
+    "r2_control": 0.3108724143944468,
+    "r2_heat": 0.6161885029405954,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G23810",
+    "phase_difference_rad": -0.01687417775887023,
+    "r2_control": 0.9502246756169792,
+    "r2_heat": 0.7339930508002954,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G23990",
+    "phase_difference_rad": 1.4603106712713192,
+    "r2_control": 0.48361035533847974,
+    "r2_heat": 0.5826297957434894,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G24300",
+    "phase_difference_rad": -0.013940790085609557,
+    "r2_control": 0.43982700226370053,
+    "r2_heat": 0.455157806843389,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G24460",
+    "phase_difference_rad": 0.15347395370412908,
+    "r2_control": 0.9382379951991615,
+    "r2_heat": 0.811127364012821,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G25820",
+    "phase_difference_rad": -0.1238641344242899,
+    "r2_control": 0.852278574096786,
+    "r2_heat": 0.7500381671739752,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G25830",
+    "phase_difference_rad": -0.15747358452545848,
+    "r2_control": 0.8704402496339242,
+    "r2_heat": 0.7633679670548419,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G26740",
+    "phase_difference_rad": 0.14448724853748507,
+    "r2_control": 0.9334250368964869,
+    "r2_heat": 0.8945913002615693,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G27210",
+    "phase_difference_rad": 0.10371847831259771,
+    "r2_control": 0.8449656722458037,
+    "r2_heat": 0.6199482456784307,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G27250",
+    "phase_difference_rad": -0.6018247006221511,
+    "r2_control": 0.6048314128681326,
+    "r2_heat": 0.4338889189856603,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G27690",
+    "phase_difference_rad": 0.009608807903939365,
+    "r2_control": 0.8884333804058191,
+    "r2_heat": 0.9230846850843981,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G27700",
+    "phase_difference_rad": 0.06129773908367243,
+    "r2_control": 0.7382032128799126,
+    "r2_heat": 0.7576952158047028,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G27997",
+    "phase_difference_rad": 3.1297591074196656,
+    "r2_control": 0.23611647323533702,
+    "r2_heat": 0.4625561360984415,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G28210",
+    "phase_difference_rad": -1.5491877041857238,
+    "r2_control": 0.4375329526154257,
+    "r2_heat": 0.43089252835809255,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G28220",
+    "phase_difference_rad": 0.4499027396809647,
+    "r2_control": 0.9106777843022296,
+    "r2_heat": 0.8097312114995832,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G28270",
+    "phase_difference_rad": 0.4449986681017417,
+    "r2_control": 0.9707331962222225,
+    "r2_heat": 0.8642494306069735,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G28290",
+    "phase_difference_rad": 0.04086598979259782,
+    "r2_control": 0.8100165256253045,
+    "r2_heat": 0.630842151226408,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G28300",
+    "phase_difference_rad": -0.14312606153515972,
+    "r2_control": 0.8069638812920894,
+    "r2_heat": 0.6902945601032995,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G29030",
+    "phase_difference_rad": -0.6780634649554689,
+    "r2_control": 0.7000846745071051,
+    "r2_heat": 0.5060026243993385,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G29035",
+    "phase_difference_rad": 0.23283866129059042,
+    "r2_control": 0.9009591010358986,
+    "r2_heat": 0.7655872887365365,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G29375",
+    "phase_difference_rad": -0.08823098575993527,
+    "r2_control": 0.4728172624206508,
+    "r2_heat": 0.24918633626340414,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G41979",
+    "phase_difference_rad": -0.20018869505666825,
+    "r2_control": 0.8108167367007056,
+    "r2_heat": 0.7406611497523867,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G44720",
+    "phase_difference_rad": 0.2798073703077937,
+    "r2_control": 0.5554055324855236,
+    "r2_heat": 0.5382747124784675,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G44730",
+    "phase_difference_rad": -0.2499476532404994,
+    "r2_control": 0.4920803342102724,
+    "r2_heat": 0.3619504446879678,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G45930",
+    "phase_difference_rad": 0.6447872042754785,
+    "r2_control": 0.45390316888162163,
+    "r2_heat": 0.3716196225877755,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G45970",
+    "phase_difference_rad": 0.009841119416557742,
+    "r2_control": 0.7046415560264392,
+    "r2_heat": 0.4785297152498965,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G46090",
+    "phase_difference_rad": 2.1424291870897405,
+    "r2_control": 0.22287261594090158,
+    "r2_heat": 0.5595291834581531,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G46590",
+    "phase_difference_rad": -0.1518589226017908,
+    "r2_control": 0.35231804490663254,
+    "r2_heat": 0.6809779275897826,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G46970",
+    "phase_difference_rad": 0.13825064209942983,
+    "r2_control": 0.9568996014663923,
+    "r2_heat": 0.8836189111496081,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G47340",
+    "phase_difference_rad": 0.17246876345979434,
+    "r2_control": 0.9618208687274362,
+    "r2_heat": 0.9149890981389104,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G48240",
+    "phase_difference_rad": 0.03899628753795048,
+    "r2_control": 0.6637539914566009,
+    "r2_heat": 0.6682611484760016,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G48320",
+    "phase_difference_rad": 0.9408298561157412,
+    "r2_control": 0.61769265056892,
+    "r2_heat": 0.29073647386771995,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G48360",
+    "phase_difference_rad": -0.1912225129148872,
+    "r2_control": 0.976273362418748,
+    "r2_heat": 0.8402949353134117,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G51238",
+    "phase_difference_rad": 0.05802394909491726,
+    "r2_control": 0.9535452005579167,
+    "r2_heat": 0.9376621544919708,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G51240",
+    "phase_difference_rad": 0.05800268107821371,
+    "r2_control": 0.9536330507687029,
+    "r2_heat": 0.9373031794965435,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G51720",
+    "phase_difference_rad": 0.036966379242244,
+    "r2_control": 0.8772104737791078,
+    "r2_heat": 0.6136170065472044,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G52740",
+    "phase_difference_rad": -0.242047214869366,
+    "r2_control": 0.7441101063113922,
+    "r2_heat": 0.3674243384455045,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G52870",
+    "phase_difference_rad": 0.8724227422832367,
+    "r2_control": 0.8223389226562122,
+    "r2_heat": 0.3304757885502283,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G53040",
+    "phase_difference_rad": -0.0008625237498036675,
+    "r2_control": 0.6452317740864832,
+    "r2_heat": 0.6758848169601595,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G53260",
+    "phase_difference_rad": 0.2844904861573075,
+    "r2_control": 0.9460091263096331,
+    "r2_heat": 0.8926990363457095,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G53730",
+    "phase_difference_rad": 0.358110759587001,
+    "r2_control": 0.7840252279084852,
+    "r2_heat": 0.5093158127727365,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G53830",
+    "phase_difference_rad": -0.36715491917497756,
+    "r2_control": 0.8674919665645675,
+    "r2_heat": 0.7209029981850912,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G54500",
+    "phase_difference_rad": -0.06193390392868148,
+    "r2_control": 0.9652749306656518,
+    "r2_heat": 0.9815475295388264,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G54600",
+    "phase_difference_rad": 0.2133246289017805,
+    "r2_control": 0.8758037510913886,
+    "r2_heat": 0.5047102982068112,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G54830",
+    "phase_difference_rad": 0.8437318432792402,
+    "r2_control": 0.4514539908665829,
+    "r2_heat": 0.5454421145925331,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G54990",
+    "phase_difference_rad": 0.35239193467801955,
+    "r2_control": 0.898731777861545,
+    "r2_heat": 0.4239462359709658,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G55120",
+    "phase_difference_rad": -0.23263442784923727,
+    "r2_control": 0.875211488453828,
+    "r2_heat": 0.8621217782994445,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G55240",
+    "phase_difference_rad": 0.17599641123302656,
+    "r2_control": 0.964745166350519,
+    "r2_heat": 0.6632982456927861,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G55580",
+    "phase_difference_rad": -1.1528697401786028,
+    "r2_control": 0.5200795119811238,
+    "r2_heat": 0.9095907831406296,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G55630",
+    "phase_difference_rad": 0.19344734992488055,
+    "r2_control": 0.9379045984332952,
+    "r2_heat": 0.7719449836512362,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G56290",
+    "phase_difference_rad": 0.11669914598715647,
+    "r2_control": 0.95316930456028,
+    "r2_heat": 0.90002572483509,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G57710",
+    "phase_difference_rad": 0.6522445062522543,
+    "r2_control": 0.3213522595958693,
+    "r2_heat": 0.4634569394795802,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G57880",
+    "phase_difference_rad": 0.13546988463511755,
+    "r2_control": 0.7925677778147295,
+    "r2_heat": 0.5745837764659936,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G58990",
+    "phase_difference_rad": 0.8847407105790571,
+    "r2_control": 0.8847360532875698,
+    "r2_heat": 0.5983862841528997,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G59670",
+    "phase_difference_rad": 0.46394841103040085,
+    "r2_control": 0.3758406503545425,
+    "r2_heat": 0.4895693418568815,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G60110",
+    "phase_difference_rad": 0.577813241731562,
+    "r2_control": 0.4589502044136031,
+    "r2_heat": 0.4325432541819736,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G60840",
+    "phase_difference_rad": 0.20264902733447332,
+    "r2_control": 0.7448754130250812,
+    "r2_heat": 0.21136622415427875,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G62260",
+    "phase_difference_rad": 0.9856725369379575,
+    "r2_control": 0.3911011698519399,
+    "r2_heat": 0.5342278679690491,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT3G62270",
+    "phase_difference_rad": -0.668297920101436,
+    "r2_control": 0.43524590430645516,
+    "r2_heat": 0.3165147082238431,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G62550",
+    "phase_difference_rad": 0.14028848252906867,
+    "r2_control": 0.900142665469715,
+    "r2_heat": 0.8828641710613587,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G62950",
+    "phase_difference_rad": 0.014089038765994655,
+    "r2_control": 0.9302450030187129,
+    "r2_heat": 0.7366194633428322,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G63160",
+    "phase_difference_rad": 0.21761715593799558,
+    "r2_control": 0.8931630367690734,
+    "r2_heat": 0.8859944933992112,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT3G63310",
+    "phase_difference_rad": 2.0304966708774232,
+    "r2_control": 0.6649950893944014,
+    "r2_heat": 0.5009917066512157,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G00050",
+    "phase_difference_rad": 0.23340743966273503,
+    "r2_control": 0.9214805754328631,
+    "r2_heat": 0.79316999615845,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G01080",
+    "phase_difference_rad": 0.3176950446678163,
+    "r2_control": 0.94768760680856,
+    "r2_heat": 0.7028339415205935,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G01870",
+    "phase_difference_rad": 0.17074225298373993,
+    "r2_control": 0.7645691530071799,
+    "r2_heat": 0.8971841668250945,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G02050",
+    "phase_difference_rad": -0.7632328298298117,
+    "r2_control": 0.20311004789763754,
+    "r2_heat": 0.3923015272452478,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G02800",
+    "phase_difference_rad": 0.34440085614087634,
+    "r2_control": 0.6411093406181781,
+    "r2_heat": 0.3001609668593429,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G03940",
+    "phase_difference_rad": -2.92169793513415,
+    "r2_control": 0.22687299001634098,
+    "r2_heat": 0.22932062818396493,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G04020",
+    "phase_difference_rad": -0.17342827906035396,
+    "r2_control": 0.831802826270136,
+    "r2_heat": 0.7993052385651467,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G04330",
+    "phase_difference_rad": 0.1422655558795951,
+    "r2_control": 0.910080176214012,
+    "r2_heat": 0.8981816299462023,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G04610",
+    "phase_difference_rad": 0.1137077257773973,
+    "r2_control": 0.8493998447541631,
+    "r2_heat": 0.7789927904916979,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G04630",
+    "phase_difference_rad": -0.13844763915923508,
+    "r2_control": 0.8912709328532435,
+    "r2_heat": 0.542640668634589,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G04750",
+    "phase_difference_rad": 0.3364270593780071,
+    "r2_control": 0.8174713688553203,
+    "r2_heat": 0.2822676236536712,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G05910",
+    "phase_difference_rad": 0.6854204625792222,
+    "r2_control": 0.32553468118995554,
+    "r2_heat": 0.44269128386244094,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G08850",
+    "phase_difference_rad": -0.23645655395277032,
+    "r2_control": 0.2505715658207731,
+    "r2_heat": 0.25373924220857214,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G09150",
+    "phase_difference_rad": -0.6107927041271715,
+    "r2_control": 0.5707144101089371,
+    "r2_heat": 0.5412075348540301,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G09200",
+    "phase_difference_rad": -0.31187337287846906,
+    "r2_control": 0.8133909818660313,
+    "r2_heat": 0.7526312152279389,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G09510",
+    "phase_difference_rad": -0.7322668944609735,
+    "r2_control": 0.41503149835450726,
+    "r2_heat": 0.21859675610449658,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G10040",
+    "phase_difference_rad": -0.2650915285550838,
+    "r2_control": 0.7965915047307781,
+    "r2_heat": 0.6638482214401493,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G10120",
+    "phase_difference_rad": 0.5465057917039352,
+    "r2_control": 0.9223417321501246,
+    "r2_heat": 0.8223996887553912,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G11080",
+    "phase_difference_rad": 0.5693679505739411,
+    "r2_control": 0.4757993465785725,
+    "r2_heat": 0.5642619440972851,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G11660",
+    "phase_difference_rad": 2.0301024182633203,
+    "r2_control": 0.35129090694730225,
+    "r2_heat": 0.5382298364868967,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G12030",
+    "phase_difference_rad": -0.6504748345367688,
+    "r2_control": 0.8515843757874999,
+    "r2_heat": 0.39622742851125314,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G12320",
+    "phase_difference_rad": 2.374399493784311,
+    "r2_control": 0.8675055753812594,
+    "r2_heat": 0.2098504283756325,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G12390",
+    "phase_difference_rad": -0.22067510812885285,
+    "r2_control": 0.6767734997618772,
+    "r2_heat": 0.20250733198540538,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G13540",
+    "phase_difference_rad": -0.47767634081587684,
+    "r2_control": 0.7920676663689251,
+    "r2_heat": 0.4498553464355092,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G13990",
+    "phase_difference_rad": -0.12791095547656806,
+    "r2_control": 0.4572158418051019,
+    "r2_heat": 0.3345053860815952,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G14270",
+    "phase_difference_rad": 0.03019047541545472,
+    "r2_control": 0.9174585940588815,
+    "r2_heat": 0.9125379514476462,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G14400",
+    "phase_difference_rad": -0.14022218661589436,
+    "r2_control": 0.38579935348271077,
+    "r2_heat": 0.47722905366859003,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G15450",
+    "phase_difference_rad": 0.6657759389237714,
+    "r2_control": 0.6010010409397417,
+    "r2_heat": 0.6599606780443312,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G15680",
+    "phase_difference_rad": 0.3172504486226744,
+    "r2_control": 0.7243466036147095,
+    "r2_heat": 0.7823397108608401,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G16146",
+    "phase_difference_rad": 0.1281486652583288,
+    "r2_control": 0.8927709372985626,
+    "r2_heat": 0.8970286529632788,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G16500",
+    "phase_difference_rad": 0.5253745334251064,
+    "r2_control": 0.49924994599411154,
+    "r2_heat": 0.21945277500705085,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G16880",
+    "phase_difference_rad": -0.43583056274760335,
+    "r2_control": 0.835839491801478,
+    "r2_heat": 0.35818226321031377,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G16890",
+    "phase_difference_rad": -0.8338860095032297,
+    "r2_control": 0.6853168629463198,
+    "r2_heat": 0.35324340419116884,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G16920",
+    "phase_difference_rad": -0.19724835332508614,
+    "r2_control": 0.911256622835834,
+    "r2_heat": 0.7131873599348789,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G17250",
+    "phase_difference_rad": -1.9473472527903883,
+    "r2_control": 0.21424566402941803,
+    "r2_heat": 0.4702195908401271,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G18630",
+    "phase_difference_rad": -0.11983675446904411,
+    "r2_control": 0.7603050083128893,
+    "r2_heat": 0.7673272624945401,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G19120",
+    "phase_difference_rad": -0.010402451407402147,
+    "r2_control": 0.7919677047596814,
+    "r2_heat": 0.37493870146649655,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G19160",
+    "phase_difference_rad": -0.7191917651852857,
+    "r2_control": 0.8351689396644278,
+    "r2_heat": 0.4032077051556461,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G20240",
+    "phase_difference_rad": -0.19802661260484677,
+    "r2_control": 0.7301496688392238,
+    "r2_heat": 0.5732594808776443,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G20720",
+    "phase_difference_rad": -0.15294377137718573,
+    "r2_control": 0.7927088995471113,
+    "r2_heat": 0.7197463123838127,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G21020",
+    "phase_difference_rad": 0.07363100761140906,
+    "r2_control": 0.6788137351022026,
+    "r2_heat": 0.6931519178474653,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G21990",
+    "phase_difference_rad": 0.9177649865983745,
+    "r2_control": 0.6519472225186614,
+    "r2_heat": 0.8740574371517147,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G22540",
+    "phase_difference_rad": 0.07614913816306723,
+    "r2_control": 0.884134111522889,
+    "r2_heat": 0.8651063514986029,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G22610",
+    "phase_difference_rad": -0.20219808300547903,
+    "r2_control": 0.33441855907305884,
+    "r2_heat": 0.6815979782972138,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G22670",
+    "phase_difference_rad": -0.467921588265638,
+    "r2_control": 0.2306145975527475,
+    "r2_heat": 0.568890032322984,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G22710",
+    "phase_difference_rad": -0.14027950673347322,
+    "r2_control": 0.8611144619538404,
+    "r2_heat": 0.7411580159617708,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G22880",
+    "phase_difference_rad": 0.06824901409377754,
+    "r2_control": 0.9527215878124756,
+    "r2_heat": 0.8595434664450111,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G23290",
+    "phase_difference_rad": 0.12864506297488634,
+    "r2_control": 0.9088047716860185,
+    "r2_heat": 0.8197645121230887,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G23493",
+    "phase_difference_rad": 0.24668852121845222,
+    "r2_control": 0.2504024259628198,
+    "r2_heat": 0.5517487852799212,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G23800",
+    "phase_difference_rad": 1.0321909735194807,
+    "r2_control": 0.20780991982757713,
+    "r2_heat": 0.3528644438090863,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G24410",
+    "phase_difference_rad": -0.6994529780638719,
+    "r2_control": 0.230844562777894,
+    "r2_heat": 0.7128057797230705,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G24413",
+    "phase_difference_rad": -0.9147081155651231,
+    "r2_control": 0.35002368582485155,
+    "r2_heat": 0.6393456012071335,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G24415",
+    "phase_difference_rad": -1.0066039925581063,
+    "r2_control": 0.29402171584778136,
+    "r2_heat": 0.6703720124252801,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G24700",
+    "phase_difference_rad": 0.12435996924242432,
+    "r2_control": 0.9290426347956985,
+    "r2_heat": 0.8356356327081776,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G24780",
+    "phase_difference_rad": -0.3254455661380391,
+    "r2_control": 0.8833607434039076,
+    "r2_heat": 0.8091092634831678,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G25260",
+    "phase_difference_rad": -0.15893120440087039,
+    "r2_control": 0.8354815579515151,
+    "r2_heat": 0.38116042079992474,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G25340",
+    "phase_difference_rad": 0.2209276356602865,
+    "r2_control": 0.25036528862097884,
+    "r2_heat": 0.3504746163223662,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G25810",
+    "phase_difference_rad": 0.20140482925555103,
+    "r2_control": 0.21181440077542246,
+    "r2_heat": 0.519591371578085,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G26130",
+    "phase_difference_rad": -0.05423473707114467,
+    "r2_control": 0.9175436669039985,
+    "r2_heat": 0.46113432233039064,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G26270",
+    "phase_difference_rad": 0.8271558098268132,
+    "r2_control": 0.5961109352555876,
+    "r2_heat": 0.6420878834568796,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G26370",
+    "phase_difference_rad": -0.012538092853176419,
+    "r2_control": 0.9439044391420042,
+    "r2_heat": 0.834083027877029,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G26670",
+    "phase_difference_rad": 0.1831319597233958,
+    "r2_control": 0.9229638818869847,
+    "r2_heat": 0.8146642511436535,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G26780",
+    "phase_difference_rad": 2.4239935601969225,
+    "r2_control": 0.39421717341221063,
+    "r2_heat": 0.4949847818564933,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G26850",
+    "phase_difference_rad": 0.2710714671187209,
+    "r2_control": 0.9668534817346688,
+    "r2_heat": 0.9399030616809313,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G27310",
+    "phase_difference_rad": -0.7238187398604874,
+    "r2_control": 0.9156500861381516,
+    "r2_heat": 0.9193697928892628,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G27450",
+    "phase_difference_rad": 0.027663496064384452,
+    "r2_control": 0.9551689497766198,
+    "r2_heat": 0.7936676529230675,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G27560",
+    "phase_difference_rad": -0.21196823151037616,
+    "r2_control": 0.812336390222985,
+    "r2_heat": 0.6964535905324191,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G27595",
+    "phase_difference_rad": -1.2410133396185274,
+    "r2_control": 0.3342569481287764,
+    "r2_heat": 0.3916586473618827,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G27657",
+    "phase_difference_rad": 1.3904403226758486,
+    "r2_control": 0.7441450493444421,
+    "r2_heat": 0.49799623862466935,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G28080",
+    "phase_difference_rad": 1.0082182642702868,
+    "r2_control": 0.6167933624307145,
+    "r2_heat": 0.5403470758557338,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G28520",
+    "phase_difference_rad": 0.21649428311616115,
+    "r2_control": 0.7449567681418079,
+    "r2_heat": 0.644559449324783,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G29700",
+    "phase_difference_rad": -0.45628403976380727,
+    "r2_control": 0.4905880123639569,
+    "r2_heat": 0.23870294050379492,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G29720",
+    "phase_difference_rad": 0.4575261353651771,
+    "r2_control": 0.7263011613880049,
+    "r2_heat": 0.6504067291531299,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G30080",
+    "phase_difference_rad": -0.19309850589857214,
+    "r2_control": 0.6284154939615727,
+    "r2_heat": 0.5181787761998926,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G30270",
+    "phase_difference_rad": -0.3923431722097106,
+    "r2_control": 0.7912096288549213,
+    "r2_heat": 0.5896883002990456,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G30650",
+    "phase_difference_rad": 0.34200041885419186,
+    "r2_control": 0.8664789577505436,
+    "r2_heat": 0.8815990484491472,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G30660",
+    "phase_difference_rad": 0.08585328434940843,
+    "r2_control": 0.8965847963630086,
+    "r2_heat": 0.9001731290970278,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G30662",
+    "phase_difference_rad": 0.1102029604929611,
+    "r2_control": 0.8527852752731031,
+    "r2_heat": 0.8601561964694455,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G30760",
+    "phase_difference_rad": -0.03642777901088978,
+    "r2_control": 0.2543959723644379,
+    "r2_heat": 0.2593906234217116,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G31840",
+    "phase_difference_rad": 0.12777287160378992,
+    "r2_control": 0.6718650368634754,
+    "r2_heat": 0.2537266598554697,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G32340",
+    "phase_difference_rad": 0.0955929738204584,
+    "r2_control": 0.9522825472842105,
+    "r2_heat": 0.8950036536848706,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G32480",
+    "phase_difference_rad": -1.4386560131363848,
+    "r2_control": 0.708408061024445,
+    "r2_heat": 0.34418204511743433,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G32570",
+    "phase_difference_rad": -0.2079998340419091,
+    "r2_control": 0.8889210536291267,
+    "r2_heat": 0.24722950168749946,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G33220",
+    "phase_difference_rad": -0.12047507752387143,
+    "r2_control": 0.9135472831120581,
+    "r2_heat": 0.7896140670035735,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G33905",
+    "phase_difference_rad": -0.5639507979689082,
+    "r2_control": 0.2737419070528252,
+    "r2_heat": 0.2645997261458486,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G33960",
+    "phase_difference_rad": 0.11900526228527308,
+    "r2_control": 0.7532300473361127,
+    "r2_heat": 0.27424296709816676,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G33980",
+    "phase_difference_rad": 0.41741277488980977,
+    "r2_control": 0.9188532099762076,
+    "r2_heat": 0.894432182510487,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G34610",
+    "phase_difference_rad": -0.010765054371717707,
+    "r2_control": 0.8731983226548534,
+    "r2_heat": 0.6355200104294423,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G34730",
+    "phase_difference_rad": 0.37075147071168024,
+    "r2_control": 0.6857370073554364,
+    "r2_heat": 0.5186558149338166,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G34881",
+    "phase_difference_rad": -0.2437581067527825,
+    "r2_control": 0.7993374564815943,
+    "r2_heat": 0.700048392828748,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G34950",
+    "phase_difference_rad": 0.016497914741100406,
+    "r2_control": 0.9266258055036499,
+    "r2_heat": 0.8569549280549207,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G35160",
+    "phase_difference_rad": 0.9003217823798118,
+    "r2_control": 0.6628406958395224,
+    "r2_heat": 0.39016041594477835,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G35270",
+    "phase_difference_rad": 0.21447666970419252,
+    "r2_control": 0.8371008880924161,
+    "r2_heat": 0.7638984711068567,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G35720",
+    "phase_difference_rad": -0.04815454890622006,
+    "r2_control": 0.6747668603877852,
+    "r2_heat": 0.35759765927173914,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G35770",
+    "phase_difference_rad": 0.07731700875014579,
+    "r2_control": 0.9556162407017532,
+    "r2_heat": 0.949580983379556,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G36240",
+    "phase_difference_rad": -0.6005121386855159,
+    "r2_control": 0.8884056605317481,
+    "r2_heat": 0.26781268185897,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G36500",
+    "phase_difference_rad": -0.16139105727569472,
+    "r2_control": 0.8732237138962523,
+    "r2_heat": 0.6516234545273187,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G36520",
+    "phase_difference_rad": 0.2202403851091863,
+    "r2_control": 0.3590821164902478,
+    "r2_heat": 0.6609862190980829,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G36670",
+    "phase_difference_rad": -0.011998219629379747,
+    "r2_control": 0.8080966393023541,
+    "r2_heat": 0.803864231944554,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G36850",
+    "phase_difference_rad": 0.33874196457868927,
+    "r2_control": 0.9272609196100756,
+    "r2_heat": 0.8830142412548999,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G36990",
+    "phase_difference_rad": -0.6614054145755164,
+    "r2_control": 0.6030970166284113,
+    "r2_heat": 0.551069064381557,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G38062",
+    "phase_difference_rad": -0.8424632385677742,
+    "r2_control": 0.7364931210857015,
+    "r2_heat": 0.3248357156570799,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G38960",
+    "phase_difference_rad": 0.02464346388848571,
+    "r2_control": 0.8758640922802183,
+    "r2_heat": 0.73518253235514,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G39260",
+    "phase_difference_rad": -0.1239732955061057,
+    "r2_control": 0.8086572844754718,
+    "r2_heat": 0.7698853792817286,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G39320",
+    "phase_difference_rad": -0.6149023023144231,
+    "r2_control": 0.5435146622990481,
+    "r2_heat": 0.3868135973601632,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT4G39940",
+    "phase_difference_rad": -1.1033438512399172,
+    "r2_control": 0.8317222884949362,
+    "r2_heat": 0.7310640475698471,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT4G39950",
+    "phase_difference_rad": 0.42041225789384273,
+    "r2_control": 0.3905763132480574,
+    "r2_heat": 0.8397478693342899,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G01370",
+    "phase_difference_rad": 0.035809042847765316,
+    "r2_control": 0.4378439512350033,
+    "r2_heat": 0.3474725114921252,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G01740",
+    "phase_difference_rad": 1.4229197109497764,
+    "r2_control": 0.5624777161951375,
+    "r2_heat": 0.5325524122029177,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G01815",
+    "phase_difference_rad": 0.2854629075061506,
+    "r2_control": 0.3363715284773253,
+    "r2_heat": 0.3731901856865245,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G01990",
+    "phase_difference_rad": -2.7041851533134613,
+    "r2_control": 0.5052069734592891,
+    "r2_heat": 0.3342456126733293,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G02270",
+    "phase_difference_rad": 0.03670118011502165,
+    "r2_control": 0.9352374413174231,
+    "r2_heat": 0.7575663671574533,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G02480",
+    "phase_difference_rad": 0.8719539973759227,
+    "r2_control": 0.33182350614985845,
+    "r2_heat": 0.3810209170453811,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G02490",
+    "phase_difference_rad": 0.028768696856161458,
+    "r2_control": 0.6929182788268607,
+    "r2_heat": 0.43961614092078216,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G02810",
+    "phase_difference_rad": 0.1127514155862217,
+    "r2_control": 0.962908320210472,
+    "r2_heat": 0.9178231782470947,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G02890",
+    "phase_difference_rad": -0.3481375753045959,
+    "r2_control": 0.7096806823500976,
+    "r2_heat": 0.3248957837974067,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G03230",
+    "phase_difference_rad": -0.016680300024225492,
+    "r2_control": 0.851883945972452,
+    "r2_heat": 0.7514595234850794,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G03285",
+    "phase_difference_rad": 0.061001964669642916,
+    "r2_control": 0.8697140576550583,
+    "r2_heat": 0.8225460464831319,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G03340",
+    "phase_difference_rad": -0.7787984743875764,
+    "r2_control": 0.33162038345575384,
+    "r2_heat": 0.7140730458275738,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G04340",
+    "phase_difference_rad": 0.3003973180189805,
+    "r2_control": 0.62708782238094,
+    "r2_heat": 0.7334578741695349,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G04840",
+    "phase_difference_rad": 0.6161291812974206,
+    "r2_control": 0.49496157694430365,
+    "r2_heat": 0.43224200818847414,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G04950",
+    "phase_difference_rad": 0.8020244696441943,
+    "r2_control": 0.8184438892160136,
+    "r2_heat": 0.7082925948411998,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G05250",
+    "phase_difference_rad": 1.0514071601392287,
+    "r2_control": 0.5477529030515826,
+    "r2_heat": 0.5209340875777242,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G05270",
+    "phase_difference_rad": 0.18608442909934575,
+    "r2_control": 0.9710958973423368,
+    "r2_heat": 0.8997171427600916,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G05410",
+    "phase_difference_rad": 0.15082949570339776,
+    "r2_control": 0.8040539701345537,
+    "r2_heat": 0.781440451129582,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G06690",
+    "phase_difference_rad": 0.14203741220901048,
+    "r2_control": 0.8550587444290658,
+    "r2_heat": 0.8643733486684725,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G06790",
+    "phase_difference_rad": -0.07329331824669925,
+    "r2_control": 0.9083026328753511,
+    "r2_heat": 0.41047523210766157,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G06980",
+    "phase_difference_rad": -0.3823330573404521,
+    "r2_control": 0.945663986652457,
+    "r2_heat": 0.9436834028469172,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G07330",
+    "phase_difference_rad": -0.9729815577532652,
+    "r2_control": 0.39653231317206294,
+    "r2_heat": 0.27516523984917496,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G07440",
+    "phase_difference_rad": -0.07822540087395646,
+    "r2_control": 0.9066329599853408,
+    "r2_heat": 0.6902757413468985,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G07460",
+    "phase_difference_rad": 0.04278192461066166,
+    "r2_control": 0.8618314471557652,
+    "r2_heat": 0.5120404972960153,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G07690",
+    "phase_difference_rad": -0.16647649663923286,
+    "r2_control": 0.8791981438698795,
+    "r2_heat": 0.6786567498199779,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G08640",
+    "phase_difference_rad": -0.11290712852835216,
+    "r2_control": 0.8992343235725745,
+    "r2_heat": 0.8800003188842557,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G09155",
+    "phase_difference_rad": 1.4576675822653364,
+    "r2_control": 0.8073087591446162,
+    "r2_heat": 0.5129962687259937,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G09590",
+    "phase_difference_rad": 1.5281951558290245,
+    "r2_control": 0.4022098618180663,
+    "r2_heat": 0.3968312288724528,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G09820",
+    "phase_difference_rad": -0.3050548496569854,
+    "r2_control": 0.8880407756048299,
+    "r2_heat": 0.5651278233782,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G10470",
+    "phase_difference_rad": 0.3379380535365111,
+    "r2_control": 0.8487156676389027,
+    "r2_heat": 0.5682453687373016,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G10695",
+    "phase_difference_rad": 0.2280158685122915,
+    "r2_control": 0.3563800406916905,
+    "r2_heat": 0.38987325366390124,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G10700",
+    "phase_difference_rad": 0.3684019297138441,
+    "r2_control": 0.6203823074580649,
+    "r2_heat": 0.5016827321441539,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G11100",
+    "phase_difference_rad": -1.5925429996009988,
+    "r2_control": 0.21253452989034805,
+    "r2_heat": 0.6032782930702137,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G11150",
+    "phase_difference_rad": 0.038072722622010335,
+    "r2_control": 0.8744544440646207,
+    "r2_heat": 0.674100521533,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G11680",
+    "phase_difference_rad": 2.8019208509321594,
+    "r2_control": 0.47452352353313365,
+    "r2_heat": 0.4088018500426279,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G11790",
+    "phase_difference_rad": -0.20167728269147767,
+    "r2_control": 0.8315499924176561,
+    "r2_heat": 0.4098547984069485,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G12050",
+    "phase_difference_rad": -0.055570709792997164,
+    "r2_control": 0.8748198045185245,
+    "r2_heat": 0.7459189970477015,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G12110",
+    "phase_difference_rad": 0.08888094157121135,
+    "r2_control": 0.35777834202554915,
+    "r2_heat": 0.354661964499847,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G13930",
+    "phase_difference_rad": -0.003273050088486773,
+    "r2_control": 0.8973650639683255,
+    "r2_heat": 0.9435193110317874,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G14760",
+    "phase_difference_rad": 0.14465406173776169,
+    "r2_control": 0.9703887414311265,
+    "r2_heat": 0.9624078659830014,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G15350",
+    "phase_difference_rad": -0.5847154619071956,
+    "r2_control": 0.8509797893520559,
+    "r2_heat": 0.7218916033768288,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G15450",
+    "phase_difference_rad": 0.6799751394174884,
+    "r2_control": 0.90673037276641,
+    "r2_heat": 0.6396037827473182,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G15860",
+    "phase_difference_rad": -0.0759811267510489,
+    "r2_control": 0.8072125366703309,
+    "r2_heat": 0.8805360192308449,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G17050",
+    "phase_difference_rad": 0.23713454232656747,
+    "r2_control": 0.9533365411562839,
+    "r2_heat": 0.9071621803306681,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G17220",
+    "phase_difference_rad": -0.10004065287154185,
+    "r2_control": 0.8908207289608127,
+    "r2_heat": 0.5715314946061552,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G17523",
+    "phase_difference_rad": -0.23632381116561274,
+    "r2_control": 0.8511401817795576,
+    "r2_heat": 0.7452617625398968,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G19600",
+    "phase_difference_rad": -0.05311766863951717,
+    "r2_control": 0.6093539984065343,
+    "r2_heat": 0.47660377933504994,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G19875",
+    "phase_difference_rad": -0.3930215096212776,
+    "r2_control": 0.5593294572123108,
+    "r2_heat": 0.4586938588728533,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G20630",
+    "phase_difference_rad": 0.044231233142200566,
+    "r2_control": 0.9264091909076441,
+    "r2_heat": 0.8472648764109092,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G20935",
+    "phase_difference_rad": -0.19470539072068907,
+    "r2_control": 0.823144079209521,
+    "r2_heat": 0.5451900384674362,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G20940",
+    "phase_difference_rad": -0.14431420563973418,
+    "r2_control": 0.6555159214302613,
+    "r2_heat": 0.4062687319751671,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G21100",
+    "phase_difference_rad": 0.6883889566919341,
+    "r2_control": 0.9311345046089418,
+    "r2_heat": 0.5770707035952904,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G22020",
+    "phase_difference_rad": -0.17122992674861953,
+    "r2_control": 0.6791326346504107,
+    "r2_heat": 0.3094814740784413,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G22060",
+    "phase_difference_rad": 1.7889853051926479,
+    "r2_control": 0.8579877775579432,
+    "r2_heat": 0.324357159265662,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G22270",
+    "phase_difference_rad": -0.04602927334718166,
+    "r2_control": 0.7019196368087035,
+    "r2_heat": 0.7282694758942598,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G22630",
+    "phase_difference_rad": 1.0133307655670807,
+    "r2_control": 0.2592053506297137,
+    "r2_heat": 0.4587930494514725,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G22740",
+    "phase_difference_rad": -1.3405780975126895,
+    "r2_control": 0.44602190292138577,
+    "r2_heat": 0.43441469177422065,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G23235",
+    "phase_difference_rad": 0.09166986187085602,
+    "r2_control": 0.9683277299852694,
+    "r2_heat": 0.9482058348851345,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G23240",
+    "phase_difference_rad": 0.08848111672162995,
+    "r2_control": 0.9657000406794026,
+    "r2_heat": 0.9497155647908145,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G23730",
+    "phase_difference_rad": 0.48233084779683144,
+    "r2_control": 0.9209262684358065,
+    "r2_heat": 0.8227671542969996,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G25190",
+    "phase_difference_rad": 1.0024928332702499,
+    "r2_control": 0.8240571255853405,
+    "r2_heat": 0.811478949235761,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G25210",
+    "phase_difference_rad": -0.08845040139416004,
+    "r2_control": 0.9078339288922144,
+    "r2_heat": 0.3874014203588758,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G25460",
+    "phase_difference_rad": 0.4131664732953515,
+    "r2_control": 0.8871796956048079,
+    "r2_heat": 0.8630700119204373,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G25890",
+    "phase_difference_rad": 0.03313126611763684,
+    "r2_control": 0.8326437702662957,
+    "r2_heat": 0.6027843781918742,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G26340",
+    "phase_difference_rad": -0.09873831266727605,
+    "r2_control": 0.8846495569651334,
+    "r2_heat": 0.6605474448734117,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G26670",
+    "phase_difference_rad": -0.6339238049223552,
+    "r2_control": 0.4079190025097459,
+    "r2_heat": 0.20766286667723932,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G28300",
+    "phase_difference_rad": 0.6625317896343814,
+    "r2_control": 0.6601074537487208,
+    "r2_heat": 0.35141983811640687,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G28450",
+    "phase_difference_rad": -0.12231580857016011,
+    "r2_control": 0.5043536826390762,
+    "r2_heat": 0.3644063292361899,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G35660",
+    "phase_difference_rad": 0.15810423181236288,
+    "r2_control": 0.7470628507762518,
+    "r2_heat": 0.7115870909925373,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G35970",
+    "phase_difference_rad": 0.10098945585016156,
+    "r2_control": 0.9036933301470569,
+    "r2_heat": 0.9097281807215919,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G36700",
+    "phase_difference_rad": -0.16627250378959602,
+    "r2_control": 0.8445455742598671,
+    "r2_heat": 0.7775547481596559,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G36790",
+    "phase_difference_rad": -0.1297901970690691,
+    "r2_control": 0.8447592358525075,
+    "r2_heat": 0.7924841703736059,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G36910",
+    "phase_difference_rad": 0.2725759895813429,
+    "r2_control": 0.9283006401847872,
+    "r2_heat": 0.8846562551117712,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G38010",
+    "phase_difference_rad": -1.3262241834993238,
+    "r2_control": 0.547913223683874,
+    "r2_heat": 0.23462973047848923,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G38020",
+    "phase_difference_rad": -0.2938505661822533,
+    "r2_control": 0.8043430586880349,
+    "r2_heat": 0.838279219803374,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G38990",
+    "phase_difference_rad": -1.152540596636619,
+    "r2_control": 0.26356050227712446,
+    "r2_heat": 0.44299863521511107,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G40420",
+    "phase_difference_rad": 0.1529097733573721,
+    "r2_control": 0.8043175430533923,
+    "r2_heat": 0.7163231274048363,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G41050",
+    "phase_difference_rad": 1.0911726857554358,
+    "r2_control": 0.5955333907669287,
+    "r2_heat": 0.4665800638501283,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G41140",
+    "phase_difference_rad": -0.06186312481933132,
+    "r2_control": 0.8159476727152959,
+    "r2_heat": 0.29421341792642564,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G41670",
+    "phase_difference_rad": 2.69027626304638,
+    "r2_control": 0.536331098459284,
+    "r2_heat": 0.48504406368080477,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G42020",
+    "phase_difference_rad": 1.700439632398427,
+    "r2_control": 0.262638284977346,
+    "r2_heat": 0.38751639666225535,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G42800",
+    "phase_difference_rad": 0.05088688355226223,
+    "r2_control": 0.9403616004824713,
+    "r2_heat": 0.8441565885920006,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G42860",
+    "phase_difference_rad": 2.2187629427692532,
+    "r2_control": 0.35692291698786294,
+    "r2_heat": 0.2644067268796657,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G42900",
+    "phase_difference_rad": 0.12065160277043184,
+    "r2_control": 0.9507523799005592,
+    "r2_heat": 0.9059342913073677,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G43300",
+    "phase_difference_rad": 2.7353716543148656,
+    "r2_control": 0.4532770805672416,
+    "r2_heat": 0.34154803934942213,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G44120",
+    "phase_difference_rad": 0.18741347083982474,
+    "r2_control": 0.7350634632861092,
+    "r2_heat": 0.699316596422842,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G44280",
+    "phase_difference_rad": 0.7641435010752824,
+    "r2_control": 0.2914905050483644,
+    "r2_heat": 0.28063602957463407,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G44410",
+    "phase_difference_rad": 0.026697936749017437,
+    "r2_control": 0.6634462196771826,
+    "r2_heat": 0.47072874615384896,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G44420",
+    "phase_difference_rad": -0.5952720728350958,
+    "r2_control": 0.3160709599711773,
+    "r2_heat": 0.27426505750699115,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G45510",
+    "phase_difference_rad": -0.13885476113590678,
+    "r2_control": 0.6626106502880749,
+    "r2_heat": 0.20450050254568308,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G45820",
+    "phase_difference_rad": -0.21053237568165617,
+    "r2_control": 0.9525402535102634,
+    "r2_heat": 0.910176642225208,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G46330",
+    "phase_difference_rad": 0.3270237289909961,
+    "r2_control": 0.781338973337604,
+    "r2_heat": 0.5647362493796271,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G47240",
+    "phase_difference_rad": -0.0040503474573792,
+    "r2_control": 0.9534034140888982,
+    "r2_heat": 0.8997630497184217,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G47560",
+    "phase_difference_rad": 0.6550494717076496,
+    "r2_control": 0.8347675733174099,
+    "r2_heat": 0.6137409929008779,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G47610",
+    "phase_difference_rad": 0.5326144718780627,
+    "r2_control": 0.6749968669989925,
+    "r2_heat": 0.6298516251393205,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G48490",
+    "phase_difference_rad": 0.209969963236167,
+    "r2_control": 0.9069485463814683,
+    "r2_heat": 0.7558052330057627,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G48850",
+    "phase_difference_rad": 0.3571328095938556,
+    "r2_control": 0.8450359854627052,
+    "r2_heat": 0.8108461697148133,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G48900",
+    "phase_difference_rad": -0.24315078767169163,
+    "r2_control": 0.8214936704745222,
+    "r2_heat": 0.7103386755500873,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G49740",
+    "phase_difference_rad": 0.2190747328866972,
+    "r2_control": 0.7302308026444797,
+    "r2_heat": 0.746051290767278,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G49760",
+    "phase_difference_rad": 0.7759556888789394,
+    "r2_control": 0.8980065677276088,
+    "r2_heat": 0.6981585580108631,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G50530",
+    "phase_difference_rad": -0.1415725111603674,
+    "r2_control": 0.8243027831423841,
+    "r2_heat": 0.7473925990141606,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G50565",
+    "phase_difference_rad": -0.18077731354599846,
+    "r2_control": 0.8456856559404531,
+    "r2_heat": 0.790065561310037,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G50570",
+    "phase_difference_rad": -0.16838031420672017,
+    "r2_control": 0.8366137196306451,
+    "r2_heat": 0.7039516722850052,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G50580",
+    "phase_difference_rad": -0.10678214556093257,
+    "r2_control": 0.8722310369892878,
+    "r2_heat": 0.7589193835087136,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G50630",
+    "phase_difference_rad": -0.1434352618428918,
+    "r2_control": 0.8669503873917993,
+    "r2_heat": 0.6982799343821112,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G50640",
+    "phase_difference_rad": -0.20198241326217425,
+    "r2_control": 0.8501503051615817,
+    "r2_heat": 0.7750786676218459,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G50665",
+    "phase_difference_rad": -0.1299218497154273,
+    "r2_control": 0.8443269387938278,
+    "r2_heat": 0.7327695089237988,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G50680",
+    "phase_difference_rad": -0.11695653456655997,
+    "r2_control": 0.8353292334414619,
+    "r2_heat": 0.7502412546422041,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G50740",
+    "phase_difference_rad": 0.2245660638821958,
+    "r2_control": 0.6298357327255915,
+    "r2_heat": 0.33865373849968006,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G51740",
+    "phase_difference_rad": -0.6551222878293352,
+    "r2_control": 0.20243455987773462,
+    "r2_heat": 0.4568335992309762,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G52320",
+    "phase_difference_rad": -0.215024162399295,
+    "r2_control": 0.8199260566959448,
+    "r2_heat": 0.34070860748505294,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G52570",
+    "phase_difference_rad": -0.14488350087367094,
+    "r2_control": 0.9631546226404575,
+    "r2_heat": 0.9109294591636689,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G53460",
+    "phase_difference_rad": 0.31296221115490397,
+    "r2_control": 0.4690618778458422,
+    "r2_heat": 0.7532285281999975,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G54060",
+    "phase_difference_rad": -0.31168694920736784,
+    "r2_control": 0.8938828618695446,
+    "r2_heat": 0.5192817215318631,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G54130",
+    "phase_difference_rad": 0.007964352940508401,
+    "r2_control": 0.9474704037023409,
+    "r2_heat": 0.8749479581537425,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G54270",
+    "phase_difference_rad": -0.2284755485415576,
+    "r2_control": 0.9090337126001988,
+    "r2_heat": 0.9147278714559574,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G54940",
+    "phase_difference_rad": 0.3437978151826364,
+    "r2_control": 0.6982100081039184,
+    "r2_heat": 0.6433204908312753,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G56000",
+    "phase_difference_rad": -0.47541890402034476,
+    "r2_control": 0.8307655954184787,
+    "r2_heat": 0.6338693193968572,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G56010",
+    "phase_difference_rad": 2.4831719778076824,
+    "r2_control": 0.6840205614227051,
+    "r2_heat": 0.6103390745871563,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G56030",
+    "phase_difference_rad": 2.215157012276374,
+    "r2_control": 0.3614705991857775,
+    "r2_heat": 0.4245535579836147,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G56795",
+    "phase_difference_rad": -0.12483622967991768,
+    "r2_control": 0.8351990029323306,
+    "r2_heat": 0.7170301825061532,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G56870",
+    "phase_difference_rad": -0.1328449093657307,
+    "r2_control": 0.9132310630879358,
+    "r2_heat": 0.9551706598767026,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G57560",
+    "phase_difference_rad": -0.25246439391498265,
+    "r2_control": 0.5601330868639218,
+    "r2_heat": 0.6870174923462319,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G57630",
+    "phase_difference_rad": 0.20678642173145256,
+    "r2_control": 0.9285056824919655,
+    "r2_heat": 0.7075393955358117,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G57760",
+    "phase_difference_rad": 0.6743524839691988,
+    "r2_control": 0.4241279042060776,
+    "r2_heat": 0.4635382024230178,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G57770",
+    "phase_difference_rad": 0.4167411561188281,
+    "r2_control": 0.39383560322327027,
+    "r2_heat": 0.4410994965845315,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G58070",
+    "phase_difference_rad": 2.0503468998400614,
+    "r2_control": 0.414865309943636,
+    "r2_heat": 0.27338028049397345,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G58110",
+    "phase_difference_rad": -0.09291007834179875,
+    "r2_control": 0.7403550006271091,
+    "r2_heat": 0.6432906699651256,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G58590",
+    "phase_difference_rad": -0.7864873786922576,
+    "r2_control": 0.3902535287035058,
+    "r2_heat": 0.5293074855702542,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G58770",
+    "phase_difference_rad": 0.20515880932460107,
+    "r2_control": 0.9595104020011299,
+    "r2_heat": 0.8670558250314112,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G58787",
+    "phase_difference_rad": -2.4534566023789806,
+    "r2_control": 0.7257620999035912,
+    "r2_heat": 0.5651026286191613,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G59350",
+    "phase_difference_rad": 0.0448744830843113,
+    "r2_control": 0.5311808672847806,
+    "r2_heat": 0.27943721861114057,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G59820",
+    "phase_difference_rad": 2.6512435309339093,
+    "r2_control": 0.49146445897401025,
+    "r2_heat": 0.7228990292069076,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G59870",
+    "phase_difference_rad": 0.6701109367684606,
+    "r2_control": 0.21144612448572686,
+    "r2_heat": 0.40631712318162116,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G60100",
+    "phase_difference_rad": 0.10069165001232339,
+    "r2_control": 0.9440637316469278,
+    "r2_heat": 0.8971008697592575,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G60450",
+    "phase_difference_rad": 0.4297840914951814,
+    "r2_control": 0.5472138458009865,
+    "r2_heat": 0.4282642168985974,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G60890",
+    "phase_difference_rad": 0.7254279788015043,
+    "r2_control": 0.4332421606966883,
+    "r2_heat": 0.4953078056804142,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G60930",
+    "phase_difference_rad": 0.0663912510635088,
+    "r2_control": 0.819179328061504,
+    "r2_heat": 0.39704292325356483,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G61420",
+    "phase_difference_rad": 0.18311855897847515,
+    "r2_control": 0.7806235379738017,
+    "r2_heat": 0.831370902479238,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G61510",
+    "phase_difference_rad": 0.9747595143323498,
+    "r2_control": 0.35890673966878717,
+    "r2_heat": 0.5237929085794092,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G62020",
+    "phase_difference_rad": 0.21826194080959982,
+    "r2_control": 0.42700314632193903,
+    "r2_heat": 0.7451537320919864,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G62360",
+    "phase_difference_rad": 0.24478790887313726,
+    "r2_control": 0.9357672070365014,
+    "r2_heat": 0.9084388080902042,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G62550",
+    "phase_difference_rad": 0.07494346840561117,
+    "r2_control": 0.409784422186943,
+    "r2_heat": 0.3008516390119974,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G62630",
+    "phase_difference_rad": -0.44266701975280937,
+    "r2_control": 0.7016471808946911,
+    "r2_heat": 0.20933200271299413,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G62680",
+    "phase_difference_rad": -0.13696977839989294,
+    "r2_control": 0.429506345953764,
+    "r2_heat": 0.2659209940355365,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G63980",
+    "phase_difference_rad": -0.6724319963938246,
+    "r2_control": 0.8617545768916,
+    "r2_heat": 0.6119788473854458,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G64170",
+    "phase_difference_rad": -1.1465985309355495,
+    "r2_control": 0.946154415745628,
+    "r2_heat": 0.5082937940502936,
+    "candidate": true
+  },
+  {
+    "gene_id": "AT5G64570",
+    "phase_difference_rad": 0.1763204648179213,
+    "r2_control": 0.7093979674214074,
+    "r2_heat": 0.43032282492894547,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G64572",
+    "phase_difference_rad": 0.19366769603707823,
+    "r2_control": 0.6316784872130771,
+    "r2_heat": 0.3643487071601349,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G65207",
+    "phase_difference_rad": 0.07404125039613119,
+    "r2_control": 0.8207800901429756,
+    "r2_heat": 0.7838415828467111,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G65310",
+    "phase_difference_rad": 0.45920995182919455,
+    "r2_control": 0.747370015976915,
+    "r2_heat": 0.6852720657323703,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G65870",
+    "phase_difference_rad": -0.02291265882579374,
+    "r2_control": 0.8457916579938864,
+    "r2_heat": 0.7308647176343177,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G66620",
+    "phase_difference_rad": 0.3334370891574144,
+    "r2_control": 0.6463522934654233,
+    "r2_heat": 0.5191899261564019,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G66690",
+    "phase_difference_rad": -0.5762616386237767,
+    "r2_control": 0.7392272625794346,
+    "r2_heat": 0.5920135527965553,
+    "candidate": false
+  },
+  {
+    "gene_id": "AT5G66740",
+    "phase_difference_rad": 0.19399689423983704,
+    "r2_control": 0.92840030201007,
+    "r2_heat": 0.8786811933333084,
+    "candidate": false
+  },
+  {
+    "gene_id": "ATCG00830",
+    "phase_difference_rad": 0.4432723335409352,
+    "r2_control": 0.6977412632523008,
+    "r2_heat": 0.5579498024519494,
+    "candidate": false
+  },
+  {
+    "gene_id": "ATCG00950",
+    "phase_difference_rad": -0.9844740025403803,
+    "r2_control": 0.20517992988529132,
+    "r2_heat": 0.3212923788889436,
+    "candidate": true
+  },
+  {
+    "gene_id": "MIR5630a",
+    "phase_difference_rad": -0.14619091644670612,
+    "r2_control": 0.8395857185789776,
+    "r2_heat": 0.7656326546475873,
+    "candidate": false
+  },
+  {
+    "gene_id": "MIR5630b",
+    "phase_difference_rad": -0.1645594185489856,
+    "r2_control": 0.8363724583368697,
+    "r2_heat": 0.7626433614783967,
+    "candidate": false
+  }
+]

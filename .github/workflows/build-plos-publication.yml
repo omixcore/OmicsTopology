@@ -39,7 +39,7 @@ jobs:
         run: |
           git config user.name "omixcore"
           git config user.email "fei48548@gmail.com"
-          git add publication/figures publication/supplementary_figures \
+          git add publication/figures publication/supplementary_figures publication/source_data \
             publication/OmicsTopology_PLOS_Comp_Biol_manuscript.md \
             publication/OmicsTopology_PLOS_Comp_Biol_manuscript.docx \
             publication/OmicsTopology_PLOS_Comp_Biol_manuscript.pdf \

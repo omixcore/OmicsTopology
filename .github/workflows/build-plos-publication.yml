@@ -32,7 +32,7 @@ jobs:
           python -m pip install python-docx cairosvg pillow pypdf
       - name: Expand the versioned publication source bundle
         run: |
-          cat $(printf '%s\\n' publication/asset_sources/asset_bundle.tar.gz.b64.part* | sort -V) | base64 --decode | tar -xz -C publication
+          cat $(printf '%s\n' publication/asset_sources/asset_bundle.tar.gz.b64.part* | sort -V) | base64 --decode | tar -xz -C publication
       - name: Rebuild manuscript, supporting information, and vector figures
         run: python publication/build_publication.py
       - name: Commit generated publication assets as omixcore

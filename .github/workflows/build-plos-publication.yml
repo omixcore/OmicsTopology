@@ -1,0 +1,54 @@
+name: Build PLOS Computational Biology publication files
+
+on:
+  push:
+    branches:
+      - submission/plos-computational-biology
+    paths:
+      - 'publication/**'
+      - '.github/workflows/build-plos-publication.yml'
+      - 'README.md'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-publication:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out submission branch
+        uses: actions/checkout@v4
+        with:
+          ref: submission/plos-computational-biology
+          persist-credentials: true
+      - name: Install document and vector-rendering dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libreoffice
+          python -m pip install --upgrade pip
+          python -m pip install python-docx cairosvg pillow pypdf
+      - name: Expand the versioned publication source bundle
+        run: |
+          cat publication/asset_sources/asset_bundle.tar.gz.b64.part* | base64 --decode | tar -xz -C publication
+      - name: Rebuild manuscript, supporting information, and vector figures
+        run: python publication/build_publication.py
+      - name: Commit generated publication assets as omixcore
+        run: |
+          git config user.name "omixcore"
+          git config user.email "fei48548@gmail.com"
+          git add publication/figures publication/supplementary_figures \
+            publication/OmicsTopology_PLOS_Comp_Biol_manuscript.md \
+            publication/OmicsTopology_PLOS_Comp_Biol_manuscript.docx \
+            publication/OmicsTopology_PLOS_Comp_Biol_manuscript.pdf \
+            publication/OmicsTopology_PLOS_Comp_Biol_supporting_information.md \
+            publication/OmicsTopology_PLOS_Comp_Biol_supporting_information.docx \
+            publication/OmicsTopology_PLOS_Comp_Biol_supporting_information.pdf \
+            publication/reference_audit.md publication/submission_metadata.md publication/README.md \
+            publication/build_publication.py publication/Main_figures.pdf publication/Supplementary_figures.pdf
+          if ! git diff --cached --quiet; then
+            git commit -m "Build PLOS Computational Biology manuscript and figure assets"
+            git push origin HEAD:submission/plos-computational-biology
+          else
+            echo "No generated changes to commit."
+          fi

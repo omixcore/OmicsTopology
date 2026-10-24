@@ -126,7 +126,16 @@ jobs:
               raise SystemExit("Expected six editable main-figure SVGs")
           if len(list((root / "supplementary_figures").glob("S*_Fig.svg"))) != 11:
               raise SystemExit("Expected eleven editable supplementary-figure SVGs")
-          print(f"Validated {len(ref_numbers)} sequential references, in-text citations, and all manuscript/figure outputs.")
+          tiffs = sorted((root / "figures").glob("Fig[1-6].tif"))
+          if len(tiffs) != 6:
+              raise SystemExit("Expected six high-resolution main-figure TIFFs for PLOS upload")
+          from PIL import Image
+          for tif in tiffs:
+              with Image.open(tif) as image:
+                  dpi = image.info.get("dpi", (0, 0))
+                  if image.width < 3000 or len(dpi) < 2 or min(dpi) < 299:
+                      raise SystemExit(f"TIFF resolution check failed: {tif.name}, width={image.width}, dpi={dpi}")
+          print(f"Validated {len(ref_numbers)} sequential references, in-text citations, six PLOS-ready TIFFs, and all manuscript/figure outputs.")
           PY
 
       - name: Commit generated publication assets as omixcore

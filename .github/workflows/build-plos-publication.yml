@@ -1,0 +1,170 @@
+name: Build PLOS Computational Biology submission package
+
+concurrency:
+  group: plos-publication-${{ github.ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches:
+      - submission/plos-computational-biology
+    paths:
+      - 'publication/.transfer/READY'
+      - 'publication/OmicsTopology_PLOS_Comp_Biol_manuscript.md'
+      - 'publication/OmicsTopology_PLOS_Comp_Biol_supporting_information.md'
+      - 'publication/figures/*.svg'
+      - 'publication/supplementary_figures/*.svg'
+      - 'publication/build_publication.py'
+      - 'publication/verify_derived_records.py'
+      - 'publication/source_data/*.json'
+      - 'examples/validation_v2.py'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-publication:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out submission branch
+        uses: actions/checkout@v4
+        with:
+          ref: submission/plos-computational-biology
+          persist-credentials: true
+
+      - name: Reassemble versioned publication sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f publication/.transfer/READY
+          if compgen -G "publication/.transfer/source_bundle.tar.xz.b64.part*" > /dev/null; then
+            cat publication/.transfer/source_bundle.tar.xz.b64.part* > /tmp/plos-source-bundle.b64
+            base64 --decode /tmp/plos-source-bundle.b64 > /tmp/plos-source-bundle.tar.xz
+            tar -xJf /tmp/plos-source-bundle.tar.xz -C .
+            rm -f publication/.transfer/source_bundle.tar.xz.b64.part*
+          else
+            echo "No staged archive; rebuilding from the committed publication sources."
+          fi
+          rm -rf publication/asset_sources
+          find publication/supplementary_figures -maxdepth 1 -type f -name 'Figure_S*' -delete
+          test -s publication/OmicsTopology_PLOS_Comp_Biol_manuscript.md
+          test -s publication/OmicsTopology_PLOS_Comp_Biol_supporting_information.md
+          test "$(find publication/figures -maxdepth 1 -name 'Fig*.svg' | wc -l)" -eq 6
+          test "$(find publication/supplementary_figures -maxdepth 1 -name 'S*_Fig.svg' | wc -l)" -eq 11
+
+      - name: Install document and vector-rendering dependencies
+        id: deps
+        continue-on-error: true
+        shell: bash
+        run: |
+          set -euo pipefail
+          if ! command -v soffice >/dev/null 2>&1; then
+            timeout 90s sudo apt-get update -o Acquire::http::Timeout=15 -o Acquire::https::Timeout=15 -o Acquire::Retries=0
+            timeout 120s sudo apt-get install -y libreoffice
+          fi
+          timeout 120s python -m pip install --upgrade pip
+          timeout 180s python -m pip install python-docx cairosvg pillow pypdf
+
+      - name: Build Word/PDF files and render editable figures
+        if: steps.deps.outcome == 'success'
+        run: python publication/build_publication.py
+
+      - name: Fall back to validating committed publication outputs
+        if: steps.deps.outcome != 'success'
+        run: echo "::warning::Dependency installation timed out or failed; the committed publication files will be validated without rebuilding in this run."
+
+      - name: Validate citation sequence, in-text references, and outputs
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          root = Path("publication")
+          manuscript = (root / "OmicsTopology_PLOS_Comp_Biol_manuscript.md").read_text(encoding="utf-8")
+          match = re.search(r"(?ms)^## References\s*\n(.*?)(?=^## Supporting Information Captions|\Z)", manuscript)
+          if not match:
+              raise SystemExit("References section not found")
+          if not re.search(r"(?m)^Short title:", manuscript):
+              raise SystemExit("PLOS short title is missing")
+          ref_text = match.group(1)
+          ref_numbers = [int(x) for x in re.findall(r"(?m)^(\d+)\.\s", ref_text)]
+          if ref_numbers != list(range(1, len(ref_numbers) + 1)):
+              raise SystemExit(f"Reference list is not sequential: {ref_numbers}")
+          body = manuscript[:match.start()]
+          abstract = re.search(r"(?ms)^## Abstract\s*\n(.*?)(?=^## Author Summary)", body)
+          if abstract and re.search(r"\[\s*\d", abstract.group(1)):
+              raise SystemExit("PLOS rule check failed: citations must not appear in the Abstract")
+          if abstract and len(abstract.group(1).split()) > 300:
+              raise SystemExit("Abstract exceeds the PLOS 300-word limit")
+          summary = re.search(r"(?ms)^## Author Summary\s*\n(.*?)(?=^## Introduction)", body)
+          if not summary or not 150 <= len(summary.group(1).split()) <= 200:
+              raise SystemExit("Author Summary must be 150–200 words")
+          cited = set()
+          first_appearance = []
+          pattern = re.compile(r"\[((?:\d+(?:\s*[-–—]\s*\d+)?)(?:\s*[,;]\s*\d+(?:\s*[-–—]\s*\d+)?)*)\]")
+          for citation in pattern.finditer(body):
+              for token in re.split(r"\s*[,;]\s*", citation.group(1)):
+                  token = re.sub(r"\s+", "", token).replace("–", "-").replace("—", "-")
+                  if "-" in token:
+                      a, b = map(int, token.split("-", 1))
+                      values = range(a, b + 1)
+                  else:
+                      values = [int(token)]
+                  for value in values:
+                      cited.add(value)
+                      if value not in first_appearance:
+                          first_appearance.append(value)
+          if cited != set(ref_numbers):
+              raise SystemExit(f"In-text/reference mismatch: uncited={sorted(set(ref_numbers)-cited)}, missing={sorted(cited-set(ref_numbers))}")
+          if first_appearance != list(range(1, len(ref_numbers) + 1)):
+              raise SystemExit(f"First-citation order is not sequential: {first_appearance}")
+          for path in [
+              root / "OmicsTopology_PLOS_Comp_Biol_manuscript.docx",
+              root / "OmicsTopology_PLOS_Comp_Biol_manuscript.pdf",
+              root / "OmicsTopology_PLOS_Comp_Biol_supporting_information.docx",
+              root / "OmicsTopology_PLOS_Comp_Biol_supporting_information.pdf",
+              root / "Main_figures.pdf",
+              root / "Supplementary_figures.pdf",
+          ]:
+              if not path.is_file() or path.stat().st_size < 1000:
+                  raise SystemExit(f"Missing or empty build output: {path}")
+          if len(list((root / "figures").glob("Fig*.svg"))) != 6:
+              raise SystemExit("Expected six editable main-figure SVGs")
+          if len(list((root / "supplementary_figures").glob("S*_Fig.svg"))) != 11:
+              raise SystemExit("Expected eleven editable supplementary-figure SVGs")
+          tiffs = sorted((root / "figures").glob("Fig[1-6].tif"))
+          if len(tiffs) != 6:
+              raise SystemExit("Expected six high-resolution main-figure TIFFs for PLOS upload")
+          from PIL import Image
+          for tif in tiffs:
+              with Image.open(tif) as image:
+                  dpi = image.info.get("dpi", (0, 0))
+                  if image.width < 3000 or len(dpi) < 2 or min(dpi) < 299 or max(dpi) > 601:
+                      raise SystemExit(f"TIFF resolution check failed: {tif.name}, width={image.width}, dpi={dpi}")
+                  if tif.stat().st_size >= 10 * 1024 * 1024:
+                      raise SystemExit(f"TIFF exceeds PLOS 10 MB upload limit: {tif.name}, bytes={tif.stat().st_size}")
+          print(f"Validated {len(ref_numbers)} sequential references, in-text citations, six PLOS-ready TIFFs, and all manuscript/figure outputs.")
+          PY
+
+      - name: Verify committed derived numerical records
+        run: python publication/verify_derived_records.py
+
+      - name: Commit generated publication assets as omixcore
+        shell: bash
+        run: |
+          git config user.name "omixcore"
+          git config user.email "fei48548@gmail.com"
+          git add publication/ README.md .github/workflows/build-plos-publication.yml
+          if ! git diff --cached --quiet; then
+            git commit -m "Add PLOS Computational Biology manuscript and figures"
+            git fetch origin submission/plos-computational-biology
+            if git diff --name-only HEAD..origin/submission/plos-computational-biology | grep -E 'publication/(OmicsTopology_PLOS_Comp_Biol_(manuscript|supporting_information)\.md|build_publication\.py|figures/.*\.svg|supplementary_figures/.*\.svg)' >/dev/null; then
+              echo "A manuscript or figure source changed during this build; refusing to push stale generated outputs."
+              exit 1
+            fi
+            git rebase origin/submission/plos-computational-biology
+            git push origin HEAD:submission/plos-computational-biology
+          else
+            echo "No generated changes to commit."
+          fi

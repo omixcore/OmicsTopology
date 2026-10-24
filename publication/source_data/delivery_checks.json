@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "checks": {
+    "figure_files": {
+      "main": 6,
+      "supplementary": 11,
+      "formats": [
+        "pdf",
+        "svg",
+        "png"
+      ],
+      "main_submission_tiff": 6
+    },
+    "external_ordering": {
+      "matrices": 7,
+      "methods_per_matrix": 7
+    },
+    "gene_set_enrichment": {
+      "tables": 8,
+      "heat_tests": 4,
+      "genotype_tests": 4
+    },
+    "candidate_cutoff_sensitivity": {
+      "thresholds_percent": [
+        10,
+        20,
+        30
+      ],
+      "records": 24,
+      "all_heat_tests_q_below_0_05": true,
+      "all_genotype_tests_q_1": true
+    },
+    "source_hashes": {
+      "downloaded_inputs": 12,
+      "crosschecks_passed": 4
+    },
+    "documents": {
+      "main_figures_embedded": 6,
+      "supplementary_figures_embedded": 11,
+      "tables": 5,
+      "readme_crosswalk_entries": 21,
+      "source_hash_table_rows": 12,
+      "cutoff_sensitivity_rows": 24
+    },
+    "combined_pdfs": {
+      "main_pages": 6,
+      "supplementary_pages": 11
+    }
+  }
+}

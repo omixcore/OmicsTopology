@@ -1,13 +1,11 @@
-name: Build PLOS Computational Biology publication files
+name: Build PLOS Computational Biology submission package
 
 on:
   push:
     branches:
       - submission/plos-computational-biology
     paths:
-      - 'publication/**'
-      - '.github/workflows/build-plos-publication.yml'
-      - 'README.md'
+      - 'publication/.transfer/READY'
   workflow_dispatch:
 
 permissions:
@@ -22,34 +20,66 @@ jobs:
         with:
           ref: submission/plos-computational-biology
           persist-credentials: true
+
+      - name: Reassemble versioned publication sources
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f publication/.transfer/READY
+          cat publication/.transfer/source_bundle.tar.xz.b64.part* > /tmp/plos-source-bundle.b64
+          base64 --decode /tmp/plos-source-bundle.b64 > /tmp/plos-source-bundle.tar.xz
+          tar -xJf /tmp/plos-source-bundle.tar.xz -C .
+          rm -f publication/.transfer/source_bundle.tar.xz.b64.part*
+          test -s publication/OmicsTopology_PLOS_Comp_Biol_manuscript.md
+          test -s publication/OmicsTopology_PLOS_Comp_Biol_supporting_information.md
+          test "$(find publication/figures -maxdepth 1 -name 'Fig*.svg' | wc -l)" -eq 6
+          test "$(find publication/supplementary_figures -maxdepth 1 -name 'S*_Fig.svg' | wc -l)" -eq 11
+
       - name: Install document and vector-rendering dependencies
         run: |
-          if ! command -v soffice >/dev/null 2>&1; then
-            sudo apt-get update
-            sudo apt-get install -y libreoffice
-          fi
+          sudo apt-get update
+          sudo apt-get install -y libreoffice
           python -m pip install --upgrade pip
           python -m pip install python-docx cairosvg pillow pypdf
-      - name: Expand the versioned publication source bundle
-        run: |
-          cat $(printf '%s\n' publication/asset_sources/asset_bundle.tar.gz.b64.part* | sort -V) | base64 --decode | tar -xz -C publication
-      - name: Rebuild manuscript, supporting information, and vector figures
+
+      - name: Build Word/PDF files and render editable figures
         run: python publication/build_publication.py
+
+      - name: Validate citation sequence and figure inventory
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          root = Path("publication")
+          manuscript = (root / "OmicsTopology_PLOS_Comp_Biol_manuscript.md").read_text(encoding="utf-8")
+          refs = re.search(r"## References\s*\n(.*?)(?=\n## Supporting Information Captions|\Z)", manuscript, re.S)
+          if not refs:
+              raise SystemExit("References section not found")
+          numbers = [int(x) for x in re.findall(r"(?m)^\[(\d+)\]", refs.group(1))]
+          if numbers != list(range(1, len(numbers) + 1)):
+              raise SystemExit(f"Reference list is not sequential: {numbers}")
+          for path in [
+              root / "OmicsTopology_PLOS_Comp_Biol_manuscript.docx",
+              root / "OmicsTopology_PLOS_Comp_Biol_manuscript.pdf",
+              root / "OmicsTopology_PLOS_Comp_Biol_supporting_information.docx",
+              root / "OmicsTopology_PLOS_Comp_Biol_supporting_information.pdf",
+              root / "Main_figures.pdf",
+              root / "Supplementary_figures.pdf",
+          ]:
+              if not path.is_file() or path.stat().st_size < 1000:
+                  raise SystemExit(f"Missing or empty build output: {path}")
+          print(f"Validated {len(numbers)} sequential references and all manuscript/figure outputs.")
+          PY
+
       - name: Commit generated publication assets as omixcore
+        shell: bash
         run: |
           git config user.name "omixcore"
           git config user.email "fei48548@gmail.com"
-          git add publication/figures publication/supplementary_figures publication/source_data \
-            publication/OmicsTopology_PLOS_Comp_Biol_manuscript.md \
-            publication/OmicsTopology_PLOS_Comp_Biol_manuscript.docx \
-            publication/OmicsTopology_PLOS_Comp_Biol_manuscript.pdf \
-            publication/OmicsTopology_PLOS_Comp_Biol_supporting_information.md \
-            publication/OmicsTopology_PLOS_Comp_Biol_supporting_information.docx \
-            publication/OmicsTopology_PLOS_Comp_Biol_supporting_information.pdf \
-            publication/reference_audit.md publication/submission_metadata.md publication/README.md \
-            publication/build_publication.py publication/Main_figures.pdf publication/Supplementary_figures.pdf
+          git add publication/ README.md .github/workflows/build-plos-publication.yml
           if ! git diff --cached --quiet; then
-            git commit -m "Build PLOS Computational Biology manuscript and figure assets"
+            git commit -m "Add PLOS Computational Biology manuscript and figures"
             git push origin HEAD:submission/plos-computational-biology
           else
             echo "No generated changes to commit."

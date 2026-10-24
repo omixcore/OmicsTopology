@@ -15,5 +15,8 @@ Official websites identified for the institutional context: Henan Department of 
 - Competing interests: The authors have declared that no competing interests exist.
 - Code repository: https://github.com/omixcore/OmicsTopology (MIT License).
 - Mirror: https://gitee.com/omixcore/OmicsTopology.
-- Archival DOI: not yet assigned; consider a Zenodo archive for the fixed publication snapshot.
+- Archival DOI: not yet assigned; create a Zenodo or equivalent versioned archive for the fixed publication snapshot before final submission if feasible.
+- Corresponding-author ORCID: not supplied in the manuscript metadata; PLOS requires the corresponding author to enter an ORCID iD in the submission system.
+- Cover letter: a draft is available at `cover_letter.md`; confirm originality/exclusive-submission status and author approval before using it.
+- Potential reviewers: at least four suitable reviewers still need to be selected and entered in the submission system.
 - PLOS requires at least four potential reviewers and recommends a cover letter addressing suitability and the study's impact; these are not created in this metadata file.

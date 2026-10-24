@@ -9,6 +9,7 @@ This folder contains the PLOS-formatted manuscript source, review copies, Suppor
 - `OmicsTopology_PLOS_Comp_Biol_manuscript.md` — reproducible manuscript text source.
 - `OmicsTopology_PLOS_Comp_Biol_supporting_information.docx` / `.pdf` / `.md` — four supplementary tables and eleven supplementary figures.
 - `reference_audit.md` — 42-reference citation and DOI audit.
+- `verify_derived_records.py` — standard-library audit that recalculates the committed ordering scores, enrichment statistics, confidence intervals, and multiple-testing corrections from the archived derived records.
 - `submission_metadata.md` — funding disclosure for the online PLOS form and remaining author confirmations.
 - `cover_letter.md` — journal-fit and impact letter draft; confirm author declarations before submission.
 
@@ -18,7 +19,7 @@ This folder contains the PLOS-formatted manuscript source, review copies, Suppor
 
 ## Rebuild
 
-The GitHub Actions workflow uses the committed Markdown and SVG files as the sources of record. It builds the manuscript and Supporting Information DOCX files, exports review PDFs with LibreOffice, renders each SVG to PDF/PNG, creates 600-ppi TIFF uploads for all six main figures, merges the six main figures and eleven supplementary figures into combined PDFs, and validates the sequential reference list, in-text citation coverage, and TIFF resolution. Generated outputs are committed as `omixcore`. The one-time transfer payload and legacy `asset_sources` chunks are removed after the first build. Original public GEO expression matrices are not redistributed; use the accessions in the manuscript to retrieve them.
+The GitHub Actions workflow uses the committed Markdown and SVG files as the sources of record. It builds the manuscript and Supporting Information DOCX files, exports review PDFs with LibreOffice, renders each SVG to PDF/PNG, creates 600-ppi TIFF uploads for all six main figures, merges the six main figures and eleven supplementary figures into combined PDFs, validates the sequential reference list and in-text citation coverage, checks TIFF resolution and size, and runs verify_derived_records.py. The verifier checks the arithmetic and internal consistency of committed derived records; it does not claim to replace a fresh download-and-rerun of every original GEO matrix analysis. Generated outputs are committed as `omixcore`. The one-time transfer payload and legacy `asset_sources` chunks are removed after the first build. Original public GEO expression matrices are not redistributed; use the accessions in the manuscript to retrieve them.
 
 ## Submission status
 

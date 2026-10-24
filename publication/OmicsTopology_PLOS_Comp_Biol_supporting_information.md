@@ -1,6 +1,6 @@
 # Supporting Information for OmicsTopology
 
-## OmicsTopology: Calibrated Topology and Phase Diagnostics for Transcriptomic State Spaces
+## OmicsTopology: calibrated topology and phase diagnostics for transcriptomic state spaces
 
 Xiaofeng Song¹†, Pengyu Chen¹† and Fei Liang²*
 

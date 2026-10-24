@@ -9,6 +9,7 @@ from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 import cairosvg
 from pypdf import PdfWriter
+from PIL import Image
 ROOT=Path(__file__).resolve().parent
 ASSET_DIR=ROOT/'asset_sources'; MAIN_FIG=ROOT/'figures'; SUPP_FIG=ROOT/'supplementary_figures'
 
@@ -127,6 +128,14 @@ def main():
         for svg in sorted(folder.glob('*.svg')):
             cairosvg.svg2png(url=str(svg),write_to=str(svg.with_suffix('.png')))
             cairosvg.svg2pdf(url=str(svg),write_to=str(svg.with_suffix('.pdf')))
+            if folder == MAIN_FIG:
+                # PLOS figure-upload guidance requests TIFF/EPS at 300-600 ppi.
+                # Keep the SVG as the editable source and write a 600-ppi RGB TIFF.
+                temp_png = svg.with_name(svg.stem + '.submission-600dpi.png')
+                cairosvg.svg2png(url=str(svg),write_to=str(temp_png),output_width=3600)
+                with Image.open(temp_png) as image_file:
+                    image_file.convert('RGB').save(svg.with_suffix('.tif'),format='TIFF',dpi=(600,600),compression='tiff_lzw')
+                temp_png.unlink(missing_ok=True)
     m=ROOT/'OmicsTopology_PLOS_Comp_Biol_manuscript.md'; s=ROOT/'OmicsTopology_PLOS_Comp_Biol_supporting_information.md'
     md=ROOT/'OmicsTopology_PLOS_Comp_Biol_manuscript.docx'; sd=ROOT/'OmicsTopology_PLOS_Comp_Biol_supporting_information.docx'
     build_docx(m,md,True); build_docx(s,sd,False); make_pdf(md); make_pdf(sd)

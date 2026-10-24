@@ -6,6 +6,11 @@ on:
       - submission/plos-computational-biology
     paths:
       - 'publication/.transfer/READY'
+      - 'publication/OmicsTopology_PLOS_Comp_Biol_manuscript.md'
+      - 'publication/OmicsTopology_PLOS_Comp_Biol_supporting_information.md'
+      - 'publication/figures/*.svg'
+      - 'publication/supplementary_figures/*.svg'
+      - 'publication/build_publication.py'
   workflow_dispatch:
 
 permissions:
@@ -62,6 +67,8 @@ jobs:
           match = re.search(r"(?ms)^## References\s*\n(.*?)(?=^## Supporting Information Captions|\Z)", manuscript)
           if not match:
               raise SystemExit("References section not found")
+          if not re.search(r"(?m)^Short title:", manuscript):
+              raise SystemExit("PLOS short title is missing")
           ref_text = match.group(1)
           ref_numbers = [int(x) for x in re.findall(r"(?m)^(\d+)\.\s", ref_text)]
           if ref_numbers != list(range(1, len(ref_numbers) + 1)):
@@ -70,6 +77,11 @@ jobs:
           abstract = re.search(r"(?ms)^## Abstract\s*\n(.*?)(?=^## Author Summary)", body)
           if abstract and re.search(r"\[\s*\d", abstract.group(1)):
               raise SystemExit("PLOS rule check failed: citations must not appear in the Abstract")
+          if abstract and len(abstract.group(1).split()) > 300:
+              raise SystemExit("Abstract exceeds the PLOS 300-word limit")
+          summary = re.search(r"(?ms)^## Author Summary\s*\n(.*?)(?=^## Introduction)", body)
+          if not summary or not 150 <= len(summary.group(1).split()) <= 200:
+              raise SystemExit("Author Summary must be 150–200 words")
           cited = set()
           first_appearance = []
           pattern = re.compile(r"\[((?:\d+(?:\s*[-–—]\s*\d+)?)(?:\s*[,;]\s*\d+(?:\s*[-–—]\s*\d+)?)*)\]")

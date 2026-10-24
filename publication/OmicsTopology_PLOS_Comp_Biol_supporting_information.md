@@ -4,9 +4,9 @@
 
 Xiaofeng Song¹†, Pengyu Chen¹† and Fei Liang²*
 
-¹ North Henan Medical University, Xinxiang, China
+¹ North Henan Medical University, Xinxiang, Henan, China
 
-² Key Laboratory of Tropical Fruit Biology of Ministry of Agriculture, South Subtropical Crops Research Institute, Chinese Academy of Tropical Agricultural Sciences, Zhanjiang, China
+² Key Laboratory of Tropical Fruit Biology of Ministry of Agriculture, South Subtropical Crops Research Institute, Chinese Academy of Tropical Agricultural Sciences, Zhanjiang, Guangdong, China
 
 † These authors contributed equally. * Corresponding author: fyliangfei@163.com.
 

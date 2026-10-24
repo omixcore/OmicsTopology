@@ -299,7 +299,7 @@ def test_deep_code_stays_bounded_in_all_three_modes():
             if kind == "synth_ring":
                 assert float(std.min()) > 0.5, (kind, kw, std)
                 assert order.size == len(Z), (kind, kw, std)
-            elif float(std.min()) <= 0.5:
+            elif float(std.max()) <= 0.5:
                 assert order.size == 0, (kind, kw, std)
             else:
                 assert order.size == len(Z), (kind, kw, std)

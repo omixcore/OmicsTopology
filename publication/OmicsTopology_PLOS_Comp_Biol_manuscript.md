@@ -268,7 +268,7 @@ The public expression datasets analyzed here are available from the Gene Express
 
 16. Fasy BT, Lecci F, Rinaldo A, Wasserman L, Balakrishnan S, Singh A. Confidence sets for persistence diagrams. Ann Stat. 2014;42(6):2301-2339. doi: 10.1214/14-aos1252.
 
-17. Chazal F, Fasy BT, Lecci F, Rinaldo A, Singh A, Wasserman L. On the bootstrap for persistence diagrams and landscapes. Modeling and Analysis of Information Systems. 2015;20(6):111-120. doi: 10.18255/1818-1015-2013-6-111-120.
+17. Chazal F, Fasy BT, Lecci F, Rinaldo A, Singh A, Wasserman L. On the bootstrap for persistence diagrams and landscapes. Modeling and Analysis of Information Systems. 2013;20(6):111-120. doi: 10.18255/1818-1015-2013-6-111-120.
 
 18. Bubenik P. Statistical topological data analysis using persistence landscapes. J Mach Learn Res. 2015;16(3):77-102. Available from: https://jmlr.org/papers/v16/bubenik15a.html.
 

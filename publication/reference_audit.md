@@ -73,3 +73,12 @@
 - Confirm grant recipient initials and official funder URLs in the submission form. PLOS asks whether funders had any role in study design, data collection/analysis, publication decision, or manuscript preparation; this has not been assumed.
 - Obtain a fixed archival DOI for the exact code/data snapshot if possible; PLOS strongly recommends a permanent repository identifier.
 - Confirm all authors have reviewed the final contribution statement and corresponding-author email.
+
+
+## PLOS format and citation cross-check
+
+- Full title is in sentence case; short title is “OmicsTopology for transcriptomic state-space analysis” (53 characters, within the 70-character limit).
+- Abstract: 182 words, below the 300-word limit, with no numbered citations. Author Summary: 189 words, within the 150–200-word range.
+- In-text citation coverage: 42/42 references are cited; no missing or uncited references were detected, and first-citation order is sequential from 1 to 42.
+- Main figure citations begin in numeric order (Fig 1–Fig 6); the repository contains six editable main-figure SVGs and eleven editable supplementary-figure SVGs with rendered PDF/PNG files.
+- The bibliography uses Vancouver/citation-sequence formatting, first six authors followed by “et al.” where applicable, NCBI-style journal abbreviations where available, and DOI labels in the PLOS “doi: ...” form. References 18, 35, and 41 have no DOI located; the published journal version is now used for reference 17.

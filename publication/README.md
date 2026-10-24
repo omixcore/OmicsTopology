@@ -15,6 +15,9 @@ This folder contains the PLOS-formatted manuscript source, review copies, Suppor
 
 ## Figures
 
+- [Combined main-figure PDF](Main_figures.pdf)
+- [Combined supplementary-figure PDF](Supplementary_figures.pdf)
+
 `figures/` contains six main figures and `supplementary_figures/` contains eleven supplementary figures. SVG files are editable vector sources; each has PDF and PNG renderings. Each main figure also has a 600-ppi RGB TIFF (`Fig1.tif`–`Fig6.tif`) for PLOS figure upload.
 
 ## Rebuild

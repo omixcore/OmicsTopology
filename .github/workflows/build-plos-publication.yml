@@ -124,12 +124,3 @@ jobs:
           else
             echo "No generated changes to commit."
           fi
-; then
-              echo "A manuscript or figure source changed during this build; refusing to push stale generated outputs."
-              exit 1
-            fi
-            git rebase origin/submission/plos-computational-biology
-            git push origin HEAD:submission/plos-computational-biology
-          else
-            echo "No generated changes to commit."
-          fi

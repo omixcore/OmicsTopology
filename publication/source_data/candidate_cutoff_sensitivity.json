@@ -7,6 +7,7 @@
   ],
   "candidate_definition": "Top ceil(fraction * number of reliably fitted genes) by absolute wrapped phase difference; candidate IDs are then intersected with genes having usable external contrast values.",
   "testing": "One-sided Fisher exact test for enrichment. Benjamini-Hochberg correction is applied across all 12 threshold-by-contrast tests within each outcome family (heat response or genotype-under-heat).",
+  "intervals": "95% log-odds Wald intervals are included for heat-response sensitivity records plotted in S11 Fig; genotype-under-heat sensitivity records retain odds ratios, p values, and adjusted q values but omit intervals because they are not plotted.",
   "interpretation": "The 20% threshold remains the primary analysis. The 10% and 30% thresholds are sensitivity checks, not threshold-selection procedures.",
   "results": [
     {

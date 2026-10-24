@@ -12,7 +12,7 @@ A central result is that visible time-associated geometry does not, by itself, e
 
 We believe the work is suitable for *PLOS Computational Biology* because it combines a computational method with explicit calibration, failure-boundary analysis, comparisons against established geometric baselines, and a biologically motivated application using public data. The intended contribution is a reproducible framework for hypothesis generation and methodological assessment, not an unsupported claim that persistent loops count biological oscillators.
 
-The OmicsTopology source code is publicly available under the MIT License at https://github.com/omixcore/OmicsTopology. The manuscript identifies the public GEO accessions used in the analyses, and the accompanying Supporting Information provides numerical tables, source-file checksums, and sensitivity results. The fixed publication snapshot does not yet have an archival DOI; we will add one when a versioned archive is created.
+The OmicsTopology source code, configuration, derived numerical records, and figure sources for this submission are publicly available under the MIT License at https://github.com/omixcore/OmicsTopology/tree/submission/plos-computational-biology. The manuscript identifies the public GEO accessions used in the analyses, and the accompanying Supporting Information provides numerical tables, source-file checksums, and sensitivity results.
 
 Thank you for considering this manuscript.
 

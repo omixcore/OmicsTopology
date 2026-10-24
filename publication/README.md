@@ -10,6 +10,7 @@ This folder contains the PLOS-formatted manuscript source, review copies, Suppor
 - `OmicsTopology_PLOS_Comp_Biol_supporting_information.docx` / `.pdf` / `.md` — four supplementary tables and eleven supplementary figures.
 - `reference_audit.md` — 42-reference citation and DOI audit.
 - `submission_metadata.md` — funding disclosure for the online PLOS form and remaining author confirmations.
+- `cover_letter.md` — journal-fit and impact letter draft; confirm author declarations before submission.
 
 ## Figures
 

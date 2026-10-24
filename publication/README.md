@@ -18,7 +18,7 @@ This folder contains the PLOS-formatted manuscript source, review copies, Suppor
 
 ## Rebuild
 
-The GitHub Actions workflow expands compressed SVG/Markdown sources under `asset_sources/`, renders SVG/PDF/PNG artwork, builds Word documents from Markdown, and exports PDFs with LibreOffice. Original public GEO expression matrices are not redistributed; use the accessions in the manuscript to retrieve them.
+The GitHub Actions workflow uses the committed Markdown and SVG files as the sources of record. It builds the manuscript and Supporting Information DOCX files, exports review PDFs with LibreOffice, renders each SVG to PDF/PNG, merges the six main figures and eleven supplementary figures into combined PDFs, and validates the sequential reference list and in-text citation coverage. Generated outputs are committed as `omixcore`. The one-time transfer payload and legacy `asset_sources` chunks are removed after the first build. Original public GEO expression matrices are not redistributed; use the accessions in the manuscript to retrieve them.
 
 ## Submission status
 

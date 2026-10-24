@@ -99,6 +99,10 @@ def build_docx(md_path,out_path,manuscript=True):
         elif kind=='paragraph':
             p=doc.add_paragraph(value,style='Normal')
             if manuscript and value.startswith('Xiaofeng Song'): p.alignment=WD_ALIGN_PARAGRAPH.CENTER
+            if manuscript and value.startswith('Short title:'):
+                p.alignment=WD_ALIGN_PARAGRAPH.CENTER
+                for run in p.runs:
+                    run.font.name='Times New Roman'; run.font.size=Pt(10); run.italic=True
             if manuscript and (value.startswith('1 North Henan') or value.startswith('2 Key Laboratory') or value.startswith('† These authors')): p.alignment=WD_ALIGN_PARAGRAPH.CENTER
         elif kind=='image':
             alt,rel=value; svg=(ROOT/rel).resolve(); png=svg.with_suffix('.png')

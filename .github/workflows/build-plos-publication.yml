@@ -26,10 +26,15 @@ jobs:
         run: |
           set -euo pipefail
           test -f publication/.transfer/READY
-          cat publication/.transfer/source_bundle.tar.xz.b64.part* > /tmp/plos-source-bundle.b64
-          base64 --decode /tmp/plos-source-bundle.b64 > /tmp/plos-source-bundle.tar.xz
-          tar -xJf /tmp/plos-source-bundle.tar.xz -C .
-          rm -f publication/.transfer/source_bundle.tar.xz.b64.part*
+          if compgen -G "publication/.transfer/source_bundle.tar.xz.b64.part*" > /dev/null; then
+            cat publication/.transfer/source_bundle.tar.xz.b64.part* > /tmp/plos-source-bundle.b64
+            base64 --decode /tmp/plos-source-bundle.b64 > /tmp/plos-source-bundle.tar.xz
+            tar -xJf /tmp/plos-source-bundle.tar.xz -C .
+            rm -f publication/.transfer/source_bundle.tar.xz.b64.part*
+          else
+            echo "No staged archive; rebuilding from the committed publication sources."
+          fi
+          rm -rf publication/asset_sources
           test -s publication/OmicsTopology_PLOS_Comp_Biol_manuscript.md
           test -s publication/OmicsTopology_PLOS_Comp_Biol_supporting_information.md
           test "$(find publication/figures -maxdepth 1 -name 'Fig*.svg' | wc -l)" -eq 6

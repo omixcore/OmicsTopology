@@ -15,6 +15,9 @@ on:
       - 'publication/figures/*.svg'
       - 'publication/supplementary_figures/*.svg'
       - 'publication/build_publication.py'
+      - 'publication/verify_derived_records.py'
+      - 'publication/source_data/*.json'
+      - 'examples/validation_v2.py'
   workflow_dispatch:
 
 permissions:
@@ -143,6 +146,9 @@ jobs:
                       raise SystemExit(f"TIFF exceeds PLOS 10 MB upload limit: {tif.name}, bytes={tif.stat().st_size}")
           print(f"Validated {len(ref_numbers)} sequential references, in-text citations, six PLOS-ready TIFFs, and all manuscript/figure outputs.")
           PY
+
+      - name: Verify committed derived numerical records
+        run: python publication/verify_derived_records.py
 
       - name: Commit generated publication assets as omixcore
         shell: bash

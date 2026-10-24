@@ -15,6 +15,7 @@ The current manuscript and figure set are prepared as a **PLOS Computational Bio
 - [PLOS online-submission metadata and outstanding confirmations](publication/submission_metadata.md)
 - [PLOS cover letter draft](publication/cover_letter.md)
 - [Derived source data for figures and external comparisons](publication/source_data/)
+- [Independent derived-record verifier](publication/verify_derived_records.py)
 - [Publication package notes and rebuild instructions](publication/README.md)
 
 ### Main figures

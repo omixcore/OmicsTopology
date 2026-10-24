@@ -53,23 +53,23 @@ jobs:
           import re
           root = Path("publication")
           manuscript = (root / "OmicsTopology_PLOS_Comp_Biol_manuscript.md").read_text(encoding="utf-8")
-          match = re.search(r"(?ms)^## References\\s*\\n(.*?)(?=^## Supporting Information Captions|\\Z)", manuscript)
+          match = re.search(r"(?ms)^## References\s*\n(.*?)(?=^## Supporting Information Captions|\Z)", manuscript)
           if not match:
               raise SystemExit("References section not found")
           ref_text = match.group(1)
-          ref_numbers = [int(x) for x in re.findall(r"(?m)^(\\d+)\\.\\s", ref_text)]
+          ref_numbers = [int(x) for x in re.findall(r"(?m)^(\d+)\.\s", ref_text)]
           if ref_numbers != list(range(1, len(ref_numbers) + 1)):
               raise SystemExit(f"Reference list is not sequential: {ref_numbers}")
           body = manuscript[:match.start()]
-          abstract = re.search(r"(?ms)^## Abstract\\s*\\n(.*?)(?=^## Author Summary)", body)
-          if abstract and re.search(r"\\[\\s*\\d", abstract.group(1)):
+          abstract = re.search(r"(?ms)^## Abstract\s*\n(.*?)(?=^## Author Summary)", body)
+          if abstract and re.search(r"\[\s*\d", abstract.group(1)):
               raise SystemExit("PLOS rule check failed: citations must not appear in the Abstract")
           cited = set()
           first_appearance = []
-          pattern = re.compile(r"\\[((?:\\d+(?:\\s*[-–—]\\s*\\d+)?)(?:\\s*[,;]\\s*\\d+(?:\\s*[-–—]\\s*\\d+)?)*)\\]")
+          pattern = re.compile(r"\[((?:\d+(?:\s*[-–—]\s*\d+)?)(?:\s*[,;]\s*\d+(?:\s*[-–—]\s*\d+)?)*)\]")
           for citation in pattern.finditer(body):
-              for token in re.split(r"\\s*[,;]\\s*", citation.group(1)):
-                  token = re.sub(r"\\s+", "", token).replace("–", "-").replace("—", "-")
+              for token in re.split(r"\s*[,;]\s*", citation.group(1)):
+                  token = re.sub(r"\s+", "", token).replace("–", "-").replace("—", "-")
                   if "-" in token:
                       a, b = map(int, token.split("-", 1))
                       values = range(a, b + 1)

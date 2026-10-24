@@ -11,6 +11,7 @@ The current manuscript and figure set are prepared as a **PLOS Computational Bio
 
 - [Manuscript (Word)](publication/OmicsTopology_PLOS_Comp_Biol_manuscript.docx) · [Manuscript (PDF)](publication/OmicsTopology_PLOS_Comp_Biol_manuscript.pdf) · [Markdown source](publication/OmicsTopology_PLOS_Comp_Biol_manuscript.md)
 - [Supporting Information (Word)](publication/OmicsTopology_PLOS_Comp_Biol_supporting_information.docx) · [Supporting Information (PDF)](publication/OmicsTopology_PLOS_Comp_Biol_supporting_information.pdf) · [Markdown source](publication/OmicsTopology_PLOS_Comp_Biol_supporting_information.md)
+- [Combined main figures PDF](publication/Main_figures.pdf) · [Combined supplementary figures PDF](publication/Supplementary_figures.pdf)
 - [Reference and DOI audit (42 references)](publication/reference_audit.md)
 - [PLOS online-submission metadata and outstanding confirmations](publication/submission_metadata.md)
 - [PLOS cover letter draft](publication/cover_letter.md)

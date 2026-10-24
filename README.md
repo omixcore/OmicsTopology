@@ -77,6 +77,18 @@ Shows phase-difference candidate enrichment and its limits for clock-specific in
 
 [Combined supplementary-figure PDF](docs/figures/manuscript_supplementary_figures.pdf)
 
+## Manuscript code and data
+
+**Manuscript:** *Calibrated Topology and Phase Diagnostics for Transcriptomic State Spaces*.
+
+The publication-source revision is pinned to [`8b21f89749be1106ea3633c15bd70b5a4d207f1b`](https://github.com/omixcore/OmicsTopology/tree/8b21f89749be1106ea3633c15bd70b5a4d207f1b); the frozen inference core is [`13b1955c8a01c56e2c10c5578c395cdbb09f84d1`](https://github.com/omixcore/OmicsTopology/tree/13b1955c8a01c56e2c10c5578c395cdbb09f84d1). The analysis code can be installed from the publication-source revision with:
+
+```bash
+pip install 'omictopo[fast] @ git+https://github.com/omixcore/OmicsTopology.git@8b21f89749be1106ea3633c15bd70b5a4d207f1b'
+```
+
+The public expression datasets are available from NCBI GEO: [GSE3431](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE3431), [GSE158444](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE158444), [GSE11923](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE11923), [GSE50438](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE50438), [GSE116004](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE116004), [GSE138193](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE138193), [GSE137732](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE137732), and [GSE128739](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE128739). Raw GEO files are not redistributed. The processed matrices, numerical records, rebuild scripts, and source-file SHA-256 checksums are included in the accompanying submission code/data bundle. A permanent archive DOI for that bundle is pending.
+
 ## Software overview diagrams
 
 ![State-space topology compared](docs/topology_comparison.png)
@@ -89,7 +101,7 @@ establish the number of biological oscillators in an observed dataset.
 ## Install
 
 ```bash
-pip install 'omictopo[fast] @ git+https://github.com/omixcore/OmicsTopology.git@fix/validated-topology-protocol'
+pip install 'omictopo[fast] @ git+https://github.com/omixcore/OmicsTopology.git@8b21f89749be1106ea3633c15bd70b5a4d207f1b'
 ```
 
 Python ≥3.9, NumPy and SciPy are required. The v2 counting protocol pins ripser

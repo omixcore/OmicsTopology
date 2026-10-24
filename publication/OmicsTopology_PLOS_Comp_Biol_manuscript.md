@@ -1,7 +1,5 @@
 # OmicsTopology: Calibrated Topology and Phase Diagnostics for Transcriptomic State Spaces
 
-Short title: OmicsTopology for transcriptomic geometry
-
 Xiaofeng Song1†, Pengyu Chen1† and Fei Liang2*
 
 1 North Henan Medical University, Xinxiang, China
@@ -231,7 +229,7 @@ The authors have declared that no competing interests exist.
 
 ## Data Availability Statement
 
-The public expression datasets analyzed here are available from the Gene Expression Omnibus under accessions GSE3431, GSE158444, GSE11923, GSE50438, GSE116004, GSE138193, GSE137732, and GSE128739. The OmicsTopology source code is publicly available under the MIT License at https://github.com/omixcore/OmicsTopology and is mirrored at https://gitee.com/omixcore/OmicsTopology. The Supporting Information provides numerical summaries of the reported comparisons, including enrichment contingency counts, external ordering scores, source-file checksums, and candidate-cutoff sensitivity results. The repository publication folder also provides the phase-candidate records, external gene-match tables, derived ordering records, and figure coordinates used to generate the current publication figures. Original expression matrices can be retrieved from GEO using the accessions listed above. An archival DOI for the fixed publication snapshot has not yet been assigned.
+The public expression datasets analyzed here are available from the Gene Expression Omnibus under accessions GSE3431, GSE158444, GSE11923, GSE50438, GSE116004, GSE138193, GSE137732, and GSE128739. The OmicsTopology source code is publicly available under the MIT License at https://github.com/omixcore/OmicsTopology and is mirrored at https://gitee.com/omixcore/OmicsTopology. The Supporting Information provides the numerical summaries underlying the reported comparisons, including enrichment contingency counts, external ordering scores, source-file checksums, and candidate-cutoff sensitivity results. Original expression matrices can be retrieved from GEO using the accessions listed above. An archival DOI for the fixed publication snapshot has not yet been assigned.
 
 
 ## References

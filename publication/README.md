@@ -1,6 +1,6 @@
 # OmicsTopology — PLOS Computational Biology submission package
 
-This folder contains the PLOS-formatted manuscript source, Word/PDF review copies, Supporting Information, editable vector figures, derived source records, and a reference/DOI audit.
+This folder contains the PLOS-formatted manuscript source, review copies, Supporting Information, editable vector figures, and a reference/DOI audit.
 
 ## Manuscript and Supporting Information
 
@@ -10,7 +10,6 @@ This folder contains the PLOS-formatted manuscript source, Word/PDF review copie
 - `OmicsTopology_PLOS_Comp_Biol_supporting_information.docx` / `.pdf` / `.md` — four supplementary tables and eleven supplementary figures.
 - `reference_audit.md` — 42-reference citation and DOI audit.
 - `submission_metadata.md` — funding disclosure for the online PLOS form and remaining author confirmations.
-- `source_data/` — figure coordinates, phase-candidate records, external gene-match tables, external ordering records, enrichment counts, source checksums, and validation metadata.
 
 ## Figures
 
@@ -18,7 +17,7 @@ This folder contains the PLOS-formatted manuscript source, Word/PDF review copie
 
 ## Rebuild
 
-The repository workflow expands the compressed publication source bundle, renders SVG/PDF/PNG artwork, builds Word documents from Markdown, and exports PDFs with LibreOffice. Original public GEO expression matrices are not redistributed; use the accessions in the manuscript to retrieve them.
+The GitHub Actions workflow expands compressed SVG/Markdown sources under `asset_sources/`, renders SVG/PDF/PNG artwork, builds Word documents from Markdown, and exports PDFs with LibreOffice. Original public GEO expression matrices are not redistributed; use the accessions in the manuscript to retrieve them.
 
 ## Submission status
 

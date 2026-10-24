@@ -58,8 +58,10 @@
       "numpy": "2.3.5",
       "scipy": "1.17.0",
       "ripser": "0.6.15",
-      "omictopo": "0.1.0"
-    }
+      "omictopo_distribution_metadata": "0.1.0"
+    },
+    "omictopo_source_version": "0.2.0",
+    "omictopo_version_note": "The captured installed-distribution metadata reported 0.1.0, while the source revision used by the analysis declares __version__ 0.2.0. The analysis loaded source code through PYTHONPATH; the source revision and algorithm digest identify the implementation. The metadata discrepancy is retained rather than silently rewritten."
   },
   "source_manifest": {
     "schema_version": 1,

@@ -5,62 +5,77 @@ state spaces. The current protocol detects **H1 features under a specified
 reference model**; it does not count biological oscillators or establish
 independent latent coordinates.
 
-## Manuscript figures and revised paper
+## Manuscript figures
 
-The six PNG previews below are the manuscript's main figures and are rendered inline for reliable display on GitHub. Select **Editable PDF** for the vector artwork or **SVG source** to edit it. The `v2_figure*.svg` files remain protocol/documentation figures and are **not** the manuscript's Figure 1–6 numbering.
+The six main figures and eleven supplementary figures below are the current submission set. Each figure is available as a PNG preview, editable PDF, and SVG source in `docs/figures/`.
 
-[Revised manuscript draft (DOCX)](manuscript/OmicsTopology_AdvancedScience_manuscript_revised.docx)
+### Main figures
 
-The SVG/PDF files are editable vector reconstructions of the manuscript's embedded panels. Check unlabelled bar endpoints and confidence-interval limits against the final analysis tables before submission.
+#### Figure 1. Concept and analysis workflow
 
-### Figure 1. Software logic architecture
+![Figure 1: Concept and analysis workflow](docs/figures/paper_figure1.png)
 
-![Figure 1: Software logic architecture](docs/figures/paper_figure1.png)
-
-Separates calibrated H1 detection, design-axis diagnostics, and numerical provenance.
+Separates calibrated H1 detection, design-axis diagnostics, and phase analysis; schematic panels are identified as conceptual.
 
 [Editable PDF](docs/figures/paper_figure1.pdf) · [SVG source](docs/figures/paper_figure1.svg)
 
-### Figure 2. Calibrated detection and explicit abstention
+#### Figure 2. Calibration and recovery limits
 
-![Figure 2: Calibrated detection and explicit abstention](docs/figures/paper_figure2.png)
+![Figure 2: Calibration and recovery limits](docs/figures/paper_figure2.png)
 
-Shows balanced-loop detection, resampling instability, undercounting, and withheld results.
+Shows the frozen v2 calibration, recovery behavior, and unresolved outcomes.
 
 [Editable PDF](docs/figures/paper_figure2.pdf) · [SVG source](docs/figures/paper_figure2.svg)
 
-### Figure 3. Axis-aware phase diagnostics
+#### Figure 3. Transcriptomic geometry and calibrated detection
 
-![Figure 3: Axis-aware phase diagnostics](docs/figures/paper_figure3.png)
+![Figure 3: Transcriptomic geometry and calibrated detection](docs/figures/paper_figure3.png)
 
-Separates coding-invariant treatment distances from circular phase modulation and gene-specific dispersion.
+Displays public-source geometry and the resulting calibrated H1 decisions.
 
 [Editable PDF](docs/figures/paper_figure3.pdf) · [SVG source](docs/figures/paper_figure3.svg)
 
-### Figure 4. Numerical provenance and reproducibility
+#### Figure 4. External ordering and sample coverage
 
-![Figure 4: Numerical provenance and reproducibility](docs/figures/paper_figure4.png)
+![Figure 4: External ordering and sample coverage](docs/figures/paper_figure4.png)
 
-Connects public inputs and frozen settings to scored records and regeneration.
+Compares seven ordering methods and reports unique-sample coverage and common-support scores.
 
 [Editable PDF](docs/figures/paper_figure4.pdf) · [SVG source](docs/figures/paper_figure4.svg)
 
-### Figure 5. External source evaluation and matched ordering comparison
+#### Figure 5. Axis effects and circular phase
 
-![Figure 5: External source evaluation and matched ordering comparison](docs/figures/paper_figure5.png)
+![Figure 5: Axis effects and circular phase](docs/figures/paper_figure5.png)
 
-Shows cyclic-succession scores, H1 walk coverage, and time-associated geometry across seven matrices.
+Reports treatment-axis effects and circular phase diagnostics.
 
 [Editable PDF](docs/figures/paper_figure5.pdf) · [SVG source](docs/figures/paper_figure5.svg)
 
-### Figure 6. Cross-experiment evidence for a heat-program association
+#### Figure 6. Cross-experiment heat-response enrichment
 
-![Figure 6: Cross-experiment evidence for a heat-program association](docs/figures/paper_figure6.png)
+![Figure 6: Cross-experiment heat-response enrichment](docs/figures/paper_figure6.png)
 
-Phase-difference candidates are enriched for external heat responses, while clock-genotype specificity remains unsupported.
+Shows phase-difference candidate enrichment and its limits for clock-specific interpretation.
 
 [Editable PDF](docs/figures/paper_figure6.pdf) · [SVG source](docs/figures/paper_figure6.svg)
 
+[Combined main-figure PDF](docs/figures/manuscript_main_figures.pdf)
+
+### Supplementary figures
+
+- Figure S1: [PNG](docs/figures/supplementary/paper_figureS1.png) · [PDF](docs/figures/supplementary/paper_figureS1.pdf) · [SVG](docs/figures/supplementary/paper_figureS1.svg)
+- Figure S2: [PNG](docs/figures/supplementary/paper_figureS2.png) · [PDF](docs/figures/supplementary/paper_figureS2.pdf) · [SVG](docs/figures/supplementary/paper_figureS2.svg)
+- Figure S3: [PNG](docs/figures/supplementary/paper_figureS3.png) · [PDF](docs/figures/supplementary/paper_figureS3.pdf) · [SVG](docs/figures/supplementary/paper_figureS3.svg)
+- Figure S4: [PNG](docs/figures/supplementary/paper_figureS4.png) · [PDF](docs/figures/supplementary/paper_figureS4.pdf) · [SVG](docs/figures/supplementary/paper_figureS4.svg)
+- Figure S5: [PNG](docs/figures/supplementary/paper_figureS5.png) · [PDF](docs/figures/supplementary/paper_figureS5.pdf) · [SVG](docs/figures/supplementary/paper_figureS5.svg)
+- Figure S6: [PNG](docs/figures/supplementary/paper_figureS6.png) · [PDF](docs/figures/supplementary/paper_figureS6.pdf) · [SVG](docs/figures/supplementary/paper_figureS6.svg)
+- Figure S7: [PNG](docs/figures/supplementary/paper_figureS7.png) · [PDF](docs/figures/supplementary/paper_figureS7.pdf) · [SVG](docs/figures/supplementary/paper_figureS7.svg)
+- Figure S8: [PNG](docs/figures/supplementary/paper_figureS8.png) · [PDF](docs/figures/supplementary/paper_figureS8.pdf) · [SVG](docs/figures/supplementary/paper_figureS8.svg)
+- Figure S9: [PNG](docs/figures/supplementary/paper_figureS9.png) · [PDF](docs/figures/supplementary/paper_figureS9.pdf) · [SVG](docs/figures/supplementary/paper_figureS9.svg)
+- Figure S10: [PNG](docs/figures/supplementary/paper_figureS10.png) · [PDF](docs/figures/supplementary/paper_figureS10.pdf) · [SVG](docs/figures/supplementary/paper_figureS10.svg)
+- Figure S11: [PNG](docs/figures/supplementary/paper_figureS11.png) · [PDF](docs/figures/supplementary/paper_figureS11.pdf) · [SVG](docs/figures/supplementary/paper_figureS11.svg)
+
+[Combined supplementary-figure PDF](docs/figures/manuscript_supplementary_figures.pdf)
 
 ## Software overview diagrams
 

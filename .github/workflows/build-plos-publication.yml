@@ -35,6 +35,7 @@ jobs:
             echo "No staged archive; rebuilding from the committed publication sources."
           fi
           rm -rf publication/asset_sources
+          find publication/supplementary_figures -maxdepth 1 -type f -name 'Figure_S*' -delete
           test -s publication/OmicsTopology_PLOS_Comp_Biol_manuscript.md
           test -s publication/OmicsTopology_PLOS_Comp_Biol_supporting_information.md
           test "$(find publication/figures -maxdepth 1 -name 'Fig*.svg' | wc -l)" -eq 6

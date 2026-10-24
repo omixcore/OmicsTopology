@@ -14,11 +14,11 @@ This folder contains the PLOS-formatted manuscript source, review copies, Suppor
 
 ## Figures
 
-`figures/` contains six main figures and `supplementary_figures/` contains eleven supplementary figures. SVG files are editable vector sources; each has PDF and PNG renderings.
+`figures/` contains six main figures and `supplementary_figures/` contains eleven supplementary figures. SVG files are editable vector sources; each has PDF and PNG renderings. Each main figure also has a 600-ppi RGB TIFF (`Fig1.tif`–`Fig6.tif`) for PLOS figure upload.
 
 ## Rebuild
 
-The GitHub Actions workflow uses the committed Markdown and SVG files as the sources of record. It builds the manuscript and Supporting Information DOCX files, exports review PDFs with LibreOffice, renders each SVG to PDF/PNG, merges the six main figures and eleven supplementary figures into combined PDFs, and validates the sequential reference list and in-text citation coverage. Generated outputs are committed as `omixcore`. The one-time transfer payload and legacy `asset_sources` chunks are removed after the first build. Original public GEO expression matrices are not redistributed; use the accessions in the manuscript to retrieve them.
+The GitHub Actions workflow uses the committed Markdown and SVG files as the sources of record. It builds the manuscript and Supporting Information DOCX files, exports review PDFs with LibreOffice, renders each SVG to PDF/PNG, creates 600-ppi TIFF uploads for all six main figures, merges the six main figures and eleven supplementary figures into combined PDFs, and validates the sequential reference list, in-text citation coverage, and TIFF resolution. Generated outputs are committed as `omixcore`. The one-time transfer payload and legacy `asset_sources` chunks are removed after the first build. Original public GEO expression matrices are not redistributed; use the accessions in the manuscript to retrieve them.
 
 ## Submission status
 

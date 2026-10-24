@@ -280,12 +280,12 @@ def test_deep_autoencoder_is_deterministic_in_all_three_modes():
 
 
 def test_deep_code_stays_bounded_in_all_three_modes():
-    """Finite, gauge-pinned, never inflated -- but collapse is allowed.
+    """Finite and bounded; preserve rings and abstain on collapsed noise codes.
 
-    A collapsed latent dimension on a non-cyclic cloud is the deep network's
-    way of refusing to answer (the benchmark counts it as producing no
-    order), so per-dimension collapse is legitimate; what may never happen
-    is a code that explodes, drops to all-constant, or exceeds unit scale.
+    A fully collapsed code is a valid refusal on a non-cyclic cloud. The angle
+    decoder must then return no order instead of turning tied coordinates into
+    an arbitrary sample ranking. Positive ring controls must retain a usable
+    two-dimensional embedding.
     """
     for kind in ("synth_ring", "synth_noise"):
         Z, _, _ = _cloud(kind=kind, n=24, p=300)
@@ -295,7 +295,14 @@ def test_deep_code_stays_bounded_in_all_three_modes():
             assert float(np.abs(code).max()) < 50.0, (kind, kw)
             std = code.std(axis=0)
             assert np.all(std <= 1.0 + 1e-9), (kind, kw, std)
-            assert float(std.max()) > 0.5, (kind, kw, std)
+            order = lb._angle_order(code)
+            if kind == "synth_ring":
+                assert float(std.min()) > 0.5, (kind, kw, std)
+                assert order.size == len(Z), (kind, kw, std)
+            elif float(std.min()) <= 0.5:
+                assert order.size == 0, (kind, kw, std)
+            else:
+                assert order.size == len(Z), (kind, kw, std)
             assert info["ae_layers"] == [64, 32, 16]
 
 

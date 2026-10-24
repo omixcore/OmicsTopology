@@ -5,9 +5,9 @@
 - Audited 42 numbered references against Crossref metadata and publisher, PubMed/NCBI, arXiv, or Journal of Machine Learning Research records as appropriate.
 - All 42 references are cited in the body; no uncited bibliography entries or missing reference numbers were found.
 - First appearance order is sequential from [1] through [42], consistent with PLOS citation-sequence ordering.
-- 39 references carry DOI identifiers; DOI/title matches were confirmed for the DOI-bearing records. Reference 17 now cites the published journal version rather than the arXiv preprint; its Crossref DOI metadata confirms title, authors, year, volume, issue, and pages.
+- 39 references carry DOI identifiers; DOI/title matches were confirmed for the DOI-bearing records. Reference 17 now cites the published journal version rather than the arXiv preprint. The publisher page dates the issue to 2013-12-20; Crossref reports 2015, so the publisher issue date is used while the discrepancy is recorded.
 - References 18, 35, and 41 have no DOI located; their authoritative publisher/journal pages are retained as online access points where appropriate.
-- Reference 17 was updated to the published journal version (DOI 10.18255/1818-1015-2013-6-111-120) instead of the arXiv preprint. Reference 26 required an author-list cross-check because Crossref returned incomplete author metadata; the three-author list is supported by NCBI records.
+- Reference 17 was updated to the published journal version (DOI 10.18255/1818-1015-2013-6-111-120) instead of the arXiv preprint. Its publisher page gives 2013-12-20, whereas Crossref reports 2015; the citation uses the publisher issue date. Reference 26 required an author-list cross-check because Crossref returned incomplete author metadata; the three-author list is supported by NCBI records.
 - Reference 33 was corrected to the PLOS rule of listing the first six authors followed by “et al.” Journal titles have been changed to standard abbreviations, titles normalized to sentence case, and DOI strings changed to the PLOS “doi: …” form.
 
 ## Reference-by-reference audit
@@ -30,7 +30,7 @@
 | 14 | 10.1093/nar/gkw030 | DOI resolves; title, journal, year, volume/issue and page/article number matched Crossref metadata. |
 | 15 | 10.1073/pnas.1619320114 | DOI resolves; title, journal, year, volume/issue and page/article number matched Crossref metadata. |
 | 16 | 10.1214/14-aos1252 | DOI resolves; title, journal, year, volume/issue and page/article number matched Crossref metadata. |
-| 17 | 10.18255/1818-1015-2013-6-111-120 | Updated from the arXiv preprint to the published journal version; Crossref confirms the title, six authors, 2015 publication year, volume 20, issue 6, and pages 111-120. |
+| 17 | 10.18255/1818-1015-2013-6-111-120 | Updated from the arXiv preprint to the published journal version; the publisher page gives 2013-12-20, volume 20, issue 6, pages 111-120. Crossref reports 2015; the discrepancy is documented and the publisher issue date is used. |
 | 18 | No DOI | JMLR official article page verified; no DOI assigned/located. |
 | 19 | 10.1016/0167-2789(92)90102-s | DOI resolves; title, journal, year, volume/issue and page/article number matched Crossref metadata. |
 | 20 | 10.1007/s41468-021-00071-5 | DOI resolves; title, journal, year, volume/issue and page/article number matched Crossref metadata. |

@@ -1,10 +1,12 @@
-# OmicsTopology: Calibrated Topology and Phase Diagnostics for Transcriptomic State Spaces
+# OmicsTopology: calibrated topology and phase diagnostics for transcriptomic state spaces
+
+Short title: OmicsTopology for transcriptomic state-space analysis
 
 Xiaofeng Song1†, Pengyu Chen1† and Fei Liang2*
 
-1 North Henan Medical University, Xinxiang, China
+1 North Henan Medical University, Xinxiang, Henan, China
 
-2 Key Laboratory of Tropical Fruit Biology of Ministry of Agriculture, South Subtropical Crops Research Institute, Chinese Academy of Tropical Agricultural Sciences, Zhanjiang, China
+2 Key Laboratory of Tropical Fruit Biology of Ministry of Agriculture, South Subtropical Crops Research Institute, Chinese Academy of Tropical Agricultural Sciences, Zhanjiang, Guangdong, China
 
 † These authors contributed equally.  * Corresponding author. Email: fyliangfei@163.com.
 
@@ -266,7 +268,7 @@ The public expression datasets analyzed here are available from the Gene Express
 
 16. Fasy BT, Lecci F, Rinaldo A, Wasserman L, Balakrishnan S, Singh A. Confidence sets for persistence diagrams. Ann Stat. 2014;42(6):2301-2339. doi: 10.1214/14-aos1252.
 
-17. Chazal F, Fasy BT, Lecci F, Rinaldo A, Singh A, Wasserman L. On the bootstrap for persistence diagrams and landscapes. arXiv [Preprint]. 2013. Available from: https://arxiv.org/abs/1311.0376. doi: 10.48550/arXiv.1311.0376.
+17. Chazal F, Fasy BT, Lecci F, Rinaldo A, Singh A, Wasserman L. On the bootstrap for persistence diagrams and landscapes. Modeling and Analysis of Information Systems. 2015;20(6):111-120. doi: 10.18255/1818-1015-2013-6-111-120.
 
 18. Bubenik P. Statistical topological data analysis using persistence landscapes. J Mach Learn Res. 2015;16(3):77-102. Available from: https://jmlr.org/papers/v16/bubenik15a.html.
 

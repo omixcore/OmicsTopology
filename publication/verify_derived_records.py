@@ -108,7 +108,7 @@ def table_counts(rec, keys):
     return tuple(int(rec[k]) for k in keys)
 
 
-def check_enrichment(records, *, label, fields, family_key, expected_per_family):
+def check_enrichment(records, *, label, fields, family_key, expected_per_family, ci_families=None):
     groups = {}
     for rec in records:
         a, b, c, d = table_counts(rec, fields["counts"])
@@ -125,7 +125,11 @@ def check_enrichment(records, *, label, fields, family_key, expected_per_family)
         close(f"{label} Fisher p", rec[fields["p"]], expected_p)
         expected_ci = wald_ci(a, b, c, d)
         stored_ci = rec[fields["ci"]]
-        if expected_ci is None:
+        ci_is_reported = ci_families is None or rec[family_key] in ci_families
+        if not ci_is_reported:
+            if stored_ci is not None:
+                fail(f"{label}: interval present for an outcome not plotted with intervals")
+        elif expected_ci is None:
             if stored_ci is not None:
                 fail(f"{label}: expected undefined Wald interval for zero cell")
         else:
@@ -212,6 +216,7 @@ def main():
         },
         family_key="outcome_family",
         expected_per_family=12,
+        ci_families={"heat"},
     )
 
     candidate_counts = {

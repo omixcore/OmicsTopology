@@ -5,6 +5,7 @@ Any post-validation algorithm change invalidates the code digest in the plan.
 """
 from __future__ import annotations
 import argparse, hashlib, json, sys, platform, importlib.metadata
+import omictopo
 from pathlib import Path
 import numpy as np
 from omictopo.protocol import analyse
@@ -65,7 +66,9 @@ def axis_cloud(kind,seed):
 
 def environment():
     return {'python':sys.version,'platform':platform.platform(),
-            'packages':{n:importlib.metadata.version(n) for n in ['numpy','scipy','ripser','omictopo']}}
+            'packages':{n:importlib.metadata.version(n) for n in ['numpy','scipy','ripser']},
+            'omictopo_source_version':omictopo.__version__,
+            'omictopo_distribution_metadata_version':importlib.metadata.version('omictopo')}
 
 
 def freeze(path,replicates,quick):

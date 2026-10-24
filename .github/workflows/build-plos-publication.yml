@@ -45,7 +45,7 @@ jobs:
       - name: Build Word/PDF files and render editable figures
         run: python publication/build_publication.py
 
-      - name: Validate citation sequence and figure inventory
+      - name: Validate citation sequence, in-text references, and outputs
         shell: bash
         run: |
           python - <<'PY'
@@ -53,12 +53,36 @@ jobs:
           import re
           root = Path("publication")
           manuscript = (root / "OmicsTopology_PLOS_Comp_Biol_manuscript.md").read_text(encoding="utf-8")
-          refs = re.search(r"## References\s*\n(.*?)(?=\n## Supporting Information Captions|\Z)", manuscript, re.S)
-          if not refs:
+          match = re.search(r"(?ms)^## References\\s*\\n(.*?)(?=^## Supporting Information Captions|\\Z)", manuscript)
+          if not match:
               raise SystemExit("References section not found")
-          numbers = [int(x) for x in re.findall(r"(?m)^\[(\d+)\]", refs.group(1))]
-          if numbers != list(range(1, len(numbers) + 1)):
-              raise SystemExit(f"Reference list is not sequential: {numbers}")
+          ref_text = match.group(1)
+          ref_numbers = [int(x) for x in re.findall(r"(?m)^(\\d+)\\.\\s", ref_text)]
+          if ref_numbers != list(range(1, len(ref_numbers) + 1)):
+              raise SystemExit(f"Reference list is not sequential: {ref_numbers}")
+          body = manuscript[:match.start()]
+          abstract = re.search(r"(?ms)^## Abstract\\s*\\n(.*?)(?=^## Author Summary)", body)
+          if abstract and re.search(r"\\[\\s*\\d", abstract.group(1)):
+              raise SystemExit("PLOS rule check failed: citations must not appear in the Abstract")
+          cited = set()
+          first_appearance = []
+          pattern = re.compile(r"\\[((?:\\d+(?:\\s*[-–—]\\s*\\d+)?)(?:\\s*[,;]\\s*\\d+(?:\\s*[-–—]\\s*\\d+)?)*)\\]")
+          for citation in pattern.finditer(body):
+              for token in re.split(r"\\s*[,;]\\s*", citation.group(1)):
+                  token = re.sub(r"\\s+", "", token).replace("–", "-").replace("—", "-")
+                  if "-" in token:
+                      a, b = map(int, token.split("-", 1))
+                      values = range(a, b + 1)
+                  else:
+                      values = [int(token)]
+                  for value in values:
+                      cited.add(value)
+                      if value not in first_appearance:
+                          first_appearance.append(value)
+          if cited != set(ref_numbers):
+              raise SystemExit(f"In-text/reference mismatch: uncited={sorted(set(ref_numbers)-cited)}, missing={sorted(cited-set(ref_numbers))}")
+          if first_appearance != list(range(1, len(ref_numbers) + 1)):
+              raise SystemExit(f"First-citation order is not sequential: {first_appearance}")
           for path in [
               root / "OmicsTopology_PLOS_Comp_Biol_manuscript.docx",
               root / "OmicsTopology_PLOS_Comp_Biol_manuscript.pdf",
@@ -69,7 +93,11 @@ jobs:
           ]:
               if not path.is_file() or path.stat().st_size < 1000:
                   raise SystemExit(f"Missing or empty build output: {path}")
-          print(f"Validated {len(numbers)} sequential references and all manuscript/figure outputs.")
+          if len(list((root / "figures").glob("Fig*.svg"))) != 6:
+              raise SystemExit("Expected six editable main-figure SVGs")
+          if len(list((root / "supplementary_figures").glob("S*_Fig.svg"))) != 11:
+              raise SystemExit("Expected eleven editable supplementary-figure SVGs")
+          print(f"Validated {len(ref_numbers)} sequential references, in-text citations, and all manuscript/figure outputs.")
           PY
 
       - name: Commit generated publication assets as omixcore

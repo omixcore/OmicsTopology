@@ -1,5 +1,9 @@
 name: Build PLOS Computational Biology submission package
 
+concurrency:
+  group: plos-publication-${{ github.ref }}
+  cancel-in-progress: true
+
 on:
   push:
     branches:

@@ -20,3 +20,5 @@ Official websites identified for the institutional context: Henan Department of 
 - Cover letter: a draft is available at `cover_letter.md`; confirm originality/exclusive-submission status and author approval before using it.
 - Potential reviewers: at least four suitable reviewers still need to be selected and entered in the submission system.
 - PLOS requires at least four potential reviewers and recommends a cover letter addressing suitability and the study's impact; these are not created in this metadata file.
+
+- Reproduction scope: the publication workflow independently verifies the committed ordering and enrichment records, but a single end-to-end driver that regenerates every external-ordering and gene-set result directly from the raw GEO matrices is not yet consolidated. The source matrices remain public at the listed GEO accessions, and the derived sample-level/gene-level records are committed. Treat this as a remaining reproducibility improvement before final submission.

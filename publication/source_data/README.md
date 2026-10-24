@@ -9,3 +9,5 @@ Key files:
 - external_ordering_recomputed.json: matched-input ordering scores and sample coverage.
 - heat_enrichment_recomputed.json and candidate_cutoff_sensitivity.json: enrichment counts and threshold-sensitivity results.
 - design.json, environment.json, delivery_checks.json, v2_validation_plan.json, v2_real_validation.json, v2_verification.txt: settings, environment, and verification metadata.
+
+Version provenance: the frozen v2 record preserves the original installed-distribution metadata value (0.1.0) and separately records that the analyzed source revision declares OmicsTopology 0.2.0. The source revision and algorithm digest identify the code used; the metadata mismatch is documented rather than silently overwritten.
